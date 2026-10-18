@@ -111,18 +111,18 @@ const Index = () => {
                     className="max-w-md mx-auto mb-10"
                   >
                     <Card className="border-0 rounded-3xl shadow-medium hover:shadow-hard transition-all duration-300 bg-white/80 backdrop-blur-sm">
-                      <CardContent className="p-6">
+                      <CardContent className="p-8">
                         <div className="grid grid-cols-3 gap-6">
                           <div className="text-center">
-                            <div className="text-4xl font-black text-orange-600 mb-1">{level}</div>
+                            <div className="text-5xl font-script font-black text-orange-600 mb-2">{level}</div>
                             <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Level</p>
                           </div>
                           <div className="text-center border-x border-gray-200">
-                            <div className="text-4xl font-black text-red-600 mb-1">{streak}</div>
+                            <div className="text-5xl font-script font-black text-red-600 mb-2">{streak}</div>
                             <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Streak 🔥</p>
                           </div>
                           <div className="text-center">
-                            <div className="text-4xl font-black text-pink-600 mb-1">{totalScore.toLocaleString()}</div>
+                            <div className="text-5xl font-script font-black text-pink-600 mb-2">{totalScore.toLocaleString()}</div>
                             <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Points</p>
                           </div>
                         </div>
@@ -160,9 +160,9 @@ const Index = () => {
                 >
                   <Card className="border-0 rounded-3xl overflow-hidden shadow-medium hover:shadow-hard transition-all duration-300 bg-gradient-to-br from-orange-50 to-orange-100 h-full">
                     <CardContent className="p-8 text-center">
-                      <div className="text-7xl mb-6 inline-block">🎯</div>
-                      <h3 className="text-2xl font-bold mb-3 text-gray-900">Daily Challenge</h3>
-                      <p className="text-gray-700 leading-relaxed">
+                      <div className="text-8xl mb-6 inline-block">🎯</div>
+                      <h3 className="text-3xl font-script font-bold mb-4 text-gray-900">Daily Challenge</h3>
+                      <p className="text-gray-700 leading-relaxed text-base">
                         10 new questions every day. Earn up to 10,000 points!
                       </p>
                     </CardContent>
@@ -175,9 +175,9 @@ const Index = () => {
                 >
                   <Card className="border-0 rounded-3xl overflow-hidden shadow-medium hover:shadow-hard transition-all duration-300 bg-gradient-to-br from-blue-50 to-blue-100 h-full">
                     <CardContent className="p-8 text-center">
-                      <div className="text-7xl mb-6 inline-block">⚔️</div>
-                      <h3 className="text-2xl font-bold mb-3 text-gray-900">Battle Mode</h3>
-                      <p className="text-gray-700 leading-relaxed">
+                      <div className="text-8xl mb-6 inline-block">⚔️</div>
+                      <h3 className="text-3xl font-script font-bold mb-4 text-gray-900">Battle Mode</h3>
+                      <p className="text-gray-700 leading-relaxed text-base">
                         Compete against other players in real-time!
                       </p>
                     </CardContent>
@@ -191,9 +191,9 @@ const Index = () => {
                 >
                   <Card className="border-0 rounded-3xl overflow-hidden shadow-medium hover:shadow-hard transition-all duration-300 bg-gradient-to-br from-yellow-50 to-amber-100 h-full">
                     <CardContent className="p-8 text-center">
-                      <div className="text-7xl mb-6 inline-block">🔥</div>
-                      <h3 className="text-2xl font-bold mb-3 text-gray-900">Streaks & Levels</h3>
-                      <p className="text-gray-700 leading-relaxed">
+                      <div className="text-8xl mb-6 inline-block">🔥</div>
+                      <h3 className="text-3xl font-script font-bold mb-4 text-gray-900">Streaks & Levels</h3>
+                      <p className="text-gray-700 leading-relaxed text-base">
                         Play every day and unlock achievements!
                       </p>
                     </CardContent>
@@ -217,15 +217,15 @@ const Index = () => {
                 <Button
                   variant="ghost"
                   onClick={() => setCurrentPage('home')}
-                  className="mb-4 rounded-full"
+                  className="mb-6 rounded-full hover:bg-white/60"
                 >
                   <X className="w-5 h-5 mr-2" />
                   Back
                 </Button>
-                <h2 className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                <h2 className="text-5xl md:text-6xl font-script font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                   Choose Game Mode
                 </h2>
-                <p className="text-gray-600 text-lg">
+                <p className="text-gray-600 text-xl">
                   Which challenge do you want today?
                 </p>
               </motion.div>
@@ -294,21 +294,21 @@ const Index = () => {
               >
                 <Card className="border-2 rounded-3xl">
                   <CardContent className="p-6">
-                    <h3 className="font-semibold text-gray-600 text-sm uppercase tracking-wide mb-4">
+                    <h3 className="font-script font-bold text-gray-700 text-2xl mb-6">
                       Your Progress Today
                     </h3>
                     <div className="grid grid-cols-3 gap-4">
-                      <div className="text-center p-3 bg-orange-50 rounded-2xl">
-                        <div className="text-2xl font-bold text-gray-800">0/1</div>
-                        <p className="text-xs text-gray-600">Daily Challenge</p>
+                      <div className="text-center p-4 bg-orange-50 rounded-2xl">
+                        <div className="text-3xl font-script font-bold text-gray-800 mb-1">0/1</div>
+                        <p className="text-xs text-gray-600 font-medium">Daily Challenge</p>
                       </div>
-                      <div className="text-center p-3 bg-blue-50 rounded-2xl">
-                        <div className="text-2xl font-bold text-gray-800">0</div>
-                        <p className="text-xs text-gray-600">Battle Wins</p>
+                      <div className="text-center p-4 bg-blue-50 rounded-2xl">
+                        <div className="text-3xl font-script font-bold text-gray-800 mb-1">0</div>
+                        <p className="text-xs text-gray-600 font-medium">Battle Wins</p>
                       </div>
-                      <div className="text-center p-3 bg-green-50 rounded-2xl">
-                        <div className="text-2xl font-bold text-gray-800">{streak}</div>
-                        <p className="text-xs text-gray-600">Day Streak</p>
+                      <div className="text-center p-4 bg-green-50 rounded-2xl">
+                        <div className="text-3xl font-script font-bold text-gray-800 mb-1">{streak}</div>
+                        <p className="text-xs text-gray-600 font-medium">Day Streak</p>
                       </div>
                     </div>
                   </CardContent>
@@ -409,26 +409,26 @@ const Index = () => {
               <Card className="border-4 border-orange-300 rounded-3xl shadow-2xl bg-gradient-to-br from-orange-50 to-yellow-50">
                 <CardContent className="p-8 text-center">
                   <motion.div
-                    animate={{ 
+                    animate={{
                       rotate: [0, -10, 10, -10, 10, 0],
                       scale: [1, 1.1, 1]
                     }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="text-8xl mb-4"
+                    className="text-9xl mb-6"
                   >
                     🔥
                   </motion.div>
-                  <h2 className="text-3xl font-bold text-gray-800 mb-2">
+                  <h2 className="text-5xl md:text-6xl font-script font-bold text-gray-800 mb-4">
                     {streak} Day Streak!
                   </h2>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-gray-600 text-lg mb-6">
                     You're on fire! Keep playing daily to maintain your streak.
                   </p>
                   
                   {streak >= 7 && (
-                    <div className="mb-4 p-4 bg-yellow-100 border-2 border-yellow-300 rounded-2xl">
-                      <Sparkles className="w-6 h-6 mx-auto mb-2 text-yellow-600" />
-                      <p className="text-sm font-semibold text-yellow-800">
+                    <div className="mb-6 p-5 bg-yellow-100 border-2 border-yellow-300 rounded-2xl">
+                      <Sparkles className="w-8 h-8 mx-auto mb-3 text-yellow-600" />
+                      <p className="text-xl font-script font-bold text-yellow-800">
                         Bonus: +{streak * 10} points
                       </p>
                     </div>
