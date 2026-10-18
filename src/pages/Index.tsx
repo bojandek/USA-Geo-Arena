@@ -88,7 +88,7 @@ const Index = () => {
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.4 }}
-                  className="text-2xl sm:text-3xl lg:text-4xl text-gray-800 mb-12 max-w-3xl mx-auto font-script font-bold leading-relaxed"
+                  className="text-4xl sm:text-5xl lg:text-6xl text-gray-800 mb-12 max-w-3xl mx-auto font-script font-bold leading-relaxed"
                 >
                   Guess sports locations around the world!
                 </motion.p>
