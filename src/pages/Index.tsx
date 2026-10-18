@@ -79,7 +79,7 @@ const Index = () => {
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.3 }}
-                  className="text-6xl sm:text-7xl lg:text-8xl font-black mb-6 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent tracking-tight"
+                  className="text-6xl sm:text-7xl lg:text-8xl font-black mb-8 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent tracking-tight"
                 >
                   GeoArena
                 </motion.h1>
@@ -88,9 +88,18 @@ const Index = () => {
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.4 }}
-                  className="text-lg sm:text-xl text-gray-700 mb-10 max-w-2xl mx-auto font-medium"
+                  className="text-2xl sm:text-3xl lg:text-4xl text-gray-800 mb-12 max-w-3xl mx-auto font-script font-bold leading-relaxed"
                 >
-                  Guess sports locations around the world! Test your knowledge and compete with others.
+                  Guess sports locations around the world!
+                </motion.p>
+                
+                <motion.p
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                  className="text-base sm:text-lg text-gray-600 mb-10 max-w-xl mx-auto font-medium"
+                >
+                  Test your knowledge and compete with others in daily challenges, practice mode, and real-time battles.
                 </motion.p>
 
                 {/* User Stats Card */}
