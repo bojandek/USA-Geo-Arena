@@ -116,7 +116,9 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
       });
     }
 
-    toast.success(`${Math.round(dist)} km away! +${score} points`);
+    toast.success(`${Math.round(dist)} km away! +${score} points`, {
+      position: 'top-center'
+    });
   };
 
   const handleNextQuestion = () => {
@@ -324,62 +326,62 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
       </div>
 
       {/* Question Card */}
-      <div className="p-4">
+      <div className="p-3 sm:p-4 max-h-[38vh] overflow-y-auto">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentQuestionIndex}
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -20, opacity: 0 }}
-            className="max-w-7xl mx-auto"
+            className="max-w-4xl mx-auto"
           >
-            <Card className="border-2 border-primary/20 shadow-lg rounded-2xl">
-              <CardContent className="p-6">
-                <div className="flex items-start justify-between mb-4">
+            <Card className="border-2 border-primary/20 shadow-md rounded-2xl">
+              <CardContent className="p-4 sm:p-5">
+                <div className="flex items-start justify-between gap-3 mb-3">
                   <div className="flex-1">
-                    <p className="text-2xl font-bold text-gray-800 mb-2">
+                    <p className="text-lg sm:text-xl font-bold text-gray-800 leading-snug">
                       {currentQuestion.text}
                     </p>
                     {currentQuestion.hint && (
-                      <p className="text-sm text-gray-500">💡 {currentQuestion.hint}</p>
+                      <p className="text-xs sm:text-sm text-gray-500 mt-1">💡 {currentQuestion.hint}</p>
                     )}
                   </div>
-                  <Badge className="rounded-full bg-gradient-to-r from-primary to-secondary">
+                  <Badge className="rounded-full bg-gradient-to-r from-primary to-secondary text-xs shrink-0">
                     {currentQuestion.category}
                   </Badge>
                 </div>
                 
                 {showResult && (
                   <motion.div
-                    initial={{ scale: 0.9, opacity: 0 }}
+                    initial={{ scale: 0.95, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    className="space-y-3 mb-4"
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1"
                   >
-                    <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-4">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="text-lg font-bold text-green-800">
-                            {Math.round(distance)} km away
-                          </p>
-                          <p className="text-sm text-green-600">+{questionScore} points</p>
-                        </div>
-                        <div className="text-4xl">
-                          {questionScore >= 900 ? '🎯' : questionScore >= 600 ? '👍' : '📍'}
-                        </div>
+                    <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-3 flex items-center justify-between">
+                      <div>
+                        <p className="text-base font-bold text-green-800">
+                          {Math.round(distance)} km away
+                        </p>
+                        <p className="text-xs font-semibold text-green-600">+{questionScore} points</p>
+                      </div>
+                      <div className="text-3xl">
+                        {questionScore >= 900 ? '🎯' : questionScore >= 600 ? '👍' : '📍'}
                       </div>
                     </div>
                     
                     {/* Interesting Facts */}
-                    <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
-                      <p className="font-semibold text-blue-900 mb-2">✨ Did you know?</p>
-                      <ul className="space-y-1">
-                        {currentQuestion.facts.map((fact, idx) => (
-                          <li key={idx} className="text-sm text-blue-800">
-                            {fact}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    {currentQuestion.facts && currentQuestion.facts.length > 0 && (
+                      <div className="bg-blue-50 border border-blue-200 rounded-xl p-3">
+                        <p className="text-xs font-bold text-blue-900 mb-1">✨ Did you know?</p>
+                        <ul className="space-y-1">
+                          {currentQuestion.facts.slice(0, 2).map((fact, idx) => (
+                            <li key={idx} className="text-xs text-blue-800 line-clamp-2">
+                              • {fact}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </motion.div>
                 )}
               </CardContent>
@@ -442,13 +444,13 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
         </Map>
 
         {/* Action Buttons */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-3">
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-3 z-30">
           {!showResult && userGuess && (
             <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
               <Button
                 onClick={handleSubmitGuess}
                 size="lg"
-                className="rounded-full shadow-2xl font-semibold px-8"
+                className="rounded-full shadow-2xl font-bold px-8 py-3 h-12 bg-primary hover:bg-primary/90 text-white cursor-pointer"
               >
                 Submit Answer
               </Button>
@@ -460,7 +462,7 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
               <Button
                 onClick={handleNextQuestion}
                 size="lg"
-                className="rounded-full shadow-2xl font-semibold px-8"
+                className="rounded-full shadow-2xl font-bold px-8 py-3 h-12 bg-primary hover:bg-primary/90 text-white cursor-pointer"
               >
                 {currentQuestionIndex < dailyQuestions.length - 1 ? 'Next Question' : 'Finish'}
               </Button>
