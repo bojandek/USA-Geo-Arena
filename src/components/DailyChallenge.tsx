@@ -186,11 +186,11 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
           animate={{ scale: 1, opacity: 1 }}
           className="text-center max-w-md mx-auto px-4"
         >
-          <div className="text-8xl mb-6">🏆</div>
-          <h2 className="text-3xl font-bold mb-4 text-gray-800">
+          <div className="text-8xl mb-8">🏆</div>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-gray-800 font-[Caveat]">
             You've already played today!
           </h2>
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-600 mb-8 text-lg">
             Come back tomorrow for a new challenge and continue your streak!
           </p>
           <div className="flex gap-3 justify-center">
@@ -219,13 +219,13 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
           className="max-w-2xl w-full"
         >
           <Card className="border-2 border-primary/20 shadow-2xl rounded-3xl overflow-hidden">
-            <CardHeader className="bg-gradient-to-r from-primary to-secondary text-white text-center py-8">
-              <div className="text-6xl mb-4">
+            <CardHeader className="bg-gradient-to-r from-primary to-secondary text-white text-center py-10">
+              <div className="text-7xl mb-6">
                 {totalGameScore >= 9000 ? '🔥' : totalGameScore >= 8000 ? '🏆' : totalGameScore >= 7000 ? '⭐' : '🎯'}
               </div>
-              <CardTitle className="text-3xl font-bold mb-2">Challenge Complete!</CardTitle>
-              <p className="text-xl opacity-90">{totalGameScore} / 10000 points</p>
-              <Progress value={percentage} className="mt-4 h-3 bg-white/20" />
+              <CardTitle className="text-5xl md:text-6xl font-bold mb-4 font-[Caveat]">Challenge Complete!</CardTitle>
+              <p className="text-2xl opacity-90">{totalGameScore} / 10000 points</p>
+              <Progress value={percentage} className="mt-6 h-3 bg-white/20" />
             </CardHeader>
             
             <CardContent className="p-6 space-y-4">
