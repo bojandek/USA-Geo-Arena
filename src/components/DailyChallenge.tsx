@@ -102,6 +102,15 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
       setShowResult(false);
       setDistance(0);
       setQuestionScore(0);
+      
+      // Reset map to initial view
+      if (mapRef.current) {
+        mapRef.current.flyTo({
+          center: [15, 45],
+          zoom: 2,
+          duration: 1000
+        });
+      }
     } else {
       completeDaily(totalGameScore);
       setGameCompleted(true);
