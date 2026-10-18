@@ -42,6 +42,8 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
   const [totalGameScore, setTotalGameScore] = useState<number>(0);
   const [gameCompleted, setGameCompleted] = useState(false);
   const [answers, setAnswers] = useState<Array<{ question: string; score: number; distance: number }>>([]);
+  const [totalDistance, setTotalDistance] = useState<number>(0);
+  const [perfectGuessCount, setPerfectGuessCount] = useState<number>(0);
   const mapRef = useRef<any>(null);
 
   const { dailyCompleted, completeDaily, checkStreak } = useGameStore();
@@ -84,6 +86,8 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
     setDistance(dist);
     setQuestionScore(score);
     setTotalGameScore(prev => prev + score);
+    setTotalDistance(prev => prev + dist);
+    if (dist < 25) setPerfectGuessCount(prev => prev + 1);
     setAnswers(prev => [...prev, {
       question: currentQuestion.text,
       score,
@@ -132,7 +136,7 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
         });
       }
     } else {
-      completeDaily(totalGameScore);
+      completeDaily(totalGameScore, totalDistance, perfectGuessCount);
       setGameCompleted(true);
       toast.success('Daily challenge completed! 🎉');
     }
@@ -165,6 +169,8 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
     setTotalGameScore(0);
     setGameCompleted(false);
     setAnswers([]);
+    setTotalDistance(0);
+    setPerfectGuessCount(0);
   };
 
   const isArchiveMode = selectedDate !== null && selectedDate !== undefined;
@@ -347,18 +353,32 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
                   <motion.div
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-4 mb-4"
+                    className="space-y-3 mb-4"
                   >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-lg font-bold text-green-800">
-                          {Math.round(distance)} km away
-                        </p>
-                        <p className="text-sm text-green-600">+{questionScore} points</p>
+                    <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-4">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-lg font-bold text-green-800">
+                            {Math.round(distance)} km away
+                          </p>
+                          <p className="text-sm text-green-600">+{questionScore} points</p>
+                        </div>
+                        <div className="text-4xl">
+                          {questionScore >= 900 ? '🎯' : questionScore >= 600 ? '👍' : '📍'}
+                        </div>
                       </div>
-                      <div className="text-4xl">
-                        {questionScore >= 900 ? '🎯' : questionScore >= 600 ? '👍' : '📍'}
-                      </div>
+                    </div>
+                    
+                    {/* Interesting Facts */}
+                    <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                      <p className="font-semibold text-blue-900 mb-2">✨ Did you know?</p>
+                      <ul className="space-y-1">
+                        {currentQuestion.facts.map((fact, idx) => (
+                          <li key={idx} className="text-sm text-blue-800">
+                            {fact}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </motion.div>
                 )}

@@ -1,29 +1,41 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Home, Trophy, Users, User, X, Menu, Calendar } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { Home, Trophy, Award, BarChart3, X, Calendar, Sparkles } from 'lucide-react';
 import GameModeCard from '@/components/GameModeCard';
 import DailyChallenge from '@/components/DailyChallenge';
 import PracticeMode from '@/components/PracticeMode';
 import BattleMode from '@/components/BattleMode';
-import Leaderboard from '@/components/Leaderboard';
-import Profile from '@/components/Profile';
 import Archive from '@/components/Archive';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useGameStore } from '@/lib/game-store';
 
-type Page = 'home' | 'modes' | 'daily' | 'practice' | 'battle' | 'leaderboard' | 'profile' | 'archive';
+type Page = 'home' | 'modes' | 'daily' | 'practice' | 'battle' | 'archive';
 
 const Index = () => {
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
-  const { streak, level, totalScore } = useGameStore();
+  const [showStreakReward, setShowStreakReward] = useState(false);
+  const { streak, level, totalScore, gamesPlayed } = useGameStore();
+
+  // Check for streak rewards on mount
+  useEffect(() => {
+    const lastShown = localStorage.getItem('last-streak-shown');
+    const today = new Date().toISOString().split('T')[0];
+    
+    if (streak > 0 && lastShown !== today && gamesPlayed > 0) {
+      setShowStreakReward(true);
+      localStorage.setItem('last-streak-shown', today);
+    }
+  }, [streak, gamesPlayed]);
 
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
         return (
-          <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-pink-50">
+          <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 pb-24">
             {/* Hero Section */}
             <div className="max-w-7xl mx-auto px-4 py-12">
               <motion.div
@@ -72,7 +84,7 @@ const Index = () => {
                           </div>
                           <div className="text-center">
                             <div className="text-3xl font-bold text-orange-500">{streak}</div>
-                            <p className="text-xs text-gray-600">Streak</p>
+                            <p className="text-xs text-gray-600">Streak 🔥</p>
                           </div>
                           <div className="text-center">
                             <div className="text-3xl font-bold text-blue-500">{totalScore.toLocaleString()}</div>
@@ -106,7 +118,7 @@ const Index = () => {
                     <div className="text-6xl mb-4">🎯</div>
                     <h3 className="text-2xl font-bold mb-2 text-gray-800">Daily Challenge</h3>
                     <p className="text-gray-600">
-                      10 new questions every day. Earn up to 10000 points!
+                      10 new questions every day. Earn up to 10,000 points!
                     </p>
                   </CardContent>
                 </Card>
@@ -126,7 +138,7 @@ const Index = () => {
                     <div className="text-6xl mb-4">🔥</div>
                     <h3 className="text-2xl font-bold mb-2 text-gray-800">Streaks & Levels</h3>
                     <p className="text-gray-600">
-                      Play every day and unlock badges!
+                      Play every day and unlock achievements!
                     </p>
                   </CardContent>
                 </Card>
@@ -137,7 +149,7 @@ const Index = () => {
 
       case 'modes':
         return (
-          <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 py-8 px-4">
+          <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 py-8 px-4 pb-24">
             <div className="max-w-4xl mx-auto">
               {/* Header */}
               <motion.div
@@ -258,10 +270,6 @@ const Index = () => {
         return <PracticeMode onBack={() => setCurrentPage('modes')} />;
       case 'battle':
         return <BattleMode onExit={() => setCurrentPage('modes')} />;
-      case 'leaderboard':
-        return <Leaderboard />;
-      case 'profile':
-        return <Profile />;
       case 'archive':
         return <Archive onBack={() => setCurrentPage('modes')} onSelectDate={(date) => {
           setSelectedDate(date);
@@ -273,7 +281,7 @@ const Index = () => {
   };
 
   // Hide nav for game pages
-  const showNav = ['home', 'modes', 'leaderboard', 'profile'].includes(currentPage);
+  const showNav = ['home', 'modes'].includes(currentPage);
 
   return (
     <div className="min-h-screen">
@@ -294,35 +302,94 @@ const Index = () => {
               </Button>
               
               <Button
-                variant={currentPage === 'modes' ? 'default' : 'ghost'}
-                onClick={() => setCurrentPage('modes')}
+                variant="ghost"
+                onClick={() => navigate('/stats')}
                 className="flex-col h-auto py-2 rounded-xl"
               >
-                <Menu className="w-5 h-5 mb-1" />
-                <span className="text-xs">Play</span>
+                <BarChart3 className="w-5 h-5 mb-1" />
+                <span className="text-xs">Stats</span>
               </Button>
               
               <Button
-                variant={currentPage === 'leaderboard' ? 'default' : 'ghost'}
-                onClick={() => setCurrentPage('leaderboard')}
+                variant="ghost"
+                onClick={() => navigate('/leaderboard')}
                 className="flex-col h-auto py-2 rounded-xl"
               >
                 <Trophy className="w-5 h-5 mb-1" />
-                <span className="text-xs">Leaderboard</span>
+                <span className="text-xs">Scores</span>
               </Button>
               
               <Button
-                variant={currentPage === 'profile' ? 'default' : 'ghost'}
-                onClick={() => setCurrentPage('profile')}
+                variant="ghost"
+                onClick={() => navigate('/achievements')}
                 className="flex-col h-auto py-2 rounded-xl"
               >
-                <User className="w-5 h-5 mb-1" />
-                <span className="text-xs">Profile</span>
+                <Award className="w-5 h-5 mb-1" />
+                <span className="text-xs">Badges</span>
               </Button>
             </div>
           </div>
         </div>
       )}
+
+      {/* Streak Reward Modal */}
+      <AnimatePresence>
+        {showStreakReward && streak > 1 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+            onClick={() => setShowStreakReward(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, y: 50 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.8, y: 50 }}
+              onClick={(e) => e.stopPropagation()}
+              className="max-w-md w-full"
+            >
+              <Card className="border-4 border-orange-300 rounded-3xl shadow-2xl bg-gradient-to-br from-orange-50 to-yellow-50">
+                <CardContent className="p-8 text-center">
+                  <motion.div
+                    animate={{ 
+                      rotate: [0, -10, 10, -10, 10, 0],
+                      scale: [1, 1.1, 1]
+                    }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="text-8xl mb-4"
+                  >
+                    🔥
+                  </motion.div>
+                  <h2 className="text-3xl font-bold text-gray-800 mb-2">
+                    {streak} Day Streak!
+                  </h2>
+                  <p className="text-gray-600 mb-4">
+                    You're on fire! Keep playing daily to maintain your streak.
+                  </p>
+                  
+                  {streak >= 7 && (
+                    <div className="mb-4 p-4 bg-yellow-100 border-2 border-yellow-300 rounded-2xl">
+                      <Sparkles className="w-6 h-6 mx-auto mb-2 text-yellow-600" />
+                      <p className="text-sm font-semibold text-yellow-800">
+                        Bonus: +{streak * 10} points
+                      </p>
+                    </div>
+                  )}
+                  
+                  <Button
+                    onClick={() => setShowStreakReward(false)}
+                    size="lg"
+                    className="rounded-full w-full"
+                  >
+                    Continue
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
