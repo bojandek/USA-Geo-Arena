@@ -39,7 +39,7 @@ export default function LandingPage({ onStartGame }: LandingPageProps) {
             GeoArena
           </h1>
           
-          <p className="text-3xl md:text-4xl text-gray-700 font-script mb-4">
+          <p className="text-4xl md:text-5xl lg:text-6xl text-gray-700 font-script mb-4">
             Pogađaj sportske lokacije širom sveta! ⚽🏀🏈
           </p>
           
