@@ -1,17 +1,18 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Home, Trophy, Users, User, X, Menu } from 'lucide-react';
+import { Home, Trophy, Users, User, X, Menu, Calendar } from 'lucide-react';
 import GameModeCard from '@/components/GameModeCard';
 import DailyChallenge from '@/components/DailyChallenge';
 import PracticeMode from '@/components/PracticeMode';
 import BattleMode from '@/components/BattleMode';
 import Leaderboard from '@/components/Leaderboard';
 import Profile from '@/components/Profile';
+import Archive from '@/components/Archive';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useGameStore } from '@/lib/game-store';
 
-type Page = 'home' | 'modes' | 'daily' | 'practice' | 'battle' | 'leaderboard' | 'profile';
+type Page = 'home' | 'modes' | 'daily' | 'practice' | 'battle' | 'leaderboard' | 'profile' | 'archive';
 
 const Index = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -50,7 +51,7 @@ const Index = () => {
                 </h1>
                 
                 <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                  Pogađaj sportske lokacije širom sveta! Testiraj svoje znanje i takmiči se sa drugima.
+                  Guess sports locations around the world! Test your knowledge and compete with others.
                 </p>
 
                 {/* User Stats Card */}
@@ -66,7 +67,7 @@ const Index = () => {
                         <div className="grid grid-cols-3 gap-4">
                           <div className="text-center">
                             <div className="text-3xl font-bold text-primary">{level}</div>
-                            <p className="text-xs text-gray-600">Nivo</p>
+                            <p className="text-xs text-gray-600">Level</p>
                           </div>
                           <div className="text-center">
                             <div className="text-3xl font-bold text-orange-500">{streak}</div>
@@ -74,7 +75,7 @@ const Index = () => {
                           </div>
                           <div className="text-center">
                             <div className="text-3xl font-bold text-blue-500">{totalScore.toLocaleString()}</div>
-                            <p className="text-xs text-gray-600">Poena</p>
+                            <p className="text-xs text-gray-600">Points</p>
                           </div>
                         </div>
                       </CardContent>
@@ -88,7 +89,7 @@ const Index = () => {
                   className="text-xl px-12 py-8 rounded-full shadow-2xl hover:scale-105 transition-transform font-bold"
                 >
                   <Trophy className="w-6 h-6 mr-2" />
-                  Započni igru
+                  Start Playing
                 </Button>
               </motion.div>
 
@@ -102,9 +103,9 @@ const Index = () => {
                 <Card className="border-2 border-orange-200 rounded-3xl overflow-hidden hover:shadow-xl transition-shadow">
                   <CardContent className="p-8 text-center">
                     <div className="text-6xl mb-4">🎯</div>
-                    <h3 className="text-2xl font-bold mb-2 text-gray-800">Dnevni izazov</h3>
+                    <h3 className="text-2xl font-bold mb-2 text-gray-800">Daily Challenge</h3>
                     <p className="text-gray-600">
-                      5 novih pitanja svaki dan. Osvoji do 5000 poena!
+                      10 new questions every day. Earn up to 10000 points!
                     </p>
                   </CardContent>
                 </Card>
@@ -114,7 +115,7 @@ const Index = () => {
                     <div className="text-6xl mb-4">⚔️</div>
                     <h3 className="text-2xl font-bold mb-2 text-gray-800">Battle Mode</h3>
                     <p className="text-gray-600">
-                      Takmiči se protiv drugih igrača u real-time!
+                      Compete against other players in real-time!
                     </p>
                   </CardContent>
                 </Card>
@@ -122,9 +123,9 @@ const Index = () => {
                 <Card className="border-2 border-yellow-200 rounded-3xl overflow-hidden hover:shadow-xl transition-shadow">
                   <CardContent className="p-8 text-center">
                     <div className="text-6xl mb-4">🔥</div>
-                    <h3 className="text-2xl font-bold mb-2 text-gray-800">Streaks & Nivoi</h3>
+                    <h3 className="text-2xl font-bold mb-2 text-gray-800">Streaks & Levels</h3>
                     <p className="text-gray-600">
-                      Igraj svaki dan i otključavaj bedževe!
+                      Play every day and unlock badges!
                     </p>
                   </CardContent>
                 </Card>
@@ -149,13 +150,13 @@ const Index = () => {
                   className="mb-4 rounded-full"
                 >
                   <X className="w-5 h-5 mr-2" />
-                  Nazad
+                  Back
                 </Button>
                 <h2 className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  Izaberi način igre
+                  Choose Game Mode
                 </h2>
                 <p className="text-gray-600 text-lg">
-                  Koji izazov želiš danas?
+                  Which challenge do you want today?
                 </p>
               </motion.div>
 
@@ -167,29 +168,51 @@ const Index = () => {
                 className="space-y-4"
               >
                 <GameModeCard
-                  title="Dnevni izazov"
-                  description="5 pitanja o sportskim lokacijama. Novo pitanje svaki dan u ponoć!"
+                  title="Daily Challenge"
+                  description="10 questions about sports locations. New questions every day at midnight!"
                   icon="daily"
                   difficulty="medium"
-                  badge="Popularno"
+                  badge="Popular"
                   onSelect={() => setCurrentPage('daily')}
                 />
 
                 <GameModeCard
                   title="Battle Mode"
-                  description="Takmiči se protiv drugih igrača u 3 brze runde. Ko je precizniji?"
+                  description="Compete against other players in 3 fast rounds. Who's more accurate?"
                   icon="battle"
                   difficulty="hard"
                   onSelect={() => setCurrentPage('battle')}
                 />
 
                 <GameModeCard
-                  title="Trening mod"
-                  description="Vežbaj bez ograničenja. Savršeno za učenje novih lokacija."
+                  title="Practice Mode"
+                  description="Practice without limits. Perfect for learning new locations."
                   icon="practice"
                   difficulty="easy"
                   onSelect={() => setCurrentPage('practice')}
                 />
+              </motion.div>
+
+              {/* Archive Button */}
+              <motion.div
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.25 }}
+                className="mt-6"
+              >
+                <Button
+                  onClick={() => setCurrentPage('archive')}
+                  variant="outline"
+                  className="w-full h-auto py-4 rounded-2xl border-2 hover:border-primary hover:bg-primary/5 transition-all"
+                >
+                  <div className="flex items-center gap-3">
+                    <Calendar className="w-6 h-6 text-primary" />
+                    <div className="text-left flex-1">
+                      <div className="font-bold text-gray-800">Challenge Archive</div>
+                      <div className="text-sm text-gray-600">Replay past daily challenges</div>
+                    </div>
+                  </div>
+                </Button>
               </motion.div>
 
               {/* Quick Stats */}
@@ -202,20 +225,20 @@ const Index = () => {
                 <Card className="border-2 rounded-3xl">
                   <CardContent className="p-6">
                     <h3 className="font-semibold text-gray-600 text-sm uppercase tracking-wide mb-4">
-                      Tvoj napredak danas
+                      Your Progress Today
                     </h3>
                     <div className="grid grid-cols-3 gap-4">
                       <div className="text-center p-3 bg-orange-50 rounded-2xl">
                         <div className="text-2xl font-bold text-gray-800">0/1</div>
-                        <p className="text-xs text-gray-600">Dnevni izazov</p>
+                        <p className="text-xs text-gray-600">Daily Challenge</p>
                       </div>
                       <div className="text-center p-3 bg-blue-50 rounded-2xl">
                         <div className="text-2xl font-bold text-gray-800">0</div>
-                        <p className="text-xs text-gray-600">Battle pobede</p>
+                        <p className="text-xs text-gray-600">Battle Wins</p>
                       </div>
                       <div className="text-center p-3 bg-green-50 rounded-2xl">
                         <div className="text-2xl font-bold text-gray-800">{streak}</div>
-                        <p className="text-xs text-gray-600">Dana streak</p>
+                        <p className="text-xs text-gray-600">Day Streak</p>
                       </div>
                     </div>
                   </CardContent>
@@ -235,6 +258,11 @@ const Index = () => {
         return <Leaderboard />;
       case 'profile':
         return <Profile />;
+      case 'archive':
+        return <Archive onBack={() => setCurrentPage('modes')} onSelectDate={(date) => {
+          console.log('Playing challenge for date:', date);
+          setCurrentPage('daily');
+        }} />;
       default:
         return null;
     }
@@ -258,7 +286,7 @@ const Index = () => {
                 className="flex-col h-auto py-2 rounded-xl"
               >
                 <Home className="w-5 h-5 mb-1" />
-                <span className="text-xs">Početna</span>
+                <span className="text-xs">Home</span>
               </Button>
               
               <Button
@@ -267,7 +295,7 @@ const Index = () => {
                 className="flex-col h-auto py-2 rounded-xl"
               >
                 <Menu className="w-5 h-5 mb-1" />
-                <span className="text-xs">Igraj</span>
+                <span className="text-xs">Play</span>
               </Button>
               
               <Button
@@ -276,7 +304,7 @@ const Index = () => {
                 className="flex-col h-auto py-2 rounded-xl"
               >
                 <Trophy className="w-5 h-5 mb-1" />
-                <span className="text-xs">Rang lista</span>
+                <span className="text-xs">Leaderboard</span>
               </Button>
               
               <Button
@@ -285,7 +313,7 @@ const Index = () => {
                 className="flex-col h-auto py-2 rounded-xl"
               >
                 <User className="w-5 h-5 mb-1" />
-                <span className="text-xs">Profil</span>
+                <span className="text-xs">Profile</span>
               </Button>
             </div>
           </div>

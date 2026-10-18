@@ -62,7 +62,7 @@ export default function DailyChallenge() {
     }]);
     setShowResult(true);
 
-    toast.success(`${Math.round(dist)} km udaljenosti! +${score} poena`);
+    toast.success(`${Math.round(dist)} km away! +${score} points`);
   };
 
   const handleNextQuestion = () => {
@@ -75,7 +75,7 @@ export default function DailyChallenge() {
     } else {
       completeDaily(totalGameScore);
       setGameCompleted(true);
-      toast.success('Dnevni izazov završen! 🎉');
+      toast.success('Daily challenge completed! 🎉');
     }
   };
 
@@ -93,7 +93,7 @@ export default function DailyChallenge() {
       }
     } else {
       navigator.clipboard.writeText(shareText);
-      toast.success('Rezultat kopiran u clipboard!');
+      toast.success('Results copied to clipboard!');
     }
   };
 
@@ -118,14 +118,14 @@ export default function DailyChallenge() {
         >
           <div className="text-8xl mb-6">🏆</div>
           <h2 className="text-3xl font-bold mb-4 text-gray-800">
-            Već si igrao danas!
+            You've already played today!
           </h2>
           <p className="text-gray-600 mb-6">
-            Vrati se sutra za novi izazov i nastavi svoj streak!
+            Come back tomorrow for a new challenge and continue your streak!
           </p>
           <div className="flex gap-3 justify-center">
             <Button size="lg" className="rounded-full" onClick={resetGame}>
-              Igraj ponovo (demo)
+              Play again (demo)
             </Button>
           </div>
         </motion.div>
@@ -134,7 +134,7 @@ export default function DailyChallenge() {
   }
 
   if (gameCompleted) {
-    const percentage = Math.round((totalGameScore / 5000) * 100);
+    const percentage = Math.round((totalGameScore / 10000) * 100);
     
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 p-4">
@@ -146,10 +146,10 @@ export default function DailyChallenge() {
           <Card className="border-2 border-primary/20 shadow-2xl rounded-3xl overflow-hidden">
             <CardHeader className="bg-gradient-to-r from-primary to-secondary text-white text-center py-8">
               <div className="text-6xl mb-4">
-                {totalGameScore >= 4500 ? '🔥' : totalGameScore >= 4000 ? '🏆' : totalGameScore >= 3500 ? '⭐' : '🎯'}
+                {totalGameScore >= 9000 ? '🔥' : totalGameScore >= 8000 ? '🏆' : totalGameScore >= 7000 ? '⭐' : '🎯'}
               </div>
-              <CardTitle className="text-3xl font-bold mb-2">Izazov završen!</CardTitle>
-              <p className="text-xl opacity-90">{totalGameScore} / 5000 poena</p>
+              <CardTitle className="text-3xl font-bold mb-2">Challenge Complete!</CardTitle>
+              <p className="text-xl opacity-90">{totalGameScore} / 10000 points</p>
               <Progress value={percentage} className="mt-4 h-3 bg-white/20" />
             </CardHeader>
             
@@ -158,53 +158,53 @@ export default function DailyChallenge() {
                 <div className="text-center p-4 bg-orange-50 rounded-2xl">
                   <Target className="w-8 h-8 mx-auto mb-2 text-orange-500" />
                   <div className="text-2xl font-bold text-gray-800">{percentage}%</div>
-                  <div className="text-xs text-gray-600">Tačnost</div>
+                  <div className="text-xs text-gray-600">Accuracy</div>
                 </div>
                 <div className="text-center p-4 bg-blue-50 rounded-2xl">
                   <Award className="w-8 h-8 mx-auto mb-2 text-blue-500" />
                   <div className="text-2xl font-bold text-gray-800">{answers.length}</div>
-                  <div className="text-xs text-gray-600">Pitanja</div>
+                  <div className="text-xs text-gray-600">Questions</div>
                 </div>
                 <div className="text-center p-4 bg-green-50 rounded-2xl">
                   <MapPin className="w-8 h-8 mx-auto mb-2 text-green-500" />
                   <div className="text-2xl font-bold text-gray-800">
                     {Math.round(answers.reduce((sum, a) => sum + a.distance, 0) / answers.length)}
                   </div>
-                  <div className="text-xs text-gray-600">Prosek (km)</div>
+                  <div className="text-xs text-gray-600">Average (km)</div>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <h3 className="font-semibold text-sm text-gray-600 uppercase tracking-wide">Tvoji odgovori</h3>
+                <h3 className="font-semibold text-sm text-gray-600 uppercase tracking-wide">Your Answers</h3>
                 {answers.map((answer, idx) => (
                   <div key={idx} className="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
                     <div className="flex-1">
-                      <p className="text-sm font-medium text-gray-700">Pitanje {idx + 1}</p>
+                      <p className="text-sm font-medium text-gray-700">Question {idx + 1}</p>
                       <p className="text-xs text-gray-500">{Math.round(answer.distance)} km</p>
                     </div>
                     <Badge variant={answer.score >= 900 ? 'default' : 'secondary'} className="rounded-full">
-                      {answer.score} bodova
+                      {answer.score} points
                     </Badge>
                   </div>
                 ))}
               </div>
 
               <div className="flex gap-3 pt-4">
-                <Button 
-                  onClick={handleShare} 
-                  size="lg" 
+                <Button
+                  onClick={handleShare}
+                  size="lg"
                   className="flex-1 rounded-full font-semibold"
                 >
                   <Share2 className="w-5 h-5 mr-2" />
-                  Podeli rezultat
+                  Share Results
                 </Button>
-                <Button 
-                  onClick={resetGame} 
-                  variant="outline" 
+                <Button
+                  onClick={resetGame}
+                  variant="outline"
                   size="lg"
                   className="rounded-full"
                 >
-                  Nova igra
+                  New Game
                 </Button>
               </div>
             </CardContent>
@@ -226,7 +226,7 @@ export default function DailyChallenge() {
               </div>
               <div>
                 <h1 className="text-xl font-bold text-gray-800">GeoArena</h1>
-                <p className="text-xs text-gray-500">Dnevni izazov</p>
+                <p className="text-xs text-gray-500">Daily Challenge</p>
               </div>
             </div>
           </div>
@@ -278,9 +278,9 @@ export default function DailyChallenge() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-lg font-bold text-green-800">
-                          {Math.round(distance)} km udaljenosti
+                          {Math.round(distance)} km away
                         </p>
-                        <p className="text-sm text-green-600">+{questionScore} poena</p>
+                        <p className="text-sm text-green-600">+{questionScore} points</p>
                       </div>
                       <div className="text-4xl">
                         {questionScore >= 900 ? '🎯' : questionScore >= 600 ? '👍' : '📍'}
@@ -340,7 +340,7 @@ export default function DailyChallenge() {
                 size="lg"
                 className="rounded-full shadow-2xl font-semibold px-8"
               >
-                Potvrdi odgovor
+                Submit Answer
               </Button>
             </motion.div>
           )}
@@ -352,7 +352,7 @@ export default function DailyChallenge() {
                 size="lg"
                 className="rounded-full shadow-2xl font-semibold px-8"
               >
-                {currentQuestionIndex < sampleQuestions.length - 1 ? 'Sledeće pitanje' : 'Završi'}
+                {currentQuestionIndex < sampleQuestions.length - 1 ? 'Next Question' : 'Finish'}
               </Button>
             </motion.div>
           )}
@@ -367,7 +367,7 @@ export default function DailyChallenge() {
           >
             <div className="bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg border border-gray-200">
               <p className="text-sm font-medium text-gray-700">
-                👆 Klikni na mapu da označiš lokaciju
+                👆 Click on the map to mark the location
               </p>
             </div>
           </motion.div>

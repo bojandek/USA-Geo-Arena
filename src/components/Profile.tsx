@@ -19,16 +19,16 @@ export default function Profile() {
   const nextLevelScore = level * 5000;
   const progressToNextLevel = ((totalScore % 5000) / 5000) * 100;
 
-  // Demo bedževi
+  // Demo badges
   const allBadges = [
-    { id: 'first-win', name: 'Prvi korак', icon: '🎯', unlocked: badges.includes('first-win') },
-    { id: 'perfect-5', name: 'Savršena petorka', icon: '⭐', unlocked: badges.includes('perfect-5') },
-    { id: 'streak-7', name: '7 dana streak', icon: '🔥', unlocked: badges.includes('streak-7') },
-    { id: 'streak-30', name: '30 dana streak', icon: '💎', unlocked: badges.includes('streak-30') },
-    { id: 'europe-master', name: 'Majstor Evrope', icon: '🌍', unlocked: badges.includes('europe-master') },
-    { id: 'world-master', name: 'Svetski majstor', icon: '🌎', unlocked: badges.includes('world-master') },
-    { id: 'speed-demon', name: 'Brzinski demon', icon: '⚡', unlocked: badges.includes('speed-demon') },
-    { id: 'sharp-shooter', name: 'Oštro oko', icon: '🎪', unlocked: badges.includes('sharp-shooter') },
+    { id: 'first-win', name: 'First Step', icon: '🎯', unlocked: badges.includes('first-win') },
+    { id: 'perfect-5', name: 'Perfect Five', icon: '⭐', unlocked: badges.includes('perfect-5') },
+    { id: 'streak-7', name: '7 Day Streak', icon: '🔥', unlocked: badges.includes('streak-7') },
+    { id: 'streak-30', name: '30 Day Streak', icon: '💎', unlocked: badges.includes('streak-30') },
+    { id: 'europe-master', name: 'Master of Europe', icon: '🌍', unlocked: badges.includes('europe-master') },
+    { id: 'world-master', name: 'World Master', icon: '🌎', unlocked: badges.includes('world-master') },
+    { id: 'speed-demon', name: 'Speed Demon', icon: '⚡', unlocked: badges.includes('speed-demon') },
+    { id: 'sharp-shooter', name: 'Sharp Eye', icon: '🎪', unlocked: badges.includes('sharp-shooter') },
   ];
 
   return (
@@ -49,9 +49,9 @@ export default function Profile() {
               >
                 <Trophy className="w-14 h-14" />
               </motion.div>
-              <h1 className="text-3xl font-bold mb-2">Moj profil</h1>
+              <h1 className="text-3xl font-bold mb-2">My Profile</h1>
               <Badge className="bg-white/20 backdrop-blur-sm text-white border-white/30 text-lg px-4 py-1 rounded-full">
-                Nivo {level}
+                Level {level}
               </Badge>
             </div>
             
@@ -59,7 +59,7 @@ export default function Profile() {
               <div className="mb-6">
                 <div className="flex justify-between mb-2">
                   <span className="text-sm font-medium text-gray-600">
-                    Napredak do nivoa {level + 1}
+                    Progress to level {level + 1}
                   </span>
                   <span className="text-sm font-bold text-gray-800">
                     {totalScore % 5000} / 5000
@@ -72,22 +72,22 @@ export default function Profile() {
                 <div className="text-center p-4 bg-orange-50 rounded-2xl">
                   <Target className="w-8 h-8 mx-auto mb-2 text-orange-500" />
                   <div className="text-2xl font-bold text-gray-800">{totalScore.toLocaleString()}</div>
-                  <p className="text-xs text-gray-600">Ukupno poena</p>
+                  <p className="text-xs text-gray-600">Total Points</p>
                 </div>
                 <div className="text-center p-4 bg-red-50 rounded-2xl">
                   <Flame className="w-8 h-8 mx-auto mb-2 text-red-500" />
                   <div className="text-2xl font-bold text-gray-800">{streak}</div>
-                  <p className="text-xs text-gray-600">Dana streak</p>
+                  <p className="text-xs text-gray-600">Day Streak</p>
                 </div>
                 <div className="text-center p-4 bg-blue-50 rounded-2xl">
                   <TrendingUp className="w-8 h-8 mx-auto mb-2 text-blue-500" />
                   <div className="text-2xl font-bold text-gray-800">{gamesPlayed}</div>
-                  <p className="text-xs text-gray-600">Odigranih igara</p>
+                  <p className="text-xs text-gray-600">Games Played</p>
                 </div>
                 <div className="text-center p-4 bg-purple-50 rounded-2xl">
                   <Award className="w-8 h-8 mx-auto mb-2 text-purple-500" />
                   <div className="text-2xl font-bold text-gray-800">{badges.length}</div>
-                  <p className="text-xs text-gray-600">Bedževa</p>
+                  <p className="text-xs text-gray-600">Badges</p>
                 </div>
               </div>
             </CardContent>
@@ -104,13 +104,13 @@ export default function Profile() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-2xl">
                 <MapPin className="w-6 h-6 text-primary" />
-                Statistika
+                Statistics
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex justify-between items-center p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl">
                 <div>
-                  <p className="text-sm text-gray-600 mb-1">Najbolji skor</p>
+                  <p className="text-sm text-gray-600 mb-1">Best Score</p>
                   <p className="text-2xl font-bold text-gray-800">{bestScore}</p>
                 </div>
                 <Trophy className="w-10 h-10 text-green-600" />
@@ -118,7 +118,7 @@ export default function Profile() {
               
               <div className="flex justify-between items-center p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl">
                 <div>
-                  <p className="text-sm text-gray-600 mb-1">Prosečan skor</p>
+                  <p className="text-sm text-gray-600 mb-1">Average Score</p>
                   <p className="text-2xl font-bold text-gray-800">{averageScore}</p>
                 </div>
                 <Target className="w-10 h-10 text-blue-600" />
@@ -126,8 +126,8 @@ export default function Profile() {
 
               <div className="flex justify-between items-center p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl">
                 <div>
-                  <p className="text-sm text-gray-600 mb-1">Najduži streak</p>
-                  <p className="text-2xl font-bold text-gray-800">{streak} dana</p>
+                  <p className="text-sm text-gray-600 mb-1">Longest Streak</p>
+                  <p className="text-2xl font-bold text-gray-800">{streak} days</p>
                 </div>
                 <Flame className="w-10 h-10 text-orange-600" />
               </div>
@@ -145,7 +145,7 @@ export default function Profile() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-2xl">
                 <Award className="w-6 h-6 text-primary" />
-                Bedževi ({badges.length}/{allBadges.length})
+                Badges ({badges.length}/{allBadges.length})
               </CardTitle>
             </CardHeader>
             <CardContent>

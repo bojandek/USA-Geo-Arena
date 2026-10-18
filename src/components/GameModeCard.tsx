@@ -66,7 +66,7 @@ export default function GameModeCard({
                 )}
                 {disabled && (
                   <Badge variant="secondary" className="rounded-full">
-                    Uskoro
+                    Coming Soon
                   </Badge>
                 )}
               </div>
@@ -77,7 +77,7 @@ export default function GameModeCard({
                 {difficulty && (
                   <Badge variant="outline" className="rounded-full text-xs">
                     <Star className="w-3 h-3 mr-1" />
-                    {difficulty === 'easy' ? 'Lako' : difficulty === 'medium' ? 'Srednje' : 'Teško'}
+                    {difficulty === 'easy' ? 'Easy' : difficulty === 'medium' ? 'Medium' : 'Hard'}
                   </Badge>
                 )}
                 <Badge variant="outline" className="rounded-full text-xs">
@@ -89,7 +89,7 @@ export default function GameModeCard({
 
             {!disabled && (
               <Button size="lg" className="rounded-full self-center">
-                Igraj
+                Play
               </Button>
             )}
           </div>

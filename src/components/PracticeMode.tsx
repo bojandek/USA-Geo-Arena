@@ -4,70 +4,84 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Map, { Marker } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { calculateDistance, calculateScore, generateShareText } from '@/lib/game-data';
+import { calculateDistance, calculateScore } from '@/lib/game-data';
 import { useGameStore } from '@/lib/game-store';
 
 const PRACTICE_QUESTIONS = [
   {
     id: 'p1',
-    question: 'Gde se nalazi Marakana (Stadion Rajko Mitić)?',
+    question: 'Where is Marakana (Rajko Mitić Stadium) located?',
     answer: { lat: 44.7833, lng: 20.4667 },
-    hint: 'Beograd, Srbija',
-    category: 'Fudbal'
+    hint: 'Belgrade, Serbia',
+    category: 'Football'
   },
   {
     id: 'p2',
-    question: 'Lokacija Wimbledon teniskog kompleksa?',
+    question: 'Location of the Wimbledon tennis complex?',
     answer: { lat: 51.4344, lng: -0.2141 },
-    hint: 'London, Velika Britanija',
-    category: 'Tenis'
+    hint: 'London, United Kingdom',
+    category: 'Tennis'
   },
   {
     id: 'p3',
-    question: 'Gde se nalazi Madison Square Garden?',
+    question: 'Where is Madison Square Garden located?',
     answer: { lat: 40.7505, lng: -73.9934 },
-    hint: 'Njujork, SAD',
-    category: 'Košarka'
+    hint: 'New York, USA',
+    category: 'Basketball'
   },
   {
     id: 'p4',
-    question: 'Lokacija Circuit de Monaco?',
+    question: 'Location of Circuit de Monaco?',
     answer: { lat: 43.7347, lng: 7.4206 },
-    hint: 'Monako',
+    hint: 'Monaco',
     category: 'Formula 1'
   },
   {
     id: 'p5',
-    question: 'Gde se nalazi MCG (Melbourne Cricket Ground)?',
+    question: 'Where is MCG (Melbourne Cricket Ground) located?',
     answer: { lat: -37.8200, lng: 144.9834 },
-    hint: 'Melburn, Australija',
-    category: 'Kriket'
+    hint: 'Melbourne, Australia',
+    category: 'Cricket'
   },
   {
     id: 'p6',
-    question: 'Lokacija Camp Nou stadiona?',
+    question: 'Location of Camp Nou stadium?',
     answer: { lat: 41.3809, lng: 2.1228 },
-    hint: 'Barselona, Španija',
-    category: 'Fudbal'
+    hint: 'Barcelona, Spain',
+    category: 'Football'
   },
   {
     id: 'p7',
-    question: 'Gde se nalazi Tokyo Dome?',
+    question: 'Where is Tokyo Dome located?',
     answer: { lat: 35.7056, lng: 139.7519 },
-    hint: 'Tokio, Japan',
-    category: 'Bejzbol'
+    hint: 'Tokyo, Japan',
+    category: 'Baseball'
   },
   {
     id: 'p8',
-    question: 'Lokacija Wembley stadiona?',
+    question: 'Location of Wembley Stadium?',
     answer: { lat: 51.5560, lng: -0.2795 },
-    hint: 'London, Velika Britanija',
-    category: 'Fudbal'
+    hint: 'London, United Kingdom',
+    category: 'Football'
+  },
+  {
+    id: 'p9',
+    question: 'Where is the Allianz Arena located?',
+    answer: { lat: 48.2188, lng: 11.6247 },
+    hint: 'Munich, Germany',
+    category: 'Football'
+  },
+  {
+    id: 'p10',
+    question: 'Location of Fenway Park?',
+    answer: { lat: 42.3467, lng: -71.0972 },
+    hint: 'Boston, USA',
+    category: 'Baseball'
   }
 ];
 
 export default function PracticeMode({ onBack }: { onBack: () => void }) {
-  const { addScore } = useGameStore();
+  const { updateScore } = useGameStore();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userGuess, setUserGuess] = useState<{ lat: number; lng: number } | null>(null);
   const [showResult, setShowResult] = useState(false);
@@ -109,7 +123,7 @@ export default function PracticeMode({ onBack }: { onBack: () => void }) {
       setScore(0);
     } else {
       setGameComplete(true);
-      addScore(totalScore);
+      updateScore(totalScore);
     }
   };
 
@@ -124,12 +138,13 @@ export default function PracticeMode({ onBack }: { onBack: () => void }) {
   };
 
   const handleShare = () => {
-    const text = generateShareText(answers);
+    const percentage = Math.round((totalScore / (PRACTICE_QUESTIONS.length * 1000)) * 100);
+    const text = `GeoArena Practice Mode\nMy score: ${totalScore}/${PRACTICE_QUESTIONS.length * 1000} (${percentage}%)\n\nCan you do better? 🌍⚽`;
     if (navigator.share) {
       navigator.share({ text });
     } else {
       navigator.clipboard.writeText(text);
-      alert('Rezultat kopiran u clipboard!');
+      alert('Results copied to clipboard!');
     }
   };
 
@@ -141,13 +156,13 @@ export default function PracticeMode({ onBack }: { onBack: () => void }) {
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-4">
         <div className="max-w-2xl mx-auto pt-8">
           <Button
-            variant="ghost"
-            className="mb-4 text-white hover:bg-white/10"
-            onClick={onBack}
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Nazad
-          </Button>
+          variant="ghost"
+          className="mb-4 text-white hover:bg-white/10"
+          onClick={onBack}
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back
+        </Button>
 
           <Card className="p-8 bg-slate-800/50 border-slate-700 backdrop-blur-sm">
             <div className="text-center space-y-6">
@@ -156,22 +171,22 @@ export default function PracticeMode({ onBack }: { onBack: () => void }) {
               </div>
 
               <div>
-                <h2 className="text-3xl font-bold text-white mb-2">Trening završen!</h2>
-                <p className="text-slate-300">Odličan posao! 🎯</p>
+                <h2 className="text-3xl font-bold text-white mb-2">Training Complete!</h2>
+                <p className="text-slate-300">Great job! 🎯</p>
               </div>
 
               <div className="grid grid-cols-3 gap-4">
                 <div className="bg-slate-700/50 rounded-lg p-4">
                   <div className="text-3xl font-bold text-primary mb-1">{totalScore}</div>
-                  <div className="text-sm text-slate-400">Ukupno bodova</div>
+                  <div className="text-sm text-slate-400">Total Points</div>
                 </div>
                 <div className="bg-slate-700/50 rounded-lg p-4">
                   <div className="text-3xl font-bold text-amber-400 mb-1">{avgScore}</div>
-                  <div className="text-sm text-slate-400">Prosek</div>
+                  <div className="text-sm text-slate-400">Average</div>
                 </div>
                 <div className="bg-slate-700/50 rounded-lg p-4">
                   <div className="text-3xl font-bold text-green-400 mb-1">{accuracy}</div>
-                  <div className="text-sm text-slate-400">Precizno</div>
+                  <div className="text-sm text-slate-400">Accurate</div>
                 </div>
               </div>
 
@@ -205,13 +220,13 @@ export default function PracticeMode({ onBack }: { onBack: () => void }) {
                   className="flex-1 border-slate-600 text-slate-300 hover:bg-slate-700"
                 >
                   <Share2 className="mr-2 h-4 w-4" />
-                  Podeli
+                  Share
                 </Button>
                 <Button
                   onClick={handleRestart}
                   className="flex-1 bg-gradient-to-r from-primary to-secondary hover:opacity-90"
                 >
-                  Igraj ponovo
+                  Play Again
                 </Button>
               </div>
             </div>
@@ -231,15 +246,15 @@ export default function PracticeMode({ onBack }: { onBack: () => void }) {
             onClick={onBack}
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Nazad
+            Back
           </Button>
           <div className="flex items-center gap-4">
             <div className="text-white text-sm">
-              Pitanje {currentQuestion + 1}/{PRACTICE_QUESTIONS.length}
+              Question {currentQuestion + 1}/{PRACTICE_QUESTIONS.length}
             </div>
             <div className="bg-slate-800/50 px-4 py-2 rounded-full border border-slate-700">
               <span className="text-primary font-bold">{totalScore}</span>
-              <span className="text-slate-400 ml-1">bodova</span>
+              <span className="text-slate-400 ml-1">points</span>
             </div>
           </div>
         </div>
@@ -320,14 +335,14 @@ export default function PracticeMode({ onBack }: { onBack: () => void }) {
               disabled={!userGuess}
               className="flex-1 bg-gradient-to-r from-primary to-secondary hover:opacity-90 h-12 text-lg"
             >
-              Potvrdi izbor
+              Submit Choice
             </Button>
           ) : (
             <Button
               onClick={handleNext}
               className="flex-1 bg-gradient-to-r from-primary to-secondary hover:opacity-90 h-12 text-lg"
             >
-              {currentQuestion < PRACTICE_QUESTIONS.length - 1 ? 'Sledeće pitanje' : 'Vidi rezultate'}
+              {currentQuestion < PRACTICE_QUESTIONS.length - 1 ? 'Next Question' : 'View Results'}
             </Button>
           )}
         </div>

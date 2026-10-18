@@ -38,7 +38,7 @@ export default function BattleMode({ onExit }: BattleModeProps) {
     // Simulacija pronalaženja protivnika
     if (phase === 'searching') {
       const timer = setTimeout(() => {
-        toast.success(`Protivnik pronađen: ${opponentName}!`);
+        toast.success(`Opponent found: ${opponentName}!`);
         setPhase('countdown');
       }, 2000);
       return () => clearTimeout(timer);
@@ -91,7 +91,7 @@ export default function BattleMode({ onExit }: BattleModeProps) {
     const opponentRoundScore = calculateScore(opponentDist);
     setOpponentScore(prev => prev + opponentRoundScore);
 
-    toast.success(`+${score} poena!`);
+    toast.success(`+${score} points!`);
 
     setTimeout(() => {
       if (round < maxRounds) {
@@ -108,7 +108,7 @@ export default function BattleMode({ onExit }: BattleModeProps) {
   };
 
   const handleTimeout = () => {
-    toast.error('Vreme je isteklo!');
+    toast.error('Time is up!');
     
     // Simuliraj protivnikov odgovor
     const opponentDist = Math.random() * 3000;
@@ -144,11 +144,11 @@ export default function BattleMode({ onExit }: BattleModeProps) {
             <Users className="w-24 h-24 text-primary" />
           </motion.div>
           <h2 className="text-3xl font-bold text-gray-800 mb-2">
-            Tražim protivnika...
+            Looking for opponent...
           </h2>
-          <p className="text-gray-600">Ovo može potrajati nekoliko sekundi</p>
+          <p className="text-gray-600">This may take a few seconds</p>
           <Button onClick={onExit} variant="ghost" className="mt-6">
-            Otkaži
+            Cancel
           </Button>
         </motion.div>
       </div>
@@ -215,10 +215,10 @@ export default function BattleMode({ onExit }: BattleModeProps) {
             }`}>
               <div className="text-8xl mb-4">{won ? '🏆' : '💪'}</div>
               <CardTitle className="text-4xl font-bold mb-2">
-                {won ? 'Pobeda!' : 'Poraz'}
+                {won ? 'Victory!' : 'Defeat'}
               </CardTitle>
               <p className="text-xl opacity-90">
-                {won ? 'Čestitamo, pobedio si!' : 'Biće bolje sledeći put!'}
+                {won ? 'Congratulations, you won!' : 'Better luck next time!'}
               </p>
             </CardHeader>
             
@@ -242,15 +242,15 @@ export default function BattleMode({ onExit }: BattleModeProps) {
               {/* Rounds */}
               <div>
                 <h3 className="font-semibold text-gray-600 text-sm uppercase tracking-wide mb-3">
-                  Runde
+                  Rounds
                 </h3>
                 <div className="space-y-2">
                   {[1, 2, 3].map((r) => (
                     <div key={r} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
-                      <span className="font-medium text-gray-700">Runda {r}</span>
+                      <span className="font-medium text-gray-700">Round {r}</span>
                       <div className="flex gap-2">
                         <Badge variant={r <= round ? 'default' : 'outline'} className="rounded-full">
-                          Završeno
+                          Complete
                         </Badge>
                       </div>
                     </div>
@@ -261,15 +261,15 @@ export default function BattleMode({ onExit }: BattleModeProps) {
               {/* Actions */}
               <div className="flex gap-3">
                 <Button onClick={onExit} size="lg" className="flex-1 rounded-full font-semibold">
-                  Nazad
+                  Back
                 </Button>
-                <Button 
-                  onClick={() => window.location.reload()} 
-                  variant="outline" 
+                <Button
+                  onClick={() => window.location.reload()}
+                  variant="outline"
                   size="lg"
                   className="rounded-full"
                 >
-                  Igraj ponovo
+                  Play Again
                 </Button>
               </div>
             </CardContent>
@@ -294,7 +294,7 @@ export default function BattleMode({ onExit }: BattleModeProps) {
 
             {/* Round */}
             <Badge className="bg-white/20 backdrop-blur-sm text-white border-white/30 px-4 py-2">
-              Runda {round}/{maxRounds}
+              Round {round}/{maxRounds}
             </Badge>
           </div>
 
@@ -371,7 +371,7 @@ export default function BattleMode({ onExit }: BattleModeProps) {
                 className="rounded-full shadow-2xl font-semibold px-8 bg-gradient-to-r from-blue-500 to-purple-500"
               >
                 <Zap className="w-5 h-5 mr-2" />
-                Pošalji odgovor
+                Submit Answer
               </Button>
             </motion.div>
           </div>
@@ -386,7 +386,7 @@ export default function BattleMode({ onExit }: BattleModeProps) {
           >
             <div className="bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg border border-gray-200">
               <p className="text-sm font-medium text-gray-700">
-                ⚡ Brzo! Klikni na mapu pre isteka vremena
+                ⚡ Quick! Click on the map before time runs out
               </p>
             </div>
           </motion.div>

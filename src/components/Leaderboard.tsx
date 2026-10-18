@@ -54,10 +54,10 @@ export default function Leaderboard() {
             <Trophy className="w-12 h-12 text-white" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Rang lista
+            Leaderboard
           </h1>
           <p className="text-gray-600 text-lg">
-            Top igrači sa najviše poena
+            Top players with the most points
           </p>
         </motion.div>
 
@@ -72,21 +72,21 @@ export default function Leaderboard() {
             <CardContent className="p-4 text-center">
               <Trophy className="w-10 h-10 mx-auto mb-2 text-primary" />
               <div className="text-3xl font-bold text-gray-800">1,247</div>
-              <p className="text-sm text-gray-600">Aktivnih igrača</p>
+              <p className="text-sm text-gray-600">Active Players</p>
             </CardContent>
           </Card>
           <Card className="border-2 rounded-2xl">
             <CardContent className="p-4 text-center">
               <Target className="w-10 h-10 mx-auto mb-2 text-blue-500" />
               <div className="text-3xl font-bold text-gray-800">42,350</div>
-              <p className="text-sm text-gray-600">Prosečan skor</p>
+              <p className="text-sm text-gray-600">Average Score</p>
             </CardContent>
           </Card>
           <Card className="border-2 rounded-2xl">
             <CardContent className="p-4 text-center">
               <Medal className="w-10 h-10 mx-auto mb-2 text-orange-500" />
               <div className="text-3xl font-bold text-gray-800">47</div>
-              <p className="text-sm text-gray-600">Najduži streak</p>
+              <p className="text-sm text-gray-600">Longest Streak</p>
             </CardContent>
           </Card>
         </motion.div>
@@ -99,7 +99,7 @@ export default function Leaderboard() {
         >
           <Card className="border-2 border-gray-200 rounded-3xl shadow-xl overflow-hidden">
             <CardHeader className="bg-white border-b border-gray-200 p-6">
-              <CardTitle className="text-2xl font-bold text-gray-800">Top 10 igrača</CardTitle>
+              <CardTitle className="text-2xl font-bold text-gray-800">Top 10 Players</CardTitle>
             </CardHeader>
             <CardContent className="p-0">
               <div className="divide-y divide-gray-100">
@@ -134,7 +134,7 @@ export default function Leaderboard() {
                         </div>
                         <div className="flex items-center gap-3 mt-1">
                           <Badge variant="outline" className="rounded-full text-xs">
-                            🔥 {entry.streak} dana
+                            🔥 {entry.streak} days
                           </Badge>
                         </div>
                       </div>
@@ -144,7 +144,7 @@ export default function Leaderboard() {
                         <div className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                           {entry.score.toLocaleString()}
                         </div>
-                        <p className="text-xs text-gray-500">poena</p>
+                        <p className="text-xs text-gray-500">points</p>
                       </div>
                     </div>
                   </motion.div>
@@ -168,12 +168,12 @@ export default function Leaderboard() {
                       ?
                     </div>
                     <div>
-                      <p className="font-bold text-gray-800">Tvoja pozicija</p>
-                      <p className="text-sm text-gray-600">Igraj da vidiš gde si!</p>
+                      <p className="font-bold text-gray-800">Your Position</p>
+                      <p className="text-sm text-gray-600">Play to see where you rank!</p>
                     </div>
                   </div>
                   <Badge className="rounded-full px-4 py-2">
-                    Počni igru
+                    Start Playing
                   </Badge>
                 </div>
               </CardContent>
