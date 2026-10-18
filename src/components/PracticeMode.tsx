@@ -171,8 +171,8 @@ export default function PracticeMode({ onBack }: { onBack: () => void }) {
               </div>
 
               <div>
-                <h2 className="text-3xl font-bold text-white mb-2">Training Complete!</h2>
-                <p className="text-slate-300">Great job! 🎯</p>
+                <h2 className="text-4xl md:text-5xl font-bold text-white font-script mb-3">Training Complete!</h2>
+                <p className="text-lg text-slate-300">Great job! 🎯</p>
               </div>
 
               <div className="grid grid-cols-3 gap-4">

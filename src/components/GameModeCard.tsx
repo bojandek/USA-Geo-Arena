@@ -58,7 +58,7 @@ export default function GameModeCard({
             
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-2">
-                <h3 className="text-2xl font-bold text-gray-800">{title}</h3>
+                <h3 className="text-3xl md:text-4xl font-bold text-gray-800 font-script">{title}</h3>
                 {badge && (
                   <Badge className="rounded-full bg-yellow-400 text-yellow-900 border-yellow-500">
                     {badge}

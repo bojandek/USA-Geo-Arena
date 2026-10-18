@@ -35,11 +35,11 @@ export default function LandingPage({ onStartGame }: LandingPageProps) {
             </div>
           </motion.div>
           
-          <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-yellow-500 bg-clip-text text-transparent">
+          <h1 className="text-7xl md:text-8xl font-bold mb-8 bg-gradient-to-r from-primary via-secondary to-yellow-500 bg-clip-text text-transparent">
             GeoArena
           </h1>
           
-          <p className="text-2xl md:text-3xl text-gray-700 font-medium mb-4">
+          <p className="text-3xl md:text-4xl text-gray-700 font-script mb-4">
             Pogađaj sportske lokacije širom sveta! ⚽🏀🏈
           </p>
           
@@ -85,7 +85,7 @@ export default function LandingPage({ onStartGame }: LandingPageProps) {
               <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Trophy className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-3 text-gray-800">Dnevni izazov</h3>
+              <h3 className="text-3xl font-bold font-script mb-3 text-gray-800">Dnevni izazov</h3>
               <p className="text-gray-600">
                 Svakog dana 5 novih pitanja o sportskim lokacijama. Osvoji do 1000 poena po pitanju!
               </p>
@@ -97,7 +97,7 @@ export default function LandingPage({ onStartGame }: LandingPageProps) {
               <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Users className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-3 text-gray-800">Battle Mode</h3>
+              <h3 className="text-3xl font-bold font-script mb-3 text-gray-800">Battle Mode</h3>
               <p className="text-gray-600">
                 Takmiči se protiv drugih igrača u real-time mečevima i postani najbolji!
               </p>
@@ -109,7 +109,7 @@ export default function LandingPage({ onStartGame }: LandingPageProps) {
               <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Flame className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-3 text-gray-800">Streaks & Nivoi</h3>
+              <h3 className="text-3xl font-bold font-script mb-3 text-gray-800">Streaks & Nivoi</h3>
               <p className="text-gray-600">
                 Igraj svaki dan, zadržavaj streak i otključavaj bedževe i nagrade!
               </p>

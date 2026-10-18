@@ -16,18 +16,20 @@ export default function Leaderboard() {
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-orange-50 to-red-50 p-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="flex items-center gap-4 mb-6">
-          <Button 
-            variant="ghost" 
-            size="icon" 
+        <div className="flex items-center gap-4 mb-8">
+          <Button
+            variant="ghost"
+            size="icon"
             onClick={() => navigate('/')}
-            className="rounded-full"
+            className="rounded-full hover:bg-white/60"
           >
             <ArrowLeft className="w-6 h-6" />
           </Button>
           <div>
-            <h1 className="text-3xl font-bold text-gray-800">Personal Leaderboard</h1>
-            <p className="text-gray-600">Your top 10 daily scores</p>
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 font-script mb-2">
+              Personal Leaderboard
+            </h1>
+            <p className="text-lg text-gray-600">Your top 10 daily scores</p>
           </div>
         </div>
 
@@ -35,19 +37,19 @@ export default function Leaderboard() {
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="text-center py-12"
+            className="text-center py-16"
           >
-            <div className="text-6xl mb-4">🎯</div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">
+            <div className="text-8xl mb-6">🎯</div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 font-script mb-3">
               No scores yet!
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-lg text-gray-600 mb-8">
               Complete your first daily challenge to see your scores here
             </p>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               onClick={() => navigate('/')}
-              className="rounded-full"
+              className="rounded-full px-8"
             >
               Start Playing
             </Button>
@@ -134,8 +136,8 @@ export default function Leaderboard() {
           >
             <Card className="rounded-2xl border-2 border-primary/20">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Trophy className="w-5 h-5 text-yellow-500" />
+                <CardTitle className="flex items-center gap-3 text-2xl font-script">
+                  <Trophy className="w-6 h-6 text-yellow-500" />
                   Quick Stats
                 </CardTitle>
               </CardHeader>

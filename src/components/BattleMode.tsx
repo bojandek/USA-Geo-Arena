@@ -139,14 +139,14 @@ export default function BattleMode({ onExit }: BattleModeProps) {
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-            className="w-24 h-24 mx-auto mb-6"
+            className="w-24 h-24 mx-auto mb-8"
           >
             <Users className="w-24 h-24 text-primary" />
           </motion.div>
-          <h2 className="text-3xl font-bold text-gray-800 mb-2">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 font-script mb-3">
             Looking for opponent...
           </h2>
-          <p className="text-gray-600">This may take a few seconds</p>
+          <p className="text-lg text-gray-600">This may take a few seconds</p>
           <Button onClick={onExit} variant="ghost" className="mt-6">
             Cancel
           </Button>
@@ -209,15 +209,15 @@ export default function BattleMode({ onExit }: BattleModeProps) {
         >
           <Card className="border-2 border-primary/20 shadow-2xl rounded-3xl overflow-hidden">
             <CardHeader className={`text-white text-center py-12 ${
-              won 
-                ? 'bg-gradient-to-r from-green-500 to-emerald-500' 
+              won
+                ? 'bg-gradient-to-r from-green-500 to-emerald-500'
                 : 'bg-gradient-to-r from-gray-500 to-gray-600'
             }`}>
-              <div className="text-8xl mb-4">{won ? '🏆' : '💪'}</div>
-              <CardTitle className="text-4xl font-bold mb-2">
+              <div className="text-8xl mb-6">{won ? '🏆' : '💪'}</div>
+              <CardTitle className="text-5xl md:text-6xl font-bold font-script mb-3">
                 {won ? 'Victory!' : 'Defeat'}
               </CardTitle>
-              <p className="text-xl opacity-90">
+              <p className="text-xl md:text-2xl opacity-90">
                 {won ? 'Congratulations, you won!' : 'Better luck next time!'}
               </p>
             </CardHeader>
@@ -241,7 +241,7 @@ export default function BattleMode({ onExit }: BattleModeProps) {
 
               {/* Rounds */}
               <div>
-                <h3 className="font-semibold text-gray-600 text-sm uppercase tracking-wide mb-3">
+                <h3 className="font-script text-xl text-gray-700 mb-3">
                   Rounds
                 </h3>
                 <div className="space-y-2">

@@ -19,18 +19,20 @@ export default function Achievements() {
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 p-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="flex items-center gap-4 mb-6">
-          <Button 
-            variant="ghost" 
-            size="icon" 
+        <div className="flex items-center gap-4 mb-8">
+          <Button
+            variant="ghost"
+            size="icon"
             onClick={() => navigate('/')}
-            className="rounded-full"
+            className="rounded-full hover:bg-white/60"
           >
             <ArrowLeft className="w-6 h-6" />
           </Button>
           <div className="flex-1">
-            <h1 className="text-3xl font-bold text-gray-800">Achievements</h1>
-            <p className="text-gray-600">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 font-script mb-2">
+              Achievements
+            </h1>
+            <p className="text-lg text-gray-600">
               Unlocked {unlockedCount} of {totalCount} ({progressPercentage}%)
             </p>
           </div>
@@ -118,10 +120,10 @@ export default function Achievements() {
           >
             <Card className="rounded-2xl border-2 border-primary/20 bg-gradient-to-r from-primary/5 to-secondary/5">
               <CardContent className="p-6">
-                <p className="text-lg font-semibold text-gray-800 mb-2">
+                <p className="text-2xl md:text-3xl font-script text-gray-800 mb-2">
                   Keep Playing! 🎯
                 </p>
-                <p className="text-sm text-gray-600">
+                <p className="text-base text-gray-600">
                   {totalCount - unlockedCount} more achievements waiting to be unlocked
                 </p>
               </CardContent>

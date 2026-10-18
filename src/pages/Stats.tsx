@@ -38,18 +38,20 @@ export default function Stats() {
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 p-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="flex items-center gap-4 mb-6">
-          <Button 
-            variant="ghost" 
-            size="icon" 
+        <div className="flex items-center gap-4 mb-8">
+          <Button
+            variant="ghost"
+            size="icon"
             onClick={() => navigate('/')}
-            className="rounded-full"
+            className="rounded-full hover:bg-white/60"
           >
             <ArrowLeft className="w-6 h-6" />
           </Button>
           <div>
-            <h1 className="text-3xl font-bold text-gray-800">Your Statistics</h1>
-            <p className="text-gray-600">Track your progress and achievements</p>
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 font-script mb-2">
+              Your Statistics
+            </h1>
+            <p className="text-lg text-gray-600">Track your progress and achievements</p>
           </div>
         </div>
 
@@ -61,12 +63,12 @@ export default function Stats() {
         >
           <Card className="mb-6 border-2 border-primary/20 rounded-2xl">
             <CardContent className="p-6">
-              <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center justify-between mb-4">
                 <div>
-                  <p className="text-sm text-gray-600">Current Level</p>
-                  <p className="text-3xl font-bold text-primary">Level {level}</p>
+                  <p className="text-sm text-gray-600 mb-1">Current Level</p>
+                  <p className="text-4xl md:text-5xl font-bold text-primary font-script">Level {level}</p>
                 </div>
-                <div className="text-6xl">
+                <div className="text-7xl">
                   {level >= 20 ? '👑' : level >= 10 ? '🏆' : level >= 5 ? '⭐' : '🎯'}
                 </div>
               </div>
@@ -145,8 +147,8 @@ export default function Stats() {
         >
           <Card className="mb-6 rounded-2xl border-2 border-gray-200">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <TrendingUp className="w-5 h-5" />
+              <CardTitle className="flex items-center gap-3 text-2xl font-script">
+                <TrendingUp className="w-6 h-6" />
                 Performance Details
               </CardTitle>
             </CardHeader>
@@ -203,7 +205,7 @@ export default function Stats() {
           >
             <Card className="rounded-2xl border-2 border-gray-200">
               <CardHeader>
-                <CardTitle>Recent Games</CardTitle>
+                <CardTitle className="text-2xl font-script">Recent Games</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">

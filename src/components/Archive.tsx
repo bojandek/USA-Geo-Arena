@@ -97,13 +97,13 @@ export default function Archive({ onBack, onSelectDate }: ArchiveProps) {
           </Button>
           
           <div className="text-center">
-            <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl">
+            <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-xl">
               <Calendar className="w-12 h-12 text-white" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-6xl font-bold font-script mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               Challenge Archive
             </h1>
-            <p className="text-gray-600 text-lg">
+            <p className="text-gray-600 text-xl">
               Replay past daily challenges and improve your score
             </p>
           </div>
@@ -151,7 +151,7 @@ export default function Archive({ onBack, onSelectDate }: ArchiveProps) {
         >
           <Card className="border-2 border-gray-200 rounded-3xl shadow-xl overflow-hidden">
             <CardHeader className="bg-white border-b border-gray-200 p-6">
-              <CardTitle className="text-2xl font-bold text-gray-800">
+              <CardTitle className="text-3xl font-bold font-script text-gray-800">
                 Past Challenges
               </CardTitle>
             </CardHeader>
