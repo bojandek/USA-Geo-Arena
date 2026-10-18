@@ -7,17 +7,25 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { useGameStore } from '@/lib/game-store';
-import { 
-  sampleQuestions, 
-  calculateDistance, 
-  calculateScore, 
+import {
+  getDailyQuestions,
+  calculateDistance,
+  calculateScore,
   generateShareText,
-  type Question 
+  getDateString,
+  type Question
 } from '@/lib/game-data';
 import { toast } from 'sonner';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
-export default function DailyChallenge() {
+interface DailyChallengeProps {
+  selectedDate?: string | null;
+  onBack?: () => void;
+}
+
+export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeProps) {
+  const challengeDate = selectedDate ? new Date(selectedDate) : new Date();
+  const [dailyQuestions] = useState<Question[]>(() => getDailyQuestions(challengeDate));
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userGuess, setUserGuess] = useState<{ lat: number; lng: number } | null>(null);
   const [showResult, setShowResult] = useState(false);
@@ -28,7 +36,7 @@ export default function DailyChallenge() {
   const [answers, setAnswers] = useState<Array<{ question: string; score: number; distance: number }>>([]);
 
   const { dailyCompleted, completeDaily, checkStreak } = useGameStore();
-  const currentQuestion = sampleQuestions[currentQuestionIndex];
+  const currentQuestion = dailyQuestions[currentQuestionIndex];
 
   useEffect(() => {
     checkStreak();
@@ -66,7 +74,7 @@ export default function DailyChallenge() {
   };
 
   const handleNextQuestion = () => {
-    if (currentQuestionIndex < sampleQuestions.length - 1) {
+    if (currentQuestionIndex < dailyQuestions.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1);
       setUserGuess(null);
       setShowResult(false);
@@ -108,7 +116,10 @@ export default function DailyChallenge() {
     setAnswers([]);
   };
 
-  if (dailyCompleted && !gameCompleted) {
+  const isArchiveMode = selectedDate !== null && selectedDate !== undefined;
+  const isToday = !isArchiveMode || selectedDate === getDateString(new Date());
+
+  if (dailyCompleted && !gameCompleted && isToday) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-red-50 to-pink-50">
         <motion.div
@@ -127,6 +138,11 @@ export default function DailyChallenge() {
             <Button size="lg" className="rounded-full" onClick={resetGame}>
               Play again (demo)
             </Button>
+            {onBack && (
+              <Button size="lg" variant="outline" className="rounded-full" onClick={onBack}>
+                Back to Archive
+              </Button>
+            )}
           </div>
         </motion.div>
       </div>
@@ -220,13 +236,20 @@ export default function DailyChallenge() {
       <div className="bg-white border-b border-gray-200 px-4 py-3 shadow-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
+            {onBack && (
+              <Button variant="ghost" onClick={onBack} className="rounded-full" size="sm">
+                <X className="w-5 h-5" />
+              </Button>
+            )}
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
                 <Trophy className="w-6 h-6 text-white" />
               </div>
               <div>
                 <h1 className="text-xl font-bold text-gray-800">GeoArena</h1>
-                <p className="text-xs text-gray-500">Daily Challenge</p>
+                <p className="text-xs text-gray-500">
+                  {isArchiveMode ? challengeDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Daily Challenge'}
+                </p>
               </div>
             </div>
           </div>
@@ -237,7 +260,7 @@ export default function DailyChallenge() {
               <span className="text-sm font-semibold text-gray-700">{totalGameScore}</span>
             </div>
             <Badge variant="outline" className="rounded-full">
-              {currentQuestionIndex + 1} / {sampleQuestions.length}
+              {currentQuestionIndex + 1} / {dailyQuestions.length}
             </Badge>
           </div>
         </div>
@@ -352,7 +375,7 @@ export default function DailyChallenge() {
                 size="lg"
                 className="rounded-full shadow-2xl font-semibold px-8"
               >
-                {currentQuestionIndex < sampleQuestions.length - 1 ? 'Next Question' : 'Finish'}
+                {currentQuestionIndex < dailyQuestions.length - 1 ? 'Next Question' : 'Finish'}
               </Button>
             </motion.div>
           )}

@@ -16,6 +16,7 @@ type Page = 'home' | 'modes' | 'daily' | 'practice' | 'battle' | 'leaderboard' |
 
 const Index = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const { streak, level, totalScore } = useGameStore();
 
   const renderPage = () => {
@@ -249,7 +250,10 @@ const Index = () => {
         );
 
       case 'daily':
-        return <DailyChallenge />;
+        return <DailyChallenge selectedDate={selectedDate} onBack={() => {
+          setSelectedDate(null);
+          setCurrentPage('modes');
+        }} />;
       case 'practice':
         return <PracticeMode onBack={() => setCurrentPage('modes')} />;
       case 'battle':
@@ -260,7 +264,7 @@ const Index = () => {
         return <Profile />;
       case 'archive':
         return <Archive onBack={() => setCurrentPage('modes')} onSelectDate={(date) => {
-          console.log('Playing challenge for date:', date);
+          setSelectedDate(date);
           setCurrentPage('daily');
         }} />;
       default:
