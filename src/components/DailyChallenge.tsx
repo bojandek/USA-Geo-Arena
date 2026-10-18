@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import Map, { Marker, MapLayerMouseEvent } from 'react-map-gl/maplibre';
+import { useState, useEffect, useRef } from 'react';
+import Map, { Marker, MapLayerMouseEvent, Layer, Source } from 'react-map-gl/maplibre';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Trophy, Flame, MapPin, Target, Award, Share2, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -34,9 +34,22 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
   const [totalGameScore, setTotalGameScore] = useState<number>(0);
   const [gameCompleted, setGameCompleted] = useState(false);
   const [answers, setAnswers] = useState<Array<{ question: string; score: number; distance: number }>>([]);
+  const mapRef = useRef<any>(null);
 
   const { dailyCompleted, completeDaily, checkStreak } = useGameStore();
   const currentQuestion = dailyQuestions[currentQuestionIndex];
+
+  // Create line GeoJSON when showing result
+  const lineGeoJSON = showResult && userGuess ? {
+    type: 'Feature' as const,
+    geometry: {
+      type: 'LineString' as const,
+      coordinates: [
+        [userGuess.lng, userGuess.lat],
+        [currentQuestion.lng, currentQuestion.lat]
+      ]
+    }
+  } : null;
 
   useEffect(() => {
     checkStreak();
@@ -63,12 +76,21 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
     setDistance(dist);
     setQuestionScore(score);
     setTotalGameScore(prev => prev + score);
-    setAnswers(prev => [...prev, { 
-      question: currentQuestion.text, 
-      score, 
-      distance: dist 
+    setAnswers(prev => [...prev, {
+      question: currentQuestion.text,
+      score,
+      distance: dist
     }]);
     setShowResult(true);
+
+    // Fit map to show both markers and the line
+    if (mapRef.current) {
+      const bounds = [
+        [Math.min(userGuess.lng, currentQuestion.lng), Math.min(userGuess.lat, currentQuestion.lat)],
+        [Math.max(userGuess.lng, currentQuestion.lng), Math.max(userGuess.lat, currentQuestion.lat)]
+      ];
+      mapRef.current.fitBounds(bounds, { padding: 100, duration: 1000 });
+    }
 
     toast.success(`${Math.round(dist)} km away! +${score} points`);
   };
@@ -320,6 +342,7 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
       {/* Map */}
       <div className="flex-1 relative">
         <Map
+          ref={mapRef}
           initialViewState={{
             longitude: 15,
             latitude: 45,
@@ -329,6 +352,21 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
           mapStyle="https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json"
           onClick={handleMapClick}
         >
+          {/* Line connecting guess to actual location */}
+          {lineGeoJSON && (
+            <Source id="line" type="geojson" data={lineGeoJSON}>
+              <Layer
+                id="line-layer"
+                type="line"
+                paint={{
+                  'line-color': '#ef4444',
+                  'line-width': 3,
+                  'line-dasharray': [2, 2]
+                }}
+              />
+            </Source>
+          )}
+
           {userGuess && (
             <Marker longitude={userGuess.lng} latitude={userGuess.lat}>
               <motion.div
