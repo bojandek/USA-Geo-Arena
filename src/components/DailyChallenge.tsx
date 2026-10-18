@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import Map, { Marker, MapLayerMouseEvent, Layer, Source } from 'react-map-gl/maplibre';
+import Map, { Marker, MapLayerMouseEvent, Layer, Source, type SourceProps } from 'react-map-gl/maplibre';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Trophy, Flame, MapPin, Target, Award, Share2, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -17,6 +17,14 @@ import {
 } from '@/lib/game-data';
 import { toast } from 'sonner';
 import 'maplibre-gl/dist/maplibre-gl.css';
+
+// Wrapper to prevent Dyad's tracking attributes from being passed to MapLibre Source
+const CleanSource = (props: SourceProps & { children?: React.ReactNode }) => {
+  const cleanProps = { ...props };
+  delete (cleanProps as any)['data-dyad-id'];
+  delete (cleanProps as any)['data-dyad-name'];
+  return <Source {...cleanProps} />;
+};
 
 interface DailyChallengeProps {
   selectedDate?: string | null;
@@ -363,7 +371,7 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
         >
           {/* Line connecting guess to actual location */}
           {lineGeoJSON && (
-            <Source id="line" type="geojson" data={lineGeoJSON}>
+            <CleanSource id="line" type="geojson" data={lineGeoJSON}>
               <Layer
                 id="line-layer"
                 type="line"
@@ -373,7 +381,7 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
                   'line-dasharray': [2, 2]
                 }}
               />
-            </Source>
+            </CleanSource>
           )}
 
           {userGuess && (
