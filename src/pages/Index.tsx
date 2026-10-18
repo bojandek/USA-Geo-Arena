@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Home, Trophy, Users, User, X, Menu } from 'lucide-react';
 import GameModeCard from '@/components/GameModeCard';
 import DailyChallenge from '@/components/DailyChallenge';
+import PracticeMode from '@/components/PracticeMode';
 import BattleMode from '@/components/BattleMode';
 import Leaderboard from '@/components/Leaderboard';
 import Profile from '@/components/Profile';
@@ -10,7 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useGameStore } from '@/lib/game-store';
 
-type Page = 'home' | 'modes' | 'daily' | 'battle' | 'leaderboard' | 'profile';
+type Page = 'home' | 'modes' | 'daily' | 'practice' | 'battle' | 'leaderboard' | 'profile';
 
 const Index = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -187,8 +188,7 @@ const Index = () => {
                   description="Vežbaj bez ograničenja. Savršeno za učenje novih lokacija."
                   icon="practice"
                   difficulty="easy"
-                  onSelect={() => {}}
-                  disabled
+                  onSelect={() => setCurrentPage('practice')}
                 />
               </motion.div>
 
@@ -227,6 +227,8 @@ const Index = () => {
 
       case 'daily':
         return <DailyChallenge />;
+      case 'practice':
+        return <PracticeMode onBack={() => setCurrentPage('modes')} />;
       case 'battle':
         return <BattleMode onExit={() => setCurrentPage('modes')} />;
       case 'leaderboard':
