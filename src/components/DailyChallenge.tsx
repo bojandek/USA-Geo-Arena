@@ -91,13 +91,25 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
     }]);
     setShowResult(true);
 
-    // Fit map to show both markers and the line
+    // Center map between the two points with appropriate zoom
     if (mapRef.current) {
-      const bounds = [
-        [Math.min(userGuess.lng, currentQuestion.lng), Math.min(userGuess.lat, currentQuestion.lat)],
-        [Math.max(userGuess.lng, currentQuestion.lng), Math.max(userGuess.lat, currentQuestion.lat)]
-      ];
-      mapRef.current.fitBounds(bounds, { padding: 100, duration: 1000 });
+      const centerLng = (userGuess.lng + currentQuestion.lng) / 2;
+      const centerLat = (userGuess.lat + currentQuestion.lat) / 2;
+      
+      // Calculate appropriate zoom based on distance
+      // Closer guesses get higher zoom, farther guesses get lower zoom
+      let zoom;
+      if (dist < 100) zoom = 6;        // Very close: city level
+      else if (dist < 500) zoom = 5;   // Close: regional level
+      else if (dist < 1500) zoom = 4;  // Medium: country level
+      else if (dist < 3000) zoom = 3;  // Far: multi-country level
+      else zoom = 2;                   // Very far: continental level
+      
+      mapRef.current.flyTo({
+        center: [centerLng, centerLat],
+        zoom: zoom,
+        duration: 1500
+      });
     }
 
     toast.success(`${Math.round(dist)} km away! +${score} points`);
