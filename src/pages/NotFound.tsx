@@ -1,7 +1,7 @@
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Home, MapOff } from "lucide-react";
+import { Home, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const NotFound = () => {
@@ -30,7 +30,7 @@ const NotFound = () => {
         >
           <div className="inline-block relative">
             <div className="w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-3xl flex items-center justify-center shadow-2xl transform -rotate-6">
-              <MapOff className="w-20 h-20 text-white" />
+              <MapPin className="w-20 h-20 text-white" />
             </div>
             <div className="absolute -top-3 -right-3 w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center text-3xl font-bold">
               404
