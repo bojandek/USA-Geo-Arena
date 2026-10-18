@@ -37,58 +37,84 @@ const Index = () => {
         return (
           <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 pb-24">
             {/* Hero Section */}
-            <div className="max-w-7xl mx-auto px-4 py-12">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
               <motion.div
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                className="text-center mb-12"
+                transition={{ duration: 0.5 }}
+                className="text-center mb-16"
               >
                 <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-                  className="inline-block mb-6"
+                  initial={{ scale: 0, rotate: -180 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{
+                    delay: 0.2,
+                    type: 'spring',
+                    stiffness: 260,
+                    damping: 20
+                  }}
+                  className="inline-block mb-8"
                 >
                   <div className="relative">
-                    <div className="w-24 h-24 bg-gradient-to-br from-primary to-secondary rounded-3xl flex items-center justify-center shadow-2xl transform rotate-6">
-                      <span className="text-5xl">🌍</span>
+                    <div className="w-28 h-28 bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 rounded-[2rem] flex items-center justify-center shadow-2xl transform rotate-6 hover:rotate-12 transition-transform duration-300">
+                      <span className="text-6xl">🌍</span>
                     </div>
-                    <div className="absolute -top-2 -right-2 w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center animate-bounce">
+                    <motion.div
+                      animate={{
+                        y: [0, -8, 0],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                      className="absolute -top-2 -right-2 w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-full flex items-center justify-center shadow-lg"
+                    >
                       <Trophy className="w-6 h-6 text-white" />
-                    </div>
+                    </motion.div>
                   </div>
                 </motion.div>
                 
-                <h1 className="text-6xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-yellow-500 bg-clip-text text-transparent">
+                <motion.h1
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                  className="text-6xl sm:text-7xl lg:text-8xl font-black mb-6 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent tracking-tight"
+                >
                   GeoArena
-                </h1>
+                </motion.h1>
                 
-                <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                <motion.p
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                  className="text-lg sm:text-xl text-gray-700 mb-10 max-w-2xl mx-auto font-medium"
+                >
                   Guess sports locations around the world! Test your knowledge and compete with others.
-                </p>
+                </motion.p>
 
                 {/* User Stats Card */}
                 {totalScore > 0 && (
                   <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.4 }}
-                    className="max-w-md mx-auto mb-8"
+                    initial={{ y: 20, opacity: 0, scale: 0.9 }}
+                    animate={{ y: 0, opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5 }}
+                    className="max-w-md mx-auto mb-10"
                   >
-                    <Card className="border-2 border-primary/20 rounded-3xl shadow-lg">
-                      <CardContent className="p-4">
-                        <div className="grid grid-cols-3 gap-4">
+                    <Card className="border-0 rounded-3xl shadow-medium hover:shadow-hard transition-all duration-300 bg-white/80 backdrop-blur-sm">
+                      <CardContent className="p-6">
+                        <div className="grid grid-cols-3 gap-6">
                           <div className="text-center">
-                            <div className="text-3xl font-bold text-primary">{level}</div>
-                            <p className="text-xs text-gray-600">Level</p>
+                            <div className="text-4xl font-black text-orange-600 mb-1">{level}</div>
+                            <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Level</p>
+                          </div>
+                          <div className="text-center border-x border-gray-200">
+                            <div className="text-4xl font-black text-red-600 mb-1">{streak}</div>
+                            <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Streak 🔥</p>
                           </div>
                           <div className="text-center">
-                            <div className="text-3xl font-bold text-orange-500">{streak}</div>
-                            <p className="text-xs text-gray-600">Streak 🔥</p>
-                          </div>
-                          <div className="text-center">
-                            <div className="text-3xl font-bold text-blue-500">{totalScore.toLocaleString()}</div>
-                            <p className="text-xs text-gray-600">Points</p>
+                            <div className="text-4xl font-black text-pink-600 mb-1">{totalScore.toLocaleString()}</div>
+                            <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Points</p>
                           </div>
                         </div>
                       </CardContent>
@@ -96,52 +122,74 @@ const Index = () => {
                   </motion.div>
                 )}
 
-                <Button
-                  onClick={() => setCurrentPage('modes')}
-                  size="lg"
-                  className="text-xl px-12 py-8 rounded-full shadow-2xl hover:scale-105 transition-transform font-bold"
+                <motion.div
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.6 }}
                 >
-                  <Trophy className="w-6 h-6 mr-2" />
-                  Start Playing
-                </Button>
+                  <Button
+                    onClick={() => setCurrentPage('modes')}
+                    size="lg"
+                    className="text-lg sm:text-xl px-10 sm:px-14 py-6 sm:py-8 rounded-full shadow-hard hover:shadow-glow hover:scale-105 transition-all duration-300 font-bold bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600"
+                  >
+                    <Trophy className="w-6 h-6 mr-3" />
+                    Start Playing
+                  </Button>
+                </motion.div>
               </motion.div>
 
               {/* Features Grid */}
               <motion.div
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.6 }}
-                className="grid md:grid-cols-3 gap-6"
+                transition={{ delay: 0.7, duration: 0.5 }}
+                className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
               >
-                <Card className="border-2 border-orange-200 rounded-3xl overflow-hidden hover:shadow-xl transition-shadow">
-                  <CardContent className="p-8 text-center">
-                    <div className="text-6xl mb-4">🎯</div>
-                    <h3 className="text-2xl font-bold mb-2 text-gray-800">Daily Challenge</h3>
-                    <p className="text-gray-600">
-                      10 new questions every day. Earn up to 10,000 points!
-                    </p>
-                  </CardContent>
-                </Card>
+                <motion.div
+                  whileHover={{ y: -4 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  <Card className="border-0 rounded-3xl overflow-hidden shadow-medium hover:shadow-hard transition-all duration-300 bg-gradient-to-br from-orange-50 to-orange-100 h-full">
+                    <CardContent className="p-8 text-center">
+                      <div className="text-7xl mb-6 inline-block">🎯</div>
+                      <h3 className="text-2xl font-bold mb-3 text-gray-900">Daily Challenge</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        10 new questions every day. Earn up to 10,000 points!
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
 
-                <Card className="border-2 border-blue-200 rounded-3xl overflow-hidden hover:shadow-xl transition-shadow">
-                  <CardContent className="p-8 text-center">
-                    <div className="text-6xl mb-4">⚔️</div>
-                    <h3 className="text-2xl font-bold mb-2 text-gray-800">Battle Mode</h3>
-                    <p className="text-gray-600">
-                      Compete against other players in real-time!
-                    </p>
-                  </CardContent>
-                </Card>
+                <motion.div
+                  whileHover={{ y: -4 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  <Card className="border-0 rounded-3xl overflow-hidden shadow-medium hover:shadow-hard transition-all duration-300 bg-gradient-to-br from-blue-50 to-blue-100 h-full">
+                    <CardContent className="p-8 text-center">
+                      <div className="text-7xl mb-6 inline-block">⚔️</div>
+                      <h3 className="text-2xl font-bold mb-3 text-gray-900">Battle Mode</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Compete against other players in real-time!
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
 
-                <Card className="border-2 border-yellow-200 rounded-3xl overflow-hidden hover:shadow-xl transition-shadow">
-                  <CardContent className="p-8 text-center">
-                    <div className="text-6xl mb-4">🔥</div>
-                    <h3 className="text-2xl font-bold mb-2 text-gray-800">Streaks & Levels</h3>
-                    <p className="text-gray-600">
-                      Play every day and unlock achievements!
-                    </p>
-                  </CardContent>
-                </Card>
+                <motion.div
+                  whileHover={{ y: -4 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="sm:col-span-2 lg:col-span-1"
+                >
+                  <Card className="border-0 rounded-3xl overflow-hidden shadow-medium hover:shadow-hard transition-all duration-300 bg-gradient-to-br from-yellow-50 to-amber-100 h-full">
+                    <CardContent className="p-8 text-center">
+                      <div className="text-7xl mb-6 inline-block">🔥</div>
+                      <h3 className="text-2xl font-bold mb-3 text-gray-900">Streaks & Levels</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Play every day and unlock achievements!
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               </motion.div>
             </div>
           </div>

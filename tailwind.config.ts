@@ -63,10 +63,41 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        'xs': ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.01em' }],
+        'sm': ['0.875rem', { lineHeight: '1.25rem', letterSpacing: '0' }],
+        'base': ['1rem', { lineHeight: '1.5rem', letterSpacing: '0' }],
+        'lg': ['1.125rem', { lineHeight: '1.75rem', letterSpacing: '-0.01em' }],
+        'xl': ['1.25rem', { lineHeight: '1.75rem', letterSpacing: '-0.01em' }],
+        '2xl': ['1.5rem', { lineHeight: '2rem', letterSpacing: '-0.02em' }],
+        '3xl': ['1.875rem', { lineHeight: '2.25rem', letterSpacing: '-0.02em' }],
+        '4xl': ['2.25rem', { lineHeight: '2.5rem', letterSpacing: '-0.02em' }],
+        '5xl': ['3rem', { lineHeight: '1', letterSpacing: '-0.02em' }],
+        '6xl': ['3.75rem', { lineHeight: '1', letterSpacing: '-0.02em' }],
+        '7xl': ['4.5rem', { lineHeight: '1', letterSpacing: '-0.02em' }],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+        '128': '32rem',
+      },
       borderRadius: {
+        'xl': '1rem',
+        '2xl': '1.5rem',
+        '3xl': '2rem',
+        '4xl': '2.5rem',
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      boxShadow: {
+        'soft': '0 2px 8px rgba(0, 0, 0, 0.08)',
+        'medium': '0 4px 16px rgba(0, 0, 0, 0.12)',
+        'hard': '0 8px 32px rgba(0, 0, 0, 0.16)',
+        'glow': '0 0 32px rgba(var(--primary) / 0.2)',
       },
       keyframes: {
         "accordion-down": {
