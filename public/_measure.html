@@ -1,0 +1,30 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>measure</title></head>
+<body style="margin:0">
+<iframe id="f" src="/daily" style="width:414px;height:896px;border:0"></iframe>
+<iframe id="f2" src="/practice" style="width:414px;height:896px;border:0;position:absolute;left:-9999px"></iframe>
+<iframe id="f3" src="/battle" style="width:414px;height:896px;border:0;position:absolute;left:-9999px"></iframe>
+<pre id="out" style="font:12px monospace;white-space:pre-wrap">measuring...</pre>
+<script>
+  function check(id, route) {
+    const d = document.getElementById(id).contentDocument;
+    const out = [];
+    out.push('=== ' + route + ' ===');
+    out.push('viewport=' + d.documentElement.clientWidth + '  body.scrollWidth=' + d.body.scrollWidth);
+    let n = 0;
+    d.querySelectorAll('*').forEach(function (el) {
+      const r = el.getBoundingClientRect();
+      if (r.width > 0 && r.right > 414.5) {
+        n++;
+        if (n <= 5) out.push('  OVERFLOW ' + el.tagName + ' right=' + r.right.toFixed(1) + '  ' + String(el.className).slice(0, 60));
+      }
+    });
+    out.push(n === 0 ? '  OK - nista ne izlazi van ekrana' : '  ' + n + ' elemenata prelazi');
+    return out.join('\n');
+  }
+  setTimeout(function () {
+    const t = [check('f', '/daily'), check('f2', '/practice'), check('f3', '/battle')];
+    document.getElementById('out').textContent = t.join('\n\n');
+  }, 6000);
+</script>
+</body></html>

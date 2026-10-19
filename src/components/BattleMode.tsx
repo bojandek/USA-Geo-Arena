@@ -1,142 +1,196 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Map, { Marker, MapLayerMouseEvent } from 'react-map-gl/maplibre';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Users, Zap, Timer, Trophy, Target, X } from 'lucide-react';
+import { Users, Zap, Timer, Trophy, Target, X, RotateCcw, Maximize2, Minimize2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { ChevronDown } from 'lucide-react';
-import {
-  sampleQuestions,
-  calculateDistance,
-  calculateScore,
-  type Question
-} from '@/lib/game-data';
 import { toast } from 'sonner';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { getMapStyleById, getDefaultMapStyleId, saveMapStylePreference } from '@/lib/map-styles';
+
+import { getDailyQuestions, calculateDistance, calculateScore, type Question } from '@/lib/game-data';
+import { useGameStore } from '@/lib/game-store';
+import MapStyleSelect from '@/components/MapStyleSelect';
+import { getMapStyleSource } from '@/lib/map-styles';
+import { useMapStyle } from '@/hooks/useMapStyle';
+import AdSlot from '@/components/AdSlot';
 
 interface BattleModeProps {
-  onExit: () => void;
+  onExit?: () => void;
 }
 
+type BattlePhase = 'searching' | 'countdown' | 'playing' | 'result';
+
+/** Emoji used in the battle HUD. */
+const HINT_EMOJI = '💡';
+const BATTLE_HINT = '⚡';
+
+const MAX_ROUNDS = 3;
+const ROUND_SECONDS = 30;
+const OPPONENTS = [
+  { name: 'Marko P.', country: '🇭🇷' },
+  { name: 'Lena K.', country: '🇩🇪' },
+  { name: 'Sofia R.', country: '🇪🇸' },
+  { name: 'Jonas B.', country: '🇳🇱' },
+  { name: 'Ana T.', country: '🇧🇷' },
+];
+
 export default function BattleMode({ onExit }: BattleModeProps) {
-  const [phase, setPhase] = useState<'searching' | 'countdown' | 'playing' | 'result'>('searching');
+  const { completePractice } = useGameStore();
+
+  const [phase, setPhase] = useState<BattlePhase>('searching');
   const [countdown, setCountdown] = useState(3);
-  const [timeLeft, setTimeLeft] = useState(30);
-  const [currentQuestion, setCurrentQuestion] = useState<Question>(sampleQuestions[0]);
+  const [timeLeft, setTimeLeft] = useState(ROUND_SECONDS);
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [questionIndex, setQuestionIndex] = useState(0);
   const [userGuess, setUserGuess] = useState<{ lat: number; lng: number } | null>(null);
   const [playerScore, setPlayerScore] = useState(0);
   const [opponentScore, setOpponentScore] = useState(0);
-  const [round, setRound] = useState(1);
-  const [mapStyleId, setMapStyleId] = useState('voyager');
-  
-    useEffect(() => {
-      const savedStyle = localStorage.getItem('mapStyle');
-      if (savedStyle) {
-        setMapStyleId(savedStyle);
-      }
-    }, []);
-  const maxRounds = 3;
+  const [roundScores, setRoundScores] = useState<Array<{ player: number; opponent: number }>>([]);
+  const { mapStyleId } = useMapStyle();
 
-  // Opponent data (simulirano)
-  const opponentName = 'Marko P.';
-  const opponentCountry = '🇭🇷';
+  // The question panel floats above the map and can be collapsed.
+  const [panelOpen, setPanelOpen] = useState(true);
 
+  // Guards against a double submit scoring the round twice.
+  const roundLocked = useRef(false);
+  const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const resultSaved = useRef(false);
+
+  const opponent = useMemo(
+    () => OPPONENTS[Math.floor(Math.random() * OPPONENTS.length)],
+    [],
+  );
+
+  // Clear any pending timer when the component unmounts.
   useEffect(() => {
-    // Simulacija pronalaženja protivnika
-    if (phase === 'searching') {
-      const timer = setTimeout(() => {
-        toast.success(`Opponent found: ${opponentName}!`);
-        setPhase('countdown');
-      }, 2000);
+    return () => {
+      if (advanceTimer.current) clearTimeout(advanceTimer.current);
+    };
+  }, []);
+
+  // Matchmaking
+  useEffect(() => {
+    if (phase !== 'searching') return;
+    const timer = setTimeout(() => {
+      setQuestions(getDailyQuestions());
+      toast.success(`Opponent found: ${opponent.name}!`);
+      setPhase('countdown');
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [phase, opponent]);
+
+  // Countdown before the match starts
+  useEffect(() => {
+    if (phase !== 'countdown') return;
+    if (countdown > 0) {
+      const timer = setTimeout(() => setCountdown((c) => c - 1), 1000);
       return () => clearTimeout(timer);
     }
-  }, [phase]);
-
-  useEffect(() => {
-    // Countdown pre početka
-    if (phase === 'countdown' && countdown > 0) {
-      const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
-      return () => clearTimeout(timer);
-    } else if (phase === 'countdown' && countdown === 0) {
-      setPhase('playing');
-      setTimeLeft(30);
-    }
+    setPhase('playing');
+    setTimeLeft(ROUND_SECONDS);
   }, [phase, countdown]);
 
+  const advanceRound = useCallback(
+    (nextPlayerScore: number, nextOpponentScore: number) => {
+      setRoundScores((prev) => [...prev, { player: nextPlayerScore, opponent: nextOpponentScore }]);
+
+      if (questionIndex + 1 >= MAX_ROUNDS || questions.length === 0) {
+        setPhase('result');
+        return;
+      }
+
+      setQuestionIndex((idx) => idx + 1);
+      setUserGuess(null);
+      setTimeLeft(ROUND_SECONDS);
+      roundLocked.current = false;
+    },
+    [questionIndex, questions.length],
+  );
+
+  // Round timer
   useEffect(() => {
-    // Timer tokom igranja
-    if (phase === 'playing' && timeLeft > 0) {
-      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+    if (phase !== 'playing') return;
+
+    if (timeLeft > 0) {
+      const timer = setTimeout(() => setTimeLeft((t) => t - 1), 1000);
       return () => clearTimeout(timer);
-    } else if (phase === 'playing' && timeLeft === 0) {
-      handleTimeout();
     }
-  }, [phase, timeLeft]);
+
+    // Time is up: the opponent answers and the round advances.
+    if (roundLocked.current) return;
+    roundLocked.current = true;
+    toast.error('Time is up!');
+
+    const opponentDist = Math.random() * 3000;
+    const opponentRoundScore = calculateScore(opponentDist);
+    const nextOpponentScore = opponentScore + opponentRoundScore;
+
+    setOpponentScore(nextOpponentScore);
+    advanceTimer.current = setTimeout(
+      () => advanceRound(playerScore, nextOpponentScore),
+      2000,
+    );
+  }, [phase, timeLeft, advanceRound, playerScore, opponentScore]);
+
+  const currentQuestion = questions[questionIndex];
 
   const handleMapClick = (event: MapLayerMouseEvent) => {
-    if (phase !== 'playing' || userGuess) return;
-    
-    const { lat, lng } = event.lngLat;
-    setUserGuess({ lat, lng });
+    if (phase !== 'playing' || userGuess || roundLocked.current) return;
+    setUserGuess({ lat: event.lngLat.lat, lng: event.lngLat.lng });
   };
 
   const handleSubmit = () => {
-    if (!userGuess) return;
+    if (!userGuess || !currentQuestion || roundLocked.current) return;
+    roundLocked.current = true;
 
     const dist = calculateDistance(
       userGuess.lat,
       userGuess.lng,
       currentQuestion.lat,
-      currentQuestion.lng
+      currentQuestion.lng,
     );
-
     const score = calculateScore(dist);
-    setPlayerScore(prev => prev + score);
+    const nextPlayerScore = playerScore + score;
 
-    // Simuliraj protivnikov odgovor
+    // Simulated opponent answer.
     const opponentDist = Math.random() * 3000;
     const opponentRoundScore = calculateScore(opponentDist);
-    setOpponentScore(prev => prev + opponentRoundScore);
+    const nextOpponentScore = opponentScore + opponentRoundScore;
+
+    setPlayerScore(nextPlayerScore);
+    setOpponentScore(nextOpponentScore);
 
     toast.success(`+${score} points!`);
 
-    setTimeout(() => {
-      if (round < maxRounds) {
-        // Sledeća runda
-        setRound(round + 1);
-        setCurrentQuestion(sampleQuestions[round]);
-        setUserGuess(null);
-        setTimeLeft(30);
-      } else {
-        // Kraj igre
-        setPhase('result');
-      }
-    }, 2000);
+    advanceTimer.current = setTimeout(
+      () => advanceRound(nextPlayerScore, nextOpponentScore),
+      2000,
+    );
   };
 
-  const handleTimeout = () => {
-    toast.error('Time is up!');
-    
-    // Simuliraj protivnikov odgovor
-    const opponentDist = Math.random() * 3000;
-    const opponentRoundScore = calculateScore(opponentDist);
-    setOpponentScore(prev => prev + opponentRoundScore);
-
-    setTimeout(() => {
-      if (round < maxRounds) {
-        setRound(round + 1);
-        setCurrentQuestion(sampleQuestions[round]);
-        setUserGuess(null);
-        setTimeLeft(30);
-      } else {
-        setPhase('result');
-      }
-    }, 2000);
+  const restart = () => {
+    roundLocked.current = false;
+    resultSaved.current = false;
+    if (advanceTimer.current) clearTimeout(advanceTimer.current);
+    setPhase('searching');
+    setCountdown(3);
+    setTimeLeft(ROUND_SECONDS);
+    setQuestionIndex(0);
+    setUserGuess(null);
+    setPlayerScore(0);
+    setOpponentScore(0);
+    setRoundScores([]);
   };
+
+  // Persist the final battle result once the match is over.
+  useEffect(() => {
+    if (phase !== 'result' || resultSaved.current) return;
+    resultSaved.current = true;
+    // Battles are practice-style: they never inflate daily progression.
+    completePractice(playerScore);
+  }, [phase, playerScore, completePractice]);
 
   // Searching Screen
   if (phase === 'searching') {
@@ -187,9 +241,9 @@ export default function BattleMode({ onExit }: BattleModeProps) {
             
             <div className="text-center">
               <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mb-2">
-                <span className="text-2xl">{opponentCountry}</span>
+                <span className="text-2xl">{opponent.country}</span>
               </div>
-              <p className="font-semibold text-gray-800">{opponentName}</p>
+              <p className="font-semibold text-gray-800">{opponent.name}</p>
             </div>
           </div>
 
@@ -245,7 +299,7 @@ export default function BattleMode({ onExit }: BattleModeProps) {
                 <div className={`p-6 rounded-2xl text-center ${
                   !won ? 'bg-blue-50 border-2 border-blue-300' : 'bg-gray-50'
                 }`}>
-                  <p className="text-sm text-gray-600 mb-2">{opponentName}</p>
+                  <p className="text-sm text-gray-600 mb-2">{opponent.name}</p>
                   <p className="text-4xl font-bold text-gray-800">{opponentScore}</p>
                 </div>
               </div>
@@ -256,12 +310,21 @@ export default function BattleMode({ onExit }: BattleModeProps) {
                   Rounds
                 </h3>
                 <div className="space-y-2">
-                  {[1, 2, 3].map((r) => (
-                    <div key={r} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
-                      <span className="font-medium text-gray-700">Round {r}</span>
-                      <div className="flex gap-2">
-                        <Badge variant={r <= round ? 'default' : 'outline'} className="rounded-full">
-                          Complete
+                  {roundScores.length === 0 && (
+                    <p className="text-sm text-gray-500">No rounds were played.</p>
+                  )}
+                  {roundScores.map((result, idx) => (
+                    <div key={idx} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
+                      <span className="font-medium text-gray-700">Round {idx + 1}</span>
+                      <div className="flex gap-2 items-center">
+                        <span className="text-sm text-gray-600">You {result.player}</span>
+                        <span className="text-gray-300">vs</span>
+                        <span className="text-sm text-gray-600">{result.opponent}</span>
+                        <Badge
+                          variant={result.player >= result.opponent ? 'default' : 'secondary'}
+                          className="rounded-full ml-1"
+                        >
+                          {result.player >= result.opponent ? 'Won' : 'Lost'}
                         </Badge>
                       </div>
                     </div>
@@ -275,16 +338,18 @@ export default function BattleMode({ onExit }: BattleModeProps) {
                   Back
                 </Button>
                 <Button
-                  onClick={() => window.location.reload()}
+                  onClick={restart}
                   variant="outline"
                   size="lg"
-                  className="rounded-full"
+                  className="flex-1 rounded-full"
                 >
                   Play Again
                 </Button>
               </div>
             </CardContent>
           </Card>
+
+          <AdSlot slot="afterGame" className="mt-4" />
         </motion.div>
       </div>
     );
@@ -292,123 +357,13 @@ export default function BattleMode({ onExit }: BattleModeProps) {
 
   // Playing Screen
   return (
-    <div className="h-screen flex flex-col bg-gray-50">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-3 shadow-lg">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            {/* Timer */}
-            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-              <Timer className="w-5 h-5" />
-              <span className="text-xl font-bold">{timeLeft}s</span>
-            </div>
-
-            {/* Round */}
-            <Badge className="bg-white/20 backdrop-blur-sm text-white border-white/30 px-4 py-2">
-              Round {round}/{maxRounds}
-            </Badge>
-
-            {/* Map Style Selector */}
-            <DropdownMenu className="relative">
-              <DropdownMenuTrigger className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full hover:bg-white/30 transition-colors">
-                <MapPin className="w-4 h-4" />
-                <span className="text-sm font-medium">{getMapStyleById(mapStyleId).name}</span>
-                <ChevronDown className="w-4 h-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-48 bg-white border rounded-md shadow-lg p-1">
-                {MAP_STYLES.map(style => (
-                  <DropdownMenuItem
-                    key={style.id}
-                    onClick={() => {
-                      setMapStyleId(style.id);
-                      saveMapStylePreference(style.id);
-                    }}
-                    className={`flex items-center gap-2 px-3 py-2 text-sm ${mapStyleId === style.id ? 'bg-primary/10 text-primary' : 'text-gray-700 hover:bg-gray-100'}`}
-                  >
-                    <div className="w-5 h-5 flex-shrink-0">
-                      {style.id === 'satellite' && (
-                        <div className="bg-gray-200 w-4 h-4 rounded flex items-center justify-center">
-                          <MapPin className="w-3 h-3 text-gray-600" />
-                        </div>
-                      )}
-                      {style.id === 'dark-matter' && (
-                        <div className="bg-gray-800 w-4 h-4 rounded flex items-center justify-center">
-                          <MapPin className="w-3 h-3 text-white" />
-                        </div>
-                      )}
-                      {style.id === 'positron' && (
-                        <div className="bg-gray-100 w-4 h-4 rounded flex items-center justify-center">
-                          <MapPin className="w-3 h-3 text-gray-600" />
-                        </div>
-                      )}
-                      {style.id === 'terrain' && (
-                        <div className="bg-green-100 w-4 h-4 rounded flex items-center justify-center">
-                          <MapPin className="w-3 h-3 text-green-600" />
-                        </div>
-                      )}
-                      {style.id === 'voyager' && (
-                        <div className="bg-blue-100 w-4 h-4 rounded flex items-center justify-center">
-                          <MapPin className="w-3 h-3 text-blue-600" />
-                        </div>
-                      )}
-                    </div>
-                    <span className="flex-1">{style.name}</span>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-
-          {/* Scores */}
-          <div className="flex items-center gap-6">
-            <div className="text-right">
-              <p className="text-sm opacity-80">Ti</p>
-              <p className="text-2xl font-bold">{playerScore}</p>
-            </div>
-            <div className="text-3xl">⚔️</div>
-            <div className="text-left">
-              <p className="text-sm opacity-80">{opponentName}</p>
-              <p className="text-2xl font-bold">{opponentScore}</p>
-            </div>
-          </div>
-
-          <Button onClick={onExit} variant="ghost" size="icon" className="text-white hover:bg-white/20">
-            <X className="w-5 h-5" />
-          </Button>
-        </div>
-      </div>
-
-      {/* Question */}
-      <div className="p-4">
-        <motion.div
-          key={round}
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          className="max-w-7xl mx-auto"
-        >
-          <Card className="border-2 border-purple-200 shadow-lg rounded-2xl">
-            <CardContent className="p-6">
-              <p className="text-2xl font-bold text-gray-800">
-                {currentQuestion.text}
-              </p>
-              {currentQuestion.hint && (
-                <p className="text-sm text-gray-500 mt-2">💡 {currentQuestion.hint}</p>
-              )}
-            </CardContent>
-          </Card>
-        </motion.div>
-      </div>
-
-      {/* Map */}
-      <div className="flex-1 relative">
+    <div className="h-[100dvh] w-full relative overflow-hidden overflow-x-clip bg-gray-50">
+      {/* ============ MAP - the base layer ============ */}
+      <div className="absolute inset-0">
         <Map
-          initialViewState={{
-            longitude: 15,
-            latitude: 45,
-            zoom: 2
-          }}
+          initialViewState={{ longitude: 15, latitude: 45, zoom: 2 }}
           style={{ width: '100%', height: '100%' }}
-          mapStyle={getMapStyleById(mapStyleId).url}
+          mapStyle={getMapStyleSource(mapStyleId)}
           onClick={handleMapClick}
         >
           {userGuess && (
@@ -421,37 +376,124 @@ export default function BattleMode({ onExit }: BattleModeProps) {
             </Marker>
           )}
         </Map>
+      </div>
 
-        {/* Submit Button */}
-        {userGuess && (
-          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
-            <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
-              <Button
-                onClick={handleSubmit}
-                size="lg"
-                className="rounded-full shadow-2xl font-semibold px-8 bg-gradient-to-r from-blue-500 to-purple-500"
-              >
-                <Zap className="w-5 h-5 mr-2" />
-                Submit Answer
-              </Button>
-            </motion.div>
+      {/* ============ TOP BAR (battle HUD) ============ */}
+      <div className="absolute top-0 inset-x-0 z-30 pointer-events-none">
+        <div className="pointer-events-auto mx-auto max-w-6xl px-3 pt-3 flex items-center gap-1.5">
+            {/* Timer */}
+            <span className="flex items-center gap-1.5 bg-white/90 backdrop-blur rounded-full px-2.5 py-1.5 shadow-md shrink-0">
+              <Timer className="h-3.5 w-3.5 text-purple-500" />
+              <span className="text-xs font-bold text-gray-800">{timeLeft}s</span>
+            </span>
+
+            {/* Round */}
+            <span className="flex items-center gap-1.5 bg-white/90 backdrop-blur rounded-full px-2.5 py-1.5 shadow-md shrink-0">
+              <Target className="h-3.5 w-3.5 text-blue-500" />
+              <span className="text-xs font-bold text-gray-700">
+                {questionIndex + 1}/{MAX_ROUNDS}
+              </span>
+            </span>
+
+            <div className="flex-1" />
+
+            {/* Scores */}
+            <span className="flex items-center gap-1.5 bg-white/90 backdrop-blur rounded-full px-2.5 py-1.5 shadow-md shrink-0">
+              <span className="text-xs font-bold text-gray-800">{playerScore}</span>
+              <span className="text-sm">⚔️</span>
+              <span className="text-xs font-bold text-gray-700">{opponentScore}</span>
+            </span>
+
+            <MapStyleSelect className="bg-white/90 backdrop-blur shadow-md" />
+
+            <Button
+              onClick={onExit}
+              variant="secondary"
+              size="icon"
+              aria-label="Leave the battle"
+              className="rounded-full shadow-md bg-white/90 text-gray-700 hover:bg-white shrink-0"
+            >
+              <X className="h-4 w-4" />
+            </Button>
+
+            <Button
+              variant="secondary"
+              size="icon"
+              onClick={() => setPanelOpen((open) => !open)}
+              aria-label={panelOpen ? 'Hide the question and focus the map' : 'Show the question'}
+              title={panelOpen ? 'Focus the map' : 'Show the question'}
+              className="rounded-full shadow-md bg-white/90 text-gray-700 hover:bg-white h-9 w-9"
+            >
+              {panelOpen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
+            </Button>
           </div>
-        )}
+        </div>
 
-        {/* Instructions */}
-        {!userGuess && (
+      {/* ============ QUESTION PANEL ============ */}
+      <AnimatePresence initial={false}>
+        {panelOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="absolute top-6 left-1/2 transform -translate-x-1/2"
+            key="question-panel"
+            initial={{ y: -18, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -18, opacity: 0 }}
+            transition={{ duration: 0.22, ease: 'easeOut' }}
+            className="absolute top-[4.5rem] inset-x-0 z-20 px-3 pointer-events-none"
           >
-            <div className="bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg border border-gray-200">
-              <p className="text-sm font-medium text-gray-700">
-                ⚡ Quick! Click on the map before time runs out
-              </p>
+            <div className="pointer-events-auto mx-auto max-w-3xl">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={questionIndex}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Card className="border-2 border-purple-200 shadow-xl rounded-2xl bg-white/95 backdrop-blur">
+                    <CardContent className="p-4">
+                      <p className="text-lg sm:text-xl font-bold text-gray-800 leading-snug">
+                        {currentQuestion.text}
+                      </p>
+                      {currentQuestion.hint && (
+                        <p className="text-xs sm:text-sm text-gray-500 mt-1.5">
+                          {HINT_EMOJI} {currentQuestion.hint}
+                        </p>
+                      )}
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </AnimatePresence>
             </div>
           </motion.div>
         )}
+      </AnimatePresence>
+
+      {/* Hint */}
+      {!userGuess && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="absolute bottom-[5rem] inset-x-0 z-10 px-3 pointer-events-none"
+        >
+          <p className="mx-auto w-fit text-xs font-medium text-gray-700 bg-white/85 backdrop-blur px-3 py-1.5 rounded-full shadow-sm">
+            {BATTLE_HINT} Click on the map before the time runs out
+          </p>
+        </motion.div>
+      )}
+
+      {/* ============ BOTTOM ACTION BAR ============ */}
+      <div className="absolute bottom-0 inset-x-0 z-30 p-3">
+        <div className="mx-auto max-w-3xl">
+          <Button
+            onClick={handleSubmit}
+            disabled={!userGuess}
+            size="lg"
+            className="w-full rounded-full shadow-2xl font-bold h-12 bg-gradient-to-r from-blue-500 to-purple-500"
+          >
+            <Zap className="w-5 w-5 mr-2" />
+            Submit Answer
+          </Button>
+        </div>
       </div>
     </div>
   );

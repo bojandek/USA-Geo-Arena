@@ -10,6 +10,9 @@ const Toaster = ({ ...props }: ToasterProps) => {
     <Sonner
       theme={theme as ToasterProps["theme"]}
       className="toaster group"
+      // Never wider than the viewport, so a toast can never hang off the edge
+      // on a narrow phone screen.
+      style={{ "--toast-width": "min(340px, calc(100vw - 2rem))" } as React.CSSProperties}
       toastOptions={{
         classNames: {
           toast:

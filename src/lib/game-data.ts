@@ -10,6 +10,9 @@ export interface Question {
   facts: string[]; // 3-4 interesting facts about this location
 }
 
+/** Maximum points a single question can yield. */
+export const MAX_QUESTION_SCORE = 1000;
+
 // Full question pool (35+ questions for daily rotation - all medium difficulty)
 export const questionPool: Question[] = [
   {
@@ -29,17 +32,17 @@ export const questionPool: Question[] = [
   },
   {
     id: '2',
-    text: 'Which stadium hosted the 2014 World Cup final?',
-    lat: -22.9122,
-    lng: -43.2302,
+    text: 'Which stadium hosted the 1998 FIFA World Cup final?',
+    lat: 48.8414,
+    lng: 2.253,
     category: 'event',
-    hint: 'City in Brazil famous for Cristo Redentor',
-    country: 'Brazil',
+    hint: 'Paris, the city of light',
+    country: 'France',
     facts: [
-      '🇩🇪 Germany beat Argentina 1-0 in final',
-      '🏟️ Maracanã Stadium capacity: 78,838',
-      '⚽ Mario Götze scored winning goal',
-      '🎉 First World Cup in Brazil since 1950'
+      '🇫🇷 France beat Brazil 3-0 in the final',
+      '🏟️ Stade de France capacity: 80,698',
+      '⚽ Zinedine Zidane scored twice',
+      '🎉 Last World Cup final before the new millennium',
     ]
   },
   {
@@ -105,8 +108,8 @@ export const questionPool: Question[] = [
   {
     id: '7',
     text: 'Location of the iconic Maracanã Stadium?',
-    lat: -22.9122,
-    lng: -43.2302,
+    lat: -22.9068,
+    lng: -43.1729,
     category: 'stadium',
     hint: 'Rio de Janeiro',
     country: 'Brazil',
@@ -360,8 +363,8 @@ export const questionPool: Question[] = [
   {
     id: '24',
     text: 'Location of the 2016 Summer Olympics?',
-    lat: -22.9068,
-    lng: -43.1729,
+    lat: -22.9122,
+    lng: -43.2302,
     category: 'event',
     hint: 'First South American Olympics',
     country: 'Brazil',
@@ -374,17 +377,17 @@ export const questionPool: Question[] = [
   },
   {
     id: '25',
-    text: 'Where is the famous Nou Camp stadium being renovated?',
-    lat: 41.3809,
-    lng: 2.1228,
+    text: 'Where is the new Estádio da Luz, home of Benfica?',
+    lat: 38.7528,
+    lng: -9.193,
     category: 'stadium',
-    hint: 'FC Barcelona home',
-    country: 'Spain',
+    hint: 'Lisbon, Portugal',
+    country: 'Portugal',
     facts: [
-      '🏗️ €1.5B renovation "Espai Barça"',
-      '🏟️ Will increase capacity to 105,000',
-      '🛍️ Adding shopping center and new museum',
-      '⚽ Barça playing at Olympic Stadium during works'
+      '🏗️ Rebuilt from the ground up in 2003-2005',
+      '🏟️ Capacity 65,000 with a retractable roof',
+      '🇵🇹 Benfica\'s home since 2003',
+      '🎬 The Champions League final was held here in 2005 and 2024',
     ]
   },
   {
@@ -404,17 +407,17 @@ export const questionPool: Question[] = [
   },
   {
     id: '27',
-    text: 'Where did Jesse Owens win 4 gold medals in 1936?',
-    lat: 52.5145,
-    lng: 13.2395,
-    category: 'event',
-    hint: 'Berlin Olympics',
-    country: 'Germany',
+    text: 'Where did Jesse Owens set his long jump world record in 1935?',
+    lat: 42.2808,
+    lng: -83.743,
+    category: 'athlete',
+    hint: 'Ann Arbor, Michigan',
+    country: 'United States',
     facts: [
-      '🥇 100m, 200m, long jump, 4x100m relay',
-      '✊ Defied Nazi racial ideology',
-      '🤝 Friendship with German Luz Long',
-      '⚡ Set 3 world records'
+      '📏 8.13 metres - a record that stood for 25 years',
+      '🤸 The jump was wind-legal over 15.76 m',
+      '🎓 He was a student at the University of Michigan',
+      '🥇 Later won four golds at the 1936 Berlin Olympics',
     ]
   },
   {
@@ -539,46 +542,66 @@ export const questionPool: Question[] = [
   }
 ];
 
-// Simple seeded random number generator for consistent daily rotation
-function seededRandom(seed: number): number {
-  const x = Math.sin(seed) * 10000;
-  return x - Math.floor(x);
+// Deterministic, well-distributed PRNG (mulberry32) seeded from the day key.
+// A plain Math.sin hash produced correlated shuffles on adjacent days.
+function seededRandom(seed: number): () => number {
+  let a = seed >>> 0;
+  return function next() {
+    a |= 0;
+    a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
 }
 
-// Get date string in YYYY-MM-DD format (UTC)
+// Day key (YYYY-MM-DD) of a Date in the user's LOCAL calendar.
 export function getDateString(date: Date = new Date()): string {
-  return date.toISOString().split('T')[0];
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
 }
 
-// Convert date string to seed number
+// Convert a day key into a numeric seed.
 function dateToSeed(dateString: string): number {
   const parts = dateString.split('-');
-  const year = parseInt(parts[0]);
-  const month = parseInt(parts[1]);
-  const day = parseInt(parts[2]);
-  return year * 10000 + month * 100 + day;
+  const year = parseInt(parts[0], 10) || 0;
+  const month = parseInt(parts[1], 10) || 0;
+  const day = parseInt(parts[2], 10) || 0;
+  return (year * 10000 + month * 100 + day) >>> 0;
 }
 
-// Get daily questions based on date (deterministic)
+// Number of questions in a daily challenge.
+export const DAILY_QUESTION_COUNT = 10;
+
+/**
+ * Get daily questions based on a date (deterministic).
+ * The same day always yields the same 10 questions, for every player.
+ */
 export function getDailyQuestions(date: Date = new Date()): Question[] {
   const dateString = getDateString(date);
   const seed = dateToSeed(dateString);
-  
+  const random = seededRandom(seed);
+
   // Create a shuffled copy of the question pool
   const shuffled = [...questionPool];
-  
-  // Fisher-Yates shuffle with seeded random
+
+  // Fisher-Yates shuffle with the seeded PRNG
   for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(seededRandom(seed + i) * (i + 1));
+    const j = Math.floor(random() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
-  
-  // Return first 10 questions
-  return shuffled.slice(0, 10);
+
+  // Return the questions for this day
+  return shuffled.slice(0, DAILY_QUESTION_COUNT);
 }
 
-// Alias for compatibility (gets today's questions)
-export const sampleQuestions = getDailyQuestions();
+/**
+ * Questions used by the practice mode: a stable, hand-picked set that does
+ * NOT change from day to day.
+ */
+export const PRACTICE_QUESTIONS: Question[] = questionPool.slice(0, 10);
 
 // Haversine formula for calculating distance
 export function calculateDistance(
@@ -629,8 +652,11 @@ export function getResultEmoji(score: number): string {
   return '📍';
 }
 
-export function generateShareText(score: number, totalScore: number = 10000): string {
-  const percentage = Math.round((score / totalScore) * 100);
+export function generateShareText(
+  score: number,
+  totalScore: number = MAX_QUESTION_SCORE * DAILY_QUESTION_COUNT,
+): string {
+  const percentage = totalScore > 0 ? Math.round((score / totalScore) * 100) : 0;
   const emoji = getResultEmoji(score);
   return `GeoArena ${emoji}\nMy score: ${score}/${totalScore} (${percentage}%)\n\nCan you do better? 🌍⚽`;
 }

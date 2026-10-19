@@ -1,0 +1,6 @@
+# Google AdSense seller ID.
+# Replace the placeholder with the line Google gives you in your AdSense
+# account (AdSense -> Account -> Site management -> ads.txt) and publish this
+# file at https://yourdomain.com/ads.txt
+#
+# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

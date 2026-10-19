@@ -1,0 +1,102 @@
+
+> geo-arena@0.0.0 test
+> node --test --experimental-strip-types tests/*.test.ts
+
+▶ ad configuration
+  ✔ every placement has an entry in the slot map (0.5228ms)
+  ✔ no slot is active while advertising is not configured (0.1542ms)
+✔ ad configuration (1.5048ms)
+▶ consent store
+  ✔ starts undecided (0.1344ms)
+  ✔ recording a choice updates the snapshot and notifies subscribers (0.2191ms)
+✔ consent store (0.5602ms)
+▶ calculateScore
+  ✔ uses the documented distance bands (0.6894ms)
+  ✔ is monotonic - a closer guess never scores less (0.2175ms)
+✔ calculateScore (1.9221ms)
+▶ calculateDistance
+  ✔ the same point is zero distance (0.2107ms)
+  ✔ matches a known great-circle distance (0.1251ms)
+  ✔ is symmetric (0.1179ms)
+  ✔ handles the antimeridian without exploding (0.0823ms)
+✔ calculateDistance (0.7594ms)
+▶ getDailyQuestions
+  ✔ returns the daily number of questions (0.8257ms)
+  ✔ is deterministic for the same day (0.7782ms)
+  ✔ different days produce different question sets (0.2013ms)
+  ✔ never returns the same location twice (0.5916ms)
+  ✔ the pool itself has no duplicate coordinates (0.1829ms)
+  ✔ uses the local calendar day (0.109ms)
+✔ getDailyQuestions (3.0092ms)
+▶ practice questions
+  ✔ are a stable set that does not rotate daily (0.1336ms)
+✔ practice questions (0.2033ms)
+▶ share text
+  ✔ contains the score, the maximum and the percentage (0.2185ms)
+  ✔ does not divide by zero (0.0644ms)
+  ✔ uses the daily maximum by default (0.0908ms)
+✔ share text (0.4811ms)
+▶ getResultEmoji
+  ✔ returns an emoji for every score band (0.0856ms)
+✔ getResultEmoji (0.1699ms)
+▶ getDateString
+  ✔ formats a local day key (0.0565ms)
+✔ getDateString (0.0966ms)
+▶ date utilities
+  ✔ dateKey uses the local calendar day (1.1507ms)
+  ✔ addDays crosses month and year boundaries (0.2235ms)
+  ✔ diffDays counts calendar days, not 24h blocks (0.1391ms)
+  ✔ isPreviousDay only matches the immediately preceding day (0.2256ms)
+  ✔ formatDayLabel labels today and yesterday (13.437ms)
+✔ date utilities (16.1948ms)
+▶ computeStreak - the four critical scenarios
+  ✔ first ever visit starts the streak at 1 (0.1576ms)
+  ✔ played yesterday continues the streak (0.124ms)
+  ✔ already played today does not inflate the streak (0.1051ms)
+  ✔ missing days resets the streak to 1 (0.1195ms)
+✔ computeStreak - the four critical scenarios (0.7711ms)
+▶ applyDailyCompletion
+  ✔ a new day increments games played, total score and streak (0.5473ms)
+  ✔ replaying the same day does not double count (0.3193ms)
+  ✔ replaying an archived day does not touch progression (0.0834ms)
+  ✔ a missing perfect count never produces NaN (0.0948ms)
+  ✔ level is derived from the total score (0.1033ms)
+  ✔ history is capped at 30 entries, keeping the newest (0.3346ms)
+✔ applyDailyCompletion (1.652ms)
+▶ practice results
+  ✔ practice never changes progression (0.0866ms)
+  ✔ practice keeps the best score (0.0643ms)
+✔ practice results (0.2206ms)
+▶ achievements
+  ✔ the first completed game unlocks first_win (0.1135ms)
+  ✔ achievements are never unlocked twice (0.0871ms)
+  ✔ a perfect game unlocks perfect_10 (0.0944ms)
+  ✔ achievement rules are evaluated against the current state (0.0693ms)
+✔ achievements (0.4732ms)
+▶ leaderboard and archive
+  ✔ the leaderboard is sorted by score and does not mutate the history (0.5659ms)
+  ✔ the archive is built from real history (0.1605ms)
+✔ leaderboard and archive (0.8051ms)
+▶ migrateState
+  ✔ a corrupted payload degrades to a fresh state (0.2366ms)
+  ✔ a legacy ISO timestamp is normalised to a day key (0.1657ms)
+  ✔ legacy history entries are kept and completed (0.0923ms)
+✔ migrateState (0.5837ms)
+▶ map style store
+  ✔ every style has a name, a description and a swatch (0.7186ms)
+  ✔ every style resolves to a usable map source (0.1732ms)
+  ✔ every style is served by CARTO, which is free for commercial use (0.1048ms)
+  ✔ there is a no-labels variant for every theme (0.1168ms)
+  ✔ an unknown id falls back to the default instead of throwing (0.0964ms)
+  ✔ setting a style updates the snapshot and notifies subscribers (0.1617ms)
+  ✔ an unknown style id is ignored (0.0924ms)
+  ✔ setting the same style twice notifies only once (0.9396ms)
+✔ map style store (3.6602ms)
+ℹ tests 56
+ℹ suites 17
+ℹ pass 56
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 155.6079

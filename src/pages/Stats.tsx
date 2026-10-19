@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useGameStore } from '@/lib/game-store';
+import { parseDateKey } from '@/lib/date-utils';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -27,7 +28,9 @@ export default function Stats() {
     perfectGuesses,
     streak,
     level,
-    dailyHistory
+    dailyHistory,
+    practiceGames,
+    practiceBestScore,
   } = useGameStore();
 
   const accuracy = averageScore ? Math.round((averageScore / 10000) * 100) : 0;
@@ -192,6 +195,16 @@ export default function Stats() {
                   {perfectGuesses} × &lt; 25km
                 </Badge>
               </div>
+
+              <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
+                <div className="flex items-center gap-3">
+                  <Target className="w-5 h-5 text-blue-500" />
+                  <span className="text-sm font-medium">Practice Rounds</span>
+                </div>
+                <Badge variant="secondary" className="rounded-full">
+                  {practiceGames} ({practiceBestScore.toLocaleString()} best)
+                </Badge>
+              </div>
             </CardContent>
           </Card>
         </motion.div>
@@ -216,7 +229,7 @@ export default function Stats() {
                     >
                       <div>
                         <p className="text-sm font-medium text-gray-700">
-                          {new Date(result.date).toLocaleDateString('en-US', { 
+                          {parseDateKey(result.date).toLocaleDateString('en-US', {
                             month: 'short', 
                             day: 'numeric',
                             year: 'numeric'

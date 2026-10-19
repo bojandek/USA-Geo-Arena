@@ -1,179 +1,103 @@
-import { useState, useEffect } from 'react';
-import { MapPin, Trophy, Target, ArrowLeft, Share2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import Map, { Marker } from 'react-map-gl/maplibre';
+import { useState } from 'react';
+import Map, { Marker, MapLayerMouseEvent } from 'react-map-gl/maplibre';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  MapPin,
+  Trophy,
+  Target,
+  ArrowLeft,
+  Share2,
+  RotateCcw,
+  BookOpen,
+  Maximize2,
+  Minimize2,
+} from 'lucide-react';
+import { toast } from 'sonner';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { calculateDistance, calculateScore } from '@/lib/game-data';
+
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { useQuizSession } from '@/hooks/useQuizSession';
 import { useGameStore } from '@/lib/game-store';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { ChevronDown } from 'lucide-react';
-import { getMapStyleById, getDefaultMapStyleId, saveMapStylePreference, MAP_STYLES } from '@/lib/map-styles';
+import { generateShareText, PRACTICE_QUESTIONS } from '@/lib/game-data';
+import MapStyleSelect from '@/components/MapStyleSelect';
+import { getMapStyleSource } from '@/lib/map-styles';
+import { useMapStyle } from '@/hooks/useMapStyle';
+import AdSlot from '@/components/AdSlot';
 
-const PRACTICE_QUESTIONS = [
-  {
-    id: 'p1',
-    question: 'Where is Marakana (Rajko Mitić Stadium) located?',
-    answer: { lat: 44.7833, lng: 20.4667 },
-    hint: 'Belgrade, Serbia',
-    category: 'Football'
-  },
-  {
-    id: 'p2',
-    question: 'Location of the Wimbledon tennis complex?',
-    answer: { lat: 51.4344, lng: -0.2141 },
-    hint: 'London, United Kingdom',
-    category: 'Tennis'
-  },
-  {
-    id: 'p3',
-    question: 'Where is Madison Square Garden located?',
-    answer: { lat: 40.7505, lng: -73.9934 },
-    hint: 'New York, USA',
-    category: 'Basketball'
-  },
-  {
-    id: 'p4',
-    question: 'Location of Circuit de Monaco?',
-    answer: { lat: 43.7347, lng: 7.4206 },
-    hint: 'Monaco',
-    category: 'Formula 1'
-  },
-  {
-    id: 'p5',
-    question: 'Where is MCG (Melbourne Cricket Ground) located?',
-    answer: { lat: -37.8200, lng: 144.9834 },
-    hint: 'Melbourne, Australia',
-    category: 'Cricket'
-  },
-  {
-    id: 'p6',
-    question: 'Location of Camp Nou stadium?',
-    answer: { lat: 41.3809, lng: 2.1228 },
-    hint: 'Barcelona, Spain',
-    category: 'Football'
-  },
-  {
-    id: 'p7',
-    question: 'Where is Tokyo Dome located?',
-    answer: { lat: 35.7056, lng: 139.7519 },
-    hint: 'Tokyo, Japan',
-    category: 'Baseball'
-  },
-  {
-    id: 'p8',
-    question: 'Location of Wembley Stadium?',
-    answer: { lat: 51.5560, lng: -0.2795 },
-    hint: 'London, United Kingdom',
-    category: 'Football'
-  },
-  {
-    id: 'p9',
-    question: 'Where is the Allianz Arena located?',
-    answer: { lat: 48.2188, lng: 11.6247 },
-    hint: 'Munich, Germany',
-    category: 'Football'
-  },
-  {
-    id: 'p10',
-    question: 'Location of Fenway Park?',
-    answer: { lat: 42.3467, lng: -71.0972 },
-    hint: 'Boston, USA',
-    category: 'Baseball'
-  }
-];
+interface PracticeModeProps {
+  onBack?: () => void;
+}
 
-export default function PracticeMode({ onBack }: { onBack: () => void }) {
-  const { updateScore } = useGameStore();
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [userGuess, setUserGuess] = useState<{ lat: number; lng: number } | null>(null);
-  const [showResult, setShowResult] = useState(false);
-  const [score, setScore] = useState(0);
-  const [totalScore, setTotalScore] = useState(0);
-  const [answers, setAnswers] = useState<Array<{ question: string; score: number; distance: number }>>([]);
-  const [gameComplete, setGameComplete] = useState(false);
-  const [mapStyleId, setMapStyleId] = useState('voyager');
+export default function PracticeMode({ onBack }: PracticeModeProps) {
+  const { completePractice } = useGameStore();
+  const { mapStyleId } = useMapStyle();
 
-  useEffect(() => {
-    const savedStyle = localStorage.getItem('mapStyle');
-    if (savedStyle) {
-      setMapStyleId(savedStyle);
-    }
-  }, []);
+  // The question panel floats above the map and can be collapsed.
+  const [panelOpen, setPanelOpen] = useState(true);
 
-  const question = PRACTICE_QUESTIONS[currentQuestion];
+  const session = useQuizSession({
+    questions: PRACTICE_QUESTIONS,
+    onComplete: ({ totalScore }) => {
+      // Practice is tracked separately and never inflates the daily progression.
+      completePractice(totalScore);
+    },
+  });
 
-  const handleMapClick = (event: any) => {
-    if (showResult) return;
-    const { lngLat } = event;
-    setUserGuess({ lat: lngLat.lat, lng: lngLat.lng });
+  const {
+    currentQuestion,
+    currentQuestionIndex,
+    userGuess,
+    showResult,
+    distance,
+    questionScore,
+    totalScore,
+    answers,
+    isComplete,
+    isLastQuestion,
+  } = session;
+
+  const maxScore = PRACTICE_QUESTIONS.length * 1000;
+  const percentage = maxScore > 0 ? Math.round((totalScore / maxScore) * 100) : 0;
+  const averageScore = answers.length ? Math.round(totalScore / answers.length) : 0;
+  const accurateCount = answers.filter((a) => a.score >= 800).length;
+
+  const handleMapClick = (event: MapLayerMouseEvent) => {
+    if (showResult || isComplete) return;
+    session.guess(event.lngLat.lat, event.lngLat.lng);
   };
 
-  const handleSubmit = () => {
-    if (!userGuess) return;
+  const handleShare = async () => {
+    const shareText = generateShareText(totalScore, maxScore);
 
-    const distance = calculateDistance(
-      userGuess.lat,
-      userGuess.lng,
-      question.answer.lat,
-      question.answer.lng
-    );
-    const points = calculateScore(distance);
-
-    setScore(points);
-    setTotalScore(prev => prev + points);
-    setAnswers(prev => [...prev, { question: question.question, score: points, distance }]);
-    setShowResult(true);
-  };
-
-  const handleNext = () => {
-    if (currentQuestion < PRACTICE_QUESTIONS.length - 1) {
-      setCurrentQuestion(prev => prev + 1);
-      setUserGuess(null);
-      setShowResult(false);
-      setScore(0);
-    } else {
-      setGameComplete(true);
-      updateScore(totalScore);
-    }
-  };
-
-  const handleRestart = () => {
-    setCurrentQuestion(0);
-    setUserGuess(null);
-    setShowResult(false);
-    setScore(0);
-    setTotalScore(0);
-    setAnswers([]);
-    setGameComplete(false);
-  };
-
-  const handleShare = () => {
-    const percentage = Math.round((totalScore / (PRACTICE_QUESTIONS.length * 1000)) * 100);
-    const text = `GeoArena Practice Mode\nMy score: ${totalScore}/${PRACTICE_QUESTIONS.length * 1000} (${percentage}%)\n\nCan you do better? 🌍⚽`;
     if (navigator.share) {
-      navigator.share({ text });
+      try {
+        await navigator.share({ text: shareText, url: window.location.href });
+      } catch {
+        // The user dismissed the share sheet.
+      }
     } else {
-      navigator.clipboard.writeText(text);
-      alert('Results copied to clipboard!');
+      try {
+        await navigator.clipboard.writeText(shareText);
+        toast.success('Results copied to clipboard!');
+      } catch {
+        toast.error('Could not copy to clipboard');
+      }
     }
   };
 
-  if (gameComplete) {
-    const avgScore = Math.round(totalScore / PRACTICE_QUESTIONS.length);
-    const accuracy = answers.filter(a => a.score >= 800).length;
-
+  // Result screen
+  if (isComplete) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-4">
-        <div className="max-w-2xl mx-auto pt-8">
-          <Button
-          variant="ghost"
-          className="mb-4 text-white hover:bg-white/10"
-          onClick={onBack}
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back
-        </Button>
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-4 flex items-center justify-center">
+        <div className="max-w-2xl w-full pt-8">
+          {onBack && (
+            <Button variant="ghost" className="mb-4 text-white hover:bg-white/10" onClick={onBack}>
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back
+            </Button>
+          )}
 
           <Card className="p-8 bg-slate-800/50 border-slate-700 backdrop-blur-sm">
             <div className="text-center space-y-6">
@@ -182,7 +106,9 @@ export default function PracticeMode({ onBack }: { onBack: () => void }) {
               </div>
 
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white font-script mb-3">Training Complete!</h2>
+                <h2 className="text-4xl md:text-5xl font-bold text-white font-script mb-3">
+                  Training Complete!
+                </h2>
                 <p className="text-lg text-slate-300">Great job! 🎯</p>
               </div>
 
@@ -192,31 +118,35 @@ export default function PracticeMode({ onBack }: { onBack: () => void }) {
                   <div className="text-sm text-slate-400">Total Points</div>
                 </div>
                 <div className="bg-slate-700/50 rounded-lg p-4">
-                  <div className="text-3xl font-bold text-amber-400 mb-1">{avgScore}</div>
+                  <div className="text-3xl font-bold text-amber-400 mb-1">{averageScore}</div>
                   <div className="text-sm text-slate-400">Average</div>
                 </div>
                 <div className="bg-slate-700/50 rounded-lg p-4">
-                  <div className="text-3xl font-bold text-green-400 mb-1">{accuracy}</div>
+                  <div className="text-3xl font-bold text-green-400 mb-1">{accurateCount}</div>
                   <div className="text-sm text-slate-400">Accurate</div>
                 </div>
               </div>
 
-              <div className="space-y-2 max-h-64 overflow-y-auto">
+              <div className="space-y-2 max-h-64 overflow-y-auto text-left">
                 {answers.map((answer, idx) => (
                   <div
-                    key={idx}
+                    key={answer.questionId + idx}
                     className="flex items-center justify-between bg-slate-700/30 rounded-lg p-3 text-sm"
                   >
-                    <span className="text-slate-300 flex-1 text-left">
-                      {idx + 1}. {answer.question.substring(0, 40)}...
+                    <span className="text-slate-300 flex-1 min-w-0 truncate">
+                      {idx + 1}. {answer.question}
                     </span>
-                    <div className="flex items-center gap-3">
-                      <span className="text-slate-400">{answer.distance.toFixed(0)} km</span>
-                      <span className={`font-bold ${
-                        answer.score >= 800 ? 'text-green-400' :
-                        answer.score >= 500 ? 'text-amber-400' :
-                        'text-orange-400'
-                      }`}>
+                    <div className="flex items-center gap-3 shrink-0 ml-2">
+                      <span className="text-slate-400">{Math.round(answer.distance)} km</span>
+                      <span
+                        className={`font-bold ${
+                          answer.score >= 800
+                            ? 'text-green-400'
+                            : answer.score >= 500
+                              ? 'text-amber-400'
+                              : 'text-orange-400'
+                        }`}
+                      >
                         {answer.score}
                       </span>
                     </div>
@@ -224,7 +154,7 @@ export default function PracticeMode({ onBack }: { onBack: () => void }) {
                 ))}
               </div>
 
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Button
                   onClick={handleShare}
                   variant="outline"
@@ -234,182 +164,207 @@ export default function PracticeMode({ onBack }: { onBack: () => void }) {
                   Share
                 </Button>
                 <Button
-                  onClick={handleRestart}
+                  onClick={session.restart}
                   className="flex-1 bg-gradient-to-r from-primary to-secondary hover:opacity-90"
                 >
+                  <RotateCcw className="mr-2 h-4 w-4" />
                   Play Again
                 </Button>
               </div>
             </div>
           </Card>
+
+          <AdSlot slot="afterGame" className="mt-4" />
         </div>
       </div>
     );
   }
 
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      <div className="container mx-auto p-4 max-w-4xl">
-        <div className="mb-4 flex items-center justify-between">
-          <Button
-            variant="ghost"
-            className="text-white hover:bg-white/10"
-            onClick={onBack}
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back
-          </Button>
-          <div className="flex items-center gap-4">
-            <div className="text-white text-sm">
-              Question {currentQuestion + 1}/{PRACTICE_QUESTIONS.length}
-            </div>
-            <div className="bg-slate-800/50 px-4 py-2 rounded-full border border-slate-700">
-              <span className="text-primary font-bold">{totalScore}</span>
-              <span className="text-slate-400 ml-1">points</span>
-            </div>
-          </div>
-        </div>
-
-        <Card className="mb-4 p-6 bg-slate-800/50 border-slate-700 backdrop-blur-sm">
-          <div className="flex items-start gap-4">
-            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <MapPin className="w-6 h-6 text-white" />
-            </div>
-            <div className="flex-1">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-xs px-2 py-1 bg-slate-700 text-slate-300 rounded-full">
-                  {question.category}
-                </span>
-              </div>
-              <h2 className="text-xl font-bold text-white mb-2">{question.question}</h2>
-              <p className="text-slate-400 text-sm flex items-center gap-2">
-                <Target className="w-4 h-4" />
-                Hint: {question.hint}
-              </p>
-            </div>
-          </div>
-        </Card>
-
-        {/* Map Style Selector */}
-        <div className="mb-4 flex items-center">
-          <DropdownMenu className="relative">
-            <DropdownMenuTrigger className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-full hover:bg-gray-100 transition-colors">
-              <MapPin className="w-4 h-4 text-gray-500" />
-              <span className="text-sm font-medium text-gray-700">{getMapStyleById(mapStyleId).name}</span>
-              <ChevronDown className="w-4 h-4 text-gray-500" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-48 bg-white border rounded-md shadow-lg p-1">
-              {MAP_STYLES.map(style => (
-                <DropdownMenuItem
-                  key={style.id}
-                  onClick={() => {
-                    setMapStyleId(style.id);
-                    saveMapStylePreference(style.id);
-                  }}
-                  className={`flex items-center gap-2 px-3 py-2 text-sm ${mapStyleId === style.id ? 'bg-primary/10 text-primary' : 'text-gray-700 hover:bg-gray-100'}`}
-                >
-                  <div className="w-5 h-5 flex-shrink-0">
-                    {style.id === 'satellite' && (
-                      <div className="bg-gray-200 w-4 h-4 rounded flex items-center justify-center">
-                        <MapPin className="w-3 h-3 text-gray-600" />
-                      </div>
-                    )}
-                    {style.id === 'dark-matter' && (
-                      <div className="bg-gray-800 w-4 h-4 rounded flex items-center justify-center">
-                        <MapPin className="w-3 h-3 text-white" />
-                      </div>
-                    )}
-                    {style.id === 'positron' && (
-                      <div className="bg-gray-100 w-4 h-4 rounded flex items-center justify-center">
-                        <MapPin className="w-3 h-3 text-gray-600" />
-                      </div>
-                    )}
-                    {style.id === 'terrain' && (
-                      <div className="bg-green-100 w-4 h-4 rounded flex items-center justify-center">
-                        <MapPin className="w-3 h-3 text-green-600" />
-                      </div>
-                    )}
-                    {style.id === 'voyager' && (
-                      <div className="bg-blue-100 w-4 h-4 rounded flex items-center justify-center">
-                        <MapPin className="w-3 h-3 text-blue-600" />
-                      </div>
-                    )}
-                  </div>
-                  <span className="flex-1">{style.name}</span>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-
-        <Card className="overflow-hidden border-slate-700">
-          <div className="relative h-[500px]">
-            <Map
-              initialViewState={{
-                latitude: 20,
-                longitude: 0,
-                zoom: 1.5
-              }}
-              style={{ width: '100%', height: '100%' }}
-              mapStyle={getMapStyleById(mapStyleId).url}
-              onClick={handleMapClick}
-            >
+    <div className="h-[100dvh] w-full relative overflow-hidden overflow-x-clip bg-slate-900">
+      {/* ============ MAP - the base layer, it fills the whole screen ============ */}
+      <div className="absolute inset-0">
+        <Map
+          initialViewState={{ latitude: 20, longitude: 0, zoom: 1.5 }}
+          style={{ width: '100%', height: '100%' }}
+          mapStyle={getMapStyleSource(mapStyleId)}
+          onClick={handleMapClick}
+        >
               {userGuess && !showResult && (
                 <Marker latitude={userGuess.lat} longitude={userGuess.lng}>
                   <div className="w-8 h-8 bg-primary rounded-full border-4 border-white shadow-lg animate-pulse" />
                 </Marker>
               )}
-              {showResult && userGuess && (
+              {showResult && userGuess && currentQuestion && (
                 <>
                   <Marker latitude={userGuess.lat} longitude={userGuess.lng}>
                     <div className="w-8 h-8 bg-primary rounded-full border-4 border-white shadow-lg" />
                   </Marker>
-                  <Marker latitude={question.answer.lat} longitude={question.answer.lng}>
+                  <Marker latitude={currentQuestion.lat} longitude={currentQuestion.lng}>
                     <div className="w-8 h-8 bg-green-500 rounded-full border-4 border-white shadow-lg" />
                   </Marker>
                 </>
               )}
             </Map>
+      </div>
 
-            {showResult && (
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10">
-                <Card className="px-6 py-4 bg-slate-900/95 border-slate-700 backdrop-blur-sm">
-                  <div className="text-center">
-                    <div className="text-4xl font-bold text-primary mb-1">+{score}</div>
-                    <div className="text-sm text-slate-400">
-                      {calculateDistance(
-                        userGuess!.lat,
-                        userGuess!.lng,
-                        question.answer.lat,
-                        question.answer.lng
-                      ).toFixed(0)} km
-                    </div>
-                  </div>
-                </Card>
-              </div>
-            )}
-          </div>
-        </Card>
-
-        <div className="mt-4 flex gap-3">
-          {!showResult ? (
+      {/* ============ TOP BAR ============ */}
+      <div className="absolute top-0 inset-x-0 z-30 pointer-events-none">
+        <div className="pointer-events-auto px-3 pt-3 flex items-center gap-1.5">
+          {onBack ? (
             <Button
-              onClick={handleSubmit}
-              disabled={!userGuess}
-              className="flex-1 bg-gradient-to-r from-primary to-secondary hover:opacity-90 h-12 text-lg"
+              variant="secondary"
+              onClick={onBack}
+              size="icon"
+              aria-label="Back"
+              className="rounded-full shadow-md bg-slate-800/80 text-slate-200 hover:bg-slate-700/90 shrink-0"
             >
-              Submit Choice
+              <ArrowLeft className="h-4 w-4" />
             </Button>
           ) : (
-            <Button
-              onClick={handleNext}
-              className="flex-1 bg-gradient-to-r from-primary to-secondary hover:opacity-90 h-12 text-lg"
-            >
-              {currentQuestion < PRACTICE_QUESTIONS.length - 1 ? 'Next Question' : 'View Results'}
-            </Button>
+            <div className="flex items-center gap-2 bg-slate-800/80 backdrop-blur rounded-full px-3 py-1.5 shadow-md shrink-0">
+              <BookOpen className="h-4 w-4 text-primary" />
+              <span className="text-xs font-semibold text-white">Practice</span>
+            </div>
           )}
+
+          <div className="flex-1" />
+
+          <div className="flex items-center gap-1 shrink-0 min-w-0">
+            <span className="bg-slate-800/80 backdrop-blur rounded-full px-2.5 py-1.5 shadow-md text-xs font-semibold text-slate-300">
+              {currentQuestionIndex + 1}/{PRACTICE_QUESTIONS.length}
+            </span>
+            <span className="bg-slate-800/80 backdrop-blur rounded-full px-2.5 py-1.5 shadow-md text-xs text-slate-400">
+              <span className="text-primary font-bold">{totalScore}</span>
+              <span className="ml-1">pts</span>
+            </span>
+
+            <MapStyleSelect className="bg-slate-800/80 backdrop-blur text-slate-200 shadow-md" />
+
+            <Button
+              variant="secondary"
+              size="icon"
+              onClick={() => setPanelOpen((open) => !open)}
+              aria-label={panelOpen ? 'Hide the question and focus the map' : 'Show the question'}
+              title={panelOpen ? 'Focus the map' : 'Show the question'}
+              className="rounded-full shadow-md bg-slate-800/80 text-slate-200 hover:bg-slate-700/90 h-9 w-9"
+            >
+              {panelOpen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
+            </Button>
+          </div>
+        </div>
+
+        {/* Hairline progress */}
+        <div className="px-3 mt-2">
+          <div className="h-1 rounded-full bg-white/10 overflow-hidden">
+            <div
+              className="h-full rounded-full bg-gradient-to-r from-primary to-secondary transition-all duration-500"
+              style={{
+                width: `${((currentQuestionIndex + (showResult ? 1 : 0)) / PRACTICE_QUESTIONS.length) * 100}%`,
+              }}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* ============ QUESTION PANEL ============ */}
+      <AnimatePresence initial={false}>
+        {panelOpen && (
+          <motion.div
+            key="question-panel"
+            initial={{ y: -18, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -18, opacity: 0 }}
+            transition={{ duration: 0.22, ease: 'easeOut' }}
+            className="absolute top-[4.75rem] inset-x-0 z-20 px-3 pointer-events-none"
+          >
+            <div className="pointer-events-auto mx-auto max-w-3xl">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentQuestionIndex}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Card className="border-slate-700 bg-slate-900/90 backdrop-blur shadow-2xl">
+                    <CardContent className="p-4">
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                          <MapPin className="h-5 w-5 text-white" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          {currentQuestion && (
+                            <>
+                              <Badge className="text-[10px] px-2 py-0.5 mb-1.5 bg-slate-700 text-slate-300 rounded-full border-0 capitalize">
+                                {currentQuestion.category}
+                              </Badge>
+                              <h2 className="text-lg sm:text-xl font-bold text-white leading-snug">
+                                {currentQuestion.text}
+                              </h2>
+                              {currentQuestion.hint && (
+                                <p className="text-slate-400 text-sm mt-1.5 flex items-center gap-2">
+                                  <Target className="w-4 h-4 shrink-0" />
+                                  {currentQuestion.hint}
+                                </p>
+                              )}
+                            </>
+                          )}
+                        </div>
+                      </div>
+
+                      {showResult && (
+                        <motion.div
+                          initial={{ scale: 0.97, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          className="mt-3 flex items-center justify-between rounded-xl bg-slate-800/70 border border-slate-700 px-4 py-2.5"
+                        >
+                          <div>
+                            <p className="text-xl font-bold text-primary">+{questionScore}</p>
+                            <p className="text-xs text-slate-400">{Math.round(distance)} km away</p>
+                          </div>
+                          <div className="text-3xl">
+                            {questionScore >= 900 ? '🎯' : questionScore >= 600 ? '👍' : '📍'}
+                          </div>
+                        </motion.div>
+                      )}
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Hint */}
+      {!userGuess && !showResult && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="absolute bottom-[5rem] inset-x-0 z-10 px-3 pointer-events-none"
+        >
+          <p className="mx-auto w-fit text-xs font-medium text-slate-300 bg-slate-900/70 backdrop-blur px-3 py-1.5 rounded-full">
+            👆 Click the map to mark the location
+          </p>
+        </motion.div>
+      )}
+
+      {/* ============ BOTTOM ACTION BAR ============ */}
+      <div className="absolute bottom-0 inset-x-0 z-30 p-3">
+        <div className="mx-auto max-w-3xl">
+          <Button
+            onClick={showResult ? session.next : session.submit}
+            disabled={!showResult && !userGuess}
+            className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 h-12 text-lg font-bold rounded-full shadow-2xl"
+          >
+            {showResult ? (isLastQuestion ? 'View Results' : 'Next Question') : 'Submit Answer'}
+          </Button>
         </div>
       </div>
     </div>
   );
 }
+
+

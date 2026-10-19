@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useGameStore } from '@/lib/game-store';
+import { parseDateKey } from '@/lib/date-utils';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -8,7 +9,7 @@ import { ArrowLeft, Trophy, Medal, Award } from 'lucide-react';
 
 export default function Leaderboard() {
   const navigate = useNavigate();
-  const { getLeaderboard, dailyHistory } = useGameStore();
+  const { getLeaderboard, gamesPlayed } = useGameStore();
 
   const topScores = getLeaderboard();
 
@@ -90,7 +91,7 @@ export default function Leaderboard() {
                         {/* Date & Accuracy */}
                         <div className="flex-1">
                           <p className="font-bold text-gray-800">
-                            {new Date(result.date).toLocaleDateString('en-US', {
+                            {parseDateKey(result.date).toLocaleDateString('en-US', {
                               weekday: 'short',
                               month: 'short',
                               day: 'numeric',
@@ -153,7 +154,7 @@ export default function Leaderboard() {
                   <div className="text-center p-4 bg-blue-50 rounded-xl">
                     <Medal className="w-6 h-6 mx-auto mb-1 text-blue-500" />
                     <p className="text-2xl font-bold text-gray-800">
-                      {dailyHistory.length}
+                      {gamesPlayed}
                     </p>
                     <p className="text-xs text-gray-600">Total Games</p>
                   </div>

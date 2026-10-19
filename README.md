@@ -5,13 +5,13 @@ Zabavna i adiktivna igra gde pogađaš lokacije svetskih sportskih stadiona, dog
 ## ✨ Funkcionalnosti
 
 ### 🎯 Dnevni izazov
-- 5 novih pitanja svakog dana
+- 10 novih pitanja svakog dana
 - Klikni na mapu da pogađaš lokacije
 - Osvoji do 1000 poena po pitanju (zasnovano na tačnosti)
 - Rezultati se čuvaju lokalno
 
-### ⚔️ Battle Mode (Multiplayer)
-- Real-time takmičenje protiv drugih igrača
+### ⚔️ Battle Mode
+- Takmičenje protiv AI protivnika (nije pravi multiplayer)
 - 3 runde po 30 sekundi
 - Brza i uzbudljiva akcija
 
@@ -71,7 +71,13 @@ npm install
 # Pokretanje dev servera
 npm run dev
 
-# Build za produkciju
+# Unit testovi (node:test)
+npm test
+
+# Provera tipova
+npm run typecheck
+
+# Build za produkciju (typecheck + build)
 npm run build
 ```
 
@@ -100,7 +106,6 @@ Aplikacija je u potpunosti responsive i optimizovana za:
 - [ ] Social login (Google, Facebook)
 - [ ] Push notifikacije za dnevne izazove
 - [ ] Različiti game mode-ovi
-- [ ] Achievements sistem
 
 ## 📄 Licenca
 
