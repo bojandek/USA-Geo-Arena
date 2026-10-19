@@ -429,7 +429,7 @@ const Index = () => {
                     <div className="mb-6 p-5 bg-yellow-100 border-2 border-yellow-300 rounded-2xl">
                       <Sparkles className="w-8 h-8 mx-auto mb-3 text-yellow-600" />
                       <p className="text-xl font-script font-bold text-yellow-800">
-                        Bonus: +{streak * 10} points
+                        Bonus: +{Math.min(streak * 2, 200)} points
                       </p>
                     </div>
                   )}
