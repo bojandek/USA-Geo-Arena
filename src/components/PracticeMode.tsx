@@ -8,7 +8,7 @@ import { calculateDistance, calculateScore } from '@/lib/game-data';
 import { useGameStore } from '@/lib/game-store';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { ChevronDown } from 'lucide-react';
-import { getMapStyleById, getDefaultMapStyleId, saveMapStylePreference } from '@/lib/map-styles';
+import { getMapStyleById, getDefaultMapStyleId, saveMapStylePreference, MAP_STYLES } from '@/lib/map-styles';
 
 const PRACTICE_QUESTIONS = [
   {
@@ -289,6 +289,58 @@ export default function PracticeMode({ onBack }: { onBack: () => void }) {
             </div>
           </div>
         </Card>
+
+        {/* Map Style Selector */}
+        <div className="mb-4 flex items-center">
+          <DropdownMenu className="relative">
+            <DropdownMenuTrigger className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-full hover:bg-gray-100 transition-colors">
+              <MapPin className="w-4 h-4 text-gray-500" />
+              <span className="text-sm font-medium text-gray-700">{getMapStyleById(mapStyleId).name}</span>
+              <ChevronDown className="w-4 h-4 text-gray-500" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-48 bg-white border rounded-md shadow-lg p-1">
+              {MAP_STYLES.map(style => (
+                <DropdownMenuItem
+                  key={style.id}
+                  onClick={() => {
+                    setMapStyleId(style.id);
+                    saveMapStylePreference(style.id);
+                  }}
+                  className={`flex items-center gap-2 px-3 py-2 text-sm ${mapStyleId === style.id ? 'bg-primary/10 text-primary' : 'text-gray-700 hover:bg-gray-100'}`}
+                >
+                  <div className="w-5 h-5 flex-shrink-0">
+                    {style.id === 'satellite' && (
+                      <div className="bg-gray-200 w-4 h-4 rounded flex items-center justify-center">
+                        <MapPin className="w-3 h-3 text-gray-600" />
+                      </div>
+                    )}
+                    {style.id === 'dark-matter' && (
+                      <div className="bg-gray-800 w-4 h-4 rounded flex items-center justify-center">
+                        <MapPin className="w-3 h-3 text-white" />
+                      </div>
+                    )}
+                    {style.id === 'positron' && (
+                      <div className="bg-gray-100 w-4 h-4 rounded flex items-center justify-center">
+                        <MapPin className="w-3 h-3 text-gray-600" />
+                      </div>
+                    )}
+                    {style.id === 'terrain' && (
+                      <div className="bg-green-100 w-4 h-4 rounded flex items-center justify-center">
+                        <MapPin className="w-3 h-3 text-green-600" />
+                      </div>
+                    )}
+                    {style.id === 'voyager' && (
+                      <div className="bg-blue-100 w-4 h-4 rounded flex items-center justify-center">
+                        <MapPin className="w-3 h-3 text-blue-600" />
+                      </div>
+                    )}
+                  </div>
+                  <span className="flex-1">{style.name}</span>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
 
         <Card className="overflow-hidden border-slate-700">
           <div className="relative h-[500px]">
