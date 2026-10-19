@@ -48,9 +48,16 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
   const [totalDistance, setTotalDistance] = useState<number>(0);
   const [perfectGuessCount, setPerfectGuessCount] = useState<number>(0);
   const mapRef = useRef<any>(null);
-  const [mapStyleId, setMapStyleId] = useState(getDefaultMapStyleId());
-
-  const { dailyCompleted, completeDaily, checkStreak } = useGameStore();
+  const [mapStyleId, setMapStyleId] = useState('voyager');
+  
+    useEffect(() => {
+      const savedStyle = localStorage.getItem('mapStylePreference');
+      if (savedStyle) {
+        setMapStyleId(savedStyle);
+      }
+    }, []);
+  
+    const { dailyCompleted, completeDaily, checkStreak } = useGameStore();
   const currentQuestion = dailyQuestions[currentQuestionIndex];
 
   // Create line GeoJSON when showing result

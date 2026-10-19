@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MapPin, Trophy, Target, ArrowLeft, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -92,7 +92,14 @@ export default function PracticeMode({ onBack }: { onBack: () => void }) {
   const [totalScore, setTotalScore] = useState(0);
   const [answers, setAnswers] = useState<Array<{ question: string; score: number; distance: number }>>([]);
   const [gameComplete, setGameComplete] = useState(false);
-  const [mapStyleId, setMapStyleId] = useState(getDefaultMapStyleId());
+  const [mapStyleId, setMapStyleId] = useState('voyager');
+
+  useEffect(() => {
+    const savedStyle = localStorage.getItem('mapStylePreference');
+    if (savedStyle) {
+      setMapStyleId(savedStyle);
+    }
+  }, []);
 
   const question = PRACTICE_QUESTIONS[currentQuestion];
 
