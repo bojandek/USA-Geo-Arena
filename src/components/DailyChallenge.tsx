@@ -49,13 +49,13 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
   const [perfectGuessCount, setPerfectGuessCount] = useState<number>(0);
   const mapRef = useRef<any>(null);
   const [mapStyleId, setMapStyleId] = useState('voyager');
-  
-    useEffect(() => {
-      const savedStyle = localStorage.getItem('mapStylePreference');
-      if (savedStyle) {
-        setMapStyleId(savedStyle);
-      }
-    }, []);
+   
+      useEffect(() => {
+        const savedStyle = localStorage.getItem('mapStyle');
+        if (savedStyle) {
+          setMapStyleId(savedStyle);
+        }
+      }, []);
   
     const { dailyCompleted, completeDaily, checkStreak } = useGameStore();
   const currentQuestion = dailyQuestions[currentQuestionIndex];

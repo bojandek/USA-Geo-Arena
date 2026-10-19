@@ -31,7 +31,14 @@ export default function BattleMode({ onExit }: BattleModeProps) {
   const [playerScore, setPlayerScore] = useState(0);
   const [opponentScore, setOpponentScore] = useState(0);
   const [round, setRound] = useState(1);
-  const [mapStyleId, setMapStyleId] = useState(getDefaultMapStyleId());
+  const [mapStyleId, setMapStyleId] = useState('voyager');
+  
+    useEffect(() => {
+      const savedStyle = localStorage.getItem('mapStyle');
+      if (savedStyle) {
+        setMapStyleId(savedStyle);
+      }
+    }, []);
   const maxRounds = 3;
 
   // Opponent data (simulirano)

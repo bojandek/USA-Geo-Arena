@@ -95,7 +95,7 @@ export default function PracticeMode({ onBack }: { onBack: () => void }) {
   const [mapStyleId, setMapStyleId] = useState('voyager');
 
   useEffect(() => {
-    const savedStyle = localStorage.getItem('mapStylePreference');
+    const savedStyle = localStorage.getItem('mapStyle');
     if (savedStyle) {
       setMapStyleId(savedStyle);
     }
