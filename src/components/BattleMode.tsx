@@ -6,14 +6,17 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { 
-  sampleQuestions, 
-  calculateDistance, 
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { ChevronDown } from 'lucide-react';
+import {
+  sampleQuestions,
+  calculateDistance,
   calculateScore,
-  type Question 
+  type Question
 } from '@/lib/game-data';
 import { toast } from 'sonner';
 import 'maplibre-gl/dist/maplibre-gl.css';
+import { getMapStyleById, getDefaultMapStyleId, saveMapStylePreference } from '@/lib/map-styles';
 
 interface BattleModeProps {
   onExit: () => void;
@@ -28,6 +31,7 @@ export default function BattleMode({ onExit }: BattleModeProps) {
   const [playerScore, setPlayerScore] = useState(0);
   const [opponentScore, setOpponentScore] = useState(0);
   const [round, setRound] = useState(1);
+  const [mapStyleId, setMapStyleId] = useState(getDefaultMapStyleId());
   const maxRounds = 3;
 
   // Opponent data (simulirano)
@@ -296,6 +300,56 @@ export default function BattleMode({ onExit }: BattleModeProps) {
             <Badge className="bg-white/20 backdrop-blur-sm text-white border-white/30 px-4 py-2">
               Round {round}/{maxRounds}
             </Badge>
+
+            {/* Map Style Selector */}
+            <DropdownMenu className="relative">
+              <DropdownMenuTrigger className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full hover:bg-white/30 transition-colors">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium">{getMapStyleById(mapStyleId).name}</span>
+                <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-48 bg-white border rounded-md shadow-lg p-1">
+                {MAP_STYLES.map(style => (
+                  <DropdownMenuItem
+                    key={style.id}
+                    onClick={() => {
+                      setMapStyleId(style.id);
+                      saveMapStylePreference(style.id);
+                    }}
+                    className={"flex items-center gap-2 px-3 py-2 text-sm " + (mapStyleId === style.id ? "bg-primary/10 text-primary" : "text-gray-700 hover:bg-gray-100")}
+                  >
+                    <div className="w-5 h-5 flex-shrink-0">
+                      {style.id === 'satellite' && (
+                        <div className="bg-gray-200 w-4 h-4 rounded flex items-center justify-center">
+                          <MapPin className="w-3 h-3 text-gray-600" />
+                        </div>
+                      )}
+                      {style.id === 'dark-matter' && (
+                        <div className="bg-gray-800 w-4 h-4 rounded flex items-center justify-center">
+                          <MapPin className="w-3 h-3 text-white" />
+                        </div>
+                      )}
+                      {style.id === 'positron' && (
+                        <div className="bg-gray-100 w-4 h-4 rounded flex items-center justify-center">
+                          <MapPin className="w-3 h-3 text-gray-600" />
+                        </div>
+                      )}
+                      {style.id === 'terrain' && (
+                        <div className="bg-green-100 w-4 h-4 rounded flex items-center justify-center">
+                          <MapPin className="w-3 h-3 text-green-600" />
+                        </div>
+                      )}
+                      {style.id === 'voyager' && (
+                        <div className="bg-blue-100 w-4 h-4 rounded flex items-center justify-center">
+                          <MapPin className="w-3 h-3 text-blue-600" />
+                        </div>
+                      )}
+                    </div>
+                    <span className="flex-1">{style.name}</span>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* Scores */}
@@ -347,7 +401,7 @@ export default function BattleMode({ onExit }: BattleModeProps) {
             zoom: 2
           }}
           style={{ width: '100%', height: '100%' }}
-          mapStyle="https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json"
+          mapStyle={getMapStyleById(mapStyleId).url}
           onClick={handleMapClick}
         >
           {userGuess && (

@@ -6,6 +6,9 @@ import Map, { Marker } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { calculateDistance, calculateScore } from '@/lib/game-data';
 import { useGameStore } from '@/lib/game-store';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { ChevronDown } from 'lucide-react';
+import { getMapStyleById, getDefaultMapStyleId, saveMapStylePreference } from '@/lib/map-styles';
 
 const PRACTICE_QUESTIONS = [
   {
@@ -89,6 +92,7 @@ export default function PracticeMode({ onBack }: { onBack: () => void }) {
   const [totalScore, setTotalScore] = useState(0);
   const [answers, setAnswers] = useState<Array<{ question: string; score: number; distance: number }>>([]);
   const [gameComplete, setGameComplete] = useState(false);
+  const [mapStyleId, setMapStyleId] = useState(getDefaultMapStyleId());
 
   const question = PRACTICE_QUESTIONS[currentQuestion];
 
@@ -288,7 +292,7 @@ export default function PracticeMode({ onBack }: { onBack: () => void }) {
                 zoom: 1.5
               }}
               style={{ width: '100%', height: '100%' }}
-              mapStyle="https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json"
+              mapStyle={getMapStyleById(mapStyleId).url}
               onClick={handleMapClick}
             >
               {userGuess && !showResult && (

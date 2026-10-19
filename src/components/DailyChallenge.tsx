@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { ChevronDown } from 'lucide-react';
 import { useGameStore } from '@/lib/game-store';
 import {
   getDailyQuestions,
@@ -17,6 +19,7 @@ import {
 } from '@/lib/game-data';
 import { toast } from 'sonner';
 import 'maplibre-gl/dist/maplibre-gl.css';
+import { getMapStyleById, getDefaultMapStyleId, saveMapStylePreference, MAP_STYLES } from '@/lib/map-styles';
 
 // Wrapper to prevent Dyad's tracking attributes from being passed to MapLibre Source
 const CleanSource = (props: SourceProps & { children?: React.ReactNode }) => {
@@ -45,6 +48,7 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
   const [totalDistance, setTotalDistance] = useState<number>(0);
   const [perfectGuessCount, setPerfectGuessCount] = useState<number>(0);
   const mapRef = useRef<any>(null);
+  const [mapStyleId, setMapStyleId] = useState(getDefaultMapStyleId());
 
   const { dailyCompleted, completeDaily, checkStreak } = useGameStore();
   const currentQuestion = dailyQuestions[currentQuestionIndex];
@@ -321,6 +325,56 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
             <Badge variant="outline" className="rounded-full">
               {currentQuestionIndex + 1} / {dailyQuestions.length}
             </Badge>
+
+            {/* Map Style Selector */}
+            <DropdownMenu className="relative">
+              <DropdownMenuTrigger className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-full hover:bg-gray-100 transition-colors">
+                <MapPin className="w-4 h-4 text-gray-500" />
+                <span className="text-sm font-medium text-gray-700">{getMapStyleById(mapStyleId).name}</span>
+                <ChevronDown className="w-4 h-4 text-gray-500" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-48 bg-white border rounded-md shadow-lg p-1">
+                {MAP_STYLES.map(style => (
+                  <DropdownMenuItem
+                    key={style.id}
+                    onClick={() => {
+                      setMapStyleId(style.id);
+                      saveMapStylePreference(style.id);
+                    }}
+                    className={"flex items-center gap-2 px-3 py-2 text-sm " + (mapStyleId === style.id ? "bg-primary/10 text-primary" : "text-gray-700 hover:bg-gray-100")}
+                  >
+                    <div className="w-5 h-5 flex-shrink-0">
+                      {style.id === 'satellite' && (
+                        <div className="bg-gray-200 w-4 h-4 rounded flex items-center justify-center">
+                          <MapPin className="w-3 h-3 text-gray-600" />
+                        </div>
+                      )}
+                      {style.id === 'dark-matter' && (
+                        <div className="bg-gray-800 w-4 h-4 rounded flex items-center justify-center">
+                          <MapPin className="w-3 h-3 text-white" />
+                        </div>
+                      )}
+                      {style.id === 'positron' && (
+                        <div className="bg-gray-100 w-4 h-4 rounded flex items-center justify-center">
+                          <MapPin className="w-3 h-3 text-gray-600" />
+                        </div>
+                      )}
+                      {style.id === 'terrain' && (
+                        <div className="bg-green-100 w-4 h-4 rounded flex items-center justify-center">
+                          <MapPin className="w-3 h-3 text-green-600" />
+                        </div>
+                      )}
+                      {style.id === 'voyager' && (
+                        <div className="bg-blue-100 w-4 h-4 rounded flex items-center justify-center">
+                          <MapPin className="w-3 h-3 text-blue-600" />
+                        </div>
+                      )}
+                    </div>
+                    <span className="flex-1">{style.name}</span>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
       </div>
@@ -400,7 +454,7 @@ export default function DailyChallenge({ selectedDate, onBack }: DailyChallengeP
             zoom: 2
           }}
           style={{ width: '100%', height: '100%' }}
-          mapStyle="https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json"
+          mapStyle={getMapStyleById(mapStyleId).url}
           onClick={handleMapClick}
         >
           {/* Line connecting guess to actual location */}
