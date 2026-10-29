@@ -1,13 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Trophy, Award, BarChart3, Calendar, Sparkles, Flame, Target, Zap, Play } from 'lucide-react';
+import { Trophy, Award, BarChart3, Calendar, Sparkles, Flame, Zap, Play, Flag, Globe, Target } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useGameStore } from '@/lib/game-store';
 import AdSlot from '@/components/AdSlot';
-import { todayKey } from '@/lib/date-utils';
+import NewsletterSignup from '@/components/NewsletterSignup';
+import Seo from '@/components/Seo';
+import { NEWSLETTER_COPY, NEWSLETTER_ENABLED } from '@/lib/newsletter';
+import { formatDayLabel, todayKey } from '@/lib/date-utils';
+import { lastPlayedBefore } from '@/lib/activity';
+import { formatPoints } from '@/lib/game-data';
+import { DEFAULT_REGION } from '@/lib/regions';
+import { buildReviewQuestions, latestReviewableResult } from '@/lib/review';
+import { ANALYTICS_EVENTS, trackEvent } from '@/lib/analytics';
+import BrandIcon from '@/components/BrandIcon';
 
 interface ModeCard {
   to: string;
@@ -21,19 +30,19 @@ interface ModeCard {
 const MODE_CARDS: ModeCard[] = [
   {
     to: '/daily',
-    title: 'Daily Challenge',
-    description: '10 questions, the same for everyone. Keep your streak alive.',
-    icon: Trophy,
-    gradient: 'from-orange-400 to-red-500',
+    title: 'USA Challenge',
+    description: 'Ten American questions, the same for everyone. Keep your streak alive.',
+    icon: Flag,
+    gradient: 'from-blue-500 to-indigo-600',
     badge: 'Every day',
   },
   {
-    to: '/practice',
-    title: 'Practice',
-    description: 'Train without pressure. Practice never affects your score.',
-    icon: Target,
-    gradient: 'from-green-400 to-emerald-500',
-    badge: 'Unlimited',
+    to: '/world',
+    title: 'World Challenge',
+    description: 'Formula 1, the Champions League and the rest of the world. Ten questions.',
+    icon: Globe,
+    gradient: 'from-orange-400 to-red-500',
+    badge: 'Global',
   },
   {
     to: '/battle',
@@ -53,7 +62,7 @@ const MODE_CARDS: ModeCard[] = [
 ];
 
 const Index = () => {
-  const { streak, level, totalScore, gamesPlayed, isTodayCompleted, dailyHistory } = useGameStore();
+  const { streak, level, totalScore, gamesPlayed, isTodayCompleted, isRegionCompleted, dailyHistory } = useGameStore();
   const [showStreakReward, setShowStreakReward] = useState(false);
 
   // Show the streak celebration once per day, and only for a real streak.
@@ -67,10 +76,25 @@ const Index = () => {
     }
   }, [streak, gamesPlayed]);
 
-  const bestScore = dailyHistory.reduce((max, entry) => Math.max(max, entry.score), 0);
+  const bestScore = dailyHistory.reduce((max, entry) => Math.max(entry.score, max), 0);
+
+  // The last round before today, used to ask the player to beat it.
+  const previousRound = useMemo(
+    () => lastPlayedBefore(dailyHistory, todayKey()),
+    [dailyHistory],
+  );
+
+  // The questions from the last round that are worth another go.
+  const reviewable = buildReviewQuestions(latestReviewableResult(dailyHistory)?.answers);
 
   return (
-    <div className="pb-16">
+    <>
+      <Seo
+        title="USA GeoArena - Guess the Place"
+        description="Ten daily questions about NFL, MLB, NBA and NHL stadiums, iconic race tracks and legendary American moments. Click the map, get closer, score up to 1,300 points a day."
+        path="/"
+      />
+      <div className="pb-16">
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
         <motion.div
@@ -86,9 +110,7 @@ const Index = () => {
             className="inline-block mb-8"
           >
             <div className="relative">
-              <div className="w-28 h-28 bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 rounded-[2rem] flex items-center justify-center shadow-2xl transform rotate-6 hover:rotate-12 transition-transform duration-300">
-                <span className="text-6xl">🌍</span>
-              </div>
+              <BrandIcon className="w-28 h-28 drop-shadow-2xl transform rotate-6 hover:rotate-12 transition-transform duration-300" />
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
@@ -105,7 +127,7 @@ const Index = () => {
             transition={{ delay: 0.25 }}
             className="text-5xl md:text-7xl font-bold font-script mb-6 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 bg-clip-text text-transparent"
           >
-            GeoArena
+            USA GeoArena
           </motion.h1>
 
           <motion.p
@@ -114,8 +136,8 @@ const Index = () => {
             transition={{ delay: 0.35 }}
             className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-8"
           >
-            Think you know the place? Click the map, guess the location, and climb the
-            leaderboard.
+            Think you know American sport? Click the map, guess the stadium, and climb
+            the leaderboard.
           </motion.p>
 
           <motion.div
@@ -127,7 +149,7 @@ const Index = () => {
             <Button asChild size="lg" className="rounded-full px-8 h-14 text-lg font-semibold shadow-xl">
               <Link to="/daily">
                 <Play className="w-5 h-5 mr-2" />
-                {isTodayCompleted ? 'Replay today’s challenge' : 'Play today’s challenge'}
+                {isRegionCompleted('usa') ? 'Replay today’s challenge' : 'Play today’s USA challenge'}
               </Link>
             </Button>
             <Button
@@ -136,8 +158,65 @@ const Index = () => {
               variant="outline"
               className="rounded-full px-8 h-14 text-lg font-semibold"
             >
-              <Link to="/practice">Free practice</Link>
+              <Link to="/archive">
+                <Calendar className="w-5 h-5 mr-2" />
+                Play Archive
+              </Link>
             </Button>
+          </motion.div>
+
+          {/* The last round before today, used to ask the player to beat it.
+              "Your best is 940" is a record; "you scored 812 yesterday" is a
+              challenge, and a challenge is what brings someone back. */}
+          {previousRound && !isTodayCompleted && (
+            <motion.p
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="mt-6 text-sm font-medium text-gray-600"
+            >
+              {formatDayLabel(previousRound.date, todayKey())} you scored{' '}
+              <span className="font-bold text-gray-800">
+                {formatPoints(previousRound.score)} points
+              </span>
+              . Beat it today.
+            </motion.p>
+          )}
+
+          {/* The questions the player missed are the ones worth another go, and
+              a second attempt is a reason to come back. */}
+          {reviewable.length > 0 && (
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.52 }}
+              className="mt-6"
+            >
+              <Link
+                to="/review"
+                className="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur border border-orange-200 px-5 py-2 text-sm font-semibold text-orange-800 hover:bg-white hover:shadow-md transition-all"
+              >
+                <Target className="w-4 h-4" />
+                Review {reviewable.length} question{reviewable.length > 1 ? 's' : ''} you missed
+              </Link>
+            </motion.div>
+          )}
+
+          {/* A direct line to the world round, for the players who want the
+              global version - Formula 1, the Champions League and the rest. */}
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="mt-6"
+          >
+            <Link
+              to="/world"
+              className="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur border border-orange-200 px-5 py-2 text-sm font-semibold text-orange-800 hover:bg-white hover:shadow-md transition-all"
+            >
+              <span className="text-base leading-none">🌍</span>
+              Prefer world sports? {isRegionCompleted('world') ? 'Replay' : 'Play'} the World Challenge
+            </Link>
           </motion.div>
         </motion.div>
 
@@ -158,14 +237,14 @@ const Index = () => {
           <Card className="border-2 border-yellow-200 bg-white/70 backdrop-blur-sm text-center">
             <CardContent className="p-5">
               <Trophy className="w-7 h-7 mx-auto mb-2 text-yellow-500" />
-              <p className="text-3xl font-bold text-gray-800">{totalScore.toLocaleString()}</p>
+              <p className="text-3xl font-bold text-gray-800">{formatPoints(totalScore)}</p>
               <p className="text-xs text-gray-500">Total score</p>
             </CardContent>
           </Card>
           <Card className="border-2 border-blue-200 bg-white/70 backdrop-blur-sm text-center">
             <CardContent className="p-5">
               <BarChart3 className="w-7 h-7 mx-auto mb-2 text-blue-500" />
-              <p className="text-3xl font-bold text-gray-800">{bestScore.toLocaleString()}</p>
+              <p className="text-3xl font-bold text-gray-800">{formatPoints(bestScore)}</p>
               <p className="text-xs text-gray-500">Best score</p>
             </CardContent>
           </Card>
@@ -196,8 +275,7 @@ const Index = () => {
           >
             Four ways to play — every one of them is in the menu at the top of the page.
           </motion.p>
-
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
             {MODE_CARDS.map((mode, index) => (
               <motion.div
                 key={mode.to}
@@ -205,7 +283,13 @@ const Index = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.7 + index * 0.08 }}
               >
-                <Link to={mode.to} className="block h-full">
+                <Link
+                  to={mode.to}
+                  onClick={() =>
+                    trackEvent(ANALYTICS_EVENTS.modeSelect, { mode: mode.title, to: mode.to })
+                  }
+                  className="block h-full"
+                >
                   <Card className="h-full border-2 border-primary/20 rounded-3xl overflow-hidden hover:shadow-2xl hover:border-primary/50 transition-all group">
                     <CardContent className="p-6 flex items-start gap-4">
                       <div
@@ -238,6 +322,22 @@ const Index = () => {
           </div>
         </div>
       </div>
+
+      {/* Newsletter - a softer, inline placement below the game modes. The
+          stronger ask happens at the end of a finished round. */}
+      {NEWSLETTER_ENABLED && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl border border-orange-100 bg-white/60 px-6 py-5 sm:flex sm:items-center sm:gap-6">
+            <div className="min-w-0 flex-1">
+              <h2 className="text-xl font-bold font-script text-gray-800">
+                {NEWSLETTER_COPY.heading}
+              </h2>
+              <p className="text-sm text-gray-600 mt-1">{NEWSLETTER_COPY.subheading}</p>
+            </div>
+            <NewsletterSignup variant="inline" source="home" className="mt-4 sm:mt-0 sm:w-96" />
+          </div>
+        </div>
+      )}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AdSlot slot="home" className="pb-8" />
@@ -295,7 +395,8 @@ const Index = () => {
           </motion.div>
         </motion.div>
       )}
-    </div>
+      </div>
+    </>
   );
 };
 

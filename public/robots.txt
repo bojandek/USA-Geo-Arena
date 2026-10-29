@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://geo-arena-six.vercel.app/sitemap.xml

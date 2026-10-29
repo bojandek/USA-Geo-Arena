@@ -6,23 +6,21 @@
  * Categories are now real routes.
  */
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import ThemeToggle from '@/components/ThemeToggle';
+import SoundToggle from '@/components/SoundToggle';
 import {
-  Home,
   Trophy,
-  Target,
-  Zap,
-  Calendar,
-  BarChart3,
-  Award,
   Flame,
   Menu,
   X,
   ChevronDown,
+  Crown,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { getProStatus } from '@/lib/pro';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -30,30 +28,47 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { useGameStore } from '@/lib/game-store';
-import { HEADER_INFO_LINKS } from '@/lib/site-content';
+import { HEADER_INFO_LINKS, BRAND_NAME } from '@/lib/site-content';
+import BrandIcon from '@/components/BrandIcon';
+import UsFlag from '@/components/UsFlag';
+import InstallPrompt from '@/components/InstallPrompt';
 
 export interface NavCategory {
   to: string;
   label: string;
-  icon: typeof Home;
-  /** Shown as a small badge next to the label. */
-  badge?: string;
+  /** A colour emoji; the USA entry draws a flag SVG instead. */
+  emoji?: string;
 }
 
 export const NAV_CATEGORIES: NavCategory[] = [
-  { to: '/', label: 'Home', icon: Home },
-  { to: '/daily', label: 'Daily', icon: Trophy, badge: 'Today' },
-  { to: '/practice', label: 'Practice', icon: Target },
-  { to: '/battle', label: 'Battle', icon: Zap },
-  { to: '/archive', label: 'Archive', icon: Calendar },
-  { to: '/leaderboard', label: 'Scores', icon: BarChart3 },
-  { to: '/achievements', label: 'Badges', icon: Award },
+  { to: '/', label: 'Home', emoji: '🏠' },
+  { to: '/daily', label: 'USA' },
+  { to: '/world', label: 'World', emoji: '🌍' },
+  { to: '/battle', label: 'Battle', emoji: '⚡' },
+  { to: '/archive', label: 'Archive', emoji: '📅' },
+  { to: '/leaderboard', label: 'Scores', emoji: '📊' },
+  { to: '/achievements', label: 'Badges', emoji: '🏅' },
 ];
 
 export default function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { streak, level, isTodayCompleted } = useGameStore();
+  const { streak, level } = useGameStore();
   const location = useLocation();
+  const [isPro, setIsPro] = useState(getProStatus().isPro);
+
+  // The licence can be bought on another tab, so the mark is checked when the
+  // header comes back into view.
+  useEffect(() => {
+    function refresh() {
+      setIsPro(getProStatus().isPro);
+    }
+    window.addEventListener('focus', refresh);
+    window.addEventListener('geoarena:pro-changed', refresh);
+    return () => {
+      window.removeEventListener('focus', refresh);
+      window.removeEventListener('geoarena:pro-changed', refresh);
+    };
+  }, []);
 
   // The "More" menu holds the informational pages; highlight it while one of
   // them is open.
@@ -68,21 +83,21 @@ export default function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 bg-gradient-to-r from-orange-50/95 via-red-50/95 to-pink-50/95 backdrop-blur-md border-b border-orange-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="w-full mx-auto px-3 sm:px-5 lg:px-6">
+        <div className="flex items-center gap-4 h-16">
           {/* Brand */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-10 h-10 bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
-              <span className="text-xl">🌍</span>
-            </div>
+            <BrandIcon className="w-10 h-10 drop-shadow-md" title={BRAND_NAME} />
             <div className="hidden sm:block">
-              <h1 className="text-lg font-script font-bold text-gray-800 leading-none">GeoArena</h1>
+              <h1 className="text-lg font-script font-bold text-gray-800 leading-none">
+                {BRAND_NAME}
+              </h1>
               <p className="text-[10px] text-gray-500 leading-none mt-0.5">Guess the place</p>
             </div>
           </Link>
 
           {/* Desktop categories */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1 ml-auto">
             {NAV_CATEGORIES.map((category) => (
               <NavLink
                 key={category.to}
@@ -90,13 +105,14 @@ export default function SiteHeader() {
                 end={category.to === '/'}
                 className={linkClasses}
               >
-                <category.icon className="w-4 h-4" />
-                {category.label}
-                {category.badge && category.to === '/daily' && isTodayCompleted && (
-                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-green-500 text-white">
-                    ✓
+                {category.to === '/daily' ? (
+                  <UsFlag className="h-3.5 w-5 rounded-[2px] shadow-sm" />
+                ) : (
+                  <span className="text-base leading-none" aria-hidden="true">
+                    {category.emoji}
                   </span>
                 )}
+                {category.label}
               </NavLink>
             ))}
 
@@ -109,6 +125,7 @@ export default function SiteHeader() {
                     : 'text-gray-700 hover:bg-white/70'
                 }`}
               >
+                <span className="text-base leading-none" aria-hidden="true">📂</span>
                 More
                 <ChevronDown className="w-3.5 h-3.5" />
               </DropdownMenuTrigger>
@@ -127,8 +144,8 @@ export default function SiteHeader() {
             </DropdownMenu>
           </nav>
 
-          {/* Right side: stats + mobile toggle */}
-          <div className="flex items-center gap-2">
+          {/* Right side: stats + install + mobile toggle */}
+          <div className="flex items-center gap-2 ml-auto lg:ml-0">
             <div className="hidden md:flex items-center gap-2">
               <div className="flex items-center gap-1.5 bg-white/80 px-3 py-1.5 rounded-full border border-orange-100">
                 <Flame className="w-4 h-4 text-orange-500" />
@@ -138,6 +155,35 @@ export default function SiteHeader() {
                 <Trophy className="w-4 h-4 text-yellow-500" />
                 <span className="text-sm font-bold text-gray-700">Lv {level}</span>
               </div>
+            </div>
+
+            {/* The Pro button. It sits in the header rather than only in the
+                "More" menu, so that it is one click away and a crawler can
+                see it. The crown turns gold when this device is Pro. */}
+            <Link
+              to="/pro"
+              className="flex items-center gap-1.5 bg-white/80 px-3 py-1.5 rounded-full border border-orange-100 hover:border-yellow-300 transition-colors"
+              aria-label="USA GeoArena Pro"
+            >
+              <Crown
+                className={`w-4 h-4 ${isPro ? 'text-yellow-500' : 'text-gray-400'}`}
+              />
+              <span className="text-sm font-bold text-gray-700 hidden sm:inline">
+                Pro
+              </span>
+            </Link>
+
+            {/* The light and dark switch. It sits with the other controls so
+                it is reachable on a phone as well as on a desktop. */}
+            <ThemeToggle />
+
+            {/* And the sound switch, next to it. */}
+            <SoundToggle />
+
+            {/* The install button only shows up when the browser can actually
+                install the app, so it never sits there as a dead control. */}
+            <div className="hidden sm:block">
+              <InstallPrompt />
             </div>
 
             <Button
@@ -175,7 +221,13 @@ export default function SiteHeader() {
                 }
                 onClick={() => setMobileOpen(false)}
               >
-                <category.icon className="w-4 h-4" />
+                {category.to === '/daily' ? (
+                  <UsFlag className="h-3.5 w-5 rounded-[2px] shadow-sm" />
+                ) : (
+                  <span className="text-base leading-none" aria-hidden="true">
+                    {category.emoji}
+                  </span>
+                )}
                 {category.label}
               </NavLink>
             ))}
@@ -197,6 +249,9 @@ export default function SiteHeader() {
                 {link.label}
               </Link>
             ))}
+            <div className="px-3 py-2">
+              <InstallPrompt />
+            </div>
           </div>
         </motion.nav>
       )}

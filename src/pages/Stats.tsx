@@ -6,20 +6,15 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { 
-  ArrowLeft, 
-  Target, 
-  Trophy, 
-  TrendingUp, 
-  MapPin, 
-  Award,
-  Calendar,
-  Flame
-} from 'lucide-react';
+import Seo from '@/components/Seo';
+import { MAX_DAILY_SCORE, pointsForLevel } from '@/lib/game-state';
+import { formatPoints } from '@/lib/game-data';
+import { ArrowLeft, Target, Trophy, TrendingUp, MapPin, Award, Calendar, Flame, Zap, Snowflake } from 'lucide-react';
+import StreakCalendar from '@/components/StreakCalendar';
 
 export default function Stats() {
   const navigate = useNavigate();
-  const { 
+  const {
     totalScore, 
     gamesPlayed, 
     bestScore, 
@@ -31,14 +26,30 @@ export default function Stats() {
     dailyHistory,
     practiceGames,
     practiceBestScore,
+    bestTimeBonus,
+    streakFreezes,
   } = useGameStore();
 
-  const accuracy = averageScore ? Math.round((averageScore / 10000) * 100) : 0;
-  const nextLevelScore = level * 5000;
-  const progressToNextLevel = ((totalScore % 5000) / 5000) * 100;
+  // The average score includes the speed share, but accuracy does not - it is
+  // how close the guesses were, which is what the label promises.
+  const accuracy = averageScore ? Math.round((averageScore / MAX_DAILY_SCORE) * 100) : 0;
+  // The cost of a level grows with the level number, so the progress bar
+  // shows the progress inside the current level.
+  const levelFloor = pointsForLevel(level);
+  const nextLevelScore = pointsForLevel(level + 1);
+  const progressToNextLevel =
+    nextLevelScore > levelFloor
+      ? ((totalScore - levelFloor) / (nextLevelScore - levelFloor)) * 100
+      : 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 p-4">
+    <>
+      <Seo
+        title="Your Game Stats"
+        description="Your USA GeoArena statistics: total score, best round, average distance, perfect guesses, current streak and level."
+        path="/stats"
+      />
+      <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 p-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
@@ -77,7 +88,8 @@ export default function Stats() {
               </div>
               <Progress value={progressToNextLevel} className="h-3 mb-2" />
               <p className="text-sm text-gray-600">
-                {totalScore} / {nextLevelScore} points to Level {level + 1}
+                {formatPoints(Math.max(0, totalScore - levelFloor))} /{' '}
+                {formatPoints(nextLevelScore - levelFloor)} points to Level {level + 1}
               </p>
             </CardContent>
           </Card>
@@ -93,7 +105,7 @@ export default function Stats() {
             <Card className="rounded-2xl border-2 border-orange-200 bg-orange-50">
               <CardContent className="p-4 text-center">
                 <Trophy className="w-8 h-8 mx-auto mb-2 text-orange-500" />
-                <p className="text-2xl font-bold text-gray-800">{totalScore.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-gray-800">{formatPoints(totalScore)}</p>
                 <p className="text-xs text-gray-600">Total Score</p>
               </CardContent>
             </Card>
@@ -142,6 +154,26 @@ export default function Stats() {
           </motion.div>
         </div>
 
+        {/* The last thirteen weeks as a grid of days. A streak is a number
+            until you can see it. */}
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.38 }}
+        >
+          <Card className="mb-6 rounded-2xl border-2 border-gray-200">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-3 text-2xl font-script">
+                <Calendar className="w-6 h-6" />
+                Your Last 13 Weeks
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <StreakCalendar history={dailyHistory} />
+            </CardContent>
+          </Card>
+        </motion.div>
+
         {/* Detailed Stats */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
@@ -162,7 +194,7 @@ export default function Stats() {
                   <span className="text-sm font-medium">Best Score</span>
                 </div>
                 <Badge variant="default" className="rounded-full">
-                  {bestScore.toLocaleString()} pts
+                  {formatPoints(bestScore)} pts
                 </Badge>
               </div>
 
@@ -172,7 +204,7 @@ export default function Stats() {
                   <span className="text-sm font-medium">Average Score</span>
                 </div>
                 <Badge variant="secondary" className="rounded-full">
-                  {averageScore.toLocaleString()} pts
+                  {formatPoints(averageScore)} pts
                 </Badge>
               </div>
 
@@ -198,11 +230,31 @@ export default function Stats() {
 
               <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
                 <div className="flex items-center gap-3">
-                  <Target className="w-5 h-5 text-blue-500" />
-                  <span className="text-sm font-medium">Practice Rounds</span>
+                  <Zap className="w-5 h-5 text-amber-500" />
+                  <span className="text-sm font-medium">Best Speed Bonus</span>
                 </div>
                 <Badge variant="secondary" className="rounded-full">
-                  {practiceGames} ({practiceBestScore.toLocaleString()} best)
+                  {bestTimeBonus} pts
+                </Badge>
+              </div>
+
+              <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
+                <div className="flex items-center gap-3">
+                  <Snowflake className="w-5 h-5 text-sky-500" />
+                  <span className="text-sm font-medium">Streak Freezes</span>
+                </div>
+                <Badge variant="secondary" className="rounded-full">
+                  {streakFreezes} ❄️
+                </Badge>
+              </div>
+
+              <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
+                <div className="flex items-center gap-3">
+                  <Target className="w-5 h-5 text-blue-500" />
+                  <span className="text-sm font-medium">Battle Rounds</span>
+                </div>
+                <Badge variant="secondary" className="rounded-full">
+                  {practiceGames} ({formatPoints(practiceBestScore)} best)
                 </Badge>
               </div>
             </CardContent>
@@ -241,7 +293,7 @@ export default function Stats() {
                         variant={result.score >= 8000 ? 'default' : 'secondary'}
                         className="rounded-full"
                       >
-                        {result.score.toLocaleString()}
+                        {formatPoints(result.score)}
                       </Badge>
                     </div>
                   ))}
@@ -251,6 +303,7 @@ export default function Stats() {
           </motion.div>
         )}
       </div>
-    </div>
+      </div>
+    </>
   );
 }

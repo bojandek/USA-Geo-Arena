@@ -1,5 +1,5 @@
 /**
- * Single source of truth for calendar days inside GeoArena.
+ * Single source of truth for calendar days inside USA GeoArena.
  *
  * Everything that represents "a day" (daily challenge, streak, archive,
  * leaderboard history) uses the user's LOCAL calendar day, never UTC.

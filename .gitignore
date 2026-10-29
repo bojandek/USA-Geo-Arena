@@ -34,3 +34,14 @@ dist-ssr
 /playwright/.cache/
 .last-run.json
 .dyad/
+
+# Wikimedia lookup cache; regenerate with `npm run images:fetch`
+scripts/.question-images-cache.json
+
+.vercel
+
+# Generated Vercel functions (source lives in server/).
+/api/*.js
+/api/*.mjs
+/api/admin/*.js
+.env*

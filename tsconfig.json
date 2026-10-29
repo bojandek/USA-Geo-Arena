@@ -9,6 +9,9 @@
     "paths": {
       "@/*": ["./src/*"]
     },
+    "jsx": "react-jsx",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
     "noImplicitAny": false,
     "noUnusedParameters": false,
     "skipLibCheck": true,

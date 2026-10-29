@@ -19,6 +19,7 @@ import {
 } from 'react';
 
 import { todayKey } from './date-utils';
+import { DEFAULT_REGION, type RegionId } from './regions';
 import {
   ALL_ACHIEVEMENTS,
   applyDailyCompletion,
@@ -28,32 +29,43 @@ import {
   createInitialState,
   migrateState,
   type ArchiveEntry,
+  type DailyAnswer,
   type DailyResult,
   type GameState,
 } from './game-state';
 
 export { ALL_ACHIEVEMENTS };
-export type { ArchiveEntry, DailyResult, GameState };
+export type { ArchiveEntry, DailyAnswer, DailyResult, GameState };
 
 const STORAGE_KEY = 'geoarena-storage';
 
 interface GameContextValue extends GameState {
   /** True when the daily challenge for today has been completed. */
   isTodayCompleted: boolean;
+  /**
+   * True when today's challenge for a specific region has been completed.
+   * The world round and the American round are tracked separately.
+   */
+  isRegionCompleted: (region: RegionId) => boolean;
   /** Completes the daily challenge for `date` (defaults to today). */
   completeDaily: (params: {
     date?: string;
+    region?: RegionId;
     score: number;
     totalDistance: number;
     perfectCount: number;
+    timeBonus?: number;
     maxScore?: number;
+    baseScore?: number;
+    streakMultiplier?: number;
+    answers?: DailyAnswer[];
   }) => void;
   /** Records a finished practice round. Never affects progression. */
   completePractice: (score: number) => void;
   /** Top scores, highest first. */
   getLeaderboard: () => DailyResult[];
   /** Real archive entries for the last N days. */
-  getArchive: (days?: number) => ArchiveEntry[];
+  getArchive: (days?: number, region?: RegionId) => ArchiveEntry[];
   /** Wipes all progress (used by the "reset progress" action). */
   resetProgress: () => void;
 }
@@ -85,9 +97,31 @@ export function GameProvider({ children }: { children: ReactNode }) {
   }, [state]);
 
   const completeDaily = useCallback<GameContextValue['completeDaily']>((params) => {
-    const { date = todayKey(), score, totalDistance, perfectCount, maxScore } = params;
+    const {
+      date = todayKey(),
+      region = DEFAULT_REGION,
+      score,
+      totalDistance,
+      perfectCount,
+      timeBonus,
+      maxScore,
+      baseScore,
+      streakMultiplier,
+      answers,
+    } = params;
     setState((prev) =>
-      applyDailyCompletion(prev, { date, score, totalDistance, perfectCount, maxScore }),
+      applyDailyCompletion(prev, {
+        date,
+        region,
+        score,
+        totalDistance,
+        perfectCount,
+        timeBonus,
+        maxScore,
+        baseScore,
+        streakMultiplier,
+        answers,
+      }),
     );
   }, []);
 
@@ -101,7 +135,8 @@ export function GameProvider({ children }: { children: ReactNode }) {
   );
 
   const getArchive = useCallback(
-    (days?: number) => buildArchiveEntries(state.dailyHistory, days),
+    (days?: number, region?: RegionId) =>
+      buildArchiveEntries(state.dailyHistory, days, todayKey(), region ?? DEFAULT_REGION),
     [state.dailyHistory],
   );
 
@@ -109,17 +144,27 @@ export function GameProvider({ children }: { children: ReactNode }) {
     setState(createInitialState());
   }, []);
 
+  const isRegionCompleted = useCallback(
+    (region: RegionId) =>
+      state.dailyHistory.some(
+        (entry) =>
+          entry.date === todayKey() && (entry.region ?? DEFAULT_REGION) === region,
+      ),
+    [state.dailyHistory],
+  );
+
   const value = useMemo<GameContextValue>(
     () => ({
       ...state,
       isTodayCompleted: state.dailyHistory.some((entry) => entry.date === todayKey()),
+      isRegionCompleted,
       completeDaily,
       completePractice,
       getLeaderboard,
       getArchive,
       resetProgress,
     }),
-    [state, completeDaily, completePractice, getLeaderboard, getArchive, resetProgress],
+    [state, isRegionCompleted, completeDaily, completePractice, getLeaderboard, getArchive, resetProgress],
   );
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

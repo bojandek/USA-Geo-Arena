@@ -5,7 +5,12 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["dist"] },
+  {
+    // `geoarena-cdp.ts` is a scratch copy of the daily challenge that was
+    // left in the root of the repository. It has JSX in a `.ts` file, so it
+    // cannot be parsed, and nothing in the site refers to it.
+    ignores: ["dist", "geoarena-cdp.ts"],
+  },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["**/*.{ts,tsx}"],

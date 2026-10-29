@@ -4,31 +4,38 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useGameStore } from '@/lib/game-store';
-import { formatDayLabel, todayKey } from '@/lib/date-utils';
+import { formatDayLabel, parseDateKey, todayKey } from '@/lib/date-utils';
+import { formatPoints } from '@/lib/game-data';
+import { DEFAULT_REGION, getRegion, REGIONS, type RegionId } from '@/lib/regions';
 
 interface ArchiveProps {
+  /** Which region's results are shown. */
+  region?: RegionId;
   onBack?: () => void;
   onSelectDate: (date: string) => void;
+  /** Called when the player picks a different region. */
+  onSelectRegion?: (region: RegionId) => void;
 }
 
-export default function Archive({ onBack, onSelectDate }: ArchiveProps) {
+export default function Archive({ region = DEFAULT_REGION, onBack, onSelectDate, onSelectRegion }: ArchiveProps) {
   const { getArchive } = useGameStore();
   const today = todayKey();
+  const regionConfig = getRegion(region);
 
   // Real history - the archive used to show random mock scores.
-  const entries = getArchive();
+  const entries = getArchive(30, region);
 
   const getScoreColor = (score: number) => {
-    if (score >= 9000) return 'text-yellow-500';
-    if (score >= 8000) return 'text-green-500';
-    if (score >= 7000) return 'text-blue-500';
+    if (score >= 900) return 'text-yellow-500';
+    if (score >= 800) return 'text-green-500';
+    if (score >= 700) return 'text-blue-500';
     return 'text-gray-500';
   };
 
   const getScoreEmoji = (score: number) => {
-    if (score >= 9000) return '🔥';
-    if (score >= 8000) return '🏆';
-    if (score >= 7000) return '⭐';
+    if (score >= 900) return '🔥';
+    if (score >= 800) return '🏆';
+    if (score >= 700) return '⭐';
     return '🎯';
   };
 
@@ -59,6 +66,31 @@ export default function Archive({ onBack, onSelectDate }: ArchiveProps) {
             <p className="text-lg text-gray-600">
               {playedCount} of {entries.length} days played · replay any past challenge
             </p>
+
+            {/* The archive holds one result per day per region, so the region
+                has to be picked here as well. */}
+            {onSelectRegion && (
+              <div className="mt-6 inline-flex items-center gap-1 rounded-full bg-white/80 p-1 shadow-md">
+                {REGIONS.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => onSelectRegion(item.id)}
+                    aria-pressed={item.id === region}
+                    className={`flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-semibold transition-colors ${
+                      item.id === region
+                        ? 'bg-gradient-to-r from-primary to-secondary text-white'
+                        : 'text-gray-600 hover:bg-gray-100'
+                    }`}
+                  >
+                    <span className="leading-none">{item.emoji}</span>
+                    {item.shortLabel}
+                  </button>
+                ))}
+              </div>
+            )}
+            <p className="mt-3 text-sm text-gray-500">
+              Showing the {regionConfig.label.toLowerCase()} round
+            </p>
           </div>
         </motion.div>
 
@@ -75,7 +107,7 @@ export default function Archive({ onBack, onSelectDate }: ArchiveProps) {
               <div className="divide-y divide-gray-100">
                 {entries.map((entry, index) => {
                   const isToday = entry.date === today;
-                  const date = new Date(entry.date);
+                  const date = parseDateKey(entry.date);
 
                   return (
                     <motion.div
@@ -116,7 +148,7 @@ export default function Archive({ onBack, onSelectDate }: ArchiveProps) {
                             <div className="flex items-center gap-2">
                               <span className="text-sm text-gray-500">Score:</span>
                               <span className={`text-lg font-bold ${getScoreColor(entry.score)}`}>
-                                {entry.score.toLocaleString()} {getScoreEmoji(entry.score)}
+                                {formatPoints(entry.score)} {getScoreEmoji(entry.score)}
                               </span>
                             </div>
                           ) : (

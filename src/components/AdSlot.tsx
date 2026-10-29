@@ -20,6 +20,7 @@ import {
   requestAd,
   type AdSlotName,
 } from '@/lib/ads';
+import { getProStatus } from '@/lib/pro';
 
 interface AdSlotProps {
   /** Which placement this is. */
@@ -34,8 +35,25 @@ export default function AdSlot({ slot, className, labelled = true }: AdSlotProps
   const requested = useRef(false);
   const [nearViewport, setNearViewport] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [isPro, setIsPro] = useState(false);
 
-  const active = isAdSlotActive(slot);
+  // A Pro device does not see advertising at all. The mark is checked when
+  // the page comes into view, so buying a licence on another tab takes
+  // effect straight away.
+  useEffect(() => {
+    function refresh() {
+      setIsPro(getProStatus().isPro);
+    }
+    refresh();
+    window.addEventListener('focus', refresh);
+    window.addEventListener('geoarena:pro-changed', refresh);
+    return () => {
+      window.removeEventListener('focus', refresh);
+      window.removeEventListener('geoarena:pro-changed', refresh);
+    };
+  }, []);
+
+  const active = isAdSlotActive(slot) && !isPro;
 
   // Only start loading once the slot is nearly visible.
   useEffect(() => {

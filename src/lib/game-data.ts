@@ -1,546 +1,38 @@
 // Sports events and locations for quiz
-export interface Question {
-  id: string;
-  text: string;
-  lat: number;
-  lng: number;
-  category: 'stadium' | 'event' | 'club' | 'athlete';
-  hint?: string;
-  country: string;
-  facts: string[]; // 3-4 interesting facts about this location
-}
+import type { Question } from './question-types.ts';
+import { questionPool } from './question-pool.ts';
+import { roundScore } from './numbers.ts';
+import { MAX_TIME_POINTS_PER_QUESTION, maxRoundScore } from './time-bonus.ts';
+import {
+  DEFAULT_REGION,
+  getRegion,
+  questionsForRegion,
+  regionSeed,
+  type RegionId,
+} from './regions.ts';
+
+export type { Question };
+export { questionPool };
+export { REGIONS, DEFAULT_REGION, getRegion, isRegionId, questionsForRegion, regionPath } from './regions.ts';
+export type { Region, RegionId } from './regions.ts';
 
 /** Maximum points a single question can yield. */
-export const MAX_QUESTION_SCORE = 1000;
+export const MAX_QUESTION_SCORE = 100;
 
-// Full question pool (35+ questions for daily rotation - all medium difficulty)
-export const questionPool: Question[] = [
-  {
-    id: '1',
-    text: 'Where is the legendary Santiago Bernabéu stadium located?',
-    lat: 40.4531,
-    lng: -3.6884,
-    category: 'stadium',
-    hint: 'Capital of Spain',
-    country: 'Spain',
-    facts: [
-      '🏟️ Opened in 1947, capacity 81,044',
-      '👑 Named after legendary Real Madrid president',
-      '🏆 Hosted 1982 World Cup final',
-      '💰 Currently undergoing €1B renovation'
-    ]
-  },
-  {
-    id: '2',
-    text: 'Which stadium hosted the 1998 FIFA World Cup final?',
-    lat: 48.8414,
-    lng: 2.253,
-    category: 'event',
-    hint: 'Paris, the city of light',
-    country: 'France',
-    facts: [
-      '🇫🇷 France beat Brazil 3-0 in the final',
-      '🏟️ Stade de France capacity: 80,698',
-      '⚽ Zinedine Zidane scored twice',
-      '🎉 Last World Cup final before the new millennium',
-    ]
-  },
-  {
-    id: '3',
-    text: 'Where is Camp Nou, home of FC Barcelona?',
-    lat: 41.3809,
-    lng: 2.1228,
-    category: 'stadium',
-    hint: 'Catalonia',
-    country: 'Spain',
-    facts: [
-      '🏟️ Europe\'s largest stadium (99,354 capacity)',
-      '🏆 Opened in 1957',
-      '⚽ Witnessed Messi\'s greatness for years',
-      '🔄 Being rebuilt into "Spotify Camp Nou"'
-    ]
-  },
-  {
-    id: '4',
-    text: 'Where did Usain Bolt set the 100m world record?',
-    lat: 39.9061,
-    lng: 116.3912,
-    category: 'event',
-    hint: '2008 Olympics',
-    country: 'China',
-    facts: [
-      '⚡ 9.69s in 2008 Olympics (later 9.58s)',
-      '🥇 Won triple-triple (3 golds × 3 Olympics)',
-      '🏟️ Beijing National Stadium "Bird\'s Nest"',
-      '🎆 Spectacular opening ceremony venue'
-    ]
-  },
-  {
-    id: '5',
-    text: 'Where is Old Trafford stadium located?',
-    lat: 53.4631,
-    lng: -2.2913,
-    category: 'stadium',
-    hint: 'City in northern England',
-    country: 'England',
-    facts: [
-      '😈 "Theatre of Dreams" - Man United home',
-      '🏟️ Capacity 74,140 (UK\'s largest club stadium)',
-      '🏆 Opened in 1910',
-      '💣 Rebuilt after WWII bombing in 1941'
-    ]
-  },
-  {
-    id: '6',
-    text: 'Where is Allianz Arena located?',
-    lat: 48.2188,
-    lng: 11.6247,
-    category: 'stadium',
-    hint: 'Bavaria, Germany',
-    country: 'Germany',
-    facts: [
-      '🔴⚪ Changes color - red or white lighting',
-      '🏟️ Capacity 75,000, opened 2005',
-      '⚽ Bayern Munich home stadium',
-      '💡 First stadium with fully lit exterior'
-    ]
-  },
-  {
-    id: '7',
-    text: 'Location of the iconic Maracanã Stadium?',
-    lat: -22.9068,
-    lng: -43.1729,
-    category: 'stadium',
-    hint: 'Rio de Janeiro',
-    country: 'Brazil',
-    facts: [
-      '🏟️ Once world\'s largest - 200,000 attendance',
-      '⚽ Hosted 1950 & 2014 World Cup finals',
-      '😢 "Maracanazo" - Uruguay shocked Brazil 1950',
-      '🎭 Pelé\'s 1000th career goal scored here'
-    ]
-  },
-  {
-    id: '8',
-    text: 'Where is the San Siro stadium?',
-    lat: 45.4781,
-    lng: 9.1240,
-    category: 'stadium',
-    hint: 'Fashion capital of Italy',
-    country: 'Italy',
-    facts: [
-      '🔴⚫🔵⚫ Shared by AC Milan and Inter Milan',
-      '🏟️ Capacity 75,923, opened 1926',
-      '🏆 Hosted 4 European Cup/Champions League finals',
-      '🎶 Legendary atmosphere and steep stands'
-    ]
-  },
-  {
-    id: '9',
-    text: 'Location of Wimbledon Tennis Championships?',
-    lat: 51.4344,
-    lng: -0.2141,
-    category: 'event',
-    hint: 'London suburb',
-    country: 'United Kingdom',
-    facts: [
-      '🎾 Oldest tennis tournament (since 1877)',
-      '🍓 Famous for strawberries and cream',
-      '👔 Strict all-white dress code',
-      '🌧️ Retractable roof added to Centre Court 2009'
-    ]
-  },
-  {
-    id: '10',
-    text: 'Where is the Melbourne Cricket Ground (MCG)?',
-    lat: -37.8200,
-    lng: 144.9834,
-    category: 'stadium',
-    hint: 'Australian sports capital',
-    country: 'Australia',
-    facts: [
-      '🏟️ 100,024 capacity - world\'s 10th largest',
-      '🏏 Cricket\'s most iconic venue',
-      '🏈 Hosts AFL Grand Final annually',
-      '🥇 Main stadium for 1956 Olympics'
-    ]
-  },
-  {
-    id: '11',
-    text: 'Where is Wembley Stadium located?',
-    lat: 51.5560,
-    lng: -0.2817,
-    category: 'stadium',
-    hint: 'Capital of England',
-    country: 'United Kingdom',
-    facts: [
-      '🏟️ 90,000 capacity - UK\'s largest',
-      '⚽ England national team home',
-      '🏆 Hosts FA Cup Final, Euro 2020 finals',
-      '🎸 Legendary concert venue'
-    ]
-  },
-  {
-    id: '12',
-    text: 'Location of the iconic Yankee Stadium?',
-    lat: 40.8296,
-    lng: -73.9262,
-    category: 'stadium',
-    hint: 'The Bronx, New York',
-    country: 'United States',
-    facts: [
-      '⚾ "The House That Ruth Built" (original)',
-      '🏟️ New stadium opened 2009, capacity 46,537',
-      '🏆 27 World Series championships',
-      '👻 Monument Park honors Yankee legends'
-    ]
-  },
-  {
-    id: '13',
-    text: 'Where is the Stade de France?',
-    lat: 48.9244,
-    lng: 2.3601,
-    category: 'stadium',
-    hint: 'Paris suburb',
-    country: 'France',
-    facts: [
-      '🏟️ 80,698 capacity - France\'s largest',
-      '⚽ France beat Brazil 3-0 in 1998 WC final',
-      '🎭 Hosts French national team matches',
-      '🎵 Major concert and rugby venue'
-    ]
-  },
-  {
-    id: '14',
-    text: 'Location of the famous Anfield stadium?',
-    lat: 53.4308,
-    lng: -2.9608,
-    category: 'stadium',
-    hint: 'Beatles birthplace',
-    country: 'United Kingdom',
-    facts: [
-      '🎵 "You\'ll Never Walk Alone" anthem',
-      '🏟️ Capacity 61,276, opened 1884',
-      '⚽ Liverpool FC\'s fortress',
-      '🌙 Famous European night atmosphere'
-    ]
-  },
-  {
-    id: '15',
-    text: 'Where did Muhammad Ali fight George Foreman in "Rumble in the Jungle"?',
-    lat: -4.3276,
-    lng: 15.3136,
-    category: 'event',
-    hint: 'Democratic Republic of Congo',
-    country: 'DR Congo',
-    facts: [
-      '🥊 October 30, 1974 - Ali\'s greatest victory',
-      '📺 60,000 watched live, billions on TV',
-      '🎯 "Rope-a-dope" strategy invented',
-      '👑 Ali regained heavyweight title at 32'
-    ]
-  },
-  {
-    id: '16',
-    text: 'Location of the Olympic Stadium that hosted 1936 Summer Olympics?',
-    lat: 52.5145,
-    lng: 13.2395,
-    category: 'event',
-    hint: 'Capital of Germany',
-    country: 'Germany',
-    facts: [
-      '🥇 Jesse Owens won 4 gold medals',
-      '🏟️ Berlin Olympiastadion, capacity 74,475',
-      '⚽ 2006 World Cup final venue',
-      '🎥 First Olympics televised'
-    ]
-  },
-  {
-    id: '17',
-    text: 'Where is the famous Fenway Park located?',
-    lat: 42.3467,
-    lng: -71.0972,
-    category: 'stadium',
-    hint: 'Home of Red Sox',
-    country: 'United States',
-    facts: [
-      '⚾ Oldest MLB ballpark (opened 1912)',
-      '💚 Famous "Green Monster" left field wall',
-      '🏆 Boston Red Sox home',
-      '🎭 Iconic hand-operated scoreboard'
-    ]
-  },
-  {
-    id: '18',
-    text: 'Location of the 1992 Summer Olympics?',
-    lat: 41.3851,
-    lng: 2.1734,
-    category: 'event',
-    hint: 'Catalonia, Spain',
-    country: 'Spain',
-    facts: [
-      '🏹 Archer lit cauldron with flaming arrow',
-      '🏀 Original "Dream Team" dominated',
-      '🏊 Transformed Barcelona\'s waterfront',
-      '🎭 Freddie Mercury & Montserrat tribute'
-    ]
-  },
-  {
-    id: '19',
-    text: 'Where is the Azteca Stadium?',
-    lat: 19.3029,
-    lng: -99.1506,
-    category: 'stadium',
-    hint: 'Capital of Mexico',
-    country: 'Mexico',
-    facts: [
-      '🏟️ Capacity 87,523 - altitude 2,200m',
-      '⚽ Only stadium to host 2 WC finals (1970, 1986)',
-      '✋ Maradona\'s "Hand of God" 1986',
-      '👑 Pelé & Maradona lifted WC trophy here'
-    ]
-  },
-  {
-    id: '20',
-    text: 'Location of the famous La Bombonera stadium?',
-    lat: -34.6355,
-    lng: -58.3647,
-    category: 'stadium',
-    hint: 'Boca Juniors, Argentina',
-    country: 'Argentina',
-    facts: [
-      '💙💛 Boca Juniors iconic home',
-      '🏟️ Capacity 54,000, opened 1940',
-      '📦 "The Chocolate Box" - unique D-shape',
-      '🎭 One of football\'s most passionate crowds'
-    ]
-  },
-  {
-    id: '21',
-    text: 'Where did the "Miracle on Ice" take place?',
-    lat: 44.2167,
-    lng: -73.9778,
-    category: 'event',
-    hint: '1980 Winter Olympics, New York',
-    country: 'United States',
-    facts: [
-      '🏒 USA beat USSR 4-3 in hockey semifinal',
-      '🥇 USA then beat Finland for gold',
-      '❄️ Lake Placid 1980 Winter Olympics',
-      '🎙️ "Do you believe in miracles? YES!"'
-    ]
-  },
-  {
-    id: '22',
-    text: 'Location of the Emirates Stadium?',
-    lat: 51.5549,
-    lng: -0.1084,
-    category: 'stadium',
-    hint: 'Arsenal FC, London',
-    country: 'United Kingdom',
-    facts: [
-      '🔴⚪ Arsenal\'s home since 2006',
-      '🏟️ Capacity 60,704',
-      '💰 Named after airline sponsor',
-      '🏛️ Replaced historic Highbury'
-    ]
-  },
-  {
-    id: '23',
-    text: 'Where is the famous Circuit de Monaco?',
-    lat: 43.7347,
-    lng: 7.4206,
-    category: 'event',
-    hint: 'French Riviera city-state',
-    country: 'Monaco',
-    facts: [
-      '🏎️ F1\'s most prestigious race since 1929',
-      '🛥️ Racing through narrow city streets',
-      '💎 Glamorous location with yachts',
-      '🐢 Slowest average F1 track speed'
-    ]
-  },
-  {
-    id: '24',
-    text: 'Location of the 2016 Summer Olympics?',
-    lat: -22.9122,
-    lng: -43.2302,
-    category: 'event',
-    hint: 'First South American Olympics',
-    country: 'Brazil',
-    facts: [
-      '🇧🇷 First Olympics in South America',
-      '⚽ Neymar led Brazil to football gold',
-      '🏊 Usain Bolt\'s final Olympic triple',
-      '🎆 Christ the Redeemer lit in colors'
-    ]
-  },
-  {
-    id: '25',
-    text: 'Where is the new Estádio da Luz, home of Benfica?',
-    lat: 38.7528,
-    lng: -9.193,
-    category: 'stadium',
-    hint: 'Lisbon, Portugal',
-    country: 'Portugal',
-    facts: [
-      '🏗️ Rebuilt from the ground up in 2003-2005',
-      '🏟️ Capacity 65,000 with a retractable roof',
-      '🇵🇹 Benfica\'s home since 2003',
-      '🎬 The Champions League final was held here in 2005 and 2024',
-    ]
-  },
-  {
-    id: '26',
-    text: 'Location of the Etihad Stadium?',
-    lat: 53.4831,
-    lng: -2.2004,
-    category: 'stadium',
-    hint: 'Manchester City FC',
-    country: 'United Kingdom',
-    facts: [
-      '💙 Manchester City\'s home since 2003',
-      '🏟️ Capacity 53,400',
-      '🥇 Built for 2002 Commonwealth Games',
-      '🏆 Transformed into title-winning fortress'
-    ]
-  },
-  {
-    id: '27',
-    text: 'Where did Jesse Owens set his long jump world record in 1935?',
-    lat: 42.2808,
-    lng: -83.743,
-    category: 'athlete',
-    hint: 'Ann Arbor, Michigan',
-    country: 'United States',
-    facts: [
-      '📏 8.13 metres - a record that stood for 25 years',
-      '🤸 The jump was wind-legal over 15.76 m',
-      '🎓 He was a student at the University of Michigan',
-      '🥇 Later won four golds at the 1936 Berlin Olympics',
-    ]
-  },
-  {
-    id: '28',
-    text: 'Location of the famous Monza racing circuit?',
-    lat: 45.6156,
-    lng: 9.2811,
-    category: 'event',
-    hint: 'Near Milan, Italy',
-    country: 'Italy',
-    facts: [
-      '🏎️ "Temple of Speed" - fastest F1 track',
-      '🏁 Italian Grand Prix since 1950',
-      '👑 Steeped in Ferrari heritage',
-      '🌳 Set in historic royal park'
-    ]
-  },
-  {
-    id: '29',
-    text: 'Where is the Parc des Princes stadium?',
-    lat: 48.8414,
-    lng: 2.2531,
-    category: 'stadium',
-    hint: 'PSG home, Paris',
-    country: 'France',
-    facts: [
-      '🔴🔵 Paris Saint-Germain home',
-      '🏟️ Capacity 47,929, opened 1972',
-      '⚽ Hosted 1998 World Cup matches',
-      '🌟 Witnessed Messi, Neymar, Mbappé era'
-    ]
-  },
-  {
-    id: '30',
-    text: 'Location of the 2020 Summer Olympics (held in 2021)?',
-    lat: 35.6762,
-    lng: 139.6503,
-    category: 'event',
-    hint: 'Capital of Japan',
-    country: 'Japan',
-    facts: [
-      '😷 First Olympics postponed (COVID-19)',
-      '🚫 Held without spectators',
-      '🏐 Added skateboarding, surfing, karate',
-      '🎌 Japan won record 27 gold medals'
-    ]
-  },
-  {
-    id: '31',
-    text: 'Where is the famous Stamford Bridge stadium?',
-    lat: 51.4817,
-    lng: -0.1910,
-    category: 'stadium',
-    hint: 'Chelsea FC, London',
-    country: 'United Kingdom',
-    facts: [
-      '💙 Chelsea\'s home since 1905',
-      '🏟️ Capacity 40,341',
-      '⚽ Compact, intimate atmosphere',
-      '🏆 Witnessed Abramovich era success'
-    ]
-  },
-  {
-    id: '32',
-    text: 'Location of the historic Rose Bowl stadium?',
-    lat: 34.1613,
-    lng: -118.1678,
-    category: 'stadium',
-    hint: 'Pasadena, California',
-    country: 'United States',
-    facts: [
-      '🏟️ Capacity 88,565, opened 1922',
-      '🏈 "The Granddaddy of Them All"',
-      '⚽ 1994 World Cup final venue',
-      '🏆 5 Super Bowls hosted'
-    ]
-  },
-  {
-    id: '33',
-    text: 'Where is the Signal Iduna Park (Westfalenstadion)?',
-    lat: 51.4925,
-    lng: 7.4517,
-    category: 'stadium',
-    hint: 'Borussia Dortmund, Germany',
-    country: 'Germany',
-    facts: [
-      '💛⚫ Borussia Dortmund\'s fortress',
-      '🏟️ Capacity 81,365 - largest in Germany',
-      '📣 "Yellow Wall" - 25,000 standing terrace',
-      '🎭 Europe\'s most intimidating atmosphere'
-    ]
-  },
-  {
-    id: '34',
-    text: 'Location of the iconic Lusail Stadium?',
-    lat: 25.4206,
-    lng: 51.4897,
-    category: 'stadium',
-    hint: '2022 World Cup Final',
-    country: 'Qatar',
-    facts: [
-      '🏆 2022 World Cup final venue',
-      '🏟️ Capacity 88,966',
-      '❄️ Air-conditioned in desert heat',
-      '🇦🇷 Messi lifted trophy here'
-    ]
-  },
-  {
-    id: '35',
-    text: 'Where is the famous Velodrome stadium?',
-    lat: 43.2699,
-    lng: 5.3958,
-    category: 'stadium',
-    hint: 'Olympique Marseille',
-    country: 'France',
-    facts: [
-      '⚪🔵 Olympique Marseille home',
-      '🏟️ Capacity 67,394',
-      '🏆 France\'s most passionate fans',
-      '⚽ Hosted Euro 2016 matches'
-    ]
-  }
-];
+/**
+ * Formats a score for display.
+ *
+ * A score has at most two decimal places. Whole numbers stay whole, and a
+ * fraction keeps its decimals without trailing zeros - so 90 is "90", 96.7
+ * is "96.7", and 96.75 is "96.75".
+ */
+export function formatPoints(value: number): string {
+  const rounded = roundScore(value);
+  return Number.isInteger(rounded) ? String(rounded) : String(rounded);
+}
+
+// The question pool itself lives in ./questions/ so it can grow.
+
 
 // Deterministic, well-distributed PRNG (mulberry32) seeded from the day key.
 // A plain Math.sin hash produced correlated shuffles on adjacent days.
@@ -576,16 +68,58 @@ function dateToSeed(dateString: string): number {
 export const DAILY_QUESTION_COUNT = 10;
 
 /**
+ * The key that identifies the place a question is about.
+ *
+ * Several questions can point at the same venue - one asks about the stadium,
+ * another about a final played there. They must never end up in the same
+ * round, so the places are grouped and the daily set skips the second one.
+ *
+ * The venue name is used when a question has one, because coordinates cannot
+ * separate a baseball park from the football field next door to it. Questions
+ * without a name fall back to the coordinate, rounded to about a kilometre.
+ */
+export function venueKey(question: Question): string {
+  if (question.venue) return question.venue.toLowerCase();
+  return `${question.lat.toFixed(2)},${question.lng.toFixed(2)}`;
+}
+
+/**
  * Get daily questions based on a date (deterministic).
  * The same day always yields the same 10 questions, for every player.
+ *
+ * Every region has its own set: the seed is mixed with the region id, so the
+ * American round on a given day is always the same ten questions for every
+ * player in it, and different from the world round.
  */
-export function getDailyQuestions(date: Date = new Date()): Question[] {
-  const dateString = getDateString(date);
-  const seed = dateToSeed(dateString);
+export function getDailyQuestions(
+  date: Date = new Date(),
+  regionId: RegionId = DEFAULT_REGION,
+): Question[] {
+  return getDailyQuestionsForDay(getDateString(date), regionId);
+}
+
+/**
+ * The ten questions of a round, taken from the day key and nothing else.
+ *
+ * A day key is a local calendar day, and the same key has to give the same
+ * ten questions to every player in every country. Reading the key back out
+ * of a `Date` meant the key was turned into UTC midnight first, and in every
+ * timezone behind UTC that moved the round a day into the past - so a player
+ * in Los Angeles was playing yesterday's questions while the board and the
+ * streak both said today.
+ *
+ * The server works the round out from the day key as well, so the board and
+ * the round always agree.
+ */
+export function getDailyQuestionsForDay(
+  dayKey: string,
+  regionId: RegionId = DEFAULT_REGION,
+): Question[] {
+  const seed = (dateToSeed(dayKey) ^ regionSeed(regionId)) >>> 0;
   const random = seededRandom(seed);
 
   // Create a shuffled copy of the question pool
-  const shuffled = [...questionPool];
+  const shuffled = [...questionsForRegion(questionPool, regionId)];
 
   // Fisher-Yates shuffle with the seeded PRNG
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -593,15 +127,37 @@ export function getDailyQuestions(date: Date = new Date()): Question[] {
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
 
-  // Return the questions for this day
-  return shuffled.slice(0, DAILY_QUESTION_COUNT);
-}
+  // Take the questions, but never two about the same place. If the pool runs
+  // short of distinct venues - it never does with the current pool - the
+  // remaining questions are added back in regardless.
+  //
+  // Two different questions can name the same ground in different words and
+  // still sit on the same pixel, so the coordinates are checked as well. Two
+  // pins on the same spot would look like a bug to the player.
+  const picked: Question[] = [];
+  const usedVenues = new Set<string>();
+  const usedPoints = new Set<string>();
 
-/**
- * Questions used by the practice mode: a stable, hand-picked set that does
- * NOT change from day to day.
- */
-export const PRACTICE_QUESTIONS: Question[] = questionPool.slice(0, 10);
+  for (const question of shuffled) {
+    if (picked.length >= DAILY_QUESTION_COUNT) break;
+    const key = venueKey(question);
+    if (usedVenues.has(key)) continue;
+    const point = `${question.lat.toFixed(3)},${question.lng.toFixed(3)}`;
+    if (usedPoints.has(point)) continue;
+    usedVenues.add(key);
+    usedPoints.add(point);
+    picked.push(question);
+  }
+
+  if (picked.length < DAILY_QUESTION_COUNT) {
+    for (const question of shuffled) {
+      if (picked.length >= DAILY_QUESTION_COUNT) break;
+      if (!picked.includes(question)) picked.push(question);
+    }
+  }
+
+  return picked;
+}
 
 // Haversine formula for calculating distance
 export function calculateDistance(
@@ -628,35 +184,86 @@ function toRad(degrees: number): number {
 }
 
 // Scoring system based on distance
+/**
+ * The points for a guess, on a scale of 0 to 100.
+ *
+ * A guess 5,000 km away or more is worth nothing - that is the point of no
+ * return, the other side of the world. Everything closer is worth a share of
+ * the full 100 points.
+ */
 export function calculateScore(distanceKm: number): number {
-  if (distanceKm < 25) return 1000;
-  if (distanceKm < 50) return 950;
-  if (distanceKm < 100) return 900;
-  if (distanceKm < 200) return 800;
-  if (distanceKm < 500) return 600;
-  if (distanceKm < 1000) return 400;
-  if (distanceKm < 2000) return 200;
-  if (distanceKm < 5000) return 100;
-  return 50;
+  if (distanceKm < 25) return 100;
+  if (distanceKm < 50) return 95;
+  if (distanceKm < 100) return 90;
+  if (distanceKm < 200) return 80;
+  if (distanceKm < 500) return 60;
+  if (distanceKm < 1000) return 40;
+  if (distanceKm < 2000) return 20;
+  if (distanceKm < 5000) return 10;
+  return 0;
 }
 
-// Emoji for share cards
+// Emoji for share cards. The thresholds follow the maximum score of 1,300.
 export function getResultEmoji(score: number): string {
-  if (score >= 9000) return '🔥';
-  if (score >= 8000) return '🏆';
-  if (score >= 7000) return '⭐';
-  if (score >= 6000) return '💪';
-  if (score >= 5000) return '👍';
-  if (score >= 4000) return '😊';
-  if (score >= 3000) return '🎯';
+  if (score >= 1170) return '🔥';
+  if (score >= 1040) return '🏆';
+  if (score >= 910) return '⭐';
+  if (score >= 780) return '💪';
+  if (score >= 650) return '👍';
+  if (score >= 520) return '😊';
+  if (score >= 390) return '🎯';
   return '📍';
+}
+
+/**
+ * The address a shared result points at.
+ *
+ * The picture that goes with the link is drawn on the server for that exact
+ * score, so the preview on Twitter or Facebook shows the result rather than
+ * the same card everybody gets.
+ */
+export function buildShareUrl(params: {
+  score: number;
+  maxScore: number;
+  streak?: number;
+  region?: RegionId;
+  date?: string;
+}): string {
+  const query = new URLSearchParams({
+    score: String(Math.max(0, Math.round(params.score * 100) / 100)),
+    max: String(Math.max(1, Math.round(params.maxScore))),
+    region: params.region === 'world' ? 'world' : 'usa',
+  });
+
+  if (params.streak && params.streak > 1) query.set('streak', String(params.streak));
+  if (params.date) query.set('day', params.date);
+
+  const base =
+    typeof window !== 'undefined'
+      ? window.location.origin
+      : 'https://geoarena.com';
+
+  return `${base}/api/share?${query.toString()}`;
 }
 
 export function generateShareText(
   score: number,
-  totalScore: number = MAX_QUESTION_SCORE * DAILY_QUESTION_COUNT,
+  totalScore: number = maxRoundScore(DAILY_QUESTION_COUNT),
+  timeBonus: number = 0,
+  region: RegionId = DEFAULT_REGION,
+  streakMultiplier: number = 1,
 ): string {
-  const percentage = totalScore > 0 ? Math.round((score / totalScore) * 100) : 0;
-  const emoji = getResultEmoji(score);
-  return `GeoArena ${emoji}\nMy score: ${score}/${totalScore} (${percentage}%)\n\nCan you do better? 🌍⚽`;
+  const multiplier = streakMultiplier > 1 ? streakMultiplier : 1;
+  // The percentage is of the round as it would have been without the streak
+  // bonus, so it never reads as more than a hundred, and the face that goes with
+  // it reflects how well the player actually guessed.
+  const base = multiplier > 1 ? score / multiplier : score;
+  const percentage = totalScore > 0 ? Math.round((base / totalScore) * 100) : 0;
+  const emoji = getResultEmoji(base);
+  const bonus = Number(timeBonus) || 0;
+  const bonusLine = bonus > 0 ? `\nSpeed bonus: +${formatPoints(bonus)} ⚡` : '';
+  const streakLine = multiplier > 1 ? `\n🔥 ${multiplier}× streak bonus` : '';
+  const regionLine =
+    region === DEFAULT_REGION ? '' : `\n${getRegion(region).emoji} ${getRegion(region).label} round`;
+  return `USA GeoArena ${emoji}\nMy score: ${formatPoints(score)}/${formatPoints(totalScore * multiplier)} (${percentage}%)\n${bonusLine ? bonusLine + '\n' : ''}${streakLine ? streakLine + '\n' : ''}${regionLine ? regionLine + '\n' : ''}Can you do better? 🌍⚽`;
 }

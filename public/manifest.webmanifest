@@ -1,0 +1,49 @@
+{
+  "name": "USA GeoArena - Guess the Place",
+  "short_name": "USA GeoArena",
+  "description": "Ten daily questions about NFL, MLB, NBA and NHL stadiums, iconic race tracks and legendary American moments. Click the map, get closer, score up to 1000 points a day.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#FF4655",
+  "theme_color": "#FF4655",
+  "categories": ["games", "education", "entertainment"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Today's Challenge",
+      "short_name": "Today",
+      "url": "/daily",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Battle Mode",
+      "short_name": "Battle",
+      "url": "/battle",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

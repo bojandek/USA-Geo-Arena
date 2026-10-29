@@ -76,7 +76,7 @@ export default function CookieConsent() {
                   We use cookies for advertising
                 </p>
                 <p className="text-xs text-gray-600 mt-1 leading-relaxed">
-                  GeoArena is free and supported by ads. We and our advertising partners use
+                  USA GeoArena is free and supported by ads. We and our advertising partners use
                   cookies to show ads and to measure how they perform. You can accept all
                   cookies, keep only the necessary ones, or change your choice later under
                   &quot;Privacy settings&quot; in the footer. See our{' '}

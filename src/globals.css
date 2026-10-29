@@ -52,33 +52,36 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 222 28% 8%;
+    --foreground: 210 30% 96%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 222 26% 12%;
+    --card-foreground: 210 30% 96%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 222 26% 12%;
+    --popover-foreground: 210 30% 96%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* The brand colours stay the same in the dark. A brand that changes with
+       the theme is not a brand, and the red and orange are what make this
+       site look like a game rather than a document. */
+    --primary: 356 100% 64%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 20 100% 62%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 18% 18%;
+    --muted-foreground: 215 18% 68%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 45 100% 51%;
+    --accent-foreground: 222 28% 8%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 52%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 220 16% 24%;
+    --input: 220 16% 24%;
+    --ring: 356 100% 64%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -88,6 +91,91 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+}
+
+/**
+ * The dark theme for the pages that were written with a light palette.
+ *
+ * The site uses hard coded neutrals - white cards, grey text, pale tinted
+ * panels - in every component. Rewriting all of them one by one would be a
+ * large and endless job, so the neutrals are remapped here instead. What was
+ * white becomes the dark surface, what was dark text becomes the light text,
+ * and the brand colours are left exactly as they are.
+ *
+ * Every rule is more specific than the utility it replaces, so it wins
+ * without needing to come later in the file.
+ */
+@layer utilities {
+  /* Surfaces */
+  .dark .bg-white { background-color: hsl(222 28% 11%); }
+  .dark .bg-white\/95 { background-color: hsl(222 28% 11% / 0.95); }
+  .dark .bg-white\/90 { background-color: hsl(222 28% 11% / 0.9); }
+  .dark .bg-white\/85 { background-color: hsl(222 28% 11% / 0.85); }
+  .dark .bg-white\/80 { background-color: hsl(222 28% 11% / 0.8); }
+  .dark .bg-white\/70 { background-color: hsl(222 28% 11% / 0.7); }
+  .dark .bg-white\/60 { background-color: hsl(222 28% 11% / 0.6); }
+  .dark .bg-white\/10 { background-color: hsl(210 30% 96% / 0.1); }
+
+  .dark .bg-gray-50 { background-color: hsl(222 24% 15%); }
+  .dark .bg-gray-100 { background-color: hsl(222 24% 19%); }
+  .dark .bg-gray-200 { background-color: hsl(220 16% 26%); }
+  .dark .bg-gray-300 { background-color: hsl(220 14% 33%); }
+
+  /* Tinted panels */
+  .dark .bg-orange-50 { background-color: hsl(24 55% 14%); }
+  .dark .bg-orange-100 { background-color: hsl(24 55% 18%); }
+  .dark .bg-green-50 { background-color: hsl(152 50% 13%); }
+  .dark .bg-green-100 { background-color: hsl(152 50% 17%); }
+  .dark .bg-emerald-100 { background-color: hsl(152 50% 17%); }
+  .dark .bg-blue-50 { background-color: hsl(214 55% 14%); }
+  .dark .bg-blue-100 { background-color: hsl(214 55% 18%); }
+  .dark .bg-amber-50 { background-color: hsl(40 65% 14%); }
+  .dark .bg-amber-100 { background-color: hsl(40 65% 18%); }
+  .dark .bg-yellow-50 { background-color: hsl(48 65% 14%); }
+  .dark .bg-yellow-100 { background-color: hsl(48 65% 18%); }
+  .dark .bg-red-50 { background-color: hsl(0 55% 14%); }
+  .dark .bg-red-100 { background-color: hsl(0 55% 18%); }
+  .dark .bg-purple-50 { background-color: hsl(268 45% 16%); }
+
+  /* Gradients */
+  .dark .from-orange-50 { --tw-gradient-from: hsl(24 55% 14%) var(--tw-gradient-from-position); }
+  .dark .from-blue-50 { --tw-gradient-from: hsl(214 55% 14%) var(--tw-gradient-from-position); }
+  .dark .from-yellow-50 { --tw-gradient-from: hsl(48 65% 14%) var(--tw-gradient-from-position); }
+  .dark .via-red-50 { --tw-gradient-via: hsl(0 55% 14%) var(--tw-gradient-via-position); }
+  .dark .via-purple-50 { --tw-gradient-via: hsl(268 45% 16%) var(--tw-gradient-via-position); }
+
+  /* Text */
+  .dark .text-gray-800 { color: hsl(210 30% 96%); }
+  .dark .text-gray-700 { color: hsl(210 26% 92%); }
+  .dark .text-gray-600 { color: hsl(215 18% 76%); }
+  .dark .text-gray-500 { color: hsl(215 16% 64%); }
+  .dark .text-gray-400 { color: hsl(215 14% 52%); }
+
+  .dark .text-green-900 { color: hsl(152 60% 84%); }
+  .dark .text-green-800 { color: hsl(152 60% 80%); }
+  .dark .text-green-700 { color: hsl(152 55% 74%); }
+  .dark .text-green-600 { color: hsl(152 50% 66%); }
+  .dark .text-blue-900 { color: hsl(214 70% 84%); }
+  .dark .text-blue-800 { color: hsl(214 65% 80%); }
+  .dark .text-blue-700 { color: hsl(214 60% 74%); }
+  .dark .text-orange-800 { color: hsl(24 80% 76%); }
+  .dark .text-orange-700 { color: hsl(24 75% 72%); }
+  .dark .text-amber-700 { color: hsl(40 80% 72%); }
+  .dark .text-amber-600 { color: hsl(40 85% 66%); }
+  .dark .text-yellow-800 { color: hsl(48 85% 76%); }
+  .dark .text-yellow-700 { color: hsl(48 80% 72%); }
+  .dark .text-emerald-700 { color: hsl(152 60% 72%); }
+  .dark .text-red-700 { color: hsl(0 75% 74%); }
+  .dark .text-red-600 { color: hsl(0 70% 68%); }
+
+  /* Borders */
+  .dark .border-gray-200 { border-color: hsl(220 16% 24%); }
+  .dark .border-gray-300 { border-color: hsl(220 14% 30%); }
+  .dark .border-orange-100 { border-color: hsl(24 50% 26%); }
+  .dark .border-orange-200 { border-color: hsl(24 55% 32%); }
+  .dark .border-blue-200 { border-color: hsl(214 50% 30%); }
+  .dark .border-green-200 { border-color: hsl(152 45% 26%); }
+  .dark .border-yellow-300 { border-color: hsl(48 55% 32%); }
 }
 
 @layer base {

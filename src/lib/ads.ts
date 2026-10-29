@@ -111,12 +111,12 @@ function readStoredConsent(): ConsentValue | null {
 }
 
 let currentConsent: ConsentValue | null = readStoredConsent();
-const consentListeners = new Set<() => void>();
+const consentListeners = new Set<(value: ConsentValue) => void>();
 
 /** The current consent value, or null when the visitor has not decided yet. */
 export const getConsentSnapshot = (): ConsentValue | null => currentConsent;
 
-export const subscribeConsent = (listener: () => void): (() => void) => {
+export const subscribeConsent = (listener: (value: ConsentValue) => void): (() => void) => {
   consentListeners.add(listener);
   return () => {
     consentListeners.delete(listener);
@@ -141,7 +141,7 @@ export const setConsent = (value: ConsentValue): void => {
     }
   }
   applyConsentToGoogle(value);
-  consentListeners.forEach((listener) => listener());
+  consentListeners.forEach((listener) => listener(value));
 };
 
 /** True when the visitor has already made a choice. */

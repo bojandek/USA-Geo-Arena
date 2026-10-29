@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Home, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Seo from "@/components/Seo";
 
 const NotFound = () => {
   const location = useLocation();
@@ -15,7 +16,14 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 flex items-center justify-center p-4">
+    <>
+      <Seo
+        title="Page not found"
+        description="That page does not exist on USA GeoArena. Head back to the map and play today's challenge."
+        path={location.pathname}
+        noIndex
+      />
+      <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 flex items-center justify-center p-4">
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -90,7 +98,8 @@ const NotFound = () => {
           Error code: 404 • Path: {location.pathname}
         </motion.div>
       </motion.div>
-    </div>
+      </div>
+    </>
   );
 };
 

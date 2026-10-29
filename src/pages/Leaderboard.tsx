@@ -6,6 +6,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, Trophy, Medal, Award } from 'lucide-react';
+import Seo from '@/components/Seo';
+import { formatPoints } from '@/lib/game-data';
+import GlobalLeaderboard from '@/components/GlobalLeaderboard';
 
 export default function Leaderboard() {
   const navigate = useNavigate();
@@ -14,7 +17,13 @@ export default function Leaderboard() {
   const topScores = getLeaderboard();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-orange-50 to-red-50 p-4">
+    <>
+      <Seo
+        title="Your Scores"
+        description="Your best USA GeoArena rounds, ranked by score. See how close you came on every day you played."
+        path="/leaderboard"
+      />
+      <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-orange-50 to-red-50 p-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
@@ -105,7 +114,7 @@ export default function Leaderboard() {
                             >
                               {result.accuracy}% accuracy
                             </Badge>
-                            {result.score >= 9000 && (
+                            {result.score >= 900 && (
                               <span className="text-xl">🔥</span>
                             )}
                           </div>
@@ -114,7 +123,7 @@ export default function Leaderboard() {
                         {/* Score */}
                         <div className="text-right">
                           <p className="text-2xl font-bold text-primary">
-                            {result.score.toLocaleString()}
+                            {formatPoints(result.score)}
                           </p>
                           <p className="text-xs text-gray-500">points</p>
                         </div>
@@ -126,6 +135,11 @@ export default function Leaderboard() {
             })}
           </div>
         )}
+
+        {/* The board of everybody, next to the player's own board. */}
+        <div className="mt-8">
+          <GlobalLeaderboard region="usa" />
+        </div>
 
         {/* Stats Summary */}
         {topScores.length > 0 && (
@@ -147,7 +161,7 @@ export default function Leaderboard() {
                   <div className="text-center p-4 bg-yellow-50 rounded-xl">
                     <Award className="w-6 h-6 mx-auto mb-1 text-yellow-500" />
                     <p className="text-2xl font-bold text-gray-800">
-                      {topScores[0]?.score.toLocaleString()}
+                      {formatPoints(topScores[0]?.score ?? 0)}
                     </p>
                     <p className="text-xs text-gray-600">Best Score</p>
                   </div>
@@ -171,6 +185,7 @@ export default function Leaderboard() {
           </motion.div>
         )}
       </div>
-    </div>
+      </div>
+    </>
   );
 }

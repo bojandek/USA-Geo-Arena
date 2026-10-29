@@ -1,4 +1,4 @@
-# 🌍 GeoArena - Geografsko-sportska kviz igra
+# 🌍 USA GeoArena - Geografsko-sportska kviz igra
 
 Zabavna i adiktivna igra gde pogađaš lokacije svetskih sportskih stadiona, događaja i klubova! ⚽🏀🏈
 
@@ -9,6 +9,10 @@ Zabavna i adiktivna igra gde pogađaš lokacije svetskih sportskih stadiona, dog
 - Klikni na mapu da pogađaš lokacije
 - Osvoji do 1000 poena po pitanju (zasnovano na tačnosti)
 - Rezultati se čuvaju lokalno
+
+### 🌐 Dve runde
+- **USA** (`/daily`) - američka runda na ravnoj mapi, uokvirenoj na državu
+- **World** (`/world`) - svetska runda na **3D globusu** (bez američkih pitanja)
 
 ### ⚔️ Battle Mode
 - Takmičenje protiv AI protivnika (nije pravi multiplayer)
@@ -57,7 +61,8 @@ Zabavna i adiktivna igra gde pogađaš lokacije svetskih sportskih stadiona, dog
 - **TypeScript** - Type safety
 - **Tailwind CSS** - Styling
 - **shadcn/ui** - UI komponente
-- **MapLibre GL** - Interaktivna mapa
+- **MapLibre GL 5** - Interaktivna mapa i 3D globus
+- **react-map-gl** - React omotač za MapLibre
 - **Framer Motion** - Animacije
 - **React Router** - Navigacija
 - **localStorage** - Lokalno čuvanje podataka
@@ -80,6 +85,44 @@ npm run typecheck
 # Build za produkciju (typecheck + build)
 npm run build
 ```
+
+### Slike pitanja
+
+Fotografije dolaze sa Wikimedia Commonsa i prikazuju se samo posle odgovora,
+uz autora, licencu i link do originalne datoteke:
+
+```bash
+npm run images:fetch
+```
+
+Skripta traži stranicu mesta preko koordinata pitanja, proverava da se naziv
+poklapa, pa uzima sliku sa Commonsa samo ako ima slobodnu licencu. Rezultat je
+`src/lib/question-images.ts`; pitanje bez pouzdanog pogotka ostaje bez slike.
+Keš se čuva u `scripts/.question-images-cache.json` (nije u gitu), pa se
+prekinut posao nastavlja bez ponovnih API poziva. Za produkciju se može
+podesiti `WIKIMEDIA_USER_AGENT` sa kontaktom.
+
+Ako je u `.env` postavljen `PEXELS_API_KEY` (vidi `.env.example`), preostala
+pitanja mogu dobiti ilustrativnu stock fotografiju:
+
+```bash
+npm run images:fetch -- --fill-pexels
+```
+
+Takve slike su u karti označene sa **Illustrative photo** i nose credit
+fotografa i link do Pexelsa. Pexels se nikad ne poziva iz browsera.
+
+### Brand ikona
+
+Logotip (globus sa SAD-om) se generiše iz pravih geografskih podataka — granice
+država iz US Census fajla, ostali svet iz Natural Earth:
+
+```bash
+node scripts/brand/generate-icon.cjs
+```
+
+Rezultat je `public/brand-icon.svg`, iz kog se prave PWA ikonice, favicon i
+socijalna kartica — pa svi oni nikad ne mogu da se raziđu.
 
 ## 🎨 Dizajn
 
@@ -106,6 +149,56 @@ Aplikacija je u potpunosti responsive i optimizovana za:
 - [ ] Social login (Google, Facebook)
 - [ ] Push notifikacije za dnevne izazove
 - [ ] Različiti game mode-ovi
+
+## 🖥️ Server (Vercel)
+
+Sajt ima osam server rutina. Izvor je u `server/`, a `npm run build` ih esbuild‑om pakuje u samostalne `api/*.js` funkcije za Vercel. Sve su **opcione** — dok nisu podešene, sajt radi potpuno isto, samo ih nema.
+
+| Ruta | Šta radi |
+|---|---|
+| `server/share.ts` | Stranica na koju pokazuje deljeni link — nosi OG tagove i vodi igrača na igru |
+| `server/newsletter.ts` | Dnevni email (cron) ili HTML pregled |
+| `server/admin/newsletter.ts` | Zaštićeni admin pregled i izvoz emaila |
+| `server/leaderboard.ts` | Globalna rang lista: čita i upisuje rezultate |
+| `server/license.ts` | Proverava da li je licencni ključ aktivan |
+| `server/checkout.ts` | Pravi checkout kod Lemon Squeezy‑ja |
+| `server/webhook.ts` | Prima obaveštenje kad nešto kupi Pro |
+| `server/submissions.ts` | Prima pitanja koja igrači pošalju |
+
+> `api/` se generiše tokom builda i zato je u `.gitignore`. Ne menjaj ga ručno; menjaj `server/` i pokreni `npm run build` (ili `npm run build:api`).
+
+### Podešavanje
+
+1. **Supabase** (baza) — [supabase.com](https://supabase.com) → novi projekat → Settings → API
+2. Pokreni `supabase/schema.sql` jednom (SQL editor u Supabase‑u) — pravi tri tabele
+3. **Lemon Squeezy** (plaćanja) — [lemonsqueezy.com](https://www.lemonsqueezy.com) → Settings → API → ključ
+4. U Vercel projektu dodaj Environment Variables:
+
+```
+SITE_URL=https://tvoj-domen.com
+SUPABASE_URL=...
+SUPABASE_SERVICE_ROLE_KEY=...
+LEMON_SQUEEZY_API_KEY=...
+LEMON_SQUEEZY_VARIANT_ID=...
+LEMON_SQUEEZY_WEBHOOK_SECRET=...
+```
+
+> **Važno:** ove promenljive nisu `VITE_` — Vite bi ih stavio u JavaScript koji svako preuzima, pa bi ključevi bili javni. Oni se čitaju samo na serveru.
+
+### Lokalno
+
+```powershell
+npm run dev          # sajt (Vite)
+vercel dev          # sajt + server rute
+```
+
+Vite ne čita `.env` za server kod, pa za testiranje ruta treba `vercel dev`.
+
+### Webhook
+
+Lemon Squeezy → Settings → Webhooks → dodaj `https://tvoj-domen.com/api/webhook` i kopiraj secret u `LEMON_SQUEEZY_WEBHOOK_SECRET`.
+
+---
 
 ## 📄 Licenca
 

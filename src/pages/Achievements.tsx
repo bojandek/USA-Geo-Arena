@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, Lock } from 'lucide-react';
+import Seo from '@/components/Seo';
 
 export default function Achievements() {
   const navigate = useNavigate();
@@ -16,7 +17,13 @@ export default function Achievements() {
   const progressPercentage = Math.round((unlockedCount / totalCount) * 100);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 p-4">
+    <>
+      <Seo
+        title="Badges"
+        description="Every USA GeoArena badge, from a perfect round and a perfect guess to a thirty day streak - and how close you are to unlocking each one."
+        path="/achievements"
+      />
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 p-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
@@ -131,6 +138,7 @@ export default function Achievements() {
           </motion.div>
         )}
       </div>
-    </div>
+      </div>
+    </>
   );
 }

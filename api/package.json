@@ -1,0 +1,4 @@
+{
+  "_comment": "Forces Vercel's @vercel/node to treat this directory as CommonJS and bundle every relative import (including shared src/ modules) into each function. The root package stays ESM for Vite.",
+  "type": "commonjs"
+}

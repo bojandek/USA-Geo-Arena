@@ -1,0 +1,250 @@
+/**
+ * Unit tests for the newsletter layer.
+ *
+ * The signup form posts straight to a newsletter provider, so the parts worth
+ * testing here are the email validation and the local subscribe state.
+ */
+
+import { test, describe } from 'node:test';
+import assert from 'node:assert/strict';
+
+import {
+  NEWSLETTER_COPY,
+  NEWSLETTER_ENABLED,
+  getNewsletterState,
+  isValidEmail,
+  setNewsletterState,
+} from '../src/lib/newsletter.ts';
+import { buildDailyNewsletter, roundPath } from '../newsletter/daily.ts';
+import { mailchimpDataCenter } from '../server/_lib/mailer.ts';
+
+const DAY = '2026-10-24';
+const SITE = 'https://geoarena.com';
+
+describe('newsletter', () => {
+  test('the signup stays hidden until a provider is configured', () => {
+    if (process.env.VITE_NEWSLETTER_ACTION) return; // configured in this env
+    assert.equal(NEWSLETTER_ENABLED, false);
+  });
+
+  test('validates email addresses', () => {
+    assert.equal(isValidEmail('player@example.com'), true);
+    assert.equal(isValidEmail('  player@example.com  '), true);
+    assert.equal(isValidEmail('first.last+tag@sub.example.co.uk'), true);
+
+    assert.equal(isValidEmail(''), false);
+    assert.equal(isValidEmail('player'), false);
+    assert.equal(isValidEmail('player@'), false);
+    assert.equal(isValidEmail('player@example'), false);
+    assert.equal(isValidEmail('two words@example.com'), false);
+    assert.equal(isValidEmail('@example.com'), false);
+  });
+
+  test('the subscribe state starts as idle', () => {
+    // Node has no localStorage, so the getter falls back to "idle".
+    assert.equal(getNewsletterState(), 'idle');
+  });
+
+  test('setting the state never throws when storage is unavailable', () => {
+    assert.doesNotThrow(() => setNewsletterState('subscribed'));
+    assert.doesNotThrow(() => setNewsletterState('idle'));
+  });
+
+  test('the copy is complete in both languages', () => {
+    assert.ok(NEWSLETTER_COPY.heading.length > 0);
+    assert.ok(NEWSLETTER_COPY.subheading.length > 0);
+    assert.ok(NEWSLETTER_COPY.buttonInline.length > 0);
+    assert.ok(NEWSLETTER_COPY.buttonCard.length > 0);
+    assert.ok(NEWSLETTER_COPY.note.length > 0);
+    assert.ok(NEWSLETTER_COPY.successTitle.length > 0);
+    assert.ok(NEWSLETTER_COPY.successBody.length > 0);
+    assert.ok(NEWSLETTER_COPY.errorInvalid.length > 0);
+  });
+
+  test('the site copy is English only', () => {
+    // The whole site is in English, so no Serbian diacritics may appear in
+    // any string a visitor can read.
+    const serbian = /[\u0107\u010B\u0161\u017E\u0111\u0106\u010C\u0158\u0110]/;
+    const copy = Object.values(NEWSLETTER_COPY).join(' ');
+    assert.equal(serbian.test(copy), false, 'the newsletter copy must be English only');
+  });
+
+  test('a placeholder action URL is recognised', () => {
+    // The placeholder from .env.example must never be treated as a working
+    // provider - in a production build the form stays hidden.
+    const looksLikePlaceholder =
+      /example\.com|example\.org|your-?username|placeholder|changeme/i;
+
+    assert.equal(
+      looksLikePlaceholder.test('https://example.com/newsletter-placeholder'),
+      true,
+    );
+    assert.equal(
+      looksLikePlaceholder.test(
+        'https://buttondown.com/api/emails/embed-subscribe/geoarena',
+      ),
+      false,
+    );
+  });
+
+});
+
+describe('the daily email', () => {
+  test('it has a subject, a preheader and both versions of the body', () => {
+    const email = buildDailyNewsletter({ day: DAY, site: SITE });
+
+    assert.ok(email.subject.length > 10);
+    assert.ok(email.preheader.length > 10);
+    assert.ok(email.html.includes('<!doctype html>'));
+    assert.ok(email.text.length > 20);
+  });
+
+  test('it points at the round it is about', () => {
+    const usa = buildDailyNewsletter({ day: DAY, site: SITE, region: 'usa' });
+    const world = buildDailyNewsletter({ day: DAY, site: SITE, region: 'world' });
+
+    assert.ok(usa.html.includes(`${SITE}/daily`));
+    assert.ok(world.html.includes(`${SITE}/world`));
+    assert.equal(roundPath('usa'), '/daily');
+    assert.equal(roundPath('world'), '/world');
+  });
+
+  test('a trailing slash on the site does not make a broken link', () => {
+    const email = buildDailyNewsletter({ day: DAY, site: `${SITE}/` });
+    assert.ok(email.html.includes(`${SITE}/daily`));
+    assert.ok(!email.html.includes('com//daily'));
+  });
+
+  test('the board is in the email', () => {
+    const email = buildDailyNewsletter({
+      day: DAY,
+      site: SITE,
+      entries: [
+        { nickname: 'Map Reader', score: 1180, accuracy: 90 },
+        { nickname: 'A Quiet Fan', score: 960, accuracy: 80 },
+      ],
+    });
+
+    assert.ok(email.html.includes('Map Reader'));
+    assert.ok(email.html.includes('1,180'));
+    assert.ok(email.text.includes('Map Reader'));
+    assert.ok(email.text.includes('1,180 points'));
+  });
+
+  test('only three scores are shown, however many there are', () => {
+    const email = buildDailyNewsletter({
+      day: DAY,
+      site: SITE,
+      entries: [
+        { nickname: 'One', score: 100, accuracy: 10 },
+        { nickname: 'Two', score: 200, accuracy: 20 },
+        { nickname: 'Three', score: 300, accuracy: 30 },
+        { nickname: 'Four', score: 400, accuracy: 40 },
+      ],
+    });
+
+    assert.ok(email.html.includes('Three'));
+    assert.ok(!email.html.includes('Four'));
+  });
+
+  test('an empty board says so rather than leaving a hole', () => {
+    const email = buildDailyNewsletter({ day: DAY, site: SITE, entries: [] });
+    assert.ok(email.html.includes('Nobody has put a score on the board yet today'));
+  });
+
+  test('a nickname cannot carry markup into the email', () => {
+    const email = buildDailyNewsletter({
+      day: DAY,
+      site: SITE,
+      entries: [{ nickname: '<script>alert(1)</script>', score: 10, accuracy: 1 }],
+    });
+
+    assert.ok(!email.html.includes('<script>'));
+    assert.ok(email.html.includes('&lt;script&gt;'));
+  });
+
+  test('the kinds of question are counted', () => {
+    const email = buildDailyNewsletter({
+      day: DAY,
+      site: SITE,
+      categories: ['stadium', 'stadium', 'event', 'athlete'],
+    });
+
+    assert.ok(email.html.includes('2 stadiums'));
+    assert.ok(email.html.includes('1 event'));
+    assert.ok(email.text.includes('2 stadiums'));
+  });
+
+  test('the email says what a perfect round is worth', () => {
+    const email = buildDailyNewsletter({ day: DAY, site: SITE, maxScore: 1300 });
+    assert.ok(email.html.includes('1,300 points'));
+  });
+
+  test('the day is written out in full', () => {
+    const email = buildDailyNewsletter({ day: DAY, site: SITE });
+    assert.ok(email.html.includes('October'));
+    assert.ok(email.text.includes('October'));
+  });
+
+  test('the featured question, its image and the two replay cards are in the email', () => {
+    const email = buildDailyNewsletter({
+      day: DAY,
+      site: SITE,
+      featured: {
+        question: 'Where is the first ground?',
+        link: `${SITE}/daily?date=${DAY}`,
+        label: "Today's first question",
+        image: {
+          url: 'https://example.com/first.jpg',
+          alt: 'First ground',
+          credit: 'Photo: Tester / CC BY 4.0, via Wikimedia Commons',
+        },
+      },
+      previous: [
+        {
+          question: 'Where was yesterday?',
+          link: `${SITE}/daily?date=2026-10-23`,
+          label: 'Yesterday',
+          image: {
+            url: 'https://example.com/yesterday.jpg',
+            alt: 'Yesterday ground',
+            credit: 'Photo: Tester / CC BY 4.0, via Wikimedia Commons',
+          },
+        },
+        {
+          question: 'Where was two days ago?',
+          link: `${SITE}/daily?date=2026-10-22`,
+          label: 'Two days ago',
+        },
+      ],
+    });
+
+    assert.ok(email.html.includes('Where is the first ground?'));
+    assert.ok(email.html.includes('https://example.com/first.jpg'));
+    assert.ok(email.html.includes(`${SITE}/email-icon.png`));
+    assert.ok(email.html.includes(`${SITE}/email-wordmark-site.png`));
+    assert.ok(email.html.includes('Where was yesterday?'));
+    assert.ok(email.html.includes('Where was two days ago?'));
+    assert.ok(email.html.includes('Play again'));
+    assert.ok(email.html.includes('Play today&#39;s USA challenge'));
+    assert.ok(email.html.includes('Your next challenge'));
+    assert.ok(email.html.includes('Email Preferences'));
+    assert.ok(email.html.includes('USA GeoArena is a free daily sports geography game'));
+    assert.ok(email.html.includes('Play now'));
+    assert.ok(email.html.includes('Not Interested? Reply STOP to unsubscribe'));
+    assert.ok(email.html.includes('About USA GeoArena'));
+    assert.ok(email.html.includes('Disclaimer'));
+    assert.ok(email.html.includes(`${SITE}/daily?date=${DAY}`));
+  });
+});
+
+describe('the provider', () => {
+  test('the datacenter comes out of the key', () => {
+    assert.equal(mailchimpDataCenter('abc123def-us21'), 'us21');
+    assert.equal(mailchimpDataCenter('abc123def-eu3'), 'eu3');
+  });
+
+  test('a key with no datacenter in it still gives one to talk to', () => {
+    assert.equal(mailchimpDataCenter('nodatacenter'), 'us1');
+  });
+});

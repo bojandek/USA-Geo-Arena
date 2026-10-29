@@ -20,6 +20,7 @@ import {
   evaluateAchievements,
   levelForScore,
   migrateState,
+  pointsForLevel,
   withEarnedAchievements,
   type GameState,
 } from '../src/lib/game-state.ts';
@@ -93,7 +94,7 @@ describe('applyDailyCompletion', () => {
   test('a new day increments games played, total score and streak', () => {
     const state = applyDailyCompletion(stateWithStreak(2, YESTERDAY), {
       date: TODAY,
-      score: 8000,
+      score: 800,
       totalDistance: 1200,
       perfectCount: 3,
       now: '2025-06-15T10:00:00.000Z',
@@ -102,40 +103,42 @@ describe('applyDailyCompletion', () => {
 
     assert.equal(state.streak, 3);
     assert.equal(state.gamesPlayed, 1);
-    assert.equal(state.totalScore, 8000);
+    assert.equal(state.totalScore, 800);
     assert.equal(state.lastPlayedDate, TODAY);
     assert.equal(state.dailyHistory.length, 1);
-    assert.equal(state.dailyHistory[0].accuracy, 80);
-    assert.equal(state.averageScore, 8000);
+    // Accuracy is measured on the location points alone, so 800 of the 1,170
+    // location points a full round can hold is 68%.
+    assert.equal(state.dailyHistory[0].accuracy, 68);
+    assert.equal(state.averageScore, 800);
   });
 
   test('replaying the same day does not double count', () => {
     const first = applyDailyCompletion(createInitialState(), {
       date: TODAY,
-      score: 5000,
+      score: 500,
       totalDistance: 900,
       perfectCount: 1,
       today: TODAY,
     });
     const second = applyDailyCompletion(first, {
       date: TODAY,
-      score: 7000,
+      score: 700,
       totalDistance: 800,
       perfectCount: 2,
       today: TODAY,
     });
 
     assert.equal(second.gamesPlayed, 1, 'games played must not increase on a replay');
-    assert.equal(second.totalScore, 7000, 'the total reflects the best score of the day');
+    assert.equal(second.totalScore, 700, 'the total reflects the best score of the day');
     assert.equal(second.dailyHistory.length, 1, 'history must hold one entry per day');
-    assert.equal(second.dailyHistory[0].score, 7000, 'the day keeps the latest score');
-    assert.equal(second.bestScore, 7000, 'the best score can still improve');
+    assert.equal(second.dailyHistory[0].score, 700, 'the day keeps the latest score');
+    assert.equal(second.bestScore, 700, 'the best score can still improve');
   });
 
   test('replaying an archived day does not touch progression', () => {
     const state = applyDailyCompletion(stateWithStreak(5, YESTERDAY), {
       date: DAY_BEFORE,
-      score: 9000,
+      score: 900,
       totalDistance: 100,
       perfectCount: 5,
       today: TODAY,
@@ -154,7 +157,7 @@ describe('applyDailyCompletion', () => {
     // silently disabled the perfect-guess achievements.
     const state = applyDailyCompletion(createInitialState(), {
       date: TODAY,
-      score: 7000,
+      score: 700,
       totalDistance: 120,
       perfectCount: undefined as unknown as number,
       today: TODAY,
@@ -163,20 +166,54 @@ describe('applyDailyCompletion', () => {
     assert.equal(Number.isNaN(state.perfectGuesses), false, 'the counter must stay a number');
     assert.equal(state.perfectGuesses, 0);
     assert.equal(state.dailyHistory[0].perfectCount, 0);
-    assert.equal(state.totalScore, 7000, 'the score must not be affected');
+    assert.equal(state.totalScore, 700, 'the score must not be affected');
   });
 
   test('level is derived from the total score', () => {
     const state = applyDailyCompletion(createInitialState(), {
       date: TODAY,
-      score: 10_000,
+      score: 1_000,
       totalDistance: 10,
       perfectCount: 10,
       today: TODAY,
     });
 
-    assert.equal(state.level, levelForScore(10_000));
-    assert.equal(state.level, 3);
+    assert.equal(state.level, levelForScore(1_000));
+    // The cost of a level grows with the level number, so 1,000 points is
+    // not enough for level 2 - that needs 1,250.
+    assert.equal(state.level, 1);
+  });
+
+  test('the level cost grows, so the level stays a real target', () => {
+    // A player who plays every day would pass level 700 within a year with a
+    // flat cost per level. The growing curve keeps the number meaningful.
+    const oneYear = 1_000 * 365;
+    const fiveYears = oneYear * 5;
+
+    assert.ok(levelForScore(oneYear) < 50, 'a year of daily play stays below level 50');
+    assert.ok(levelForScore(fiveYears) < 100, 'five years of daily play stays below level 100');
+
+    // Each level must cost more than the one before it.
+    let previous = 0;
+    for (let level = 2; level <= 40; level++) {
+      const cost = pointsForLevel(level) - pointsForLevel(level - 1);
+      assert.ok(cost > previous, `level ${level} must cost more than the level before it`);
+      previous = cost;
+    }
+  });
+
+  test('pointsForLevel is the total needed to reach a level', () => {
+    assert.equal(pointsForLevel(1), 0);
+    assert.equal(pointsForLevel(2), 1_250);
+    assert.equal(pointsForLevel(3), 3_750);
+    assert.equal(pointsForLevel(4), 7_500);
+
+    // The level for a score must be the highest level it pays for.
+    for (const score of [0, 1_249, 1_250, 3_749, 3_750, 12_500, 125_000]) {
+      const level = levelForScore(score);
+      assert.ok(score >= pointsForLevel(level), `${score} must pay for level ${level}`);
+      assert.ok(score < pointsForLevel(level + 1), `${score} must not pay for level ${level + 1}`);
+    }
   });
 
   test('history is capped at 30 entries, keeping the newest', () => {
@@ -184,7 +221,7 @@ describe('applyDailyCompletion', () => {
     for (let i = 0; i < 40; i++) {
       state = applyDailyCompletion(state, {
         date: `2025-01-${String((i % 28) + 1).padStart(2, '0')}`,
-        score: 1000 + i,
+        score: 100 + i,
         totalDistance: 100,
         perfectCount: 0,
         today: TODAY,
@@ -224,7 +261,7 @@ describe('achievements', () => {
   test('the first completed game unlocks first_win', () => {
     const state = applyDailyCompletion(createInitialState(), {
       date: TODAY,
-      score: 3000,
+      score: 300,
       totalDistance: 500,
       perfectCount: 0,
       today: TODAY,
@@ -235,7 +272,7 @@ describe('achievements', () => {
   test('achievements are never unlocked twice', () => {
     let state = applyDailyCompletion(createInitialState(), {
       date: TODAY,
-      score: 3000,
+      score: 300,
       totalDistance: 500,
       perfectCount: 0,
       today: TODAY,
@@ -254,7 +291,7 @@ describe('achievements', () => {
   test('a perfect game unlocks perfect_10', () => {
     const state = applyDailyCompletion(createInitialState(), {
       date: TODAY,
-      score: 10_000,
+      score: 1_300,
       totalDistance: 0,
       perfectCount: 10,
       today: TODAY,
@@ -264,22 +301,85 @@ describe('achievements', () => {
     assert.ok(state.achievements.some((a) => a.id === 'perfect_5'));
   });
 
+  test('the speed bonus does not unlock perfection on its own', () => {
+    // 890 location points plus 100 of speed reaches 990, but the player was
+    // not accurate enough, so "Perfection" stays locked.
+    const state = applyDailyCompletion(createInitialState(), {
+      date: TODAY,
+      score: 990,
+      timeBonus: 100,
+      totalDistance: 0,
+      perfectCount: 0,
+      today: TODAY,
+    });
+
+    assert.equal(state.bestScore, 990, 'the total score is kept');
+    assert.equal(state.bestDistanceScore, 890, 'the location score is tracked separately');
+    assert.ok(
+      !state.achievements.some((a) => a.id === 'perfect_10'),
+      'a fast but inaccurate round must not unlock Perfection',
+    );
+  });
+
+  test('a flawless and fast round unlocks the speed achievements', () => {
+    const state = applyDailyCompletion(createInitialState(), {
+      date: TODAY,
+      score: 1_300,
+      timeBonus: 130,
+      totalDistance: 0,
+      perfectCount: 10,
+      today: TODAY,
+    });
+
+    assert.equal(state.bestTimeBonus, 130);
+    assert.ok(state.achievements.some((a) => a.id === 'speed_demon'));
+    assert.ok(state.achievements.some((a) => a.id === 'speed_50'));
+    assert.ok(state.achievements.some((a) => a.id === 'perfect_10'));
+  });
+
+  test('the best speed bonus is a record and is never lost', () => {
+    const first = applyDailyCompletion(createInitialState(), {
+      date: TODAY,
+      score: 800,
+      timeBonus: 80,
+      totalDistance: 100,
+      perfectCount: 1,
+      today: TODAY,
+    });
+
+    // A slower replay of the same day must not erase the record.
+    const second = applyDailyCompletion(first, {
+      date: TODAY,
+      score: 700,
+      timeBonus: 10,
+      totalDistance: 200,
+      perfectCount: 0,
+      today: TODAY,
+    });
+
+    assert.equal(second.bestTimeBonus, 80, 'the record survives a worse replay');
+    assert.ok(
+      second.achievements.some((a) => a.id === 'speed_50'),
+      'the badge earned earlier is not taken away',
+    );
+  });
+
   test('achievement rules are evaluated against the current state', () => {
-    const state = { ...createInitialState(), streak: 7, gamesPlayed: 10, totalScore: 50_000 };
+    const state = { ...createInitialState(), streak: 7, gamesPlayed: 10, totalScore: 5_000 };
     const earned = evaluateAchievements(state);
 
     assert.ok(earned.includes('streak_7'));
     assert.ok(earned.includes('games_10'));
-    assert.ok(earned.includes('score_50k'));
+    assert.ok(earned.includes('score_5k'));
     assert.ok(!earned.includes('streak_30'));
   });
 });
 
 describe('leaderboard and archive', () => {
   const history = [
-    { date: '2025-06-13', score: 3000, accuracy: 30, totalDistance: 0, perfectCount: 0 },
-    { date: '2025-06-14', score: 9000, accuracy: 90, totalDistance: 0, perfectCount: 0 },
-    { date: '2025-06-15', score: 6000, accuracy: 60, totalDistance: 0, perfectCount: 0 },
+    { date: '2025-06-13', score: 300, accuracy: 30, totalDistance: 0, perfectCount: 0 },
+    { date: '2025-06-14', score: 900, accuracy: 90, totalDistance: 0, perfectCount: 0 },
+    { date: '2025-06-15', score: 600, accuracy: 60, totalDistance: 0, perfectCount: 0 },
   ];
 
   test('the leaderboard is sorted by score and does not mutate the history', () => {
@@ -287,8 +387,8 @@ describe('leaderboard and archive', () => {
     const board = buildLeaderboard(history, 2);
 
     assert.equal(board.length, 2);
-    assert.equal(board[0].score, 9000);
-    assert.equal(board[1].score, 6000);
+    assert.equal(board[0].score, 900);
+    assert.equal(board[1].score, 600);
     assert.deepEqual(
       history.map((entry) => entry.date),
       originalOrder,
@@ -302,9 +402,9 @@ describe('leaderboard and archive', () => {
     assert.equal(entries.length, 5);
     assert.equal(entries[0].date, TODAY);
     assert.equal(entries[0].completed, true);
-    assert.equal(entries[0].score, 6000);
+    assert.equal(entries[0].score, 600);
     assert.equal(entries[1].date, YESTERDAY);
-    assert.equal(entries[1].score, 9000);
+    assert.equal(entries[1].score, 900);
     // A day without a result is simply "not played".
     assert.equal(entries[4].completed, false);
     assert.equal(entries[4].score, null);
@@ -322,21 +422,21 @@ describe('migrateState', () => {
     const migrated = migrateState({
       lastPlayedDate: '2025-06-15T22:30:00.000Z',
       dailyCompleted: true,
-      totalScore: 8000,
+      totalScore: 800,
       gamesPlayed: 3,
     });
 
     assert.match(migrated.lastPlayedDate ?? '', /^\d{4}-\d{2}-\d{2}$/);
-    assert.equal(migrated.totalScore, 8000);
+    assert.equal(migrated.totalScore, 800);
     assert.equal(migrated.gamesPlayed, 3);
-    assert.equal(migrated.level, levelForScore(8000));
+    assert.equal(migrated.level, levelForScore(800));
   });
 
   test('legacy history entries are kept and completed', () => {
     const migrated = migrateState({
       dailyHistory: [
-        { date: '2025-06-14', score: 7000, accuracy: 70 },
-        { date: '2025-06-15', score: 8000, accuracy: 80 },
+        { date: '2025-06-14', score: 700, accuracy: 70 },
+        { date: '2025-06-15', score: 800, accuracy: 80 },
       ],
     });
 

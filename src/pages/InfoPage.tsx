@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { getSitePage, CONTACT_EMAIL } from '@/lib/site-content';
 import AdSlot from '@/components/AdSlot';
+import Seo from '@/components/Seo';
 
 interface InfoPageProps {
   /** Path segment of the page, e.g. "privacy". */
@@ -39,7 +40,13 @@ export default function InfoPage({ slug }: InfoPageProps) {
   const isContact = page.path === 'contact';
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 py-8 px-4">
+    <>
+      <Seo
+        title={page.title}
+        description={page.lede}
+        path={`/${page.path}`}
+      />
+      <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 py-8 px-4">
       <div className="max-w-3xl mx-auto">
         {/* Back */}
         <Button
@@ -119,6 +126,47 @@ export default function InfoPage({ slug }: InfoPageProps) {
                       ))}
                     </ul>
                   )}
+
+                  {section.table && (
+                    <div className="mt-4 overflow-hidden rounded-2xl border border-orange-100">
+                      <table className="w-full text-sm">
+                        <thead>
+                          <tr className="bg-orange-50">
+                            {section.table.headers.map((header) => (
+                              <th
+                                key={header}
+                                scope="col"
+                                className={`px-4 py-2.5 font-semibold text-gray-700 ${
+                                  header === section.table!.headers[0] ? 'text-left' : 'text-right'
+                                }`}
+                              >
+                                {header}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {section.table.rows.map((row, rowIndex) => (
+                            <tr
+                              key={rowIndex}
+                              className={rowIndex % 2 === 0 ? 'bg-white' : 'bg-orange-50/40'}
+                            >
+                              {row.map((cell, cellIndex) => (
+                                <td
+                                  key={cellIndex}
+                                  className={`px-4 py-2.5 text-gray-700 ${
+                                    cellIndex === 0 ? 'text-left' : 'text-right font-semibold'
+                                  }`}
+                                >
+                                  {cell}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
                 </section>
               ))}
 
@@ -138,6 +186,7 @@ export default function InfoPage({ slug }: InfoPageProps) {
           <AdSlot slot="inArticle" className="mt-6" />
         </motion.div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

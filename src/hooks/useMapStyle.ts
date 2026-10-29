@@ -11,11 +11,13 @@
  */
 
 import { useEffect, useSyncExternalStore } from 'react';
+import { useTheme } from 'next-themes';
 
 import {
   getMapStyleSnapshot,
   refreshMapStyle,
   setMapStyleId as setMapStyleIdInStore,
+  setMapThemeIsDark,
   subscribeMapStyle,
 } from '@/lib/map-styles';
 
@@ -27,11 +29,17 @@ export interface UseMapStyleResult {
 }
 
 export function useMapStyle(): UseMapStyleResult {
+  const { resolvedTheme } = useTheme();
   const mapStyleId = useSyncExternalStore(
     subscribeMapStyle,
     getMapStyleSnapshot,
     getMapStyleSnapshot,
   );
+
+  // The map follows the theme until the player picks a style for themselves.
+  useEffect(() => {
+    setMapThemeIsDark(resolvedTheme === 'dark');
+  }, [resolvedTheme]);
 
   // Keep other browser tabs in sync with the stored preference.
   useEffect(() => {

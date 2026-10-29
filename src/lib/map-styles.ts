@@ -71,6 +71,18 @@ export const MAP_STYLES: MapStyleOption[] = [
 
 export const DEFAULT_MAP_STYLE_ID = MAP_STYLES[0].id;
 
+/**
+ * The style the map follows when the player has not chosen one.
+ *
+ * A dark interface with a bright map looks like a mistake, so the map follows
+ * the theme until the player says otherwise. Every style has a dark
+ * counterpart, so nothing is lost by following it.
+ */
+export const THEME_MAP_STYLE_IDS = {
+  light: 'voyager',
+  dark: 'dark-matter',
+} as const;
+
 const STORAGE_KEY = 'mapStyle';
 
 export const getMapStyleById = (id: string): MapStyleOption =>
@@ -91,19 +103,47 @@ function readStoredStyleId(): string {
   }
 }
 
+/** True when the player has picked a style themselves. */
+function hasStoredStyleChoice(): boolean {
+  if (typeof localStorage === 'undefined') return false;
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return Boolean(stored && MAP_STYLES.some((style) => style.id === stored));
+  } catch {
+    return false;
+  }
+}
+
 /* ------------------------------------------------------------------ *
  * External store
  * ------------------------------------------------------------------ */
 
 let currentStyleId: string = readStoredStyleId();
+/** True once the player has picked a style themselves. */
+let hasExplicitChoice: boolean = hasStoredStyleChoice();
+/** Whether the interface is in the dark theme right now. */
+let themeIsDark: boolean =
+  typeof document !== 'undefined' && document.documentElement.classList.contains('dark');
 const listeners = new Set<() => void>();
 
 function notify(): void {
   listeners.forEach((listener) => listener());
 }
 
+/**
+ * The style the map should actually show.
+ *
+ * Until the player picks one, the map follows the theme. This is worked out
+ * here rather than in the component, so that the snapshot the map reads and
+ * the one the picker shows can never disagree.
+ */
+function effectiveStyleId(): string {
+  if (hasExplicitChoice) return currentStyleId;
+  return themeIsDark ? THEME_MAP_STYLE_IDS.dark : THEME_MAP_STYLE_IDS.light;
+}
+
 /** Current style id. Stable reference, as `useSyncExternalStore` requires. */
-export const getMapStyleSnapshot = (): string => currentStyleId;
+export const getMapStyleSnapshot = (): string => effectiveStyleId();
 
 /** Registers a listener; returns the unsubscribe function. */
 export const subscribeMapStyle = (listener: () => void): (() => void) => {
@@ -116,9 +156,11 @@ export const subscribeMapStyle = (listener: () => void): (() => void) => {
 /** Applies a new style, persists it and notifies every subscriber. */
 export const setMapStyleId = (id: string): void => {
   if (!MAP_STYLES.some((style) => style.id === id)) return;
-  if (id === currentStyleId) return;
 
+  const wasEffective = effectiveStyleId();
   currentStyleId = id;
+  // From now on the map follows the player, not the theme.
+  hasExplicitChoice = true;
   if (typeof localStorage !== 'undefined') {
     try {
       localStorage.setItem(STORAGE_KEY, id);
@@ -126,13 +168,27 @@ export const setMapStyleId = (id: string): void => {
       // Storage may be unavailable (private mode / quota) - the app still works.
     }
   }
-  notify();
+  // Subscribers only care about the style the map actually shows, so that is
+  // the only thing worth waking them for.
+  if (effectiveStyleId() !== wasEffective) notify();
+};
+
+/**
+ * Tells the store which theme is on, so the map can follow it.
+ *
+ * Nothing happens once the player has chosen a style for themselves.
+ */
+export const setMapThemeIsDark = (isDark: boolean): void => {
+  if (themeIsDark === isDark) return;
+  const wasEffective = effectiveStyleId();
+  themeIsDark = isDark;
+  if (effectiveStyleId() !== wasEffective) notify();
 };
 
 /** Re-reads the stored preference, e.g. after another tab changed it. */
 export const refreshMapStyle = (): void => {
-  const stored = readStoredStyleId();
-  if (stored === currentStyleId) return;
-  currentStyleId = stored;
-  notify();
+  const wasEffective = effectiveStyleId();
+  currentStyleId = readStoredStyleId();
+  hasExplicitChoice = hasStoredStyleChoice();
+  if (effectiveStyleId() !== wasEffective) notify();
 };
