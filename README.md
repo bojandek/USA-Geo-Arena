@@ -2,6 +2,9 @@
 
 Zabavna i adiktivna igra gde pogađaš lokacije svetskih sportskih stadiona, događaja i klubova! ⚽🏀🏈
 
+**Live:** [geo-arena-six.vercel.app](https://geo-arena-six.vercel.app)  
+**GitHub:** [bojandek/USA-Geo-Arena](https://github.com/bojandek/USA-Geo-Arena)
+
 ## ✨ Funkcionalnosti
 
 ### 🎯 Dnevni izazov
