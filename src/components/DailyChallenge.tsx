@@ -39,7 +39,7 @@ import { useGameStore } from '@/lib/game-store';
 import { isPro } from '@/lib/pro';
 import { useQuizSession, type QuizAnswer } from '@/hooks/useQuizSession';
 import { getDailyQuestionsForDay, generateShareText, buildShareUrl, formatPoints, type Question } from '@/lib/game-data';
-import { submitGlobalScore, type BoardAnswer } from '@/lib/global-board';
+import { betterThanPercent, fetchStanding, submitGlobalScore, type BoardAnswer } from '@/lib/global-board';
 import {
   DEFAULT_REGION,
   getRegion,
@@ -53,7 +53,8 @@ import {
   type RegionId,
 } from '@/lib/regions';
 import { formatFullDayLabel, todayKey } from '@/lib/date-utils';
-import { DAILY_QUESTION_COUNT, computeStreakWithFreeze, streakMultiplier } from '@/lib/game-state';
+import { DAILY_QUESTION_COUNT, computeStreakWithFreeze, streakMultiplier, totalXp } from '@/lib/game-state';
+import { CountUp, MissionsCard, NextChallengeCountdown, XpBar } from '@/components/DailyProgress';
 import { roundScore } from '@/lib/numbers';
 import { MAX_TIME_POINTS_PER_QUESTION, TIME_BONUS_WINDOW_SECONDS, LOCATION_SHARE, maxRoundScore, stakeForQuestion } from '@/lib/time-bonus';
 import MapSelect from '@/components/MapSelect';
@@ -137,8 +138,29 @@ export default function DailyChallenge({
       : regionProjection;
   const isGlobe = projection === 'globe';
 
-  const { completeDaily, isRegionCompleted, dailyHistory, streak, streakFreezes, lastPlayedDate } =
-    useGameStore();
+  const {
+    completeDaily,
+    isRegionCompleted,
+    dailyHistory,
+    streak,
+    streakFreezes,
+    lastPlayedDate,
+    achievements,
+    totalScore: savedTotalScore,
+    bonusXp,
+  } = useGameStore();
+
+  // The XP and the badges the player had before the round, so the end of the
+  // round can show what the round itself earned. Kept in a ref so the
+  // completion handler always reads the latest values.
+  const progressRef = useRef({ xp: 0, achievementIds: [] as string[] });
+  progressRef.current = {
+    xp: totalXp({ totalScore: savedTotalScore, bonusXp }),
+    achievementIds: achievements.map((achievement) => achievement.id),
+  };
+  const [roundStart, setRoundStart] = useState<{ xp: number; achievementIds: string[] } | null>(null);
+  // The share of today's players the round beat, once the board has answered.
+  const [betterThan, setBetterThan] = useState<number | null>(null);
 
   // The question set is derived from the day and the region, so it never
   // changes mid-session. A review round brings its own set.
@@ -254,6 +276,7 @@ export default function DailyChallenge({
     // A review round is practice, so it is never written to the history and
     // never touches the progression.
     if (!isReview) {
+      setRoundStart(progressRef.current);
       completeDaily({
         date: challengeDate,
         region: regionId,
@@ -310,7 +333,12 @@ export default function DailyChallenge({
             result.error ?? 'Your score did not reach the global board.',
             { position: 'top-center' },
           );
+          return;
         }
+        if (!result.ok) return;
+        void fetchStanding(challengeDate, regionId === 'world' ? 'world' : 'usa', finalScore).then(
+          (standing) => setBetterThan(betterThanPercent(standing)),
+        );
       });
     }
 
@@ -1216,6 +1244,8 @@ export default function DailyChallenge({
   const handleRestart = () => {
     session.restart();
     setCamera(null);
+    setRoundStart(null);
+    setBetterThan(null);
     // Back to the region's own opening view - the whole country for the
     // American round, the whole planet for the world round.
     resetView(800);
@@ -1256,6 +1286,10 @@ export default function DailyChallenge({
               )}
             </p>
           )}
+          <div className="mb-6 -mt-2">
+            <NextChallengeCountdown />
+          </div>
+          <MissionsCard className="mb-8" />
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button onClick={handleRestart} size="lg" className="rounded-full font-semibold">
               <RotateCcw className="w-5 h-5 mr-2" />
@@ -1318,6 +1352,9 @@ export default function DailyChallenge({
 
   // Result screen
   if (isComplete) {
+    const newAchievements = roundStart
+      ? achievements.filter((achievement) => !roundStart.achievementIds.includes(achievement.id))
+      : [];
     return (
       <div className="h-full overflow-y-auto bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 flex items-center justify-center p-4">
         <motion.div
@@ -1334,8 +1371,18 @@ export default function DailyChallenge({
                 Challenge Complete!
               </CardTitle>
               <p className="text-2xl opacity-90">
-                {formatPoints(finalScore)} / {formatPoints(maxScore * multiplier)} points
+                <CountUp value={finalScore} className="font-bold" /> / {formatPoints(maxScore * multiplier)} points
               </p>
+              {betterThan !== null && (
+                <motion.p
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.3 }}
+                  className="mt-2 inline-block rounded-full bg-white/20 px-4 py-1 text-sm font-semibold"
+                >
+                  🌎 Better than {betterThan}% of today&apos;s players
+                </motion.p>
+              )}
               {streakBonus > 0 && (
                 <p className="text-sm font-semibold text-orange-50 mt-1">
                   🔥 {multiplier}× streak bonus: +{formatPoints(streakBonus)}
@@ -1365,6 +1412,46 @@ export default function DailyChallenge({
                     {formatPoints(challengeScore)}
                   </p>
                 </div>
+              )}
+
+              {/* What the round earned: XP towards the level, any badge it
+                  unlocked, and where the day's missions stand. */}
+              {roundStart && (
+                <>
+                  <XpBar fromXp={roundStart.xp} />
+                  {newAchievements.length > 0 && (
+                    <div className="space-y-2">
+                      {newAchievements.map((achievement, index) => (
+                        <motion.div
+                          key={achievement.id}
+                          initial={{ opacity: 0, scale: 0.8, y: 10 }}
+                          animate={{ opacity: 1, scale: 1, y: 0 }}
+                          transition={{ delay: 2.2 + index * 0.3, type: 'spring', stiffness: 260, damping: 18 }}
+                          className="flex items-center gap-3 rounded-2xl border-2 border-yellow-300 bg-yellow-50 p-3"
+                        >
+                          <span className="text-3xl" aria-hidden>
+                            {achievement.icon}
+                          </span>
+                          <div className="text-left">
+                            <p className="text-xs font-bold uppercase tracking-wide text-yellow-700">
+                              Badge unlocked
+                            </p>
+                            <p className="font-bold text-gray-800">{achievement.title}</p>
+                            <p className="text-xs text-gray-600">{achievement.description}</p>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  )}
+                </>
+              )}
+              {!isReview && !isArchiveMode && (
+                <>
+                  <MissionsCard />
+                  <div className="text-center">
+                    <NextChallengeCountdown />
+                  </div>
+                </>
               )}
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">

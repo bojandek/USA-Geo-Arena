@@ -73,6 +73,12 @@ function readAnswers(value: unknown): SubmittedAnswer[] {
 
 import { universal } from './_lib/node-adapter.ts';
 
+/** The total from a PostgREST `content-range` header, such as `0-0/123`. */
+export function countFromRange(header: string | null): number | null {
+  const match = /\/(\d+)$/.exec(header ?? '');
+  return match ? Number(match[1]) : null;
+}
+
 async function handler(request: Request) {
   if (!isBackendConfigured()) return notConfigured('The global leaderboard');
 
@@ -89,6 +95,27 @@ async function handler(request: Request) {
 
     if (!isDayKey(day)) {
       return json({ configured: true, entries: [], error: 'A day is needed.' }, 400);
+    }
+
+    // With a score, the answer is where that score stands among everybody who
+    // played the day: how many played, and how many scored less.
+    const scoreParam = searchParams.get('score');
+    if (scoreParam !== null) {
+      const score = Number(scoreParam);
+      if (!Number.isFinite(score)) return json({ configured: true, error: 'A score is needed.' }, 400);
+      const filter =
+        `/rest/v1/global_scores?select=score&limit=1` +
+        `&day_key=eq.${encodeURIComponent(day)}` +
+        `&region=eq.${encodeURIComponent(region)}`;
+      const count = async (extra: string) => {
+        const res = await supabase(filter + extra, { headers: { prefer: 'count=exact' } });
+        return res.ok ? countFromRange(res.headers.get('content-range')) : null;
+      };
+      const [players, below] = await Promise.all([count(''), count(`&score=lt.${score}`)]);
+      if (players === null || below === null) {
+        return json({ configured: true, error: 'The board could not be read.' }, 502);
+      }
+      return json({ configured: true, day, region, players, below });
     }
 
     const response = await supabase(

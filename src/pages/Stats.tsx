@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import Seo from '@/components/Seo';
-import { MAX_DAILY_SCORE, pointsForLevel } from '@/lib/game-state';
+import { MAX_DAILY_SCORE, levelProgress, totalXp } from '@/lib/game-state';
 import { formatPoints } from '@/lib/game-data';
 import { ArrowLeft, Target, Trophy, TrendingUp, MapPin, Award, Calendar, Flame, Zap, Snowflake } from 'lucide-react';
 import StreakCalendar from '@/components/StreakCalendar';
@@ -22,7 +22,7 @@ export default function Stats() {
     averageDistance,
     perfectGuesses,
     streak,
-    level,
+    bonusXp,
     dailyHistory,
     practiceGames,
     practiceBestScore,
@@ -34,13 +34,10 @@ export default function Stats() {
   // how close the guesses were, which is what the label promises.
   const accuracy = averageScore ? Math.round((averageScore / MAX_DAILY_SCORE) * 100) : 0;
   // The cost of a level grows with the level number, so the progress bar
-  // shows the progress inside the current level.
-  const levelFloor = pointsForLevel(level);
-  const nextLevelScore = pointsForLevel(level + 1);
-  const progressToNextLevel =
-    nextLevelScore > levelFloor
-      ? ((totalScore - levelFloor) / (nextLevelScore - levelFloor)) * 100
-      : 0;
+  // shows the progress inside the current level. The level counts the
+  // points from the rounds and the XP from the daily missions.
+  const progress = levelProgress(totalXp({ totalScore, bonusXp }));
+  const level = progress.level;
 
   return (
     <>
@@ -86,10 +83,10 @@ export default function Stats() {
                   {level >= 20 ? '👑' : level >= 10 ? '🏆' : level >= 5 ? '⭐' : '🎯'}
                 </div>
               </div>
-              <Progress value={progressToNextLevel} className="h-3 mb-2" />
+              <Progress value={progress.fraction * 100} className="h-3 mb-2" />
               <p className="text-sm text-gray-600">
-                {formatPoints(Math.max(0, totalScore - levelFloor))} /{' '}
-                {formatPoints(nextLevelScore - levelFloor)} points to Level {level + 1}
+                {formatPoints(progress.into)} / {formatPoints(progress.span)} XP to Level {level + 1}
+                {bonusXp > 0 && ` · ${formatPoints(bonusXp)} XP from missions`}
               </p>
             </CardContent>
           </Card>

@@ -363,3 +363,21 @@ describe('the board route', () => {
     assert.equal(body.score, 1300);
   });
 });
+
+describe('where a score stands', () => {
+  test('reads the total from a content-range header', async () => {
+    const { countFromRange } = await import('../server/leaderboard.ts');
+    assert.equal(countFromRange('0-0/123'), 123);
+    assert.equal(countFromRange('*/0'), 0);
+    assert.equal(countFromRange(null), null);
+  });
+
+  test('the share of the others a score beat', async () => {
+    const { betterThanPercent } = await import('../src/lib/global-board.ts');
+    assert.equal(betterThanPercent(null), null);
+    assert.equal(betterThanPercent({ players: 1, below: 0 }), null);
+    assert.equal(betterThanPercent({ players: 11, below: 10 }), 100);
+    assert.equal(betterThanPercent({ players: 5, below: 2 }), 50);
+    assert.equal(betterThanPercent({ players: 4, below: 0 }), 0);
+  });
+});

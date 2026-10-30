@@ -13,6 +13,7 @@
 import { diffDays, isPreviousDay, todayKey } from './date-utils.ts';
 import { roundScore } from './numbers.ts';
 import { DEFAULT_REGION } from './regions.ts';
+import { missionClaimId, missionStatuses } from './missions.ts';
 import { LOCATION_SHARE, MAX_QUESTION_SCORE, MAX_TIME_POINTS_PER_QUESTION, maxRoundScore } from './time-bonus.ts';
 
 /** Number of questions in a daily challenge. */
@@ -45,6 +46,9 @@ export const POINTS_PER_LEVEL = 1250;
 
 /** How many days of history are kept. */
 export const HISTORY_LIMIT = 60;
+
+/** How many paid-out missions are remembered (three a day for a month). */
+export const CLAIMED_MISSIONS_LIMIT = 90;
 
 /** How many days the archive shows. */
 export const ARCHIVE_DAYS = 30;
@@ -196,6 +200,16 @@ export interface GameState {
   // History (newest last)
   dailyHistory: DailyResult[];
 
+  /**
+   * XP earned outside the rounds, from daily missions.
+   *
+   * It counts towards the level, never towards the total score, so the score
+   * stays the sum of the answers and the board stays a fair comparison.
+   */
+  bonusXp: number;
+  /** Missions already paid out, as `day:missionId`, so none is paid twice. */
+  claimedMissions: string[];
+
   // Practice (kept separate so it never inflates progression)
   practiceGames: number;
   practiceBestScore: number;
@@ -224,7 +238,7 @@ export const ALL_ACHIEVEMENTS: Achievement[] = [
 /** A fresh, zeroed state. */
 export function createInitialState(): GameState {
   return {
-    version: 3,
+    version: 4,
     level: 1,
     totalScore: 0,
     streak: 0,
@@ -242,6 +256,8 @@ export function createInitialState(): GameState {
     bestTimeBonus: 0,
     bestDistanceScore: 0,
     dailyHistory: [],
+    bonusXp: 0,
+    claimedMissions: [],
     practiceGames: 0,
     practiceBestScore: 0,
     practiceTotalScore: 0,
@@ -251,8 +267,8 @@ export function createInitialState(): GameState {
 /**
  * Total points needed to reach a level.
  *
- * Level 1 is free, level 2 costs 5,000 points, level 3 costs 15,000 in
- * total, level 4 costs 30,000, and so on - the cost of each level grows with
+ * Level 1 is free, level 2 costs 1,250 points, level 3 costs 3,750 in
+ * total, level 4 costs 7,500, and so on - the cost of each level grows with
  * the level number.
  */
 export function pointsForLevel(level: number): number {
@@ -268,6 +284,39 @@ export function levelForScore(totalScore: number): number {
   // player with millions of points.
   while (pointsForLevel(level + 1) <= total) level++;
   return level;
+}
+
+/** All the XP a player has: the points from the rounds plus mission XP. */
+export function totalXp(state: Pick<GameState, 'totalScore' | 'bonusXp'>): number {
+  return roundScore((Number(state.totalScore) || 0) + (Number(state.bonusXp) || 0));
+}
+
+export interface LevelProgress {
+  level: number;
+  /** XP into the current level. */
+  into: number;
+  /** XP the current level takes from start to finish. */
+  span: number;
+  /** XP still needed for the next level. */
+  remaining: number;
+  /** Progress through the current level, from 0 to 1. */
+  fraction: number;
+}
+
+/** Where a given amount of XP sits inside its level. */
+export function levelProgress(xp: number): LevelProgress {
+  const total = Math.max(0, Number(xp) || 0);
+  const level = levelForScore(total);
+  const floor = pointsForLevel(level);
+  const span = pointsForLevel(level + 1) - floor;
+  const into = total - floor;
+  return {
+    level,
+    into: roundScore(into),
+    span,
+    remaining: roundScore(span - into),
+    fraction: span > 0 ? Math.min(1, into / span) : 0,
+  };
 }
 
 /** Score expressed as a percentage of the maximum achievable score. */
@@ -327,11 +376,17 @@ export function migrateState(raw: unknown): GameState {
   const lastPlayedDate = normalizeDayKey(saved.lastPlayedDate);
   const totalScore = roundScore(Number(saved.totalScore) || 0);
   const gamesPlayed = Number(saved.gamesPlayed) || 0;
+  const bonusXp = roundScore(Math.max(0, Number(saved.bonusXp) || 0));
+  const claimedMissions = Array.isArray(saved.claimedMissions)
+    ? saved.claimedMissions.filter((id): id is string => typeof id === 'string').slice(-CLAIMED_MISSIONS_LIMIT)
+    : [];
 
   return {
     ...base,
     totalScore,
-    level: levelForScore(totalScore),
+    bonusXp,
+    claimedMissions,
+    level: levelForScore(totalScore + bonusXp),
     streak: Number(saved.streak) || 0,
     streakFreezes: Math.max(
       0,
@@ -601,7 +656,7 @@ export function applyDailyCompletion(state: GameState, completion: DailyCompleti
   const next: GameState = {
     ...state,
     totalScore,
-    level: levelForScore(totalScore),
+    level: levelForScore(totalScore + state.bonusXp),
     streak,
     streakFreezes,
     lastPlayedDate,
@@ -618,7 +673,34 @@ export function applyDailyCompletion(state: GameState, completion: DailyCompleti
     dailyHistory: history,
   };
 
-  return withEarnedAchievements(next, now);
+  return withEarnedAchievements(advancesProgression ? withClaimedMissions(next, today) : next, now);
+}
+
+/**
+ * Pays out the day's missions that are now complete and not yet paid.
+ *
+ * Only today's missions are paid, and each only once, so replaying a round
+ * or an archived day can never earn the same XP twice.
+ */
+export function withClaimedMissions(state: GameState, today: string = todayKey()): GameState {
+  const claimed = new Set(state.claimedMissions);
+  const fresh = missionStatuses(state.dailyHistory, today).filter(
+    (status) => status.done && !claimed.has(missionClaimId(today, status.mission.id)),
+  );
+  if (fresh.length === 0) return state;
+
+  const bonusXp = roundScore(
+    state.bonusXp + fresh.reduce((sum, status) => sum + status.mission.reward, 0),
+  );
+  return {
+    ...state,
+    bonusXp,
+    level: levelForScore(state.totalScore + bonusXp),
+    claimedMissions: [
+      ...state.claimedMissions,
+      ...fresh.map((status) => missionClaimId(today, status.mission.id)),
+    ].slice(-CLAIMED_MISSIONS_LIMIT),
+  };
 }
 
 /** Applies a finished practice round. Practice never affects progression. */

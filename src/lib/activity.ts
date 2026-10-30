@@ -134,3 +134,48 @@ export function activeDaysInRow(cells: DayActivity[], today: string = todayKey()
   }
   return count;
 }
+/** Milliseconds until the next local midnight, when the next round opens. */
+export function msUntilNextDay(now: Date = new Date()): number {
+  const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+  return Math.max(0, midnight.getTime() - now.getTime());
+}
+
+/** A duration as `5h 12m`, or `12m 30s` when under an hour. */
+export function formatCountdown(ms: number): string {
+  const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+  if (hours > 0) return `${hours}h ${String(minutes).padStart(2, '0')}m`;
+  return `${minutes}m ${String(seconds).padStart(2, '0')}s`;
+}
+
+/**
+ * Where the streak stands today.
+ *
+ * - `none`: no streak to protect
+ * - `safe`: today's round is done
+ * - `at-risk`: played yesterday, not yet today - the streak ends at midnight
+ * - `frozen`: missed yesterday, but a freeze will cover it if they play today
+ * - `lost`: the gap is too long; the next round starts a new streak
+ */
+export type StreakStatusKind = 'none' | 'safe' | 'at-risk' | 'frozen' | 'lost';
+
+export interface StreakStatus {
+  kind: StreakStatusKind;
+  /** The streak as it really stands - zero once it is lost. */
+  streak: number;
+}
+
+export function streakStatus(
+  state: { streak: number; lastPlayedDate: string | null; streakFreezes: number },
+  today: string = todayKey(),
+): StreakStatus {
+  const streak = Math.max(0, Number(state.streak) || 0);
+  if (!state.lastPlayedDate || streak === 0) return { kind: 'none', streak: 0 };
+  const gap = diffDays(state.lastPlayedDate, today);
+  if (gap <= 0) return { kind: 'safe', streak };
+  if (gap === 1) return { kind: 'at-risk', streak };
+  if (gap === 2 && state.streakFreezes > 0) return { kind: 'frozen', streak };
+  return { kind: 'lost', streak: 0 };
+}

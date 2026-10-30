@@ -11,6 +11,7 @@ import GameLayout from "@/components/GameLayout";
 import CookieConsent from "@/components/CookieConsent";
 import Onboarding from "@/components/Onboarding";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import { MissionToasts } from "@/components/DailyProgress";
 import Index from "./pages/Index";
 import Stats from "./pages/Stats";
 import Achievements from "./pages/Achievements";
@@ -51,6 +52,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner position="top-center" richColors />
+        <MissionToasts />
         <AuthSessionProvider>
           <BrowserRouter>
             <Suspense fallback={<PageFallback />}>

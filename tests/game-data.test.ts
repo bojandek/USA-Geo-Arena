@@ -11,11 +11,15 @@ import {
   DAILY_QUESTION_COUNT,
   generateShareText,
   getDailyQuestions,
+  getDailyQuestionsForDay,
   getDateString,
+  ROTATION_START_DAY,
+  rotationLength,
   getResultEmoji,
   questionPool,
   venueKey,
 } from '../src/lib/game-data.ts';
+import { addDays } from '../src/lib/date-utils.ts';
 import { SCORE_BANDS, SCORING_PAGE, getSitePage, HEADER_INFO_LINKS } from '../src/lib/site-content.ts';
 
 describe('calculateScore', () => {
@@ -229,6 +233,51 @@ describe('getDailyQuestions', () => {
       lateEvening.map((q) => q.id),
       earlyMorning.map((q) => q.id),
     );
+  });
+});
+
+describe('the question rotation', () => {
+  const regions = ['usa', 'world'] as const;
+
+  test('days before the rotation keep their old round', () => {
+    // A day key well before the start must still produce a full, valid round.
+    const questions = getDailyQuestionsForDay('2026-10-30', 'usa');
+    assert.equal(questions.length, DAILY_QUESTION_COUNT);
+  });
+
+  test('no question comes back before the whole pool has been asked', () => {
+    for (const region of regions) {
+      const length = rotationLength(region);
+      const seen = new Set<string>();
+      for (let day = 0; day < length; day++) {
+        for (const question of getDailyQuestionsForDay(addDays(ROTATION_START_DAY, day), region)) {
+          assert.ok(!seen.has(question.id), `${region}: ${question.id} repeated on day ${day}`);
+          seen.add(question.id);
+        }
+      }
+    }
+  });
+
+  test('a new pass never opens with the questions of the day before', () => {
+    for (const region of regions) {
+      const length = rotationLength(region);
+      for (let cycle = 1; cycle <= 4; cycle++) {
+        const lastDay = getDailyQuestionsForDay(addDays(ROTATION_START_DAY, cycle * length - 1), region);
+        const firstDay = getDailyQuestionsForDay(addDays(ROTATION_START_DAY, cycle * length), region);
+        const ids = new Set(lastDay.map((q) => q.id));
+        assert.ok(firstDay.every((q) => !ids.has(q.id)), `${region}: cycle ${cycle} repeats yesterday`);
+      }
+    }
+  });
+
+  test('every rotated round is ten distinct places', () => {
+    for (const region of regions) {
+      for (let day = 0; day < 400; day++) {
+        const keys = getDailyQuestionsForDay(addDays(ROTATION_START_DAY, day), region).map(venueKey);
+        assert.equal(keys.length, DAILY_QUESTION_COUNT);
+        assert.equal(new Set(keys).size, keys.length, `${region}: duplicate venue on day ${day}`);
+      }
+    }
   });
 });
 

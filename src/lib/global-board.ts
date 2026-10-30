@@ -6,7 +6,7 @@
  * one - the personal leaderboard still works.
  */
 
-import { todayKey } from './date-utils';
+import { todayKey } from './date-utils.ts';
 
 export interface GlobalEntry {
   score: number;
@@ -118,6 +118,46 @@ export async function fetchGlobalBoard(
       entries: [],
       error: 'The board could not be reached.',
     };
+  }
+}
+
+/** Where a score stands among everybody who played the same round. */
+export interface BoardStanding {
+  /** How many players are on the board, the player included. */
+  players: number;
+  /** How many of them scored less. */
+  below: number;
+}
+
+/**
+ * The share of the other players a score beat, as a whole percentage, or null
+ * when there is nobody else to compare with yet.
+ */
+export function betterThanPercent(standing: BoardStanding | null): number | null {
+  if (!standing || standing.players < 2) return null;
+  const others = standing.players - 1;
+  const below = Math.max(0, Math.min(others, standing.below));
+  return Math.floor((below / others) * 100);
+}
+
+/** Asks the board where a score stands on a day. Null when it cannot answer. */
+export async function fetchStanding(
+  day: string,
+  region: 'usa' | 'world',
+  score: number,
+): Promise<BoardStanding | null> {
+  try {
+    const response = await fetch(
+      `${ENDPOINT}?day=${encodeURIComponent(day)}&region=${region}&score=${encodeURIComponent(String(score))}`,
+    );
+    if (!response.ok) return null;
+    const payload = (await response.json()) as { players?: unknown; below?: unknown };
+    const players = Number(payload.players);
+    const below = Number(payload.below);
+    if (!Number.isFinite(players) || !Number.isFinite(below)) return null;
+    return { players, below };
+  } catch {
+    return null;
   }
 }
 

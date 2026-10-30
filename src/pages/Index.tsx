@@ -11,7 +11,9 @@ import NewsletterSignup from '@/components/NewsletterSignup';
 import Seo from '@/components/Seo';
 import { NEWSLETTER_COPY, NEWSLETTER_ENABLED } from '@/lib/newsletter';
 import { formatDayLabel, todayKey } from '@/lib/date-utils';
-import { lastPlayedBefore } from '@/lib/activity';
+import { lastPlayedBefore, streakStatus } from '@/lib/activity';
+import { streakMultiplier } from '@/lib/game-state';
+import { MissionsCard, NextChallengeCountdown, StreakBanner, XpBar } from '@/components/DailyProgress';
 import { formatPoints } from '@/lib/game-data';
 import { DEFAULT_REGION } from '@/lib/regions';
 import { buildReviewQuestions, latestReviewableResult } from '@/lib/review';
@@ -62,7 +64,19 @@ const MODE_CARDS: ModeCard[] = [
 ];
 
 const Index = () => {
-  const { streak, level, totalScore, gamesPlayed, isTodayCompleted, isRegionCompleted, dailyHistory } = useGameStore();
+  const {
+    streak: savedStreak,
+    lastPlayedDate,
+    streakFreezes,
+    totalScore,
+    gamesPlayed,
+    isTodayCompleted,
+    isRegionCompleted,
+    dailyHistory,
+  } = useGameStore();
+  // The saved streak only updates when a round is played; a lapsed streak
+  // shows as zero right away instead of waiting for the next round.
+  const streak = streakStatus({ streak: savedStreak, lastPlayedDate, streakFreezes }).streak;
   const [showStreakReward, setShowStreakReward] = useState(false);
 
   // Show the streak celebration once per day, and only for a real streak.
@@ -165,6 +179,13 @@ const Index = () => {
             </Button>
           </motion.div>
 
+          {/* Both rounds done: the only thing left to say is when the next one opens. */}
+          {isRegionCompleted('usa') && isRegionCompleted('world') && (
+            <div className="mt-6">
+              <NextChallengeCountdown />
+            </div>
+          )}
+
           {/* The last round before today, used to ask the player to beat it.
               "Your best is 940" is a record; "you scored 812 yesterday" is a
               challenge, and a challenge is what brings someone back. */}
@@ -220,6 +241,21 @@ const Index = () => {
           </motion.div>
         </motion.div>
 
+        {/* The streak at stake, the day's missions and the level - the three
+            reasons to play today and to come back tomorrow. */}
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.52 }}
+          className="max-w-4xl mx-auto mb-6 space-y-4"
+        >
+          <StreakBanner />
+          <div className="grid md:grid-cols-2 gap-4 items-start">
+            <MissionsCard />
+            <XpBar />
+          </div>
+        </motion.div>
+
         {/* Stats strip */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
@@ -251,8 +287,8 @@ const Index = () => {
           <Card className="border-2 border-purple-200 bg-white/70 backdrop-blur-sm text-center">
             <CardContent className="p-5">
               <Award className="w-7 h-7 mx-auto mb-2 text-purple-500" />
-              <p className="text-3xl font-bold text-gray-800">Level {level}</p>
-              <p className="text-xs text-gray-500">{gamesPlayed} played</p>
+              <p className="text-3xl font-bold text-gray-800">{gamesPlayed}</p>
+              <p className="text-xs text-gray-500">Rounds played</p>
             </CardContent>
           </Card>
         </motion.div>
@@ -374,11 +410,11 @@ const Index = () => {
                   You&apos;re on fire! Keep playing daily to maintain your streak.
                 </p>
 
-                {streak >= 7 && (
+                {streakMultiplier(streak) > 1 && (
                   <div className="mb-6 p-5 bg-yellow-100 border-2 border-yellow-300 rounded-2xl">
                     <Sparkles className="w-8 h-8 mx-auto mb-3 text-yellow-600" />
                     <p className="text-xl font-script font-bold text-yellow-800">
-                      Bonus: +{Math.min(streak * 2, 200)} points
+                      Your points count ×{streakMultiplier(streak)}
                     </p>
                   </div>
                 )}

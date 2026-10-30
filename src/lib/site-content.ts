@@ -562,7 +562,8 @@ export const SCORING_PAGE: SitePage = {
       heading: 'Streaks, levels and badges',
       bullets: [
         'A streak is the number of consecutive days you finished the daily challenge. Missing a day resets it to zero, and playing twice in one day does not push it up twice. A streak freeze covers one missed day.',
-        'A level is earned with the points you score in total. The first level costs 1,250 points, and every level after that costs a little more than the one before, so the level stays a real target however long you play.',
+        'A level is earned with the points you score in total, plus the XP from daily missions. The first level costs 1,250 XP, and every level after that costs a little more than the one before, so the level stays a real target however long you play.',
+        'Every day brings three missions, the same for everyone - such as playing both rounds or landing two guesses within 25 km. Each one completed today is worth bonus XP for your level. Mission XP never counts towards your score on the leaderboard.',
         'Badges are unlocked by milestones such as a perfect round, a seven-day streak, fifty daily challenges played, or a round where you earned the full speed bonus on every single question.',
       ],
     },
