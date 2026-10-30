@@ -1,5 +1,5 @@
 /**
- * Sign in / sign out in the site footer.
+ * Sign in / sign out, in the header and the site footer.
  *
  * Authentication is deliberately separate from the newsletter: signing in
  * creates a Supabase auth user, while the newsletter keeps its own consent and
@@ -8,7 +8,7 @@
 
 import { useEffect, useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
-import { Check, Loader2, LogIn, LogOut, Mail, UserRound } from 'lucide-react';
+import { BarChart3, Check, Loader2, LogIn, LogOut, Mail, UserRound } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -19,6 +19,14 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
 import { authRedirectUrl, isAuthConfigured, supabase } from '@/lib/supabase';
 import { useAuthSession } from '@/lib/auth-session';
@@ -34,7 +42,11 @@ import {
 type Provider = 'google' | 'apple';
 type Busy = Provider | 'email' | 'signout' | null;
 
-export default function AuthMenu() {
+/**
+ * `compact` is the header version: a small Sign in pill, and once signed in
+ * an avatar that opens a menu instead of the email spelled out.
+ */
+export default function AuthMenu({ compact = false }: { compact?: boolean }) {
   const { session } = useAuthSession();
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState('');
@@ -108,6 +120,41 @@ export default function AuthMenu() {
     if (error) setMessage(error.message);
   };
 
+  if (session && compact) {
+    const email = session.user.email ?? '';
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger
+          className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary text-sm font-bold uppercase text-white shadow-sm ring-2 ring-white transition-transform hover:scale-105"
+          aria-label="Account"
+        >
+          {email ? email[0] : <UserRound className="h-4 w-4" />}
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end" className="w-60 bg-white border-orange-100 shadow-lg">
+          <DropdownMenuLabel className="font-normal">
+            <span className="block text-xs text-gray-500">Signed in as</span>
+            <span className="block truncate text-sm font-semibold text-gray-800">{email}</span>
+          </DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem asChild>
+            <Link to="/stats" className="w-full cursor-pointer">
+              <BarChart3 className="mr-2 h-4 w-4" />
+              My stats
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            onSelect={() => void signOut()}
+            disabled={busy === 'signout'}
+            className="cursor-pointer text-gray-600"
+          >
+            <LogOut className="mr-2 h-4 w-4" />
+            Sign out
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    );
+  }
+
   if (session) {
     return (
       <div className="flex items-center gap-2">
@@ -153,9 +200,13 @@ export default function AuthMenu() {
           type="button"
           variant="default"
           size="sm"
-          className="h-9 rounded-full bg-primary px-4 text-xs font-semibold text-primary-foreground shadow-sm hover:bg-primary/90"
+          className={
+            compact
+              ? 'h-9 rounded-full bg-gradient-to-r from-primary to-secondary px-4 text-sm font-semibold text-white shadow-md hover:opacity-90'
+              : 'h-9 rounded-full bg-primary px-4 text-xs font-semibold text-primary-foreground shadow-sm hover:bg-primary/90'
+          }
         >
-          <LogIn className="mr-1.5 h-3.5 w-3.5" />
+          <LogIn className={compact ? 'mr-1.5 h-4 w-4' : 'mr-1.5 h-3.5 w-3.5'} />
           Sign in
         </Button>
       </DialogTrigger>

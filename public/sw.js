@@ -11,7 +11,7 @@
  * Bump CACHE_VERSION to invalidate everything on the next deploy.
  */
 
-const CACHE_VERSION = 'v2';
+const CACHE_VERSION = 'v3';
 const SHELL_CACHE = `geoarena-shell-${CACHE_VERSION}`;
 const TILE_CACHE = `geoarena-tiles-${CACHE_VERSION}`;
 

@@ -6,10 +6,11 @@
  * place to look for either.
  */
 
+import { Suspense } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import PageFallback from '@/components/PageFallback';
 import SiteHeader from '@/components/SiteHeader';
 import AdSlot from '@/components/AdSlot';
-import AuthMenu from '@/components/AuthMenu';
 import { FOOTER_LINKS, BRAND_NAME } from '@/lib/site-content';
 import { resetOnboarding } from '@/lib/onboarding';
 import BrandIcon from '@/components/BrandIcon';
@@ -19,7 +20,9 @@ export default function SiteLayout() {
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-orange-50 via-red-50 to-pink-50">
       <SiteHeader />
       <main className="flex-1">
-        <Outlet />
+        <Suspense fallback={<PageFallback />}>
+          <Outlet />
+        </Suspense>
       </main>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AdSlot slot="footer" className="py-6" />
@@ -36,24 +39,20 @@ export default function SiteLayout() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-5">
-              <nav
-                aria-label="Company and legal"
-                className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-gray-600"
-              >
-                {FOOTER_LINKS.map((link) => (
-                  <Link
-                    key={link.to}
-                    to={link.to}
-                    className="hover:text-primary transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
-              <span aria-hidden="true" className="hidden h-5 w-px bg-orange-100 sm:block" />
-              <AuthMenu />
-            </div>
+            <nav
+              aria-label="Company and legal"
+              className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-gray-600"
+            >
+              {FOOTER_LINKS.map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className="hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
           </div>
 
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-xs text-gray-500">

@@ -31,7 +31,7 @@ import { useGameStore } from '@/lib/game-store';
 import { HEADER_INFO_LINKS, BRAND_NAME } from '@/lib/site-content';
 import BrandIcon from '@/components/BrandIcon';
 import UsFlag from '@/components/UsFlag';
-import InstallPrompt from '@/components/InstallPrompt';
+import AuthMenu from '@/components/AuthMenu';
 
 export interface NavCategory {
   to: string;
@@ -75,16 +75,16 @@ export default function SiteHeader() {
   const isInfoActive = HEADER_INFO_LINKS.some((link) => link.to === location.pathname);
 
   const linkClasses = ({ isActive }: { isActive: boolean }) =>
-    `flex items-center gap-2 px-3 py-2 rounded-full text-sm font-semibold transition-colors ${
+    `flex items-center gap-1.5 xl:gap-2 px-2.5 py-1.5 xl:px-3 2xl:px-4 xl:py-2 rounded-full text-[13px] xl:text-sm 2xl:text-[15px] font-semibold whitespace-nowrap transition-colors ${
       isActive
-        ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-md'
-        : 'text-gray-700 hover:bg-white/70'
+        ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-sm'
+        : 'text-gray-600 hover:bg-white hover:text-gray-900'
     }`;
 
   return (
     <header className="sticky top-0 z-50 bg-gradient-to-r from-orange-50/95 via-red-50/95 to-pink-50/95 backdrop-blur-md border-b border-orange-100">
       <div className="w-full mx-auto px-3 sm:px-5 lg:px-6">
-        <div className="flex items-center gap-4 h-16">
+        <div className="flex items-center gap-3 h-16 xl:h-[72px]">
           {/* Brand */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <BrandIcon className="w-10 h-10 drop-shadow-md" title={BRAND_NAME} />
@@ -97,7 +97,9 @@ export default function SiteHeader() {
           </Link>
 
           {/* Desktop categories */}
-          <nav className="hidden lg:flex items-center gap-1 ml-auto">
+          {/* The categories sit together in one pill, next to the controls on
+              the right, instead of being spread across the whole bar. */}
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 ml-auto rounded-full bg-white/60 border border-orange-100 p-1 xl:p-1.5 shadow-sm">
             {NAV_CATEGORIES.map((category) => (
               <NavLink
                 key={category.to}
@@ -106,9 +108,9 @@ export default function SiteHeader() {
                 className={linkClasses}
               >
                 {category.to === '/daily' ? (
-                  <UsFlag className="h-3.5 w-5 rounded-[2px] shadow-sm" />
+                  <UsFlag className="hidden xl:block h-4 w-5 rounded-[2px] shadow-sm" />
                 ) : (
-                  <span className="text-base leading-none" aria-hidden="true">
+                  <span className="hidden xl:inline text-base 2xl:text-lg leading-none" aria-hidden="true">
                     {category.emoji}
                   </span>
                 )}
@@ -119,13 +121,12 @@ export default function SiteHeader() {
             {/* Informational pages (About, Team, Editorial, Contact) */}
             <DropdownMenu>
               <DropdownMenuTrigger
-                className={`flex items-center gap-1 px-3 py-2 rounded-full text-sm font-semibold transition-colors ${
+                className={`flex items-center gap-1 px-2.5 py-1.5 xl:px-3 2xl:px-4 xl:py-2 rounded-full text-[13px] xl:text-sm 2xl:text-[15px] font-semibold transition-colors ${
                   isInfoActive
-                    ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-md'
-                    : 'text-gray-700 hover:bg-white/70'
+                    ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-sm'
+                    : 'text-gray-600 hover:bg-white hover:text-gray-900'
                 }`}
               >
-                <span className="text-base leading-none" aria-hidden="true">📂</span>
                 More
                 <ChevronDown className="w-3.5 h-3.5" />
               </DropdownMenuTrigger>
@@ -144,17 +145,21 @@ export default function SiteHeader() {
             </DropdownMenu>
           </nav>
 
-          {/* Right side: stats + install + mobile toggle */}
-          <div className="flex items-center gap-2 ml-auto lg:ml-0">
-            <div className="hidden md:flex items-center gap-2">
-              <div className="flex items-center gap-1.5 bg-white/80 px-3 py-1.5 rounded-full border border-orange-100">
+          {/* Right side: progress, Pro, the switches and the account */}
+          <div className="flex items-center gap-1.5 ml-auto lg:ml-0">
+            <div
+              className="hidden 2xl:flex items-center gap-2 bg-white/80 pl-2.5 pr-3 py-1.5 rounded-full border border-orange-100 text-sm font-bold text-gray-700"
+              title={`${streak}-day streak · level ${level}`}
+            >
+              <span className="flex items-center gap-1">
                 <Flame className="w-4 h-4 text-orange-500" />
-                <span className="text-sm font-bold text-gray-700">{streak}</span>
-              </div>
-              <div className="flex items-center gap-1.5 bg-white/80 px-3 py-1.5 rounded-full border border-orange-100">
+                {streak}
+              </span>
+              <span className="h-3.5 w-px bg-orange-200" aria-hidden="true" />
+              <span className="flex items-center gap-1">
                 <Trophy className="w-4 h-4 text-yellow-500" />
-                <span className="text-sm font-bold text-gray-700">Lv {level}</span>
-              </div>
+                Lv {level}
+              </span>
             </div>
 
             {/* The Pro button. It sits in the header rather than only in the
@@ -162,7 +167,7 @@ export default function SiteHeader() {
                 see it. The crown turns gold when this device is Pro. */}
             <Link
               to="/pro"
-              className="flex items-center gap-1.5 bg-white/80 px-3 py-1.5 rounded-full border border-orange-100 hover:border-yellow-300 transition-colors"
+              className="flex items-center gap-1.5 bg-white/80 h-9 px-2.5 sm:px-3 rounded-full border border-orange-100 hover:border-yellow-300 transition-colors"
               aria-label="USA GeoArena Pro"
             >
               <Crown
@@ -173,18 +178,8 @@ export default function SiteHeader() {
               </span>
             </Link>
 
-            {/* The light and dark switch. It sits with the other controls so
-                it is reachable on a phone as well as on a desktop. */}
             <ThemeToggle />
-
-            {/* And the sound switch, next to it. */}
             <SoundToggle />
-
-            {/* The install button only shows up when the browser can actually
-                install the app, so it never sits there as a dead control. */}
-            <div className="hidden sm:block">
-              <InstallPrompt />
-            </div>
 
             <Button
               variant="ghost"
@@ -195,6 +190,12 @@ export default function SiteHeader() {
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </Button>
+
+            {/* The account sits in the top right corner, where people look
+                for it. */}
+            <div className="ml-1">
+              <AuthMenu compact />
+            </div>
           </div>
         </div>
       </div>
@@ -249,9 +250,6 @@ export default function SiteHeader() {
                 {link.label}
               </Link>
             ))}
-            <div className="px-3 py-2">
-              <InstallPrompt />
-            </div>
           </div>
         </motion.nav>
       )}

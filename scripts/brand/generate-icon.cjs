@@ -11,19 +11,24 @@ const project = (lon, lat) => {
   return { x: 50 + R*cos(phi)*sin(lam), y: 50 - R*(cos(phi0)*sin(phi) - sin(phi0)*cos(phi)*cos(lam)), visible: cosC > 0 };
 };
 const f = (n) => Math.round(n * 10) / 10;
+// A ring that runs over the horizon stays one ring: the points behind the
+// globe are pushed out to its rim, so the outline follows the edge of the
+// sphere. Cutting the ring into its visible pieces and closing each one with
+// a straight line drew chords across the globe - the stripe through the
+// Americas came from exactly that.
 function ringPath(ring, minArea) {
-  const runs = []; let cur = [];
-  for (const [lon, lat] of ring) { const p = project(lon, lat); if (p.visible) cur.push(p); else if (cur.length) { runs.push(cur); cur = []; } }
-  if (cur.length) runs.push(cur);
-  let d = '';
-  for (const run of runs) {
-    if (run.length < 3) continue;
-    let area = 0;
-    for (let i = 0; i < run.length; i++) { const a = run[i], b = run[(i+1)%run.length]; area += a.x*b.y - b.x*a.y; }
-    if (Math.abs(area / 2) < (minArea || 0)) continue;
-    d += 'M' + run.map((p) => `${f(p.x)},${f(p.y)}`).join('L') + 'Z';
-  }
-  return d;
+  const pts = ring.map(([lon, lat]) => project(lon, lat));
+  if (!pts.some((p) => p.visible)) return '';
+  const run = pts.map((p) => {
+    if (p.visible) return p;
+    const dx = p.x - 50, dy = p.y - 50, len = Math.hypot(dx, dy) || 1;
+    return { x: 50 + (dx / len) * (R + 1), y: 50 + (dy / len) * (R + 1) };
+  });
+  if (run.length < 3) return '';
+  let area = 0;
+  for (let i = 0; i < run.length; i++) { const a = run[i], b = run[(i+1)%run.length]; area += a.x*b.y - b.x*a.y; }
+  if (Math.abs(area / 2) < (minArea || 0)) return '';
+  return 'M' + run.map((p) => `${f(p.x)},${f(p.y)}`).join('L') + 'Z';
 }
 const NA = new Set(['United States of America','Canada','Mexico','Greenland','Cuba','Haiti','Jamaica','Panama','Costa Rica','Nicaragua','Honduras','Guatemala','Belize','El Salvador','Bahamas','Dominican Republic','Saint Lucia','Saint Vincent and the Grenadines','Grenada','Trinidad and Tobago','Barbados','Antigua and Barbuda','Dominica','Martinique','Guadeloupe','Puerto Rico','Montserrat','Saint Kitts and Nevis','Anguilla','British Virgin Islands','U.S. Virgin Islands','Aruba','Curacao','Bonaire','Sint Maarten','Saint Martin','Sint Eustatius','Saba','Bermuda']);
 const land = JSON.parse(fs.readFileSync(path.join(HERE, 'land-110m.json'), 'utf8'));
@@ -61,9 +66,9 @@ const body = `
   <g filter="url(#sh)"><circle cx="50" cy="50" r="50" fill="url(#ocean)"/></g>
   <g clip-path="url(#sphere)">
     <path d="${otherLand}" fill="#3d6070" stroke="#3d6070" stroke-width="0.35"/>
-    <path d="${st}" fill="#ffffff" stroke="#ffffff" stroke-width="1.5"/>
+    <path d="${st}" fill="#ffffff" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"/>
     <path d="${st}" fill="#FF4655"/>
   </g>
   <circle cx="50" cy="50" r="50" fill="url(#atmo)"/>`;
 fs.writeFileSync(path.join(ROOT, 'public', 'brand-icon.svg'), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">${defs}${body}</svg>`);
-console.log('brand-icon.svg (bez mreze) =', fs.statSync(path.join(ROOT, 'public', 'brand-icon.svg')).size, 'bytes');
+console.log('brand-icon.svg (no grid) =', fs.statSync(path.join(ROOT, 'public', 'brand-icon.svg')).size, 'bytes');

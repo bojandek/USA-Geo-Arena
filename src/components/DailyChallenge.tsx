@@ -1116,7 +1116,10 @@ export default function DailyChallenge({
       const fitted = outlying
         ? Math.max(zoom, OUTLYING_LABEL_ZOOM)
         : zoom;
-      map.easeTo({ center: camera.center, zoom: fitted }, { duration });
+      // The duration belongs in the options. The second argument of easeTo is
+      // event data, and a duration put there is ignored: the map then eases
+      // for half a second even when the frame was meant to be instant.
+      map.easeTo({ center: camera.center, zoom: fitted, duration });
     },
     [regionConfig, regionId, isGlobe, resetView],
   );
@@ -1161,13 +1164,20 @@ export default function DailyChallenge({
     };
   }, [mapOptions.atmosphere, mapOptions.labels, mapEpoch]);
 
+  // The id of the question the map was last framed for. Only a move from one
+  // question to the next is eased; the first frame is put down at once, so the
+  // map does not open on one view and then slide to another while it loads.
+  const framedQuestionRef = useRef<string | null>(null);
   useEffect(() => {
     const map = mapRef.current?.getMap();
     if (!map || !currentQuestion) return;
     // The globe keeps one frame for the whole round; it is re-framed when the
     // player moves on instead. See the framing effect below.
     if (isGlobe) return;
-    applyFraming(map, currentQuestion, 900);
+    const previous = framedQuestionRef.current;
+    framedQuestionRef.current = currentQuestion.id;
+    if (previous === currentQuestion.id) return;
+    applyFraming(map, currentQuestion, previous === null ? 0 : 900);
   }, [currentQuestion, applyFraming, isGlobe]);
 
   // The framing is applied once the map has loaded, and again whenever the
@@ -1561,11 +1571,19 @@ export default function DailyChallenge({
           // The key remounts the map when the region changes, so the new
           // region opens framed on its own country instead of the whole globe.
           key={regionId}
-          initialViewState={{
-            longitude: mapCenter[0],
-            latitude: mapCenter[1],
-            zoom: mapZoom,
-          }}
+          // A flat region opens already fitted to its frame, with the same
+          // padding the framing uses. Opening on a fixed zoom and fitting a
+          // moment later made the map jump while its tiles were loading.
+          initialViewState={
+            !isGlobe && regionConfig.view.fit
+              ? {
+                  bounds: regionConfig.view.fit,
+                  fitBoundsOptions: {
+                    padding: { top: 130, bottom: 130, left: 70, right: 70 },
+                  },
+                }
+              : { longitude: mapCenter[0], latitude: mapCenter[1], zoom: mapZoom }
+          }
           maxBounds={toBoundsArray(mapBounds)}
           // The world must be on the screen once. Letting the map repeat it
           // puts the same continent at both edges, which reads as a bug.

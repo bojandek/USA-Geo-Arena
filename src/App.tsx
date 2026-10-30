@@ -22,6 +22,7 @@ import InfoPage from "./pages/InfoPage";
 import AuthCallback from "./pages/AuthCallback";
 import RequireAuth from "@/components/RequireAuth";
 import NotFound from "./pages/NotFound";
+import PageFallback from "@/components/PageFallback";
 
 // The map-heavy modes pull in MapLibre (~790 kB). Loading them on demand
 // keeps the first paint of the home page fast.
@@ -32,18 +33,18 @@ const ArchivePage = lazy(() => import("./pages/ArchivePage"));
 const ReviewPage = lazy(() => import("./pages/ReviewPage"));
 const AdminNewsletter = lazy(() => import("./pages/AdminNewsletter"));
 
-const queryClient = new QueryClient();
-
-function PageFallback() {
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <div className="w-12 h-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin mx-auto" />
-        <p className="mt-4 text-gray-500 text-sm">Loading…</p>
-      </div>
-    </div>
-  );
+// The daily round is where almost every visit goes next, so its code is
+// fetched as soon as the browser is idle. By the time the player clicks Play
+// it is already there, and the map opens without a loading screen first.
+if (typeof window !== "undefined") {
+  const preload = () => {
+    void import("./pages/DailyPage");
+  };
+  if ("requestIdleCallback" in window) window.requestIdleCallback(preload, { timeout: 3000 });
+  else setTimeout(preload, 1500);
 }
+
+const queryClient = new QueryClient();
 
 const App = () => (
   <ErrorBoundary>

@@ -10,15 +10,20 @@
  * below the header.
  */
 
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import SiteHeader from '@/components/SiteHeader';
+import PageFallback from '@/components/PageFallback';
 
 export default function GameLayout() {
   return (
     <div className="h-[100dvh] flex flex-col bg-gray-50">
       <SiteHeader />
       <main className="flex-1 min-h-0 relative">
-        <Outlet />
+        {/* The page waits for its code here, so the header stays put. */}
+        <Suspense fallback={<PageFallback />}>
+          <Outlet />
+        </Suspense>
       </main>
     </div>
   );

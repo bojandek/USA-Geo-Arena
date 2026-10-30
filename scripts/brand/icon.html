@@ -1,0 +1,42 @@
+<!doctype html>
+<!--
+  Template for the PNG app icons. generate-png-icons.cjs opens it in a
+  headless browser with ?size=…&mode=… and screenshots the result.
+
+  mode=any       transparent background, the globe nearly edge to edge
+  mode=maskable  full-bleed black, the globe inside the 80% safe zone that
+                 Android may crop to a circle or a squircle
+  mode=apple     like maskable; iOS draws no transparency, so it needs a
+                 background of its own
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; overflow: hidden; }
+  .tile { position: relative; display: flex; align-items: center; justify-content: center; }
+  .tile.solid {
+    background:
+      radial-gradient(ellipse 85% 60% at 50% 0%, rgba(255, 70, 85, 0.28), transparent 70%),
+      linear-gradient(180deg, #121215, #070708);
+  }
+  img { display: block; }
+</style>
+</head>
+<body>
+<div class="tile" id="tile"><img id="globe" src="../../public/brand-icon.svg" alt=""></div>
+<script>
+  const params = new URLSearchParams(location.search);
+  const size = Number(params.get('size') || 512);
+  const mode = params.get('mode') || 'any';
+  const tile = document.getElementById('tile');
+  const globe = document.getElementById('globe');
+  tile.style.width = tile.style.height = size + 'px';
+  if (mode !== 'any') tile.classList.add('solid');
+  // The SVG carries its own drop shadow below the sphere, so "any" still
+  // leaves a little room at the edge.
+  const scale = mode === 'any' ? 0.9 : 0.66;
+  globe.style.width = globe.style.height = Math.round(size * scale) + 'px';
+</script>
+</body>
+</html>
