@@ -1,74 +1,154 @@
+// Generates the brand mark: a dark app tile with a globe centred on the USA,
+// the country in brand red, circled by a glowing brand-red orbit ring.
+//
+// The country shapes come from real data (US Census state outlines, Natural
+// Earth for the rest of the world) projected orthographically, the way a
+// globe is actually seen from space.
+//
+//   node scripts/brand/generate-icon.cjs
+//
+// Writes two files:
+//   public/brand-icon.svg            rounded tile - the site, favicon, any-purpose icons
+//   scripts/brand/brand-icon-square.svg  square full-bleed tile with the mark
+//                                    inside the 80% safe zone - maskable and
+//                                    Apple icons, which the OS rounds itself
+
 const fs = require('fs');
 const path = require('path');
 
 const HERE = __dirname;
 const ROOT = path.join(HERE, '..', '..');
+const land = JSON.parse(fs.readFileSync(path.join(HERE, 'land-110m.json'), 'utf8'));
+const states = JSON.parse(fs.readFileSync(path.join(HERE, 'us-states.json'), 'utf8'));
+
 const rad = (d) => (d * Math.PI) / 180, sin = Math.sin, cos = Math.cos;
-const R = 50, LON0 = -98, LAT0 = 38;
-const project = (lon, lat) => {
-  const lam = rad(lon - LON0), phi = rad(lat), phi0 = rad(LAT0);
-  const cosC = sin(phi0)*sin(phi) + cos(phi0)*cos(phi)*cos(lam);
-  return { x: 50 + R*cos(phi)*sin(lam), y: 50 - R*(cos(phi0)*sin(phi) - sin(phi0)*cos(phi)*cos(lam)), visible: cosC > 0 };
-};
-const f = (n) => Math.round(n * 10) / 10;
+const f = (n) => Math.round(n * 100) / 100;
+
+function makeProjection(lon0, lat0) {
+  return (lon, lat) => {
+    const lam = rad(lon - lon0), phi = rad(lat), phi0 = rad(lat0);
+    const cosC = sin(phi0) * sin(phi) + cos(phi0) * cos(phi) * cos(lam);
+    return { x: cos(phi) * sin(lam), y: -(cos(phi0) * sin(phi) - sin(phi0) * cos(phi) * cos(lam)), visible: cosC > 0 };
+  };
+}
+
 // A ring that runs over the horizon stays one ring: the points behind the
 // globe are pushed out to its rim, so the outline follows the edge of the
 // sphere. Cutting the ring into its visible pieces and closing each one with
-// a straight line drew chords across the globe - the stripe through the
-// Americas came from exactly that.
-function ringPath(ring, minArea) {
+// a straight line drew chords across the globe.
+function ringPath(ring, project, cx, cy, r, minArea) {
   const pts = ring.map(([lon, lat]) => project(lon, lat));
   if (!pts.some((p) => p.visible)) return '';
   const run = pts.map((p) => {
-    if (p.visible) return p;
-    const dx = p.x - 50, dy = p.y - 50, len = Math.hypot(dx, dy) || 1;
-    return { x: 50 + (dx / len) * (R + 1), y: 50 + (dy / len) * (R + 1) };
+    if (p.visible) return { x: cx + p.x * r, y: cy + p.y * r };
+    const len = Math.hypot(p.x, p.y) || 1;
+    return { x: cx + (p.x / len) * r * 1.02, y: cy + (p.y / len) * r * 1.02 };
   });
-  if (run.length < 3) return '';
   let area = 0;
-  for (let i = 0; i < run.length; i++) { const a = run[i], b = run[(i+1)%run.length]; area += a.x*b.y - b.x*a.y; }
-  if (Math.abs(area / 2) < (minArea || 0)) return '';
+  for (let i = 0; i < run.length; i++) { const a = run[i], b = run[(i + 1) % run.length]; area += a.x * b.y - b.x * a.y; }
+  if (Math.abs(area / 2) < minArea) return '';
   return 'M' + run.map((p) => `${f(p.x)},${f(p.y)}`).join('L') + 'Z';
 }
-const NA = new Set(['United States of America','Canada','Mexico','Greenland','Cuba','Haiti','Jamaica','Panama','Costa Rica','Nicaragua','Honduras','Guatemala','Belize','El Salvador','Bahamas','Dominican Republic','Saint Lucia','Saint Vincent and the Grenadines','Grenada','Trinidad and Tobago','Barbados','Antigua and Barbuda','Dominica','Martinique','Guadeloupe','Puerto Rico','Montserrat','Saint Kitts and Nevis','Anguilla','British Virgin Islands','U.S. Virgin Islands','Aruba','Curacao','Bonaire','Sint Maarten','Saint Martin','Sint Eustatius','Saba','Bermuda']);
-const land = JSON.parse(fs.readFileSync(path.join(HERE, 'land-110m.json'), 'utf8'));
-const states = JSON.parse(fs.readFileSync(path.join(HERE, 'us-states.json'), 'utf8'));
-function collect(features, skipNA, minArea) {
+
+function collect(features, project, cx, cy, r, minArea) {
   let d = '';
   for (const feat of features) {
-    const name = feat.properties && (feat.properties.name || feat.properties.admin);
-    if (skipNA && name && NA.has(name)) continue;
     const g = feat.geometry; if (!g) continue;
     const rings = g.type === 'Polygon' ? g.coordinates : g.type === 'MultiPolygon' ? g.coordinates.flat() : [];
-    for (const ring of rings) d += ringPath(ring, minArea);
+    for (const ring of rings) d += ringPath(ring, project, cx, cy, r, minArea);
   }
   return d;
 }
-const otherLand = collect(land.features, true, 3.5);
-const st = collect(states.features, false, 0.02);
-// No grid this time - the land and the shading carry the globe on their own.
+
+function gridPath(project, cx, cy, r) {
+  let d = '';
+  const line = (pts) => {
+    let open = false;
+    for (const p of pts) {
+      if (!p.visible) { open = false; continue; }
+      d += (open ? 'L' : 'M') + `${f(cx + p.x * r)},${f(cy + p.y * r)}`;
+      open = true;
+    }
+  };
+  for (let lon = -180; lon < 180; lon += 20) {
+    const pts = []; for (let lat = -90; lat <= 90; lat += 3) pts.push(project(lon, lat)); line(pts);
+  }
+  for (let lat = -60; lat <= 60; lat += 20) {
+    const pts = []; for (let lon = -180; lon <= 180; lon += 3) pts.push(project(lon, lat)); line(pts);
+  }
+  return d;
+}
+
+// The globe and its orbit, drawn on a 100x100 canvas around (50, 50).
+const project = makeProjection(-98, 36);
+const CX = 50, CY = 50, R = 29, SW = R / 50;
+const otherLand = collect(land.features, project, CX, CY, R, 3.5 * SW * SW);
+const us = collect(states.features, project, CX, CY, R, 0.02 * SW * SW);
+const grid = gridPath(project, CX, CY, R);
+
 const defs = `<defs>
-  <radialGradient id="ocean" cx="0.33" cy="0.28" r="0.9">
-    <stop offset="0%" stop-color="#63aeea"/><stop offset="38%" stop-color="#2f74c2"/>
-    <stop offset="72%" stop-color="#17427c"/><stop offset="100%" stop-color="#0a2140"/>
+  <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#20232E"/><stop offset="100%" stop-color="#08090D"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="0.5" cy="0.45" r="0.55">
+    <stop offset="0%" stop-color="#FF4655" stop-opacity="0.45"/><stop offset="100%" stop-color="#FF4655" stop-opacity="0"/>
   </radialGradient>
-  <radialGradient id="atmo" cx="0.5" cy="0.5" r="0.5">
-    <stop offset="90%" stop-color="#8fd0ff" stop-opacity="0"/>
-    <stop offset="96%" stop-color="#8fd0ff" stop-opacity="0.5"/>
-    <stop offset="100%" stop-color="#8fd0ff" stop-opacity="0"/>
-  </radialGradient>
-  <clipPath id="sphere"><circle cx="50" cy="50" r="50"/></clipPath>
-  <filter id="sh" x="-25%" y="-25%" width="150%" height="150%">
-    <feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="#0a2140" flood-opacity="0.4"/>
+  <linearGradient id="ring" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#FF8A5C"/><stop offset="50%" stop-color="#FF4655"/><stop offset="100%" stop-color="#FF8A5C"/>
+  </linearGradient>
+  <filter id="ringglow" x="-20%" y="-50%" width="140%" height="200%">
+    <feGaussianBlur stdDeviation="1.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
   </filter>
+  <radialGradient id="ocean" cx="0.35" cy="0.3" r="0.85">
+    <stop offset="0%" stop-color="#5fb0f0"/><stop offset="45%" stop-color="#2560b0"/><stop offset="100%" stop-color="#081a3a"/>
+  </radialGradient>
+  <radialGradient id="shade" cx="0.32" cy="0.26" r="0.95">
+    <stop offset="0%" stop-color="#fff" stop-opacity="0.28"/><stop offset="35%" stop-color="#fff" stop-opacity="0"/>
+    <stop offset="75%" stop-color="#000" stop-opacity="0.15"/><stop offset="100%" stop-color="#000" stop-opacity="0.5"/>
+  </radialGradient>
+  <linearGradient id="us" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#FF6A5C"/><stop offset="100%" stop-color="#E8203F"/>
+  </linearGradient>
+  <clipPath id="sphere"><circle cx="${CX}" cy="${CY}" r="${R}"/></clipPath>
 </defs>`;
-const body = `
-  <g filter="url(#sh)"><circle cx="50" cy="50" r="50" fill="url(#ocean)"/></g>
-  <g clip-path="url(#sphere)">
-    <path d="${otherLand}" fill="#3d6070" stroke="#3d6070" stroke-width="0.35"/>
-    <path d="${st}" fill="#ffffff" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"/>
-    <path d="${st}" fill="#FF4655"/>
+
+// The back half of the orbit goes behind the globe, the front half over it.
+const mark = `
+  <g transform="rotate(-18 50 50)">
+    <path d="M7,50 A43,12 0 0 1 93,50" fill="none" stroke="url(#ring)" stroke-opacity="0.55" stroke-width="2.6"/>
   </g>
-  <circle cx="50" cy="50" r="50" fill="url(#atmo)"/>`;
-fs.writeFileSync(path.join(ROOT, 'public', 'brand-icon.svg'), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">${defs}${body}</svg>`);
-console.log('brand-icon.svg (no grid) =', fs.statSync(path.join(ROOT, 'public', 'brand-icon.svg')).size, 'bytes');
+  <circle cx="${CX}" cy="${CY}" r="${R}" fill="url(#ocean)"/>
+  <g clip-path="url(#sphere)">
+    <path d="${grid}" fill="none" stroke="#bfe2ff" stroke-opacity="0.18" stroke-width="${f(0.5 * SW)}"/>
+    <path d="${otherLand}" fill="#2f5873" stroke="#2f5873" stroke-width="${f(0.35 * SW)}"/>
+    <path d="${us}" fill="#fff" stroke="#fff" stroke-width="${f(1.8 * SW)}" stroke-linejoin="round"/>
+    <path d="${us}" fill="url(#us)"/>
+    <circle cx="${CX}" cy="${CY}" r="${R}" fill="url(#shade)"/>
+  </g>
+  <circle cx="${CX}" cy="${CY}" r="${f(R - 0.4 * SW)}" fill="none" stroke="#cfeaff" stroke-opacity="0.45" stroke-width="${f(0.8 * SW)}"/>
+  <g transform="rotate(-18 50 50)" filter="url(#ringglow)">
+    <path d="M93,50 A43,12 0 0 1 7,50" fill="none" stroke="url(#ring)" stroke-width="3.4" stroke-linecap="round"/>
+    <circle cx="66" cy="61.3" r="3.1" fill="#fff"/>
+  </g>`;
+
+const svg = (body) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">${defs}${body}</svg>`;
+
+const rounded = svg(`
+  <rect width="100" height="100" rx="22" fill="url(#tile)"/>
+  <rect width="100" height="100" rx="22" fill="url(#glow)"/>
+  ${mark}
+  <rect x="0.5" y="0.5" width="99" height="99" rx="21.5" fill="none" stroke="#fff" stroke-opacity="0.08"/>`);
+
+// The orbit reaches x = 7..93; scaled to 0.84 it stays inside the 10..90
+// safe zone Android may crop a maskable icon to.
+const square = svg(`
+  <rect width="100" height="100" fill="url(#tile)"/>
+  <rect width="100" height="100" fill="url(#glow)"/>
+  <g transform="translate(50 50) scale(0.84) translate(-50 -50)">${mark}</g>`);
+
+const write = (file, content) => {
+  fs.writeFileSync(file, content);
+  console.log(path.relative(ROOT, file), fs.statSync(file).size, 'bytes');
+};
+write(path.join(ROOT, 'public', 'brand-icon.svg'), rounded);
+write(path.join(HERE, 'brand-icon-square.svg'), square);

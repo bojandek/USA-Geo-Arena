@@ -1,10 +1,11 @@
 /**
  * The brand mark.
  *
- * A globe with the United States picked out in the brand red. The shape of
- * the country is drawn from real geographic data and projected onto the
- * sphere the way a globe is actually seen from space, so the meridians curve
- * and the country sits on the surface rather than on a flat map.
+ * A dark app tile with a globe, the United States picked out in the brand
+ * red and a brand-red orbit ring around it. The shape of the country is drawn
+ * from real geographic data and projected onto the sphere the way a globe is
+ * actually seen from space, so the meridians curve and the country sits on
+ * the surface rather than on a flat map.
  *
  * The drawing itself lives in `public/brand-icon.svg`. It is a separate file
  * because the path data is far too big to sit in the JavaScript bundle, and

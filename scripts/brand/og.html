@@ -1,0 +1,41 @@
+<!doctype html>
+<!--
+  Template for public/og-image.png, the 1200x630 card every shared link
+  shows. generate-og-image.cjs opens it in a headless browser and
+  screenshots it.
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Outfit:wght@600;700&display=block" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; overflow: hidden; }
+  .card {
+    width: 1200px; height: 630px; box-sizing: border-box;
+    display: flex; align-items: center; gap: 56px; padding: 0 80px;
+    color: #fff; font-family: 'Outfit', sans-serif;
+    background:
+      radial-gradient(circle 260px at 88% 18%, rgba(255, 255, 255, 0.12), transparent 70%),
+      linear-gradient(135deg, #FF7A45 0%, #FF4655 45%, #C81E4A 100%);
+  }
+  .mark { flex: none; width: 300px; height: 300px; transform: rotate(-4deg); filter: drop-shadow(0 22px 34px rgba(60, 0, 15, 0.45)); }
+  h1 { margin: 0; font-family: 'Caveat', cursive; font-weight: 700; font-size: 118px; line-height: 1; }
+  p { margin: 18px 0 30px; font-size: 38px; font-weight: 600; line-height: 1.25; }
+  .pill {
+    display: inline-block; padding: 14px 30px; border-radius: 999px;
+    background: rgba(120, 10, 35, 0.45); border: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 25px; font-weight: 700;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <img class="mark" src="../../public/brand-icon.svg" alt="">
+  <div>
+    <h1>USA GeoArena</h1>
+    <p>Guess the place. Build your streak.<br>Beat the world.</p>
+    <span class="pill">10 questions every day · NFL · MLB · NBA · NHL</span>
+  </div>
+</div>
+</body>
+</html>

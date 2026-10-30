@@ -117,15 +117,19 @@ fotografa i link do Pexelsa. Pexels se nikad ne poziva iz browsera.
 
 ### Brand ikona
 
-Logotip (globus sa SAD-om) se generiše iz pravih geografskih podataka — granice
-država iz US Census fajla, ostali svet iz Natural Earth:
+Logotip „Arena" (tamna pločica, globus sa SAD-om i crvena orbita) se generiše
+iz pravih geografskih podataka — granice država iz US Census fajla, ostali svet
+iz Natural Earth:
 
 ```bash
 node scripts/brand/generate-icon.cjs
+node scripts/brand/generate-png-icons.cjs
+node scripts/brand/generate-og-image.cjs
 ```
 
-Rezultat je `public/brand-icon.svg`, iz kog se prave PWA ikonice, favicon i
-socijalna kartica — pa svi oni nikad ne mogu da se raziđu.
+Prvi daje `public/brand-icon.svg`, iz kog drugi pravi PWA ikonice,
+`favicon.ico` i `email-icon.png`, a treći socijalnu karticu `og-image.png` —
+pa svi oni nikad ne mogu da se raziđu.
 
 ## 🎨 Dizajn
 
