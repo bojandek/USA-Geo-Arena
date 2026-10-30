@@ -333,12 +333,35 @@ export function buildShareUrl(params: {
   return `${base}/api/share?${query.toString()}`;
 }
 
+/**
+ * One coloured square per question, the way Worldle shares a round: it shows
+ * how the round went without giving away a single answer.
+ *
+ * Green is under 100 km (90 points or more), yellow under 500, orange under
+ * 2,000 and red anything further. A question the player gave up on is black.
+ * The squares come in rows of five so a ten-question round reads as two lines
+ * of play rather than one long strip.
+ */
+export function shareGrid(answers: ReadonlyArray<{ distance: number; gaveUp?: boolean }>): string {
+  const squares = answers.map(({ distance, gaveUp }) => {
+    if (gaveUp || !Number.isFinite(distance)) return '⬛';
+    if (distance < 100) return '🟩';
+    if (distance < 500) return '🟨';
+    if (distance < 2000) return '🟧';
+    return '🟥';
+  });
+  const rows: string[] = [];
+  for (let i = 0; i < squares.length; i += 5) rows.push(squares.slice(i, i + 5).join(''));
+  return rows.join('\n');
+}
+
 export function generateShareText(
   score: number,
   totalScore: number = maxRoundScore(DAILY_QUESTION_COUNT),
   timeBonus: number = 0,
   region: RegionId = DEFAULT_REGION,
   streakMultiplier: number = 1,
+  answers: ReadonlyArray<{ distance: number; gaveUp?: boolean }> = [],
 ): string {
   const multiplier = streakMultiplier > 1 ? streakMultiplier : 1;
   // The percentage is of the round as it would have been without the streak
@@ -352,5 +375,6 @@ export function generateShareText(
   const streakLine = multiplier > 1 ? `\n🔥 ${multiplier}× streak bonus` : '';
   const regionLine =
     region === DEFAULT_REGION ? '' : `\n${getRegion(region).emoji} ${getRegion(region).label} round`;
-  return `USA GeoArena ${emoji}\nMy score: ${formatPoints(score)}/${formatPoints(totalScore * multiplier)} (${percentage}%)\n${bonusLine ? bonusLine + '\n' : ''}${streakLine ? streakLine + '\n' : ''}${regionLine ? regionLine + '\n' : ''}Can you do better? 🌍⚽`;
+  const grid = answers.length > 0 ? `\n${shareGrid(answers)}\n` : '';
+  return `USA GeoArena ${emoji}\nMy score: ${formatPoints(score)}/${formatPoints(totalScore * multiplier)} (${percentage}%)\n${grid}${bonusLine ? bonusLine + '\n' : ''}${streakLine ? streakLine + '\n' : ''}${regionLine ? regionLine + '\n' : ''}Can you do better? 🌍🏟️`;
 }

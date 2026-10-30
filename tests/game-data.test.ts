@@ -10,6 +10,7 @@ import {
   calculateScore,
   DAILY_QUESTION_COUNT,
   generateShareText,
+  shareGrid,
   getDailyQuestions,
   getDailyQuestionsForDay,
   getDateString,
@@ -311,6 +312,37 @@ describe('share text', () => {
   test('omits the speed bonus line when there is none', () => {
     const text = generateShareText(800, 1_000, 0);
     assert.doesNotMatch(text, /Speed bonus/);
+  });
+
+  test('includes the emoji grid when the answers are given', () => {
+    const text = generateShareText(800, 1_000, 0, undefined, 1, [{ distance: 10 }, { distance: 3000 }]);
+    assert.match(text, /🟩🟥/);
+  });
+
+  test('omits the grid when there are no answers', () => {
+    assert.doesNotMatch(generateShareText(800, 1_000), /[🟩🟨🟧🟥⬛]/u);
+  });
+});
+
+describe('shareGrid', () => {
+  test('colours each answer by distance', () => {
+    assert.equal(
+      shareGrid([{ distance: 99 }, { distance: 100 }, { distance: 499 }, { distance: 1999 }, { distance: 2000 }]),
+      '🟩🟨🟨🟧🟥',
+    );
+  });
+
+  test('marks a question given up as black', () => {
+    assert.equal(shareGrid([{ distance: 5, gaveUp: true }, { distance: Infinity }]), '⬛⬛');
+  });
+
+  test('breaks a ten-question round into two rows of five', () => {
+    const grid = shareGrid(Array.from({ length: 10 }, () => ({ distance: 10 })));
+    assert.deepEqual(grid.split('\n'), ['🟩🟩🟩🟩🟩', '🟩🟩🟩🟩🟩']);
+  });
+
+  test('is empty for no answers', () => {
+    assert.equal(shareGrid([]), '');
   });
 });
 

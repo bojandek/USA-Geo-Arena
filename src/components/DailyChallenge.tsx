@@ -1217,6 +1217,7 @@ export default function DailyChallenge({
       totalTimeBonus,
       regionId,
       multiplier,
+      answers,
     );
 
     trackEvent(ANALYTICS_EVENTS.share, {
