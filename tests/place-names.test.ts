@@ -34,7 +34,7 @@ const question = (over: Partial<Question>): Question => ({
 
 /** The question about a sports centre in Anchorage. */
 const anchorage = usaOutlyingQuestions.find(
-  (q) => q.venue === 'Ector Sports Center',
+  (q) => q.id === 'us-out-011',
 );
 const fairbanks = usaOutlyingQuestions.find((q) => q.venue === 'Fairbanks');
 const nome = usaOutlyingQuestions.find((q) => q.id === 'us-out-016');

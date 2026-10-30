@@ -20,7 +20,7 @@ import {
 import { usaOutlyingQuestions } from '../src/lib/questions/usa-outlying.ts';
 
 const anchorage = usaOutlyingQuestions.find(
-  (q) => q.venue === 'Ector Sports Center',
+  (q) => q.id === 'us-out-011',
 );
 
 /** A map that only records what it is asked to do. */

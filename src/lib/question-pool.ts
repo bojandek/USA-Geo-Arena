@@ -32,6 +32,23 @@ const allQuestions: Question[] = [
 ];
 
 /**
+ * Questions that stay out of the pool for now.
+ *
+ * Each of these once shared a venue name with an earlier question and was
+ * dropped as a repeat. Correcting the venue names made them unique, which
+ * would let them in - but every past daily round is a shuffle of the pool,
+ * so a bigger pool would rewrite the rounds players have already played and
+ * archived. They wait here until the pool is grown on purpose.
+ */
+const HELD_BACK = new Set([
+  'e1', 'e12', 'e32', 'a11', 'us-venue-093',
+  'us-story-004', 'us-story-005', 'us-story-009', 'us-story-010',
+  'us-story-011', 'us-story-012', 'us-story-013', 'us-story-014',
+  'us-story-015', 'us-story-016', 'us-story-017', 'us-story-021',
+  'us-story-022', 'us-story-024', 'us-story-025', 'us-story-026',
+]);
+
+/**
  * The pool, with the repeats taken out.
  *
  * Two questions about the same venue are not two questions - the second one
@@ -50,6 +67,7 @@ function withoutRepeats(questions: Question[]): Question[] {
   const kept: Question[] = [];
 
   for (const question of questions) {
+    if (HELD_BACK.has(question.id)) continue;
     const venue = (question.venue ?? '').trim().toLowerCase();
     if (venue && seenVenues.has(venue)) continue;
     if (venue) seenVenues.add(venue);
