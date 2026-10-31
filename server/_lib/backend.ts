@@ -141,7 +141,7 @@ export const SITE_NAME = 'USA GeoArena';
  * Only whole numbers and the two decimals that matter are kept, so a score
  * can never carry a tail of floating point noise into the database.
  */
-export function cleanNumber(value: unknown, max = 1300): number {
+export function cleanNumber(value: unknown, max = 1000): number {
   const number = Number(value);
   if (!Number.isFinite(number)) return 0;
   return Math.round(Math.max(0, Math.min(max, number)) * 100) / 100;

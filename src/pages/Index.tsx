@@ -121,7 +121,7 @@ const Index = () => {
     <>
       <Seo
         title="USA GeoArena - Guess the Place"
-        description="Ten daily questions about NFL, MLB, NBA and NHL stadiums, iconic race tracks and legendary American moments. Click the map, get closer, score up to 1,300 points a day."
+        description="Ten daily questions about NFL, MLB, NBA and NHL stadiums, iconic race tracks and legendary American moments. Click the map, get closer, score up to 1,000 points a day."
         path="/"
       />
       <div className="pb-16">
@@ -430,7 +430,7 @@ const Index = () => {
                   <div className="mb-6 p-5 bg-yellow-100 border-2 border-yellow-300 rounded-2xl">
                     <Sparkles className="w-8 h-8 mx-auto mb-3 text-yellow-600" />
                     <p className="text-xl font-script font-bold text-yellow-800">
-                      Your points count ×{streakMultiplier(streak)}
+                      Your XP counts ×{streakMultiplier(streak)}
                     </p>
                   </div>
                 )}

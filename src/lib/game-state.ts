@@ -22,8 +22,8 @@ export const DAILY_QUESTION_COUNT = 10;
 /**
  * Maximum points for a full daily challenge.
  *
- * The first seven questions are worth 100 each and the last three are worth
- * more, so a full round is worth 1,300.
+ * The first seven questions are worth 80 each and the last three are worth
+ * more, so a full round is worth 1,000.
  */
 export const MAX_DAILY_SCORE = maxRoundScore(DAILY_QUESTION_COUNT);
 
@@ -73,8 +73,10 @@ export const FREEZE_EVERY_N_DAYS = 7;
  * The multiplier that a streak is worth.
  *
  * A streak that only sits on a screen as a number is a number the player has
- * no reason to protect. Making the streak worth extra points gives it one:
- * play every day and the same answers are worth more.
+ * no reason to protect. Making the streak worth extra XP gives it one: play
+ * every day and the same answers move the level further. The score itself is
+ * never touched, so a round is worth 1,000 points for everybody and the board
+ * stays fair.
  *
  * The thresholds are the streak the player was on when the round started, so
  * the bonus is never a surprise - the game shows the multiplier while the
@@ -131,11 +133,10 @@ export interface DailyResult {
   /** Points earned on distance alone, without any time bonus. */
   distanceScore?: number;
   /**
-   * Extra points earned because of the streak multiplier.
+   * Extra XP earned because of the streak multiplier.
    *
-   * The bonus is added on top of the round, as its own line, so the player
-   * can see where it came from rather than wondering why the total does not
-   * add up.
+   * It goes to the level, never to the score, so a round is still worth at
+   * most 1,000 points.
    */
   streakBonus?: number;
   /** The multiplier the streak was worth when the round was played. */
@@ -567,14 +568,14 @@ export function applyDailyCompletion(state: GameState, completion: DailyCompleti
   // Normalise the numeric inputs. A missing value must never poison the
   // persisted state with NaN - a NaN counter silently disables every
   // achievement that is derived from it.
-  const score = roundScore(Number(completion.score) || 0);
-  // The score before the streak bonus. The bonus is added on top of the
-  // round, so the base is what the answers were actually worth.
-  const baseScore = roundScore(
-    completion.baseScore === undefined ? score : Number(completion.baseScore) || 0,
+  // The score is what the answers were worth. The streak never adds to it:
+  // its bonus is XP, so a round is worth at most 1,000 points.
+  const score = roundScore(
+    Number(completion.baseScore === undefined ? completion.score : completion.baseScore) || 0,
   );
+  const baseScore = score;
   const multiplier = Number(completion.streakMultiplier) || 1;
-  const streakBonus = roundScore(Math.max(0, score - baseScore));
+  const streakBonus = roundScore(Math.max(0, score * (multiplier - 1)));
   const totalDistance = roundScore(Number(completion.totalDistance) || 0);
   const perfectCount = Number(completion.perfectCount) || 0;
   const timeBonus = roundScore(Number(completion.timeBonus) || 0);
@@ -630,6 +631,8 @@ export function applyDailyCompletion(state: GameState, completion: DailyCompleti
 
   // Lifetime counters only move for today's challenge.
   const scoreDelta = advancesProgression ? score - (existing?.score ?? 0) : 0;
+  const xpDelta = advancesProgression ? streakBonus - (existing?.streakBonus ?? 0) : 0;
+  const bonusXp = roundScore(Math.max(0, state.bonusXp + xpDelta));
   const distanceDelta = advancesProgression ? totalDistance - (existing?.totalDistance ?? 0) : 0;
   const perfectDelta = advancesProgression ? perfectCount - (existing?.perfectCount ?? 0) : 0;
 
@@ -656,7 +659,8 @@ export function applyDailyCompletion(state: GameState, completion: DailyCompleti
   const next: GameState = {
     ...state,
     totalScore,
-    level: levelForScore(totalScore + state.bonusXp),
+    bonusXp,
+    level: levelForScore(totalScore + bonusXp),
     streak,
     streakFreezes,
     lastPlayedDate,

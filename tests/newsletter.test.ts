@@ -16,7 +16,8 @@ import {
   setNewsletterState,
 } from '../src/lib/newsletter.ts';
 import { buildDailyNewsletter, roundPath } from '../newsletter/daily.ts';
-import { mailchimpDataCenter } from '../server/_lib/mailer.ts';
+import { mailchimpDataCenter, testAddress } from '../server/_lib/mailer.ts';
+import { cleanEdits } from '../server/_lib/daily-email.ts';
 
 const DAY = '2026-10-24';
 const SITE = 'https://geoarena.com';
@@ -176,8 +177,9 @@ describe('the daily email', () => {
   });
 
   test('the email says what a perfect round is worth', () => {
-    const email = buildDailyNewsletter({ day: DAY, site: SITE, maxScore: 1300 });
-    assert.ok(email.html.includes('1,300 points'));
+    const email = buildDailyNewsletter({ day: DAY, site: SITE });
+    assert.ok(email.html.includes('1,000 points'));
+    assert.ok(!email.html.includes('1,300'));
   });
 
   test('the day is written out in full', () => {
@@ -235,6 +237,74 @@ describe('the daily email', () => {
     assert.ok(email.html.includes('About USA GeoArena'));
     assert.ok(email.html.includes('Disclaimer'));
     assert.ok(email.html.includes(`${SITE}/daily?date=${DAY}`));
+  });
+});
+
+describe('the first question and the edits', () => {
+  const featured = {
+    question: 'Which ballpark has a hand-operated scoreboard in its left-field wall?',
+    link: `${SITE}/daily?date=${DAY}`,
+    label: "Today's first question",
+  };
+
+  test('the first question of the day is the subject', () => {
+    const email = buildDailyNewsletter({ day: DAY, site: SITE, featured });
+    assert.equal(email.subject, featured.question);
+  });
+
+  test('without a first question the usual subject is used', () => {
+    const email = buildDailyNewsletter({ day: DAY, site: SITE });
+    assert.notEqual(email.subject, '');
+    assert.notEqual(email.subject, featured.question);
+  });
+
+  test('an edited subject, preheader and intro win over the defaults', () => {
+    const email = buildDailyNewsletter({
+      day: DAY,
+      site: SITE,
+      featured,
+      edits: { subject: 'A new subject', preheader: 'A new preheader', intro: 'A new intro line' },
+    });
+    assert.equal(email.subject, 'A new subject');
+    assert.equal(email.preheader, 'A new preheader');
+    assert.ok(email.html.includes('A new intro line'));
+    assert.ok(email.text.includes('A new intro line'));
+  });
+
+  test('a blank edit falls back to the default', () => {
+    const email = buildDailyNewsletter({ day: DAY, site: SITE, featured, edits: { subject: '   ' } });
+    assert.equal(email.subject, featured.question);
+  });
+
+  test('each round has its own intro line', () => {
+    const usa = buildDailyNewsletter({ day: DAY, site: SITE, region: 'usa', featured });
+    const world = buildDailyNewsletter({ day: DAY, site: SITE, region: 'world', featured });
+    assert.ok(usa.html.includes('American sport'));
+    assert.ok(world.html.includes('world sport'));
+  });
+
+  test('edits are trimmed, cut to length and empty ones dropped', () => {
+    const edits = cleanEdits({ subject: `  ${'x'.repeat(200)}  `, preheader: '   ', intro: 7, extra: 'no' });
+    assert.equal(edits.subject?.length, 150);
+    assert.equal('preheader' in edits, false);
+    assert.equal('intro' in edits, false);
+    assert.equal('extra' in edits, false);
+    assert.deepEqual(cleanEdits(null), {});
+  });
+
+  test('a test email only goes to a real address', () => {
+    const before = process.env.NEWSLETTER_TEST_EMAIL;
+    try {
+      process.env.NEWSLETTER_TEST_EMAIL = ' me@example.com ';
+      assert.equal(testAddress(), 'me@example.com');
+      process.env.NEWSLETTER_TEST_EMAIL = 'not an address';
+      assert.equal(testAddress(), null);
+      delete process.env.NEWSLETTER_TEST_EMAIL;
+      assert.equal(testAddress(), null);
+    } finally {
+      if (before === undefined) delete process.env.NEWSLETTER_TEST_EMAIL;
+      else process.env.NEWSLETTER_TEST_EMAIL = before;
+    }
   });
 });
 

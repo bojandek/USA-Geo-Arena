@@ -59,11 +59,11 @@ export interface SubmittedAnswer {
 
 /** What a round was worth. */
 export interface RoundScore {
-  /** The score of the round, with the streak bonus. */
+  /** The score of the round; the streak never adds to it. */
   score: number;
-  /** The score before the streak bonus. */
+  /** The same score, kept for the callers that read it by this name. */
   baseScore: number;
-  /** The points the streak added. */
+  /** The XP the streak adds, which goes to the level and not the board. */
   bonus: number;
   /** The most the round could have been worth. */
   maxScore: number;
@@ -244,8 +244,8 @@ export function scoreQuestions(
     counted += 1;
   }
 
-  // The points spent on hints come off the round before the streak is added,
-  // in the same order as in the game: the bonus is a share of what is left.
+  // The points spent on hints come off the round, in the same order as in the
+  // game: the streak XP is a share of what is left.
   const hintCost = Math.max(0, Number(options.hintCost) || 0);
   const baseScore = roundScore(Math.max(0, running - hintCost));
 
@@ -255,13 +255,13 @@ export function scoreQuestions(
   const streak = Math.max(0, Math.min(9999, Math.floor(Number(options.streak) || 0)));
   const multiplier = streakMultiplier(streak);
   const bonus = roundScore(Math.max(0, baseScore * (multiplier - 1)));
-  const score = roundScore(baseScore + bonus);
+  const score = baseScore;
 
   return {
     score,
     baseScore,
     bonus,
-    maxScore: roundScore(maxRoundScore(round.length) * multiplier),
+    maxScore: maxRoundScore(round.length),
     accuracy: computeAccuracy(locationPoints),
     counted,
     totalDistance,

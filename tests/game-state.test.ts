@@ -106,9 +106,9 @@ describe('applyDailyCompletion', () => {
     assert.equal(state.totalScore, 800);
     assert.equal(state.lastPlayedDate, TODAY);
     assert.equal(state.dailyHistory.length, 1);
-    // Accuracy is measured on the location points alone, so 800 of the 1,170
-    // location points a full round can hold is 68%.
-    assert.equal(state.dailyHistory[0].accuracy, 68);
+    // Accuracy is measured on the location points alone, so 800 of the 900
+    // location points a full round can hold is 89%.
+    assert.equal(state.dailyHistory[0].accuracy, 89);
     assert.equal(state.averageScore, 800);
   });
 
@@ -324,14 +324,14 @@ describe('achievements', () => {
   test('a flawless and fast round unlocks the speed achievements', () => {
     const state = applyDailyCompletion(createInitialState(), {
       date: TODAY,
-      score: 1_300,
-      timeBonus: 130,
+      score: 1_000,
+      timeBonus: 100,
       totalDistance: 0,
       perfectCount: 10,
       today: TODAY,
     });
 
-    assert.equal(state.bestTimeBonus, 130);
+    assert.equal(state.bestTimeBonus, 100);
     assert.ok(state.achievements.some((a) => a.id === 'speed_demon'));
     assert.ok(state.achievements.some((a) => a.id === 'speed_50'));
     assert.ok(state.achievements.some((a) => a.id === 'perfect_10'));

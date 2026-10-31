@@ -71,7 +71,7 @@ function universal(webHandler) {
 }
 
 // server/share.ts
-var MAX_SCORE = 1300;
+var MAX_SCORE = 1e3;
 function readNumber(value, fallback, max) {
   const number = Number(value);
   if (!Number.isFinite(number)) return fallback;

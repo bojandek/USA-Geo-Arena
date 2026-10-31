@@ -91,7 +91,7 @@ export function StreakBanner({ className, playTo = '/daily' }: { className?: str
           <span className="font-bold">{status.streak}-day streak is safe.</span> Come back tomorrow to make it{' '}
           {status.streak + 1}
           {streakMultiplier(status.streak + 1) > streakMultiplier(status.streak) &&
-            ` and unlock a ×${streakMultiplier(status.streak + 1)} score multiplier`}
+            ` and unlock a ×${streakMultiplier(status.streak + 1)} XP multiplier`}
           .
         </p>
       </div>
@@ -121,7 +121,7 @@ export function StreakBanner({ className, playTo = '/daily' }: { className?: str
           Your {status.streak}-day streak ends in <span className="tabular-nums">{formatCountdown(ms)}</span>.
         </span>{' '}
         {nextMultiplier > streakMultiplier(status.streak)
-          ? `Play today to reach a ×${nextMultiplier} multiplier.`
+          ? `Play today to reach a ×${nextMultiplier} XP multiplier.`
           : 'Play today to keep it alive.'}
       </>
     );

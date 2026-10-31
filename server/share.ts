@@ -12,7 +12,8 @@
 
 import { universal } from './_lib/node-adapter.ts';
 
-const MAX_SCORE = 1300;
+/** A round is worth 1,000 points; the streak adds XP, not points. */
+const MAX_SCORE = 1000;
 
 function readNumber(value: string | null, fallback: number, max: number): number {
   const number = Number(value);

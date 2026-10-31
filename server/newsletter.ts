@@ -12,6 +12,7 @@ import { json } from './_lib/backend.ts';
 import { buildDailyEmail, todayKey } from './_lib/daily-email.ts';
 import { mailerConfig, sendDailyEmail } from './_lib/mailer.ts';
 import { isDayKey } from './_lib/round.ts';
+import { hasStarted } from './_lib/daily-rounds.ts';
 import type { NewsletterRegion } from '../newsletter/daily.ts';
 
 
@@ -53,6 +54,11 @@ async function handler(request: Request) {
     }
     if (request.method !== 'GET') {
       return json({ error: 'That is not something this route does.' }, 405);
+    }
+    // A day that has not started anywhere yet would give its first question
+    // and picture away, so the public preview waits like /api/daily does.
+    if (!hasStarted(day)) {
+      return json({ error: 'That day has not started yet.' }, 403);
     }
 
     return new Response(email.html, {

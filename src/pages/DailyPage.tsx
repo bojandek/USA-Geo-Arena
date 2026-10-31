@@ -77,8 +77,8 @@ export default function DailyPage({
         title={date ? 'Replay a past challenge' : `${regionConfig.label} Challenge`}
         description={
           isUsa
-            ? 'Ten American questions, the same for everyone playing the USA round. Click the map, get as close to the answer as you can and score up to 1,300 points a day.'
-            : 'Ten questions about stadiums, Olympic games, world records and racing circuits. Click the map, get as close to the answer as you can and score up to 1,300 points a day.'
+            ? 'Ten American questions, the same for everyone playing the USA round. Click the map, get as close to the answer as you can and score up to 1,000 points a day.'
+            : 'Ten questions about stadiums, Olympic games, world records and racing circuits. Click the map, get as close to the answer as you can and score up to 1,000 points a day.'
         }
         path={date ? '/archive' : regionPath(region)}
       />

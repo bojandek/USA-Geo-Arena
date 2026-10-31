@@ -53,7 +53,7 @@ import { formatFullDayLabel, todayKey } from '@/lib/date-utils';
 import { DAILY_QUESTION_COUNT, computeStreakWithFreeze, streakMultiplier, totalXp } from '@/lib/game-state';
 import { CountUp, MissionsCard, NextChallengeCountdown, XpBar } from '@/components/DailyProgress';
 import { roundScore } from '@/lib/numbers';
-import { MAX_TIME_POINTS_PER_QUESTION, TIME_BONUS_WINDOW_SECONDS, LOCATION_SHARE, maxRoundScore, stakeForQuestion } from '@/lib/time-bonus';
+import { TIME_SHARE, TIME_BONUS_WINDOW_SECONDS, LOCATION_SHARE, maxRoundScore, stakeForQuestion } from '@/lib/time-bonus';
 import MapSelect from '@/components/MapSelect';
 import { getMapStyleSource } from '@/lib/map-styles';
 import { useMapStyle } from '@/hooks/useMapStyle';
@@ -305,8 +305,8 @@ export default function DailyChallenge({
     [isArchiveMode, isReview, streak],
   );
 
-  // A question is worth 100 points, except in the last three of the round,
-  // where the stake rises. A full round of ten is worth 1,300.
+  // A question is worth 80 points, except in the last three of the round,
+  // where the stake rises. A full round of ten is worth 1,000.
   const maxScore = maxRoundScore(dailyQuestions.length);
 
   const handleComplete = useCallback(({
@@ -320,10 +320,10 @@ export default function DailyChallenge({
     perfectCount: number;
     timeBonus: number;
   }) => {
-    // The bonus is added on top of the round rather than folded into each
-    // answer, so the player can see where the extra points came from.
+    // The streak adds XP towards the level, never points, so a round is
+    // worth at most 1,000 for everybody.
     const bonus = roundScore(Math.max(0, totalScore * (multiplier - 1)));
-    const finalScore = roundScore(totalScore + bonus);
+    const finalScore = totalScore;
 
     // The streak outcome is worked out before the round is written, so the
     // player can be told straight away when a freeze saved the streak.
@@ -426,7 +426,7 @@ export default function DailyChallenge({
     );
 
     if (bonus > 0) {
-      toast.success(`Streak bonus: +${formatPoints(bonus)} points 🔥 ${multiplier}×`, {
+      toast.success(`Streak bonus: +${formatPoints(bonus)} XP 🔥 ${multiplier}×`, {
         position: 'top-center',
       });
     }
@@ -501,14 +501,14 @@ export default function DailyChallenge({
   // whole panel can still be put away with the button beside it - that is
   // what is there for when the player wants the map and nothing else.
   
-  // A question is worth 100 points, except in the last three of the round,
-  // where the stake rises. A full round of ten is worth 1,300.
+  // A question is worth 80 points, except in the last three of the round,
+  // where the stake rises. A full round of ten is worth 1,000.
   const stake = stakeForQuestion(currentQuestionIndex);
   const percentage = maxScore > 0 ? Math.round((totalScore / maxScore) * 100) : 0;
-  // The streak bonus is added on top of the round, as its own line, so the
-  // player can see where the extra points came from.
+  // The streak bonus is XP for the level, shown as its own line; the score
+  // stays what the answers were worth.
   const streakBonus = roundScore(Math.max(0, totalScore * (multiplier - 1)));
-  const finalScore = roundScore(totalScore + streakBonus);
+  const finalScore = totalScore;
   // Accuracy is how close the guesses were, so it is measured on the location
   // points alone. The speed share and the streak bonus say nothing about it.
   const locationPoints = answers.reduce((sum, a) => sum + a.locationPoints, 0);
@@ -1302,7 +1302,7 @@ export default function DailyChallenge({
       text: generateShareText(finalScore, maxScore, totalTimeBonus, regionId, multiplier, answers),
       url: buildShareUrl({
         score: finalScore,
-        maxScore: maxScore * multiplier,
+        maxScore,
         streak,
         region: regionId,
         date: challengeDate,
@@ -1440,7 +1440,7 @@ export default function DailyChallenge({
                 {custom ? 'Round Complete!' : 'Challenge Complete!'}
               </CardTitle>
               <p className="text-2xl opacity-90">
-                <CountUp value={finalScore} className="font-bold" /> / {formatPoints(maxScore * multiplier)} points
+                <CountUp value={finalScore} className="font-bold" /> / {formatPoints(maxScore)} points
               </p>
               {betterThan !== null && (
                 <motion.p
@@ -1454,7 +1454,7 @@ export default function DailyChallenge({
               )}
               {streakBonus > 0 && (
                 <p className="text-sm font-semibold text-orange-50 mt-1">
-                  🔥 {multiplier}× streak bonus: +{formatPoints(streakBonus)}
+                  🔥 {multiplier}× streak bonus: +{formatPoints(streakBonus)} XP
                 </p>
               )}
               <Progress value={percentage} className="mt-6 h-3 bg-white/20" />
@@ -1601,7 +1601,7 @@ export default function DailyChallenge({
                         ? `${regionConfig.label} · ${formatFullDayLabel(challengeDate)}`
                         : `${regionConfig.label} Challenge`,
                     score: finalScore,
-                    maxScore: maxScore * multiplier,
+                    maxScore,
                     accuracy,
                     answers,
                     footnote:
@@ -1612,7 +1612,7 @@ export default function DailyChallenge({
                             ? `Tied with ${custom?.rivalName ?? 'my friend'}`
                             : undefined
                         : streakBonus > 0
-                          ? `🔥 ${multiplier}× streak bonus`
+                          ? `🔥 ${multiplier}× streak XP`
                           : undefined,
                     site: SITE_URL,
                   }}
@@ -1779,7 +1779,7 @@ export default function DailyChallenge({
             {multiplier > 1 && (
               <span
                 className="flex items-center gap-1 bg-orange-50/95 backdrop-blur rounded-full px-2.5 py-1.5 shadow-md border border-orange-200"
-                title={`Your ${streak}-day streak makes this round worth ${multiplier}× the points`}
+                title={`Your ${streak}-day streak makes this round worth ${multiplier}× the XP`}
               >
                 <Flame className="h-3.5 w-3.5 text-orange-500" />
                 <span className="text-xs font-bold text-orange-700">{multiplier}×</span>
@@ -1900,7 +1900,7 @@ export default function DailyChallenge({
                                     ? 'bg-amber-100 text-amber-700'
                                     : 'bg-emerald-100 text-emerald-700'
                               }`}
-                              title={`Answer within ${TIME_BONUS_WINDOW_SECONDS} seconds for up to ${MAX_TIME_POINTS_PER_QUESTION} bonus points`}
+                              title={`Answer within ${TIME_BONUS_WINDOW_SECONDS} seconds for up to ${roundScore(stake * TIME_SHARE)} bonus points`}
                             >
                               <Timer className="w-3 h-3" />
                               {timeBonusSecondsLeft}s

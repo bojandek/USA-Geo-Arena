@@ -3,7 +3,7 @@
  *
  * A question is worth up to 100 points: 90% from how close the guess was
  * and up to 10% from how fast the answer was given. The last three questions
- * of a round are worth more, so a round of ten is worth 1,300. The important
+ * of a round are worth more, and a round of ten is worth 1,000. The important
  * properties are: an instant answer earns the full band value, the clock
  * never takes more than 10% away, and a fast wrong answer can never beat a
  * slow correct one.
@@ -110,10 +110,10 @@ describe('calculateTimeFactor', () => {
 });
 
 describe('maxTimeBonusFor', () => {
-  test('a full round of ten questions can earn 130 speed points', () => {
+  test('a full round of ten questions can earn 100 speed points', () => {
     // The last three questions are worth more, so they carry more speed
-    // points too: 7 x 10 + 15 + 20 + 25.
-    assert.equal(maxTimeBonusFor(10), 130);
+    // points too: 7 x 8 + 12 + 14 + 18.
+    assert.equal(maxTimeBonusFor(10), 100);
   });
 
   test('a broken question count produces zero', () => {
@@ -124,16 +124,16 @@ describe('maxTimeBonusFor', () => {
 });
 
 describe('the stake rises towards the end of a round', () => {
-  test('the first seven questions are worth a hundred each', () => {
+  test('the first seven questions are worth eighty each', () => {
     for (let i = 0; i < 7; i++) {
-      assert.equal(stakeForQuestion(i), 100, `question ${i + 1}`);
+      assert.equal(stakeForQuestion(i), 80, `question ${i + 1}`);
     }
   });
 
   test('the last three are worth more', () => {
-    assert.equal(stakeForQuestion(7), 150);
-    assert.equal(stakeForQuestion(8), 200);
-    assert.equal(stakeForQuestion(9), 250);
+    assert.equal(stakeForQuestion(7), 120);
+    assert.equal(stakeForQuestion(8), 140);
+    assert.equal(stakeForQuestion(9), 180);
   });
 
   test('the stake never falls as the round goes on', () => {
@@ -145,13 +145,13 @@ describe('the stake rises towards the end of a round', () => {
     }
   });
 
-  test('a full round is worth thirteen hundred points', () => {
-    assert.equal(maxRoundScore(10), 1300);
+  test('a full round is worth a thousand points', () => {
+    assert.equal(maxRoundScore(10), 1000);
   });
 
   test('a round of fewer questions is worth less', () => {
-    assert.equal(maxRoundScore(1), 100);
-    assert.equal(maxRoundScore(7), 700);
+    assert.equal(maxRoundScore(1), 80);
+    assert.equal(maxRoundScore(7), 560);
   });
 
   test('a broken count does not throw', () => {

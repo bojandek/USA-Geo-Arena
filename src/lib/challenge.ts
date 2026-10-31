@@ -16,8 +16,8 @@ import { DEFAULT_REGION, type RegionId } from './regions.ts';
 /** The parameter the score to beat travels in. */
 export const CHALLENGE_PARAM = 'beat';
 
-/** The biggest score a challenge can carry. A round is worth 1,300 points. */
-export const MAX_CHALLENGE_SCORE = 1300;
+/** The biggest score a challenge can carry. A round is worth 1,000 points. */
+export const MAX_CHALLENGE_SCORE = 1000;
 
 export type ChallengeOutcome = 'won' | 'lost' | 'tie';
 

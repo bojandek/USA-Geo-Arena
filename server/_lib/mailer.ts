@@ -144,3 +144,72 @@ export async function sendDailyEmail(
 
   return { ok: true, error: null, campaignId: id };
 }
+
+/** The one address a test email may go to, or null when none is set. */
+export function testAddress(): string | null {
+  const address = process.env.NEWSLETTER_TEST_EMAIL?.trim();
+  return address && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(address) ? address : null;
+}
+
+/**
+ * Sends the email to one address, never to the list.
+ *
+ * Mailchimp only tests a campaign, so one is made, tested and deleted
+ * again. It is never told to send, so the audience cannot receive it.
+ */
+export async function sendTestEmail(
+  config: MailerConfig,
+  email: EmailToSend,
+  to: string,
+): Promise<SendResult> {
+  const base = `https://${mailchimpDataCenter(config.apiKey)}.api.mailchimp.com/3.0`;
+  const headers = {
+    'content-type': 'application/json',
+    authorization: authorization(config.apiKey),
+  };
+
+  const created = await fetch(`${base}/campaigns`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      type: 'regular',
+      recipients: { list_id: config.listId },
+      settings: {
+        subject_line: `[TEST] ${email.subject}`.slice(0, 150),
+        preview_text: email.preheader.slice(0, 150),
+        title: `Test - ${email.subject}`.slice(0, 200),
+        from_name: config.fromName,
+        reply_to: config.replyTo,
+      },
+    }),
+  });
+  if (!created.ok) {
+    return { ok: false, error: await describe(created), campaignId: null };
+  }
+  const id = String(((await created.json()) as { id?: string })?.id ?? '');
+  if (!id) {
+    return { ok: false, error: 'The provider did not return a campaign.', campaignId: null };
+  }
+
+  let result: SendResult = { ok: true, error: null, campaignId: id };
+  const content = await fetch(`${base}/campaigns/${id}/content`, {
+    method: 'PUT',
+    headers,
+    body: JSON.stringify({ html: email.html, text: email.text }),
+  });
+  if (!content.ok) {
+    result = { ok: false, error: await describe(content), campaignId: id };
+  } else {
+    const tested = await fetch(`${base}/campaigns/${id}/actions/test`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ test_emails: [to], send_type: 'html' }),
+    });
+    if (!tested.ok) result = { ok: false, error: await describe(tested), campaignId: id };
+  }
+
+  // The draft is only a vehicle for the test; leaving it would fill the
+  // campaign list with copies.
+  await fetch(`${base}/campaigns/${id}`, { method: 'DELETE', headers }).catch(() => undefined);
+  return result;
+}

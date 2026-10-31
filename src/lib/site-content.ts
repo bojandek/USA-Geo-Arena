@@ -477,7 +477,7 @@ export const SCORING_PAGE: SitePage = {
     {
       paragraphs: [
         'Each question has one real location. You click a spot on the map, and USA GeoArena measures the straight-line distance from your guess to the real answer. The closer you are, the more points you score.',
-        'A question is worth up to 100 points, and a daily challenge has ten questions. The last three are worth more than the first seven, so the maximum score is 1,300 points.',
+        'A daily challenge has ten questions. The first seven are worth 80 points each and the last three are worth more, so the maximum score is 1,000 points.',
       ],
     },
     {
@@ -522,24 +522,24 @@ export const SCORING_PAGE: SitePage = {
     {
       heading: 'The stake rises towards the end',
       paragraphs: [
-        'The first seven questions of a round are worth 100 points each. The last three are worth more, so a round does not end the way it began: the eighth question is worth 150 points, the ninth 200 and the tenth 250.',
-        'That is where the extra comes from. A full round of ten is worth 1,300 points, and the three questions that were always going to be the hardest are the ones carrying the most.',
+        'The first seven questions of a round are worth 80 points each. The last three are worth more, so a round does not end the way it began: the eighth question is worth 120 points, the ninth 140 and the tenth 180.',
+        'A full round of ten is worth 1,000 points, and the three questions that were always going to be the hardest are the ones carrying the most.',
       ],
       table: {
         headers: ['Question', 'Worth'],
         rows: [
-          ['1 to 7', '100 points each'],
-          ['8', '150 points'],
-          ['9', '200 points'],
-          ['10', '250 points'],
+          ['1 to 7', '80 points each'],
+          ['8', '120 points'],
+          ['9', '140 points'],
+          ['10', '180 points'],
         ],
       },
     },
     {
       heading: 'The streak multiplier',
       paragraphs: [
-        'A streak is worth more than a number on a screen. The longer your streak is, the more every point in the round is worth: three days gives 1.1 times, seven days gives 1.25 times and thirty days gives 1.5 times.',
-        'The multiplier is worked out from the streak you were on when the round started, and it is shown while you are answering, so the bonus is never a surprise. A round of 1,000 points with a thirty-day streak is worth 1,500.',
+        'A streak is worth more than a number on a screen. The longer your streak is, the more XP every round earns towards your level: three days gives 1.1 times, seven days gives 1.25 times and thirty days gives 1.5 times.',
+        'The multiplier is worked out from the streak you were on when the round started, and it is shown while you are answering, so the bonus is never a surprise. The score itself never changes: a round is worth at most 1,000 points for everybody, so the leaderboard stays fair. With a thirty-day streak, a 1,000-point round earns 1,500 XP.',
       ],
       table: {
         headers: ['Streak', 'Multiplier'],

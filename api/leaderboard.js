@@ -10364,16 +10364,16 @@ var LOCATION_SHARE = 0.9;
 var TIME_SHARE = 0.1;
 var MAX_QUESTION_SCORE = 100;
 var STAKE_SCHEDULE = [
-  100,
-  100,
-  100,
-  100,
-  100,
-  100,
-  100,
-  150,
-  200,
-  250
+  80,
+  80,
+  80,
+  80,
+  80,
+  80,
+  80,
+  120,
+  140,
+  180
 ];
 function stakeForQuestion(index) {
   const position = Math.max(0, Math.floor(Number(index) || 0));
@@ -10749,12 +10749,12 @@ function scoreQuestions(round, answers, options = {}) {
   const streak = Math.max(0, Math.min(9999, Math.floor(Number(options.streak) || 0)));
   const multiplier = streakMultiplier(streak);
   const bonus = roundScore(Math.max(0, baseScore * (multiplier - 1)));
-  const score = roundScore(baseScore + bonus);
+  const score = baseScore;
   return {
     score,
     baseScore,
     bonus,
-    maxScore: roundScore(maxRoundScore(round.length) * multiplier),
+    maxScore: maxRoundScore(round.length),
     accuracy: computeAccuracy(locationPoints),
     counted,
     totalDistance
@@ -10842,7 +10842,7 @@ function universal(webHandler) {
 }
 
 // server/leaderboard.ts
-var MAX_SCORE = 1950;
+var MAX_SCORE = 1e3;
 var FALLBACK_NAMES = [
   "Anonymous",
   "A Quiet Fan",

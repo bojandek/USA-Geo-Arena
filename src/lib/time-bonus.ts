@@ -37,16 +37,16 @@ export const MAX_QUESTION_SCORE = 100;
 /**
  * What each question of a round is worth.
  *
- * The first seven questions are worth 100 points each. The last three are
+ * The first seven questions are worth 80 points each. The last three are
  * worth more, so a round does not end the way it began: the eighth question
- * is worth 150, the ninth 200 and the tenth 250. The stake is shown on the
+ * is worth 120, the ninth 140 and the tenth 180. The stake is shown on the
  * question while the player is answering, so it is never a surprise.
  *
- * A round of ten is therefore worth 1,300 points rather than 1,000, and the
- * extra comes from the questions that were always going to be the hard ones.
+ * A round of ten is worth 1,000 points, and the most of it rides on the
+ * questions that were always going to be the hard ones.
  */
 export const STAKE_SCHEDULE: number[] = [
-  100, 100, 100, 100, 100, 100, 100, 150, 200, 250,
+  80, 80, 80, 80, 80, 80, 80, 120, 140, 180,
 ];
 
 /**
@@ -142,7 +142,7 @@ export function scoreAnswer(
   }
 
   // The stake scales what the answer is worth. The shares stay the same, so a
-  // question worth 250 is still 90% location and 10% speed.
+  // question worth 180 is still 90% location and 10% speed.
   const worth = Number(stake);
   const scale = Number.isFinite(worth) && worth > 0 ? worth / MAX_QUESTION_SCORE : 1;
   const scaled = distance * scale;

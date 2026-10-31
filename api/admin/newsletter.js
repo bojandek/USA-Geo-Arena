@@ -10331,16 +10331,16 @@ var LOCATION_SHARE = 0.9;
 var TIME_SHARE = 0.1;
 var MAX_QUESTION_SCORE = 100;
 var STAKE_SCHEDULE = [
-  100,
-  100,
-  100,
-  100,
-  100,
-  100,
-  100,
-  150,
-  200,
-  250
+  80,
+  80,
+  80,
+  80,
+  80,
+  80,
+  80,
+  120,
+  140,
+  180
 ];
 function stakeForQuestion(index) {
   const position = Math.max(0, Math.floor(Number(index) || 0));
@@ -10617,13 +10617,26 @@ function escapeHtml(value) {
 
 // newsletter/daily.ts
 var WHITE_PIN = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAoCAYAAACfKfiZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGESURBVFhH1devTgQxEMfxkydPnrxHQCJ5BCQSiUQicUgkhgSJ5BGQSIJCniQoJO47pEk3uf2x2z/baQKf5Nx25rbbTqer1X8FHJvZyeFPn3EXkgIPwJdNAL6BRzM71bFNzGwLPGnCFODZzI40VrX41h+aoESckTONWSx+22aL/oSZ7Za+uQozUf05ar95DvCqOWZ5Tf2Ec801KW4ld8CL5vrFzNbxm/Wy05wjscJ1k90RoYrpIE/ApeYcAS50kLNrzTkSpkhHOLvSnCMdt+AgvRXNbKMjnOUrYjzJ3AF7zTWp10IEbjTXrFC7NUCLeLCtNc+sDosxvfimhKKhUZYAbjV2sbBvNWAN4E5jVls6E8C9xloMeNMEKcBn1aLLqT2ksodOrdgnFPWIsZ/YaIxmpWuhadWnVHRLWx3rJrydZjsUumkd4ype01KzkD/tWs3dGYq6Xg/hLTV55HsrTtGeAXjXZ7rSwuReeEoMPUP1We9lKExVnY6nWJj2XQtPTvau99f9AP3u56Sa7JF7AAAAAElFTkSuQmCC";
+var PUBLIC_SITE = "https://geo-arena-six.vercel.app";
+function assetBase(site) {
+  try {
+    const host = new URL(site).hostname;
+    if (host === "localhost" || host === "127.0.0.1" || host === "[::1]" || host.endsWith(".localhost")) {
+      return PUBLIC_SITE;
+    }
+  } catch {
+    return PUBLIC_SITE;
+  }
+  return site.replace(/\/$/, "");
+}
 var DAILY_COPY = {
   usa: {
-    subject: "Today's USA Challenge \u2014 ten questions, 1,300 points",
+    subject: "Today's USA Challenge \u2014 ten questions, 1,000 points",
     preheader: "Ten American questions about the places where sport happens. One map, one round, everyone gets the same ten.",
     headline: "The USA Challenge",
     intro: "Ten American questions about stadiums, ballparks, arenas and the races that decide them.",
-    round: "Ten questions. 1,300 points. One map.",
+    teaser: "Think you know American sport? Click the map, guess the stadium, and climb the leaderboard.",
+    round: "Ten questions. 1,000 points. One map.",
     button: "Play today's round",
     boardHeading: "On the board",
     boardEmpty: "Nobody has put a score on the board yet today. The first one is yours.",
@@ -10635,7 +10648,8 @@ var DAILY_COPY = {
     preheader: "Ten questions about Formula 1, the Champions League and the rest of the world, on a globe.",
     headline: "The World Challenge",
     intro: "Ten questions about Formula 1, the Champions League and the rest of the world, on a globe.",
-    round: "Ten questions. 1,300 points. The whole planet.",
+    teaser: "Think you know world sport? Spin the globe, find the venue, and climb the leaderboard.",
+    round: "Ten questions. 1,000 points. The whole planet.",
     button: "Play today's round",
     boardHeading: "On the board",
     boardEmpty: "Nobody has put a score on the board yet today. The first one is yours.",
@@ -10729,7 +10743,7 @@ ${badge}
 ${image}
 <tr><td style="padding:12px 22px 18px;text-align:center;">
 ${ctaButton(featured.link, options.buttonLabel)}
-<p style="margin:9px 0 0 0;font-size:12px;line-height:18px;color:#7B8A99;text-align:center;">Think you know American sport? Click the map, guess the stadium, and climb the leaderboard.</p>
+<p style="margin:9px 0 0 0;font-size:12px;line-height:18px;color:#7B8A99;text-align:center;">${escapeHtml(options.teaser)}</p>
 </td></tr>
 </table>
 </td></tr>`;
@@ -10765,18 +10779,22 @@ function buildDailyNewsletter(input) {
   const region = input.region ?? "usa";
   const copy = DAILY_COPY[region];
   const site = input.site.replace(/\/$/, "");
+  const assets = assetBase(site);
   const link = roundUrl(site, region, input.day);
   const primaryLink = input.featured?.link ?? link;
-  const maxScore = input.maxScore ?? 1300;
+  const maxScore = input.maxScore ?? 1e3;
   const questionCount = input.questionCount ?? 10;
   const entries = (input.entries ?? []).slice(0, 3);
   const dayLabel = formatFullDayLabel(input.day);
   const mix = mixLine(input.categories ?? []);
   const featuredButton = region === "usa" ? "Play today's USA challenge" : "Play today's world challenge";
+  const edits = input.edits ?? {};
+  const teaser = edits.intro?.trim() || copy.teaser;
   const featuredMarkup = featuredBlock(input.featured, {
     maxScore,
     questionCount,
-    buttonLabel: featuredButton
+    buttonLabel: featuredButton,
+    teaser
   });
   const previousMarkup = previousBlock(input.previous);
   const leaderboardMarkup = leaderboardPanel(
@@ -10789,8 +10807,8 @@ function buildDailyNewsletter(input) {
 ${mix ? `<p style="margin:0 0 7px 0;font-size:11px;line-height:17px;color:#9AA1B2;">${escapeHtml(mix)}</p>` : ""}
 <p style="margin:0;font-size:11px;line-height:17px;color:#9AA1B2;">A perfect round is worth <strong>${points(maxScore)} points</strong>. Same ten questions for everyone.</p>
 </td></tr>`;
-  const subject = copy.subject;
-  const preheader = copy.preheader;
+  const subject = edits.subject?.trim() || input.featured?.question.trim() || copy.subject;
+  const preheader = edits.preheader?.trim() || copy.preheader;
   const html = `<!doctype html>
 <html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
@@ -10815,10 +10833,10 @@ ${mix ? `<p style="margin:0 0 7px 0;font-size:11px;line-height:17px;color:#9AA1B
 <tr><td align="center" style="background:#FAF7F2;padding:26px 24px 14px;">
 <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;"><tr>
 <td width="66" valign="middle" style="width:66px;padding:0 10px 0 0;">
-<img src="${escapeHtml(site)}/email-icon.png" width="64" height="64" alt="USA GeoArena" style="display:block;width:64px;height:64px;border:0;" />
+<img src="${escapeHtml(assets)}/email-icon.png" width="64" height="64" alt="USA GeoArena" style="display:block;width:64px;height:64px;border:0;" />
 </td>
 <td valign="middle" style="text-align:left;">
-<img src="${escapeHtml(site)}/email-wordmark-site.png" width="190" height="33" alt="USA GeoArena" style="display:block;width:190px;max-width:100%;height:auto;border:0;" />
+<img src="${escapeHtml(assets)}/email-wordmark-site.png" width="190" height="33" alt="USA GeoArena" style="display:block;width:190px;max-width:100%;height:auto;border:0;" />
 </td>
 </tr></table>
 <p style="margin:10px 0 0 0;font-size:10px;line-height:16px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#F4494F;">${escapeHtml(dayLabel)}</p>
@@ -10844,8 +10862,8 @@ ${leaderboardMarkup}
 
 <tr><td align="center" style="padding:28px 24px 24px;background:#FAF7F2;border-top:1px solid #F1E4DE;">
 <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 14px;"><tr>
-<td width="40" valign="middle" style="width:40px;padding:0 8px 0 0;"><img src="${escapeHtml(site)}/email-icon.png" width="36" height="36" alt="USA GeoArena" style="display:block;width:36px;height:36px;border:0;" /></td>
-<td valign="middle" style="text-align:left;"><img src="${escapeHtml(site)}/email-wordmark-site.png" width="110" height="19" alt="USA GeoArena" style="display:block;width:110px;max-width:100%;height:auto;border:0;" /></td>
+<td width="40" valign="middle" style="width:40px;padding:0 8px 0 0;"><img src="${escapeHtml(assets)}/email-icon.png" width="36" height="36" alt="USA GeoArena" style="display:block;width:36px;height:36px;border:0;" /></td>
+<td valign="middle" style="text-align:left;"><img src="${escapeHtml(assets)}/email-wordmark-site.png" width="110" height="19" alt="USA GeoArena" style="display:block;width:110px;max-width:100%;height:auto;border:0;" /></td>
 </tr></table>
 <p style="margin:0 0 12px 0;font-size:11px;line-height:18px;color:#68798A;">
 <a href="${escapeHtml(site)}/about" target="_blank" title="About USA GeoArena" style="color:#52677A;text-decoration:none;">About</a> &nbsp;|&nbsp;
@@ -10872,6 +10890,7 @@ ${leaderboardMarkup}
       input.featured.label.toUpperCase(),
       input.featured.question,
       primaryLink,
+      teaser,
       ""
     ] : [],
     copy.round,
@@ -10910,6 +10929,64 @@ ${leaderboardMarkup}
 }
 
 // server/_lib/daily-email.ts
+var EDIT_LIMITS = { subject: 150, preheader: 150, intro: 240 };
+function cleanEdits(value) {
+  const record = value && typeof value === "object" ? value : {};
+  const edits = {};
+  for (const field of Object.keys(EDIT_LIMITS)) {
+    const text = typeof record[field] === "string" ? record[field].trim() : "";
+    if (text) edits[field] = text.slice(0, EDIT_LIMITS[field]);
+  }
+  return edits;
+}
+async function savedEdits(day, region) {
+  if (!isBackendConfigured()) return {};
+  try {
+    const response = await supabase(
+      `/rest/v1/newsletter_edits?select=subject,preheader,intro&day_key=eq.${encodeURIComponent(day)}&region=eq.${region}&limit=1`
+    );
+    if (!response.ok) return {};
+    const rows = await response.json();
+    return Array.isArray(rows) && rows.length > 0 ? cleanEdits(rows[0]) : {};
+  } catch {
+    return {};
+  }
+}
+async function saveEdits(day, region, edits) {
+  if (!isBackendConfigured()) return false;
+  const where = `day_key=eq.${encodeURIComponent(day)}&region=eq.${region}`;
+  const response = Object.keys(edits).length === 0 ? await supabase(`/rest/v1/newsletter_edits?${where}`, { method: "DELETE" }) : await supabase("/rest/v1/newsletter_edits?on_conflict=day_key,region", {
+    method: "POST",
+    headers: { Prefer: "resolution=merge-duplicates,return=minimal" },
+    body: JSON.stringify({
+      day_key: day,
+      region,
+      subject: edits.subject ?? null,
+      preheader: edits.preheader ?? null,
+      intro: edits.intro ?? null,
+      updated_at: (/* @__PURE__ */ new Date()).toISOString()
+    })
+  });
+  return response.ok;
+}
+async function firstQuestion(day, region) {
+  const stored2 = await storedRound(day, region);
+  const question = (stored2 ?? await questionsFor(day, region))[0];
+  return question ? { source: stored2 ? "bank" : "bundled", question } : null;
+}
+async function bankStock(region) {
+  if (!isBackendConfigured()) return null;
+  try {
+    const response = await supabase(
+      `/rest/v1/daily_rounds?select=day_key&region=eq.${region}&day_key=gte.${encodeURIComponent(todayKey2())}&order=day_key.desc`
+    );
+    if (!response.ok) return null;
+    const rows = await response.json();
+    return { days: rows.length, last: rows[0]?.day_key ?? null };
+  } catch {
+    return null;
+  }
+}
 function siteUrl() {
   return String(process.env.SITE_URL || "https://geo-arena-six.vercel.app").replace(/\/$/, "");
 }
@@ -10958,7 +11035,7 @@ async function boardEntries(day, region) {
     return [];
   }
 }
-async function buildDailyEmail(day, region) {
+async function buildDailyEmail(day, region, edits) {
   const site = siteUrl();
   const featured = await questionCard(day, region, "Today's first question");
   const previous = (await Promise.all([
@@ -10972,8 +11049,89 @@ async function buildDailyEmail(day, region) {
     entries: await boardEntries(day, region),
     categories: await categoriesFor(day, region),
     featured: featured ?? void 0,
-    previous
+    previous,
+    edits: edits ?? await savedEdits(day, region)
   });
+}
+
+// server/_lib/mailer.ts
+function mailerConfig() {
+  const apiKey = process.env.MAILCHIMP_API_KEY?.trim();
+  const listId = process.env.MAILCHIMP_LIST_ID?.trim();
+  if (!apiKey || !listId) return null;
+  return {
+    apiKey,
+    listId,
+    fromName: process.env.MAILCHIMP_FROM_NAME?.trim() || "USA GeoArena",
+    replyTo: process.env.MAILCHIMP_REPLY_TO?.trim() || "contact@geoarena.com"
+  };
+}
+function mailchimpDataCenter(apiKey) {
+  const dash = apiKey.lastIndexOf("-");
+  return dash > 0 ? apiKey.slice(dash + 1) : "us1";
+}
+function authorization(apiKey) {
+  return `Basic ${btoa(`geoarena:${apiKey}`)}`;
+}
+async function describe(response) {
+  try {
+    const payload = await response.json();
+    const detail = payload?.detail ?? payload?.title ?? payload?.message;
+    if (typeof detail === "string" && detail) return detail;
+  } catch {
+  }
+  return `The provider answered with ${response.status}.`;
+}
+function testAddress() {
+  const address = process.env.NEWSLETTER_TEST_EMAIL?.trim();
+  return address && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(address) ? address : null;
+}
+async function sendTestEmail(config, email, to) {
+  const base = `https://${mailchimpDataCenter(config.apiKey)}.api.mailchimp.com/3.0`;
+  const headers = {
+    "content-type": "application/json",
+    authorization: authorization(config.apiKey)
+  };
+  const created = await fetch(`${base}/campaigns`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({
+      type: "regular",
+      recipients: { list_id: config.listId },
+      settings: {
+        subject_line: `[TEST] ${email.subject}`.slice(0, 150),
+        preview_text: email.preheader.slice(0, 150),
+        title: `Test - ${email.subject}`.slice(0, 200),
+        from_name: config.fromName,
+        reply_to: config.replyTo
+      }
+    })
+  });
+  if (!created.ok) {
+    return { ok: false, error: await describe(created), campaignId: null };
+  }
+  const id = String((await created.json())?.id ?? "");
+  if (!id) {
+    return { ok: false, error: "The provider did not return a campaign.", campaignId: null };
+  }
+  let result = { ok: true, error: null, campaignId: id };
+  const content = await fetch(`${base}/campaigns/${id}/content`, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify({ html: email.html, text: email.text })
+  });
+  if (!content.ok) {
+    result = { ok: false, error: await describe(content), campaignId: id };
+  } else {
+    const tested = await fetch(`${base}/campaigns/${id}/actions/test`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ test_emails: [to], send_type: "html" })
+    });
+    if (!tested.ok) result = { ok: false, error: await describe(tested), campaignId: id };
+  }
+  await fetch(`${base}/campaigns/${id}`, { method: "DELETE", headers }).catch(() => void 0);
+  return result;
 }
 
 // server/_lib/node-adapter.ts
@@ -11024,6 +11182,8 @@ function universal(webHandler) {
 }
 
 // server/admin/newsletter.ts
+var CLIP_BYTES = 102 * 1024;
+var IMAGE_TIMEOUT_MS = 5e3;
 function sameToken(provided, expected) {
   if (provided.length !== expected.length) return false;
   let difference = 0;
@@ -11037,6 +11197,73 @@ function isAdmin(request) {
   if (!expected) return false;
   return sameToken(request.headers.get("x-admin-token") ?? "", expected);
 }
+function masked(address) {
+  const [name, domain] = address.split("@");
+  return `${name.slice(0, 1)}${"*".repeat(Math.max(name.length - 1, 1))}@${domain}`;
+}
+async function checkImages(html) {
+  const urls = [...new Set([...html.matchAll(/<img[^>]+src="([^"]+)"/g)].map((match) => match[1]))].map((url) => url.replace(/&amp;/g, "&")).filter((url) => /^https?:\/\//.test(url));
+  return Promise.all(
+    urls.map(async (url) => {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), IMAGE_TIMEOUT_MS);
+      try {
+        const response = await fetch(url, {
+          method: "GET",
+          headers: { range: "bytes=0-0" },
+          signal: controller.signal
+        });
+        await response.body?.cancel().catch(() => void 0);
+        return { url, ok: response.ok, status: response.status };
+      } catch {
+        return { url, ok: false, status: null };
+      } finally {
+        clearTimeout(timer);
+      }
+    })
+  );
+}
+async function deskFor(day, region, edits) {
+  const saved = await savedEdits(day, region);
+  const email = await buildDailyEmail(day, region, edits ?? saved);
+  const [first, usa, world, images] = await Promise.all([
+    firstQuestion(day, region),
+    bankStock("usa"),
+    bankStock("world"),
+    checkImages(email.html)
+  ]);
+  const bytes = Buffer.byteLength(email.html, "utf8");
+  const address = testAddress();
+  return {
+    day,
+    region,
+    subject: email.subject,
+    preheader: email.preheader,
+    html: email.html,
+    text: email.text,
+    saved,
+    first,
+    stock: { usa, world },
+    checks: {
+      bytes,
+      clipped: bytes > CLIP_BYTES,
+      clipLimit: CLIP_BYTES,
+      images,
+      subjectLength: email.subject.length
+    },
+    testTo: address ? masked(address) : null
+  };
+}
+function noStore(body, status = 200) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: {
+      "content-type": "application/json; charset=utf-8",
+      "cache-control": "no-store",
+      "x-robots-tag": "noindex"
+    }
+  });
+}
 async function handler(request) {
   const expected = process.env.ADMIN_SECRET?.trim();
   if (!expected) {
@@ -11045,42 +11272,60 @@ async function handler(request) {
   if (!isAdmin(request)) {
     return json({ error: "That admin token is not valid." }, 401);
   }
-  if (request.method !== "GET") {
+  if (request.method === "GET") {
+    const { searchParams } = new URL(request.url);
+    const region2 = searchParams.get("region") === "world" ? "world" : "usa";
+    const asked = searchParams.get("day");
+    const day2 = isDayKey(asked) ? asked : todayKey2();
+    if (searchParams.get("download") === "1" || searchParams.get("format") === "html") {
+      const email = await buildDailyEmail(day2, region2);
+      return new Response(email.html, {
+        headers: {
+          "content-type": "text/html; charset=utf-8",
+          "cache-control": "no-store",
+          "x-robots-tag": "noindex",
+          "content-disposition": `attachment; filename="geoarena-${day2}-${region2}.html"`
+        }
+      });
+    }
+    return noStore(await deskFor(day2, region2));
+  }
+  if (request.method !== "POST") {
     return json({ error: "That is not something this route does." }, 405);
   }
-  const { searchParams } = new URL(request.url);
-  const region = searchParams.get("region") === "world" ? "world" : "usa";
-  const asked = searchParams.get("day");
-  const day = isDayKey(asked) ? asked : todayKey2();
-  const download = searchParams.get("download") === "1" || searchParams.get("format") === "html";
-  const email = await buildDailyEmail(day, region);
-  if (download) {
-    return new Response(email.html, {
-      headers: {
-        "content-type": "text/html; charset=utf-8",
-        "cache-control": "no-store",
-        "x-robots-tag": "noindex",
-        "content-disposition": `attachment; filename="geoarena-${day}-${region}.html"`
-      }
-    });
+  let body;
+  try {
+    body = await request.json() ?? {};
+  } catch {
+    return json({ error: "The request is not valid JSON." }, 400);
   }
-  return new Response(
-    JSON.stringify({
-      day,
-      region,
-      subject: email.subject,
-      preheader: email.preheader,
-      html: email.html,
-      text: email.text
-    }),
-    {
-      headers: {
-        "content-type": "application/json; charset=utf-8",
-        "cache-control": "no-store",
-        "x-robots-tag": "noindex"
-      }
+  const region = body.region === "world" ? "world" : "usa";
+  const day = isDayKey(body.day) ? body.day : todayKey2();
+  const edits = cleanEdits(body);
+  if (body.action === "preview") {
+    return noStore(await deskFor(day, region, edits));
+  }
+  if (body.action === "save") {
+    if (!await saveEdits(day, region, edits)) {
+      return json({ error: "The edits could not be saved. Is the newsletter_edits table there?" }, 502);
     }
-  );
+    return noStore(await deskFor(day, region));
+  }
+  if (body.action === "test") {
+    const to = testAddress();
+    if (!to) {
+      return json({ error: "NEWSLETTER_TEST_EMAIL is not set on this deployment." }, 503);
+    }
+    const config = mailerConfig();
+    if (!config) {
+      return json({ error: "The newsletter is not set up on this deployment." }, 503);
+    }
+    const email = await buildDailyEmail(day, region, edits);
+    const result = await sendTestEmail(config, email, to);
+    if (!result.ok) return json({ error: result.error }, 502);
+    return noStore({ sent: true, to: masked(to), subject: email.subject });
+  }
+  return json({ error: "That is not something this route does." }, 400);
 }
 var newsletter_default = universal(handler);
 module.exports = module.exports.default ?? module.exports;

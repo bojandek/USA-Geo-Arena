@@ -10301,16 +10301,16 @@ var LOCATION_SHARE = 0.9;
 var TIME_SHARE = 0.1;
 var MAX_QUESTION_SCORE = 100;
 var STAKE_SCHEDULE = [
-  100,
-  100,
-  100,
-  100,
-  100,
-  100,
-  100,
-  150,
-  200,
-  250
+  80,
+  80,
+  80,
+  80,
+  80,
+  80,
+  80,
+  120,
+  140,
+  180
 ];
 function stakeForQuestion(index) {
   const position = Math.max(0, Math.floor(Number(index) || 0));

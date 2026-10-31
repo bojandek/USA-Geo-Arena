@@ -297,10 +297,9 @@ describe('share text', () => {
   });
 
   test('uses the daily maximum by default', () => {
-    // A full round is worth 1,300 points, because the last three questions
-    // are worth more than the first seven.
-    const text = generateShareText(1_300);
-    assert.match(text, /1300/);
+    // A full round is worth 1,000 points.
+    const text = generateShareText(1_000);
+    assert.match(text, /1000/);
     assert.match(text, /100%/);
   });
 

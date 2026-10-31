@@ -290,15 +290,15 @@ export function calculateScore(distanceKm: number): number {
   return 0;
 }
 
-// Emoji for share cards. The thresholds follow the maximum score of 1,300.
+// Emoji for share cards. The thresholds follow the maximum score of 1,000.
 export function getResultEmoji(score: number): string {
-  if (score >= 1170) return '🔥';
-  if (score >= 1040) return '🏆';
-  if (score >= 910) return '⭐';
-  if (score >= 780) return '💪';
-  if (score >= 650) return '👍';
-  if (score >= 520) return '😊';
-  if (score >= 390) return '🎯';
+  if (score >= 900) return '🔥';
+  if (score >= 800) return '🏆';
+  if (score >= 700) return '⭐';
+  if (score >= 600) return '💪';
+  if (score >= 500) return '👍';
+  if (score >= 400) return '😊';
+  if (score >= 300) return '🎯';
   return '📍';
 }
 
@@ -364,17 +364,14 @@ export function generateShareText(
   answers: ReadonlyArray<{ distance: number; gaveUp?: boolean }> = [],
 ): string {
   const multiplier = streakMultiplier > 1 ? streakMultiplier : 1;
-  // The percentage is of the round as it would have been without the streak
-  // bonus, so it never reads as more than a hundred, and the face that goes with
-  // it reflects how well the player actually guessed.
-  const base = multiplier > 1 ? score / multiplier : score;
-  const percentage = totalScore > 0 ? Math.round((base / totalScore) * 100) : 0;
-  const emoji = getResultEmoji(base);
+  // The streak adds XP, never points, so the score is read as it is.
+  const percentage = totalScore > 0 ? Math.round((score / totalScore) * 100) : 0;
+  const emoji = getResultEmoji(score);
   const bonus = Number(timeBonus) || 0;
   const bonusLine = bonus > 0 ? `\nSpeed bonus: +${formatPoints(bonus)} ⚡` : '';
-  const streakLine = multiplier > 1 ? `\n🔥 ${multiplier}× streak bonus` : '';
+  const streakLine = multiplier > 1 ? `\n🔥 ${multiplier}× streak XP` : '';
   const regionLine =
     region === DEFAULT_REGION ? '' : `\n${getRegion(region).emoji} ${getRegion(region).label} round`;
   const grid = answers.length > 0 ? `\n${shareGrid(answers)}\n` : '';
-  return `USA GeoArena ${emoji}\nMy score: ${formatPoints(score)}/${formatPoints(totalScore * multiplier)} (${percentage}%)\n${grid}${bonusLine ? bonusLine + '\n' : ''}${streakLine ? streakLine + '\n' : ''}${regionLine ? regionLine + '\n' : ''}Can you do better? 🌍🏟️`;
+  return `USA GeoArena ${emoji}\nMy score: ${formatPoints(score)}/${formatPoints(totalScore)} (${percentage}%)\n${grid}${bonusLine ? bonusLine + '\n' : ''}${streakLine ? streakLine + '\n' : ''}${regionLine ? regionLine + '\n' : ''}Can you do better? 🌍🏟️`;
 }

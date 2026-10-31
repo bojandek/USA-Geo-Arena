@@ -30,8 +30,8 @@ import {
 import { dailyRound } from './_lib/daily-rounds.ts';
 
 
-/** The most a round can be worth: 1,300 points and a 1.5Ă— streak. */
-const MAX_SCORE = 1950;
+/** The most a round can be worth: 1,000 points; the streak adds XP, not points. */
+const MAX_SCORE = 1000;
 
 /** A name for a player who did not choose one. */
 const FALLBACK_NAMES = [

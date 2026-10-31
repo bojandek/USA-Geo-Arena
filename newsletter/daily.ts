@@ -21,6 +21,28 @@ import { formatFullDayLabel } from '../src/lib/date-utils.ts';
 const WHITE_PIN =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAoCAYAAACfKfiZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGESURBVFhH1devTgQxEMfxkydPnrxHQCJ5BCQSiUQicUgkhgSJ5BGQSIJCniQoJO47pEk3uf2x2z/baQKf5Nx25rbbTqer1X8FHJvZyeFPn3EXkgIPwJdNAL6BRzM71bFNzGwLPGnCFODZzI40VrX41h+aoESckTONWSx+22aL/oSZ7Za+uQozUf05ar95DvCqOWZ5Tf2Ec801KW4ld8CL5vrFzNbxm/Wy05wjscJ1k90RoYrpIE/ApeYcAS50kLNrzTkSpkhHOLvSnCMdt+AgvRXNbKMjnOUrYjzJ3AF7zTWp10IEbjTXrFC7NUCLeLCtNc+sDosxvfimhKKhUZYAbjV2sbBvNWAN4E5jVls6E8C9xloMeNMEKcBn1aLLqT2ksodOrdgnFPWIsZ/YaIxmpWuhadWnVHRLWx3rJrydZjsUumkd4ype01KzkD/tWs3dGYq6Xg/hLTV55HsrTtGeAXjXZ7rSwuReeEoMPUP1We9lKExVnY6nWJj2XQtPTvau99f9AP3u56Sa7JF7AAAAAElFTkSuQmCC';
 
+/** The public site, which always serves the logo files. */
+const PUBLIC_SITE = 'https://geo-arena-six.vercel.app';
+
+/**
+ * Where the logo files are read from.
+ *
+ * An inbox cannot reach a computer's own localhost, and a preview may run on a
+ * different port than SITE_URL says, so a local site takes the logo from the
+ * public one.
+ */
+export function assetBase(site: string): string {
+  try {
+    const host = new URL(site).hostname;
+    if (host === 'localhost' || host === '127.0.0.1' || host === '[::1]' || host.endsWith('.localhost')) {
+      return PUBLIC_SITE;
+    }
+  } catch {
+    return PUBLIC_SITE;
+  }
+  return site.replace(/\/$/, '');
+}
+
 /** The round the email is about. */
 export type NewsletterRegion = 'usa' | 'world';
 
@@ -68,6 +90,19 @@ export interface DailyNewsletterInput {
   featured?: FeaturedQuestion;
   /** The previous two days, shown as replay cards. */
   previous?: FeaturedQuestion[];
+  /** Changes made in the admin. An empty one keeps what the email says by itself. */
+  edits?: NewsletterEdits;
+}
+
+/**
+ * What the admin can change in a day's email. The subject is the first
+ * question of the day unless it is changed here.
+ */
+export interface NewsletterEdits {
+  subject?: string;
+  preheader?: string;
+  /** The line under the button in the question card. */
+  intro?: string;
 }
 
 /** The finished email. */
@@ -88,11 +123,12 @@ export interface NewsletterEmail {
  */
 export const DAILY_COPY = {
   usa: {
-    subject: "Today's USA Challenge — ten questions, 1,300 points",
+    subject: "Today's USA Challenge — ten questions, 1,000 points",
     preheader: 'Ten American questions about the places where sport happens. One map, one round, everyone gets the same ten.',
     headline: 'The USA Challenge',
     intro: 'Ten American questions about stadiums, ballparks, arenas and the races that decide them.',
-    round: 'Ten questions. 1,300 points. One map.',
+    teaser: 'Think you know American sport? Click the map, guess the stadium, and climb the leaderboard.',
+    round: 'Ten questions. 1,000 points. One map.',
     button: "Play today's round",
     boardHeading: 'On the board',
     boardEmpty: 'Nobody has put a score on the board yet today. The first one is yours.',
@@ -104,7 +140,8 @@ export const DAILY_COPY = {
     preheader: 'Ten questions about Formula 1, the Champions League and the rest of the world, on a globe.',
     headline: 'The World Challenge',
     intro: 'Ten questions about Formula 1, the Champions League and the rest of the world, on a globe.',
-    round: 'Ten questions. 1,300 points. The whole planet.',
+    teaser: 'Think you know world sport? Spin the globe, find the venue, and climb the leaderboard.',
+    round: 'Ten questions. 1,000 points. The whole planet.',
     button: "Play today's round",
     boardHeading: 'On the board',
     boardEmpty: 'Nobody has put a score on the board yet today. The first one is yours.',
@@ -222,6 +259,7 @@ function featuredBlock(
     maxScore: number;
     questionCount: number;
     buttonLabel: string;
+    teaser: string;
   },
 ): string {
   if (!featured) return '';
@@ -250,7 +288,7 @@ ${badge}
 ${image}
 <tr><td style="padding:12px 22px 18px;text-align:center;">
 ${ctaButton(featured.link, options.buttonLabel)}
-<p style="margin:9px 0 0 0;font-size:12px;line-height:18px;color:#7B8A99;text-align:center;">Think you know American sport? Click the map, guess the stadium, and climb the leaderboard.</p>
+<p style="margin:9px 0 0 0;font-size:12px;line-height:18px;color:#7B8A99;text-align:center;">${escapeHtml(options.teaser)}</p>
 </td></tr>
 </table>
 </td></tr>`;
@@ -304,19 +342,23 @@ export function buildDailyNewsletter(input: DailyNewsletterInput): NewsletterEma
   const region = input.region ?? 'usa';
   const copy = DAILY_COPY[region];
   const site = input.site.replace(/\/$/, '');
+  const assets = assetBase(site);
   const link = roundUrl(site, region, input.day);
   const primaryLink = input.featured?.link ?? link;
-  const maxScore = input.maxScore ?? 1300;
+  const maxScore = input.maxScore ?? 1000;
   const questionCount = input.questionCount ?? 10;
   const entries = (input.entries ?? []).slice(0, 3);
   const dayLabel = formatFullDayLabel(input.day);
   const mix = mixLine(input.categories ?? []);
   const featuredButton =
     region === 'usa' ? "Play today's USA challenge" : "Play today's world challenge";
+  const edits = input.edits ?? {};
+  const teaser = edits.intro?.trim() || copy.teaser;
   const featuredMarkup = featuredBlock(input.featured, {
     maxScore,
     questionCount,
     buttonLabel: featuredButton,
+    teaser,
   });
   const previousMarkup = previousBlock(input.previous);
   const leaderboardMarkup = leaderboardPanel(
@@ -334,8 +376,10 @@ ${mix ? `<p style="margin:0 0 7px 0;font-size:11px;line-height:17px;color:#9AA1B
 <p style="margin:0;font-size:11px;line-height:17px;color:#9AA1B2;">A perfect round is worth <strong>${points(maxScore)} points</strong>. Same ten questions for everyone.</p>
 </td></tr>`;
 
-  const subject = copy.subject;
-  const preheader = copy.preheader;
+  // The day's first question is the subject: it is the picture in the email,
+  // and a question nobody has seen yet is the reason to open it.
+  const subject = edits.subject?.trim() || input.featured?.question.trim() || copy.subject;
+  const preheader = edits.preheader?.trim() || copy.preheader;
 
   const html = `<!doctype html>
 <html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -361,10 +405,10 @@ ${mix ? `<p style="margin:0 0 7px 0;font-size:11px;line-height:17px;color:#9AA1B
 <tr><td align="center" style="background:#FAF7F2;padding:26px 24px 14px;">
 <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;"><tr>
 <td width="66" valign="middle" style="width:66px;padding:0 10px 0 0;">
-<img src="${escapeHtml(site)}/email-icon.png" width="64" height="64" alt="USA GeoArena" style="display:block;width:64px;height:64px;border:0;" />
+<img src="${escapeHtml(assets)}/email-icon.png" width="64" height="64" alt="USA GeoArena" style="display:block;width:64px;height:64px;border:0;" />
 </td>
 <td valign="middle" style="text-align:left;">
-<img src="${escapeHtml(site)}/email-wordmark-site.png" width="190" height="33" alt="USA GeoArena" style="display:block;width:190px;max-width:100%;height:auto;border:0;" />
+<img src="${escapeHtml(assets)}/email-wordmark-site.png" width="190" height="33" alt="USA GeoArena" style="display:block;width:190px;max-width:100%;height:auto;border:0;" />
 </td>
 </tr></table>
 <p style="margin:10px 0 0 0;font-size:10px;line-height:16px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#F4494F;">${escapeHtml(dayLabel)}</p>
@@ -390,8 +434,8 @@ ${leaderboardMarkup}
 
 <tr><td align="center" style="padding:28px 24px 24px;background:#FAF7F2;border-top:1px solid #F1E4DE;">
 <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 14px;"><tr>
-<td width="40" valign="middle" style="width:40px;padding:0 8px 0 0;"><img src="${escapeHtml(site)}/email-icon.png" width="36" height="36" alt="USA GeoArena" style="display:block;width:36px;height:36px;border:0;" /></td>
-<td valign="middle" style="text-align:left;"><img src="${escapeHtml(site)}/email-wordmark-site.png" width="110" height="19" alt="USA GeoArena" style="display:block;width:110px;max-width:100%;height:auto;border:0;" /></td>
+<td width="40" valign="middle" style="width:40px;padding:0 8px 0 0;"><img src="${escapeHtml(assets)}/email-icon.png" width="36" height="36" alt="USA GeoArena" style="display:block;width:36px;height:36px;border:0;" /></td>
+<td valign="middle" style="text-align:left;"><img src="${escapeHtml(assets)}/email-wordmark-site.png" width="110" height="19" alt="USA GeoArena" style="display:block;width:110px;max-width:100%;height:auto;border:0;" /></td>
 </tr></table>
 <p style="margin:0 0 12px 0;font-size:11px;line-height:18px;color:#68798A;">
 <a href="${escapeHtml(site)}/about" target="_blank" title="About USA GeoArena" style="color:#52677A;text-decoration:none;">About</a> &nbsp;|&nbsp;
@@ -420,6 +464,7 @@ ${leaderboardMarkup}
           input.featured.label.toUpperCase(),
           input.featured.question,
           primaryLink,
+          teaser,
           '',
         ]
       : []),

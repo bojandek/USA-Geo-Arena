@@ -14,6 +14,7 @@ import {
   applyDailyCompletion,
   createInitialState,
   streakMultiplier,
+  totalXp,
   MAX_STREAK_MULTIPLIER,
 } from '../src/lib/game-state.ts';
 
@@ -46,40 +47,66 @@ describe('streakMultiplier', () => {
 });
 
 describe('a round with a streak bonus', () => {
-  /** A round worth 900 points before the bonus, with 60 of them for speed. */
+  /** A round worth 900 points, with 60 of them for speed, on a 1.25× streak. */
   const completion = {
     date: TODAY,
     region: 'usa',
-    score: 1125,
+    score: 900,
     baseScore: 900,
     streakMultiplier: 1.25,
     totalDistance: 400,
     perfectCount: 3,
     timeBonus: 60,
     maxScore: 1000,
+    // The level only moves for today's round, so the round is played today.
+    today: TODAY,
   };
 
-  test('the score is recorded with the bonus on top', () => {
+  test('the score stays what the answers were worth', () => {
     const state = applyDailyCompletion(createInitialState(), completion);
     const entry = state.dailyHistory[0];
-    assert.equal(entry.score, 1125);
+    assert.equal(entry.score, 900);
     assert.equal(entry.streakBonus, 225);
     assert.equal(entry.streakMultiplier, 1.25);
+    assert.equal(state.totalScore, 900);
+  });
+
+  test('the streak bonus is XP for the level, not points', () => {
+    // Missions can pay XP for the same round, so the streak's share is read
+    // against the same round played without a streak.
+    const state = applyDailyCompletion(createInitialState(), completion);
+    const plain = applyDailyCompletion(createInitialState(), { ...completion, streakMultiplier: 1 });
+    assert.equal(state.totalScore, plain.totalScore);
+    assert.equal(totalXp(state) - totalXp(plain), 225);
+  });
+
+  test('an older client that sent the bonus in the score is not counted twice', () => {
+    const state = applyDailyCompletion(createInitialState(), { ...completion, score: 1125 });
+    const fresh = applyDailyCompletion(createInitialState(), completion);
+    assert.equal(state.dailyHistory[0].score, 900);
+    assert.equal(state.bonusXp, fresh.bonusXp);
+  });
+
+  test('a replay of the same day only adds the difference in XP', () => {
+    const first = applyDailyCompletion(createInitialState(), completion);
+    const again = applyDailyCompletion(first, { ...completion, score: 1000, baseScore: 1000 });
+    assert.equal(again.totalScore, 1000);
+    assert.equal(again.dailyHistory[0].streakBonus, 250);
+    // Only the 25 XP the better round adds on top of the first is new.
+    assert.ok(again.bonusXp - first.bonusXp >= 25);
+    assert.ok(again.bonusXp - first.bonusXp < 250);
   });
 
   test('the bonus does not inflate the distance score', () => {
     const state = applyDailyCompletion(createInitialState(), completion);
-    const entry = state.dailyHistory[0];
-    // 900 of real points, minus the 60 of speed, is 840. Without the base the
-    // bonus would have been counted as accuracy.
-    assert.equal(entry.distanceScore, 840);
+    // 900 of real points, minus the 60 of speed, is 840.
+    assert.equal(state.dailyHistory[0].distanceScore, 840);
   });
 
   test('the accuracy is measured on the location points alone', () => {
     const state = applyDailyCompletion(createInitialState(), completion);
-    const entry = state.dailyHistory[0];
     // 840 out of the 900 the location share can earn is 93%.
-    assert.equal(entry.accuracy, 93);
+    assert.equal(state.dailyHistory[0].accuracy, 93);
   });
 
   test('a round without a bonus behaves exactly as before', () => {
@@ -98,22 +125,6 @@ describe('a round with a streak bonus', () => {
     assert.equal(entry.accuracy, 93);
     assert.equal(entry.streakBonus, undefined);
     assert.equal(entry.streakMultiplier, undefined);
-  });
-
-  test('a round that lost points cannot leave a negative bonus behind', () => {
-    const state = applyDailyCompletion(createInitialState(), {
-      date: TODAY,
-      region: 'usa',
-      score: 500,
-      baseScore: 900,
-      streakMultiplier: 1.25,
-      totalDistance: 400,
-      perfectCount: 0,
-      timeBonus: 0,
-      maxScore: 1000,
-    });
-    // There is no bonus to show, so the line is left out rather than shown
-    // as a negative number.
-    assert.equal(state.dailyHistory[0].streakBonus, undefined);
+    assert.equal(state.bonusXp, 0);
   });
 });

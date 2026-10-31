@@ -7,7 +7,7 @@
 
 import { isBackendConfigured, supabase } from './backend.ts';
 import { nextDayKey } from './round.ts';
-import { dailyRound } from './daily-rounds.ts';
+import { dailyRound, storedRound } from './daily-rounds.ts';
 import type { Question } from '../../src/lib/game-data.ts';
 import { addDays } from '../../src/lib/date-utils.ts';
 import {
@@ -15,8 +15,88 @@ import {
   roundUrl,
   type BoardEntry,
   type FeaturedQuestion,
+  type NewsletterEdits,
   type NewsletterRegion,
 } from '../../newsletter/daily.ts';
+
+/** The longest an edited field may be; Mailchimp stops a subject at 150. */
+const EDIT_LIMITS = { subject: 150, preheader: 150, intro: 240 } as const;
+
+/** The edits with every field trimmed and cut to length, empty ones dropped. */
+export function cleanEdits(value: unknown): NewsletterEdits {
+  const record = value && typeof value === 'object' ? (value as Record<string, unknown>) : {};
+  const edits: NewsletterEdits = {};
+  for (const field of Object.keys(EDIT_LIMITS) as (keyof NewsletterEdits)[]) {
+    const text = typeof record[field] === 'string' ? (record[field] as string).trim() : '';
+    if (text) edits[field] = text.slice(0, EDIT_LIMITS[field]);
+  }
+  return edits;
+}
+
+/** The edits saved in the admin for a day, or none. */
+export async function savedEdits(day: string, region: NewsletterRegion): Promise<NewsletterEdits> {
+  if (!isBackendConfigured()) return {};
+  try {
+    const response = await supabase(
+      `/rest/v1/newsletter_edits?select=subject,preheader,intro` +
+        `&day_key=eq.${encodeURIComponent(day)}&region=eq.${region}&limit=1`,
+    );
+    if (!response.ok) return {};
+    const rows = (await response.json()) as unknown;
+    return Array.isArray(rows) && rows.length > 0 ? cleanEdits(rows[0]) : {};
+  } catch {
+    return {};
+  }
+}
+
+/** Saves the edits for a day; no edits at all removes the row. */
+export async function saveEdits(
+  day: string,
+  region: NewsletterRegion,
+  edits: NewsletterEdits,
+): Promise<boolean> {
+  if (!isBackendConfigured()) return false;
+  const where = `day_key=eq.${encodeURIComponent(day)}&region=eq.${region}`;
+  const response =
+    Object.keys(edits).length === 0
+      ? await supabase(`/rest/v1/newsletter_edits?${where}`, { method: 'DELETE' })
+      : await supabase('/rest/v1/newsletter_edits?on_conflict=day_key,region', {
+          method: 'POST',
+          headers: { Prefer: 'resolution=merge-duplicates,return=minimal' },
+          body: JSON.stringify({
+            day_key: day,
+            region,
+            subject: edits.subject ?? null,
+            preheader: edits.preheader ?? null,
+            intro: edits.intro ?? null,
+            updated_at: new Date().toISOString(),
+          }),
+        });
+  return response.ok;
+}
+
+/** The first question of a day, with its answer, for checking before it goes out. */
+export async function firstQuestion(day: string, region: NewsletterRegion) {
+  const stored = await storedRound(day, region);
+  const question = (stored ?? (await questionsFor(day, region)))[0];
+  return question ? { source: stored ? 'bank' : 'bundled', question } : null;
+}
+
+/** How many days the bank still has from today on, and the last of them. */
+export async function bankStock(region: NewsletterRegion): Promise<{ days: number; last: string | null } | null> {
+  if (!isBackendConfigured()) return null;
+  try {
+    const response = await supabase(
+      `/rest/v1/daily_rounds?select=day_key&region=eq.${region}` +
+        `&day_key=gte.${encodeURIComponent(todayKey())}&order=day_key.desc`,
+    );
+    if (!response.ok) return null;
+    const rows = (await response.json()) as { day_key: string }[];
+    return { days: rows.length, last: rows[0]?.day_key ?? null };
+  } catch {
+    return null;
+  }
+}
 
 /** Where the site is, so the links in the email work. */
 export function siteUrl(): string {
@@ -98,10 +178,14 @@ async function boardEntries(
   }
 }
 
-/** Build the complete email for one day and one region. */
+/**
+ * Build the complete email for one day and one region, with the edits saved
+ * in the admin unless other edits are given.
+ */
 export async function buildDailyEmail(
   day: string,
   region: NewsletterRegion,
+  edits?: NewsletterEdits,
 ): Promise<ReturnType<typeof buildDailyNewsletter>> {
   const site = siteUrl();
   const featured = await questionCard(day, region, "Today's first question");
@@ -120,5 +204,6 @@ export async function buildDailyEmail(
     categories: await categoriesFor(day, region),
     featured: featured ?? undefined,
     previous,
+    edits: edits ?? (await savedEdits(day, region)),
   });
 }

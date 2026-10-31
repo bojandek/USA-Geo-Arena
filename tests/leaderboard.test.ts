@@ -95,9 +95,9 @@ describe('the round is scored on the server', () => {
     });
 
     assert.equal(result.counted, 10);
-    assert.equal(result.score, 1300);
-    assert.equal(result.maxScore, 1300);
-    assert.equal(result.baseScore, 1300);
+    assert.equal(result.score, 1000);
+    assert.equal(result.maxScore, 1000);
+    assert.equal(result.baseScore, 1000);
   });
 
   test('the score is worked out from the guesses, not from a claim', () => {
@@ -124,7 +124,7 @@ describe('the round is scored on the server', () => {
 
     const result = scoreRound({ day: DAY, region: 'usa', answers });
     assert.ok(result.score > 0);
-    assert.ok(result.score < 1300);
+    assert.ok(result.score < 1000);
   });
 
   test('a question that was not in the round is not counted', () => {
@@ -135,7 +135,7 @@ describe('the round is scored on the server', () => {
 
     const result = scoreRound({ day: DAY, region: 'usa', answers });
     assert.equal(result.counted, 10);
-    assert.equal(result.score, 1300);
+    assert.equal(result.score, 1000);
   });
 
   test('a question of the other round is not counted', () => {
@@ -154,7 +154,7 @@ describe('the round is scored on the server', () => {
 
     const result = scoreRound({ day: DAY, region: 'usa', answers });
     assert.equal(result.counted, 10);
-    assert.equal(result.score, 1300);
+    assert.equal(result.score, 1000);
   });
 
   test('the points spent on hints come off the score', () => {
@@ -165,8 +165,8 @@ describe('the round is scored on the server', () => {
       hintCost: 50,
     });
 
-    assert.equal(result.baseScore, 1250);
-    assert.equal(result.score, 1250);
+    assert.equal(result.baseScore, 950);
+    assert.equal(result.score, 950);
   });
 
   test('the streak decides the multiplier, and the rule is the game rule', () => {
@@ -183,9 +183,11 @@ describe('the round is scored on the server', () => {
       streak: 30,
     });
 
-    assert.equal(withoutStreak.score, 1300);
-    assert.equal(withStreak.score, 1950);
-    assert.equal(withStreak.maxScore, 1950);
+    assert.equal(withoutStreak.score, 1000);
+    // The streak is XP, never points: the score and the cap stay at 1,000.
+    assert.equal(withStreak.score, 1000);
+    assert.equal(withStreak.maxScore, 1000);
+    assert.equal(withStreak.bonus, 500);
   });
 
   test('a broken guess is worth nothing rather than a wrong number', () => {
@@ -248,7 +250,7 @@ describe('the board route', () => {
     const response = await send({
       day: localDayKey(Date.now(), 0),
       region: 'usa',
-      score: 1300,
+      score: 1000,
       playerHash: 'p_test',
     });
 
@@ -272,7 +274,7 @@ describe('the board route', () => {
     assert.equal(response.status, 200);
     const payload = await response.json();
     assert.equal(payload.saved, true);
-    assert.equal(payload.score, 1300);
+    assert.equal(payload.score, 1000);
 
     const write = calls.find((call) => call.init?.method === 'POST');
     assert.ok(write, 'the row was never written');
@@ -284,12 +286,12 @@ describe('the board route', () => {
     const body = JSON.parse(String(write.init?.body));
     assert.equal(body.day_key, day);
     assert.equal(body.region, 'usa');
-    assert.equal(body.score, 1300);
+    assert.equal(body.score, 1000);
     assert.equal(body.player_hash, 'p_test');
   });
 
   test('a replay that scored less keeps the better round', async () => {
-    const calls = boardMock({ score: 1300 });
+    const calls = boardMock({ score: 1000 });
     const day = localDayKey(Date.now(), 0);
     const worse = roundFor(day).map((question) => ({
       id: question.id,
@@ -310,7 +312,7 @@ describe('the board route', () => {
     assert.equal(response.status, 200);
     const payload = await response.json();
     assert.equal(payload.kept, true);
-    assert.equal(payload.score, 1300);
+    assert.equal(payload.score, 1000);
     assert.equal(calls.filter((call) => call.init?.method === 'POST').length, 0);
   });
 
@@ -360,7 +362,7 @@ describe('the board route', () => {
     const write = calls.find((call) => call.init?.method === 'POST');
     const body = JSON.parse(String(write?.init?.body));
     assert.equal(body.region, 'world');
-    assert.equal(body.score, 1300);
+    assert.equal(body.score, 1000);
   });
 });
 
