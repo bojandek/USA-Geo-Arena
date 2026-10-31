@@ -23,6 +23,43 @@ const states = JSON.parse(fs.readFileSync(path.join(HERE, 'us-states.json'), 'ut
 
 const rad = (d) => (d * Math.PI) / 180, sin = Math.sin, cos = Math.cos;
 const f = (n) => Math.round(n * 100) / 100;
+// The coastlines are written to a tenth of a unit. The mark is never shown
+// bigger than 512 px, where a tenth is half a pixel.
+const f1 = (n) => Math.round(n * 10) / 10;
+
+// How far, in canvas units, a simplified coastline may stray from the data.
+// At 0.12 the outline is the same shape at every size the mark is used, with
+// a fraction of the points; the full data made the file 127 KB.
+const TOLERANCE = 0.12;
+
+// Douglas-Peucker: keep the points that bend the line, drop the ones that
+// sit on it.
+function simplify(points, tolerance) {
+  if (points.length < 3) return points;
+  const keep = new Array(points.length).fill(false);
+  keep[0] = keep[points.length - 1] = true;
+  const stack = [[0, points.length - 1]];
+  while (stack.length) {
+    const [first, last] = stack.pop();
+    const a = points[first], b = points[last];
+    const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy);
+    let worst = 0, index = -1;
+    for (let i = first + 1; i < last; i++) {
+      const p = points[i];
+      // A closed ring starts and ends on the same point, so there is no line
+      // to measure from: the distance is to that point instead.
+      const dist = len === 0
+        ? Math.hypot(p.x - a.x, p.y - a.y)
+        : Math.abs(dy * p.x - dx * p.y + b.x * a.y - b.y * a.x) / len;
+      if (dist > worst) { worst = dist; index = i; }
+    }
+    if (worst > tolerance) {
+      keep[index] = true;
+      stack.push([first, index], [index, last]);
+    }
+  }
+  return points.filter((_, i) => keep[i]);
+}
 
 function makeProjection(lon0, lat0) {
   return (lon, lat) => {
@@ -47,7 +84,10 @@ function ringPath(ring, project, cx, cy, r, minArea) {
   let area = 0;
   for (let i = 0; i < run.length; i++) { const a = run[i], b = run[(i + 1) % run.length]; area += a.x * b.y - b.x * a.y; }
   if (Math.abs(area / 2) < minArea) return '';
-  return 'M' + run.map((p) => `${f(p.x)},${f(p.y)}`).join('L') + 'Z';
+  const kept = simplify(run, TOLERANCE)
+    .map((p) => `${f1(p.x)},${f1(p.y)}`)
+    .filter((p, i, all) => i === 0 || p !== all[i - 1]);
+  return kept.length < 3 ? '' : 'M' + kept.join('L') + 'Z';
 }
 
 function collect(features, project, cx, cy, r, minArea) {
@@ -63,12 +103,16 @@ function collect(features, project, cx, cy, r, minArea) {
 function gridPath(project, cx, cy, r) {
   let d = '';
   const line = (pts) => {
-    let open = false;
+    let run = [];
+    const flush = () => {
+      if (run.length > 1) d += 'M' + simplify(run, TOLERANCE / 2).map((p) => `${f1(p.x)},${f1(p.y)}`).join('L');
+      run = [];
+    };
     for (const p of pts) {
-      if (!p.visible) { open = false; continue; }
-      d += (open ? 'L' : 'M') + `${f(cx + p.x * r)},${f(cy + p.y * r)}`;
-      open = true;
+      if (!p.visible) { flush(); continue; }
+      run.push({ x: cx + p.x * r, y: cy + p.y * r });
     }
+    flush();
   };
   for (let lon = -180; lon < 180; lon += 20) {
     const pts = []; for (let lat = -90; lat <= 90; lat += 3) pts.push(project(lon, lat)); line(pts);
@@ -110,6 +154,7 @@ const defs = `<defs>
     <stop offset="0%" stop-color="#FF6A5C"/><stop offset="100%" stop-color="#E8203F"/>
   </linearGradient>
   <clipPath id="sphere"><circle cx="${CX}" cy="${CY}" r="${R}"/></clipPath>
+  <path id="usa" d="${us}"/>
 </defs>`;
 
 // The back half of the orbit goes behind the globe, the front half over it.
@@ -121,8 +166,8 @@ const mark = `
   <g clip-path="url(#sphere)">
     <path d="${grid}" fill="none" stroke="#bfe2ff" stroke-opacity="0.18" stroke-width="${f(0.5 * SW)}"/>
     <path d="${otherLand}" fill="#2f5873" stroke="#2f5873" stroke-width="${f(0.35 * SW)}"/>
-    <path d="${us}" fill="#fff" stroke="#fff" stroke-width="${f(1.8 * SW)}" stroke-linejoin="round"/>
-    <path d="${us}" fill="url(#us)"/>
+    <use href="#usa" fill="#fff" stroke="#fff" stroke-width="${f(1.8 * SW)}" stroke-linejoin="round"/>
+    <use href="#usa" fill="url(#us)"/>
     <circle cx="${CX}" cy="${CY}" r="${R}" fill="url(#shade)"/>
   </g>
   <circle cx="${CX}" cy="${CY}" r="${f(R - 0.4 * SW)}" fill="none" stroke="#cfeaff" stroke-opacity="0.45" stroke-width="${f(0.8 * SW)}"/>
@@ -131,7 +176,8 @@ const mark = `
     <circle cx="66" cy="61.3" r="3.1" fill="#FFB905"/>
   </g>`;
 
-const svg = (body) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">${defs}${body}</svg>`;
+const svg = (body) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-labelledby="t"><title id="t">USA GeoArena</title>${defs}${body}</svg>`;
 
 const rounded = svg(`
   <rect width="100" height="100" rx="22" fill="url(#tile)"/>
