@@ -36,6 +36,9 @@ export function buildChallengeUrl(
   const path = region === DEFAULT_REGION ? '/daily' : '/world';
   const url = new URL(path, base.endsWith('/') ? base : `${base}/`);
   url.searchParams.set(CHALLENGE_PARAM, String(value));
+  // Marked as a challenge, so the analytics can count what it brings in.
+  url.searchParams.set('utm_source', 'challenge');
+  url.searchParams.set('utm_medium', 'social');
   return url.toString();
 }
 

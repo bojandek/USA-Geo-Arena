@@ -213,3 +213,59 @@ export async function sendTestEmail(
   await fetch(`${base}/campaigns/${id}`, { method: 'DELETE', headers }).catch(() => undefined);
   return result;
 }
+
+/** What happened when an address was put on the list. */
+export interface SubscribeResult {
+  ok: boolean;
+  /** True when the address was already on the list and confirmed. */
+  already: boolean;
+  error: string | null;
+}
+
+/**
+ * Puts one address on the list.
+ *
+ * A new address is added as "pending", so Mailchimp sends the double opt-in
+ * email and the address only joins once its owner confirms. An address that
+ * is already on the list keeps its status: somebody who unsubscribed cannot be
+ * put back on by anyone typing their address into the form. The member is
+ * found by the hash of the lower-cased address, which is how Mailchimp names
+ * them, so signing up twice is one member and not two.
+ */
+export async function subscribeMember(
+  config: MailerConfig,
+  email: string,
+  source: string,
+): Promise<SubscribeResult> {
+  const base = `https://${mailchimpDataCenter(config.apiKey)}.api.mailchimp.com/3.0`;
+  const headers = {
+    authorization: authorization(config.apiKey),
+    'content-type': 'application/json',
+  };
+  const address = email.trim().toLowerCase();
+  const { createHash } = await import('node:crypto');
+  const hash = createHash('md5').update(address).digest('hex');
+
+  const response = await fetch(`${base}/lists/${config.listId}/members/${hash}`, {
+    method: 'PUT',
+    headers,
+    body: JSON.stringify({ email_address: address, status_if_new: 'pending' }),
+  });
+  if (!response.ok) {
+    return { ok: false, already: false, error: await describe(response) };
+  }
+
+  const member = (await response.json().catch(() => ({}))) as { status?: string };
+
+  // Where the signup came from is a tag, so the list can be split by it
+  // later. A tag that fails does not undo the signup.
+  if (source) {
+    await fetch(`${base}/lists/${config.listId}/members/${hash}/tags`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ tags: [{ name: `signup-${source}`, status: 'active' }] }),
+    }).catch(() => undefined);
+  }
+
+  return { ok: true, already: member.status === 'subscribed', error: null };
+}

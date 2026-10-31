@@ -32,7 +32,6 @@ import { authRedirectUrl, isAuthConfigured, supabase } from '@/lib/supabase';
 import { useAuthSession } from '@/lib/auth-session';
 import {
   NEWSLETTER_ENABLED,
-  NEWSLETTER_IS_PLACEHOLDER,
   isValidEmail,
   rememberNewsletterConsent,
   subscribeToNewsletter,
@@ -58,7 +57,7 @@ export default function AuthMenu({ compact = false }: { compact?: boolean }) {
   useEffect(() => {
     if (!session?.user.email) return;
     if (!takeNewsletterConsent()) return;
-    void subscribeToNewsletter(session.user.email);
+    void subscribeToNewsletter(session.user.email, 'sign-in');
   }, [session]);
 
   // Keep the control visible even before auth is configured. The dialog
@@ -251,7 +250,7 @@ export default function AuthMenu({ compact = false }: { compact?: boolean }) {
           </div>
         ) : (
           <>
-            {NEWSLETTER_ENABLED && !NEWSLETTER_IS_PLACEHOLDER && (
+            {NEWSLETTER_ENABLED && (
               <label className="flex items-start gap-2 rounded-xl border border-orange-100 bg-orange-50/60 p-3 text-xs leading-5 text-gray-600">
                 <input
                   type="checkbox"

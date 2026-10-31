@@ -21,12 +21,12 @@ import {
 describe('buildChallengeUrl', () => {
   test('carries the score to beat in the link', () => {
     const url = buildChallengeUrl(812, 'usa', 'https://example.test');
-    assert.equal(url, 'https://example.test/daily?beat=812');
+    assert.equal(url, 'https://example.test/daily?beat=812&utm_source=challenge&utm_medium=social');
   });
 
   test('the world round keeps its own address', () => {
     const url = buildChallengeUrl(500, 'world', 'https://example.test');
-    assert.equal(url, 'https://example.test/world?beat=500');
+    assert.equal(url, 'https://example.test/world?beat=500&utm_source=challenge&utm_medium=social');
   });
 
   test('a score beyond what a round can be worth is capped', () => {

@@ -14,15 +14,12 @@ import { Mail, Check, Loader2, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import {
-  NEWSLETTER_ACTION,
   NEWSLETTER_COPY,
-  NEWSLETTER_ENABLED,
   NEWSLETTER_FIELD,
-  NEWSLETTER_IS_PLACEHOLDER,
   NEWSLETTER_UNSUBSCRIBE_URL,
   getNewsletterState,
   isValidEmail,
-  setNewsletterState,
+  subscribeToNewsletter,
 } from '@/lib/newsletter';
 import { ANALYTICS_EVENTS, trackEvent } from '@/lib/analytics';
 
@@ -49,13 +46,6 @@ export default function NewsletterSignup({
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
 
-  // Nothing is configured -> render nothing at all.
-  if (!NEWSLETTER_ENABLED) return null;
-
-  // A placeholder URL would swallow the address without storing it, so the
-  // form is never shown in a production build.
-  if (NEWSLETTER_IS_PLACEHOLDER && import.meta.env.PROD) return null;
-
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const value = email.trim();
@@ -68,24 +58,14 @@ export default function NewsletterSignup({
     setError('');
     setStatus('sending');
 
-    const body = new URLSearchParams();
-    body.set(NEWSLETTER_FIELD, value);
-
-    try {
-      await fetch(NEWSLETTER_ACTION, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body,
-      });
-      // The provider answers with an opaque response, so we cannot read the
-      // result - the confirmation email is what proves it worked.
-      setNewsletterState('subscribed');
-      setSubscribed(true);
-      trackEvent(ANALYTICS_EVENTS.newsletterSignup, { source, variant });
-    } catch {
+    const outcome = await subscribeToNewsletter(value, source);
+    if (!outcome.ok) {
+      setError(outcome.error ?? '');
       setStatus('error');
+      return;
     }
+    setSubscribed(true);
+    trackEvent(ANALYTICS_EVENTS.newsletterSignup, { source, variant });
   };
 
   const inputClass = cn(
@@ -231,14 +211,6 @@ export default function NewsletterSignup({
         {NEWSLETTER_COPY.note}
       </p>
 
-      {NEWSLETTER_IS_PLACEHOLDER && (
-        <p className="mt-2 rounded-lg bg-amber-100 px-3 py-2 text-xs text-amber-900">
-          <strong>Not connected yet.</strong> Set <code>VITE_NEWSLETTER_ACTION</code> in{' '}
-          <code>.env.local</code> to the form action URL of your newsletter provider, then
-          restart the dev server. In a production build this form stays hidden until it is
-          set.
-        </p>
-      )}
     </div>
   );
 }

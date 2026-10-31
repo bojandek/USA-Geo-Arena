@@ -10,7 +10,10 @@ import assert from 'node:assert/strict';
 
 import {
   NEWSLETTER_COPY,
+  NEWSLETTER_ACTION,
   NEWSLETTER_ENABLED,
+  NEWSLETTER_ENDPOINT,
+  isPlaceholderAction,
   getNewsletterState,
   isValidEmail,
   setNewsletterState,
@@ -23,9 +26,15 @@ const DAY = '2026-10-24';
 const SITE = 'https://geoarena.com';
 
 describe('newsletter', () => {
-  test('the signup stays hidden until a provider is configured', () => {
+  test('without a provider URL the signup posts to the own route of the site', () => {
     if (process.env.VITE_NEWSLETTER_ACTION) return; // configured in this env
-    assert.equal(NEWSLETTER_ENABLED, false);
+    assert.equal(NEWSLETTER_ENABLED, true);
+    assert.equal(NEWSLETTER_ACTION, NEWSLETTER_ENDPOINT);
+  });
+
+  test('a placeholder provider URL is never posted to', () => {
+    assert.equal(isPlaceholderAction('https://example.com/newsletter-placeholder'), true);
+    assert.equal(isPlaceholderAction('https://x.us21.list-manage.com/subscribe/post?u=1&id=2'), false);
   });
 
   test('validates email addresses', () => {

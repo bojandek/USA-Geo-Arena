@@ -47,6 +47,11 @@ async function handler(request: Request) {
   const isCurrent = Number.isFinite(dayTime) && Math.abs(Date.now() - dayTime) <= 36 * 60 * 60 * 1000;
   const beat = readNumber(searchParams.get('score'), 0, 100_000);
   const target = `${site}/${region === 'World' ? 'world' : 'daily'}${isCurrent && beat > 0 ? `?beat=${beat}` : ''}`;
+  // Where the visitor is sent is marked as a shared result, so the analytics
+  // can count what sharing brings in. The page's own address stays clean.
+  const landing =
+    `${target}${target.includes('?') ? '&' : '?'}` +
+    'utm_source=share&utm_medium=social&utm_campaign=daily-result';
   // The score is carried by the title and description. The picture is the
   // branded static card: social crawlers fetch it without running JavaScript,
   // and a static asset is the one form every one of them accepts.
@@ -78,11 +83,11 @@ async function handler(request: Request) {
     <meta name="twitter:description" content="${escapeHtml(description)}" />
     <meta name="twitter:image" content="${escapeHtml(image)}" />
 
-    <meta http-equiv="refresh" content="0; url=${escapeHtml(target)}" />
-    <script>window.location.replace(${JSON.stringify(target)});</script>
+    <meta http-equiv="refresh" content="0; url=${escapeHtml(landing)}" />
+    <script>window.location.replace(${JSON.stringify(landing)});</script>
   </head>
   <body style="font-family:system-ui,sans-serif;background:#12141A;color:#fff;display:flex;align-items:center;justify-content:center;height:100vh;margin:0">
-    <p>Taking you to the game&hellip; <a style="color:#FF4655" href="${escapeHtml(target)}">Continue</a></p>
+    <p>Taking you to the game&hellip; <a style="color:#FF4655" href="${escapeHtml(landing)}">Continue</a></p>
   </body>
 </html>`;
 

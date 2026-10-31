@@ -93,6 +93,7 @@ async function handler(request) {
   const isCurrent = Number.isFinite(dayTime) && Math.abs(Date.now() - dayTime) <= 36 * 60 * 60 * 1e3;
   const beat = readNumber(searchParams.get("score"), 0, 1e5);
   const target = `${site}/${region === "World" ? "world" : "daily"}${isCurrent && beat > 0 ? `?beat=${beat}` : ""}`;
+  const landing = `${target}${target.includes("?") ? "&" : "?"}utm_source=share&utm_medium=social&utm_campaign=daily-result`;
   const image = `${site}/og-image.png`;
   const title = `I scored ${score.toLocaleString("en-US")} points on today's ${region} Challenge`;
   const description = `${percentage}% of the best round${streak > 1 ? `, on a ${streak} day streak` : ""}. Ten questions a day about NFL, MLB, NBA and NHL stadiums. Can you beat it?`;
@@ -119,11 +120,11 @@ async function handler(request) {
     <meta name="twitter:description" content="${escapeHtml(description)}" />
     <meta name="twitter:image" content="${escapeHtml(image)}" />
 
-    <meta http-equiv="refresh" content="0; url=${escapeHtml(target)}" />
-    <script>window.location.replace(${JSON.stringify(target)});</script>
+    <meta http-equiv="refresh" content="0; url=${escapeHtml(landing)}" />
+    <script>window.location.replace(${JSON.stringify(landing)});</script>
   </head>
   <body style="font-family:system-ui,sans-serif;background:#12141A;color:#fff;display:flex;align-items:center;justify-content:center;height:100vh;margin:0">
-    <p>Taking you to the game&hellip; <a style="color:#FF4655" href="${escapeHtml(target)}">Continue</a></p>
+    <p>Taking you to the game&hellip; <a style="color:#FF4655" href="${escapeHtml(landing)}">Continue</a></p>
   </body>
 </html>`;
   return new Response(html, {
