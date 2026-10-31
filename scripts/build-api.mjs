@@ -11,7 +11,7 @@
  * are inlined; npm packages stay external and are installed by Vercel.
  */
 
-import { mkdir, readdir, rm } from 'node:fs/promises';
+import { mkdir, readFile, readdir, rm } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
@@ -65,6 +65,44 @@ async function entries() {
 const { build } = await loadEsbuild();
 const files = await entries();
 
+const options = {
+  entryPoints: files,
+  outdir: API,
+  bundle: true,
+  format: 'cjs',
+  platform: 'node',
+  target: 'node20',
+  packages: 'external',
+  sourcemap: false,
+  logLevel: 'info',
+  // esbuild writes `exports.default` for an `export default`; Vercel's Node
+  // launcher expects the function itself from a CommonJS module.
+  footer: { js: 'module.exports = module.exports.default ?? module.exports;' },
+};
+
+// The bundles are committed, because Vercel finds functions by the files in
+// the repository before the build runs. `--check` tells whether they still
+// match server/ without writing anything.
+if (process.argv.includes('--check')) {
+  const result = await build({ ...options, write: false, logLevel: 'silent' });
+  const stale = [];
+  for (const file of result.outputFiles) {
+    let current = '';
+    try {
+      current = await readFile(file.path, 'utf8');
+    } catch {
+      // A missing bundle is stale too.
+    }
+    if (current.replace(/\r\n/g, '\n') !== file.text) stale.push(path.relative(ROOT, file.path));
+  }
+  if (stale.length > 0) {
+    console.error(`Out of date, run npm run build:api: ${stale.join(', ')}`);
+    process.exit(1);
+  }
+  console.log(`All ${files.length} API bundle(s) match server/.`);
+  process.exit(0);
+}
+
 // Remove bundles from an older build so a deleted route cannot linger in the
 // deployment. Keep package.json, which tells Vercel these functions are CJS.
 await mkdir(path.join(API, 'admin'), { recursive: true });
@@ -79,19 +117,6 @@ for (const name of await readdir(path.join(API, 'admin'))) {
   }
 }
 
-await build({
-  entryPoints: files,
-  outdir: API,
-  bundle: true,
-  format: 'cjs',
-  platform: 'node',
-  target: 'node20',
-  packages: 'external',
-  sourcemap: false,
-  logLevel: 'info',
-  // esbuild writes `exports.default` for an `export default`; Vercel's Node
-  // launcher expects the function itself from a CommonJS module.
-  footer: { js: 'module.exports = module.exports.default ?? module.exports;' },
-});
+await build(options);
 
 console.log(`Bundled ${files.length} API route(s) into api/.`);

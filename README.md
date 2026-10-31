@@ -172,7 +172,7 @@ Sajt ima osam server rutina. Izvor je u `server/`, a `npm run build` ih esbuild�
 | `server/webhook.ts` | Prima obaveštenje kad nešto kupi Pro |
 | `server/submissions.ts` | Prima pitanja koja igrači pošalju |
 
-> `api/` se generiše tokom builda i zato je u `.gitignore`. Ne menjaj ga ručno; menjaj `server/` i pokreni `npm run build` (ili `npm run build:api`).
+> `api/` se generiše iz `server/`, ali je commitovan: Vercel prepoznaje funkcije po fajlovima koji su u repou prije builda, pa bez njih sve `/api` rute vraćaju 404. Ne menjaj ga ručno; menjaj `server/`, pokreni `npm run build:api` i commituj i `api/`. Test `tests/api-bundles.test.ts` pada kad je `api/` zastario.
 
 ### Podešavanje
 

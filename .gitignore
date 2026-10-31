@@ -41,8 +41,4 @@ scripts/.question-images-cache.json
 
 .vercel
 
-# Generated Vercel functions (source lives in server/).
-/api/*.js
-/api/*.mjs
-/api/admin/*.js
 .env*
