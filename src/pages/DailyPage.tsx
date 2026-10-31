@@ -1,11 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Loader2 } from 'lucide-react';
 import DailyChallenge from '@/components/DailyChallenge';
 import RequireAuth from '@/components/RequireAuth';
 import Seo from '@/components/Seo';
 import { DEFAULT_REGION, getRegion, isRegionId, regionPath, type RegionId } from '@/lib/regions';
 import { readChallengeScore } from '@/lib/challenge';
 import { todayKey } from '@/lib/date-utils';
+import { cachedRound, loadDailyRound } from '@/lib/daily-round';
+import type { Question } from '@/lib/question-types';
 
 /**
  * Daily challenge page.
@@ -35,6 +38,26 @@ export default function DailyPage({
   const challengeScore = readChallengeScore(searchParams);
   const isArchive = Boolean(date && date !== todayKey());
 
+  // The day's questions come from the server, so they are loaded before the
+  // round starts. A round already kept on the device starts at once.
+  const day = date ?? todayKey();
+  const roundKey = `${day}:${region}`;
+  const [round, setRound] = useState<{ key: string; questions: Question[] } | null>(() => {
+    const kept = cachedRound(day, region);
+    return kept ? { key: roundKey, questions: kept } : null;
+  });
+  useEffect(() => {
+    if (round?.key === roundKey) return;
+    let cancelled = false;
+    void loadDailyRound(day, region).then((questions) => {
+      if (!cancelled) setRound({ key: roundKey, questions });
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [day, region, roundKey, round?.key]);
+  const questions = round?.key === roundKey ? round.questions : null;
+
   // The round belongs in the path, not in a query string. A link that still
   // carries ?region=world is sent to the world round's own address, so the
   // menu highlights the round that is actually open and the address can be
@@ -59,19 +82,27 @@ export default function DailyPage({
         }
         path={date ? '/archive' : regionPath(region)}
       />
-      {isArchive ? (
+      {!questions ? (
+        <div className="flex min-h-[60vh] items-center justify-center">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        </div>
+      ) : isArchive ? (
         <RequireAuth>
           <DailyChallenge
+            key={roundKey}
             selectedDate={date}
             region={region}
+            round={questions}
             challengeScore={challengeScore}
             onBack={() => navigate('/archive')}
           />
         </RequireAuth>
       ) : (
         <DailyChallenge
+          key={roundKey}
           selectedDate={date}
           region={region}
+          round={questions}
           challengeScore={challengeScore}
           onBack={() => navigate('/')}
         />

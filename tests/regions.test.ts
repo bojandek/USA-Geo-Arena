@@ -8,7 +8,6 @@ import assert from 'node:assert/strict';
 import {
   DEFAULT_REGION,
   boundsForQuestion,
-  frameForOutlyingAnswer,
   getRegion,
   isOutsideContinentalUsa,
   isRegionId,
@@ -276,30 +275,11 @@ describe('the outlying states', () => {
   test('a point on the mainland is not an outlying state', () => {
     assert.equal(isOutsideContinentalUsa(41.9484, -87.6553), false);
     assert.equal(outlyingStateFor(41.9484, -87.6553), null);
-    assert.equal(frameForOutlyingAnswer(41.9484, -87.6553), null);
   });
 
   test('Anchorage is in Alaska, and Honolulu is in Hawaii', () => {
     assert.equal(outlyingStateFor(61.2181, -149.9003), 'Alaska');
     assert.equal(outlyingStateFor(21.3069, -157.8583), 'Hawaii');
-  });
-
-  test('the map is framed on the answer when it is not on the mainland', () => {
-    const alaska = frameForOutlyingAnswer(61.2181, -149.9003);
-    assert.ok(alaska);
-    const [west, south] = alaska[0];
-    const [east, north] = alaska[1];
-    assert.ok(west < -149.9003 && east > -149.9003);
-    assert.ok(south < 61.2181 && north > 61.2181);
-  });
-
-  test('the Alaska frame is wide and the Hawaii frame is tight', () => {
-    const alaska = frameForOutlyingAnswer(61.2181, -149.9003);
-    const hawaii = frameForOutlyingAnswer(21.3069, -157.8583);
-    assert.ok(alaska && hawaii);
-    const width = (frame: [[number, number], [number, number]]) =>
-      frame[1][0] - frame[0][0];
-    assert.ok(width(alaska) > width(hawaii));
   });
 
   test('the mainland questions are locked to the country', () => {
@@ -326,46 +306,28 @@ describe('the outlying states', () => {
     assert.ok(25 > south);
   });
 
-  test('a question in Alaska or Hawaii is not locked to the mainland', () => {
-    // A limit that holds the answer would also stop the player moving around
-    // the place they are looking for, so those questions have none.
-    const alaska = questionPool.find(
-      (question) => outlyingStateForQuestion(question) === 'Alaska',
-    );
-    const hawaii = questionPool.find(
-      (question) => outlyingStateForQuestion(question) === 'Hawaii',
-    );
-    assert.ok(alaska && hawaii);
-    assert.equal(boundsForQuestion(alaska, 'usa'), null);
-    assert.equal(boundsForQuestion(hawaii, 'usa'), null);
-  });
-
-  test('the world round is never locked to anything', () => {
-    assert.equal(boundsForQuestion(null, 'world'), null);
-  });
-
-  test('every outlying question can be reached on the map', () => {
+  test('every outlying question can be panned to', () => {
+    // The map stays on the mainland, so the limit has to let the player
+    // reach the answer in Alaska or Hawaii.
     const outlying = questionPool.filter(
       (question) => outlyingStateForQuestion(question) !== null,
     );
     assert.ok(outlying.length >= 10, 'there should be questions about Alaska and Hawaii');
 
     for (const question of outlying) {
-      // With no limit, the answer only has to be inside the area the map is
-      // framed on.
-      const frame = frameForOutlyingAnswer(question.lat, question.lng);
-      assert.ok(frame, `${question.id} is not framed`);
-      const [west, south] = frame[0];
-      const [east, north] = frame[1];
+      const bounds = boundsForQuestion(question, 'usa');
+      assert.ok(bounds, `${question.id} has no limit`);
+      const [west, south] = bounds[0];
+      const [east, north] = bounds[1];
       assert.ok(
-        question.lng > west && question.lng < east,
-        `${question.id} is not on the map`,
-      );
-      assert.ok(
-        question.lat > south && question.lat < north,
-        `${question.id} is not on the map`,
+        question.lng > west && question.lng < east && question.lat > south && question.lat < north,
+        `${question.id} cannot be reached`,
       );
     }
+  });
+
+  test('the world round is never locked to anything', () => {
+    assert.equal(boundsForQuestion(null, 'world'), null);
   });
 
   test('a question about somewhere else is never an outlying state', () => {

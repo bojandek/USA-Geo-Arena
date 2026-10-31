@@ -25,6 +25,7 @@ import {
   calculateDistance,
   calculateScore,
   getDailyQuestionsForDay,
+  type Question,
 } from '../../src/lib/game-data.ts';
 import {
   computeAccuracy,
@@ -120,6 +121,33 @@ function shiftDayKey(dayKey: string, days: number): string {
   return `${y}-${m}-${d}`;
 }
 
+/**
+ * Reads the answers the browser sent.
+ *
+ * Only what can be used is kept: the id of the question, where the pin was
+ * dropped and how long it took. Anything else is dropped on the way in.
+ */
+export function readAnswers(value: unknown): SubmittedAnswer[] {
+  if (!Array.isArray(value)) return [];
+
+  const answers: SubmittedAnswer[] = [];
+  for (const item of value.slice(0, 50)) {
+    if (!item || typeof item !== 'object') continue;
+    const raw = item as Record<string, unknown>;
+    if (typeof raw.id !== 'string' || !raw.id) continue;
+
+    answers.push({
+      id: raw.id.slice(0, 64),
+      lat: typeof raw.lat === 'number' ? raw.lat : null,
+      lng: typeof raw.lng === 'number' ? raw.lng : null,
+      elapsedSeconds: Number(raw.elapsedSeconds) || 0,
+      gaveUp: raw.gaveUp === true,
+      named: raw.named === true,
+    });
+  }
+  return answers;
+}
+
 /** True when the value is a place on the globe. */
 function isLatitude(value: unknown): value is number {
   return typeof value === 'number' && Number.isFinite(value) && value >= -90 && value <= 90;
@@ -145,10 +173,29 @@ export function scoreRound(params: {
   streak?: number;
   /** The points spent on hints during the round. */
   hintCost?: number;
+  /**
+   * The questions of that day, when they come from the stored bank rather
+   * than the bundled rotation.
+   */
+  questions?: readonly Question[];
 }): RoundScore {
-  const round = getDailyQuestionsForDay(params.day, params.region);
+  const round = params.questions ?? getDailyQuestionsForDay(params.day, params.region);
+  return scoreQuestions(round, params.answers, params);
+}
 
-  const byId = new Map<string, { question: (typeof round)[number]; index: number }>();
+/**
+ * Works out what a set of guesses was worth against a given set of questions.
+ *
+ * The daily round and a private tournament are scored by the same rules; the
+ * only difference is where the questions come from. A guess only counts for
+ * a question that is in the set, and each question counts once.
+ */
+export function scoreQuestions(
+  round: readonly Question[],
+  answers: SubmittedAnswer[],
+  options: { streak?: number; hintCost?: number } = {},
+): RoundScore {
+  const byId = new Map<string, { question: Question; index: number }>();
   round.forEach((question, index) => byId.set(question.id, { question, index }));
 
   let running = 0;
@@ -157,7 +204,7 @@ export function scoreRound(params: {
   const locationPoints: { locationPoints: number }[] = [];
   const seen = new Set<string>();
 
-  for (const answer of params.answers) {
+  for (const answer of answers) {
     if (!answer || typeof answer.id !== 'string') continue;
 
     const found = byId.get(answer.id);
@@ -199,13 +246,13 @@ export function scoreRound(params: {
 
   // The points spent on hints come off the round before the streak is added,
   // in the same order as in the game: the bonus is a share of what is left.
-  const hintCost = Math.max(0, Number(params.hintCost) || 0);
+  const hintCost = Math.max(0, Number(options.hintCost) || 0);
   const baseScore = roundScore(Math.max(0, running - hintCost));
 
   // The streak decides the multiplier, and the rule for that lives here
   // rather than in the browser, so the number on the board always comes from
   // the same rule the game used.
-  const streak = Math.max(0, Math.min(9999, Math.floor(Number(params.streak) || 0)));
+  const streak = Math.max(0, Math.min(9999, Math.floor(Number(options.streak) || 0)));
   const multiplier = streakMultiplier(streak);
   const bonus = roundScore(Math.max(0, baseScore * (multiplier - 1)));
   const score = roundScore(baseScore + bonus);

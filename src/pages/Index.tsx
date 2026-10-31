@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Trophy, Award, BarChart3, Calendar, Sparkles, Flame, Zap, Play, Flag, Globe, Target } from 'lucide-react';
+import { Trophy, Award, BarChart3, Calendar, Sparkles, Flame, Zap, Play, Flag, Globe, Target, Wand2, Users } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -60,6 +60,22 @@ const MODE_CARDS: ModeCard[] = [
     description: 'Replay any past day and improve your old scores.',
     icon: Calendar,
     gradient: 'from-yellow-400 to-amber-500',
+  },
+  {
+    to: '/create',
+    title: 'Make a Round',
+    description: 'Pick the places yourself, play them and send the link to your friends.',
+    icon: Wand2,
+    gradient: 'from-emerald-400 to-teal-600',
+    badge: 'New',
+  },
+  {
+    to: '/create?tab=tournament',
+    title: 'Private Tournament',
+    description: 'One code, the same questions for your group and a table that closes on time.',
+    icon: Users,
+    gradient: 'from-pink-500 to-rose-600',
+    badge: 'New',
   },
 ];
 
@@ -309,9 +325,9 @@ const Index = () => {
             transition={{ delay: 0.65 }}
             className="text-center text-gray-600 mb-10"
           >
-            Four ways to play — every one of them is in the menu at the top of the page.
+            Six ways to play — make your own round or start a tournament for your group.
           </motion.p>
-          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
             {MODE_CARDS.map((mode, index) => (
               <motion.div
                 key={mode.to}

@@ -24,9 +24,10 @@ import {
   isDayKey,
   localDayKey,
   previousDayKey,
+  readAnswers,
   scoreRound,
-  type SubmittedAnswer,
 } from './_lib/round.ts';
+import { dailyRound } from './_lib/daily-rounds.ts';
 
 
 /** The most a round can be worth: 1,300 points and a 1.5Ă— streak. */
@@ -43,33 +44,6 @@ const FALLBACK_NAMES = [
   'Ninety Feet',
   'Baseline Watcher',
 ];
-
-/**
- * Reads the answers the browser sent.
- *
- * Only what can be used is kept: the id of the question, where the pin was
- * dropped and how long it took. Anything else is dropped on the way in.
- */
-function readAnswers(value: unknown): SubmittedAnswer[] {
-  if (!Array.isArray(value)) return [];
-
-  const answers: SubmittedAnswer[] = [];
-  for (const item of value.slice(0, 50)) {
-    if (!item || typeof item !== 'object') continue;
-    const raw = item as Record<string, unknown>;
-    if (typeof raw.id !== 'string' || !raw.id) continue;
-
-    answers.push({
-      id: raw.id.slice(0, 64),
-      lat: typeof raw.lat === 'number' ? raw.lat : null,
-      lng: typeof raw.lng === 'number' ? raw.lng : null,
-      elapsedSeconds: Number(raw.elapsedSeconds) || 0,
-      gaveUp: raw.gaveUp === true,
-      named: raw.named === true,
-    });
-  }
-  return answers;
-}
 
 import { universal } from './_lib/node-adapter.ts';
 
@@ -185,6 +159,7 @@ async function handler(request: Request) {
       answers,
       streak,
       hintCost: Number(body.hintCost) || 0,
+      questions: await dailyRound(day, region),
     });
 
     if (result.counted === 0) {

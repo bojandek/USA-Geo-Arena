@@ -27,6 +27,8 @@ import {
   globeRadiusForZoom,
   GLOBE_ANSWER_MAX_ZOOM,
   clampPadding,
+  flatFramePadding,
+  boundsCoveringView,
   GLOBE_FILL,
 } from '../src/lib/map-framing.ts';
 
@@ -852,5 +854,42 @@ describe('a padding that is bigger than the map is kept inside it', () => {
       0,
     );
     assert.deepEqual(clamped, { top: 0, bottom: 0, left: 0, right: 0 });
+  });
+});
+
+describe('flatFramePadding', () => {
+  test('keeps the sides narrow on a phone, so the coasts fit', () => {
+    assert.equal(flatFramePadding(375).left, 12);
+    assert.equal(flatFramePadding(375).right, 12);
+  });
+
+  test('moves the country down under the taller card on a phone', () => {
+    const padding = flatFramePadding(375);
+    assert.ok(padding.top > padding.bottom);
+  });
+
+  test('keeps the wider frame from a tablet up', () => {
+    assert.deepEqual(flatFramePadding(1024), { top: 130, bottom: 130, left: 70, right: 70 });
+  });
+});
+
+describe('boundsCoveringView', () => {
+  const mainland: [[number, number], [number, number]] = [[-133, 19], [-58, 53.5]];
+
+  test('widens the limit to a tall phone view of the whole country', () => {
+    // About the zoom that fits the country across a 375-pixel phone.
+    const [[west, south], [east, north]] = boundsCoveringView(mainland, [-96, 38], 2.1, 375, 812);
+    assert.ok(south < 19 && north > 53.5, 'the limit covers the height of the screen');
+    assert.equal(west, -133);
+    assert.equal(east, -58);
+  });
+
+  test('leaves a limit that already covers the view as it is', () => {
+    assert.deepEqual(boundsCoveringView(mainland, [-96, 38], 6, 1280, 800), mainland);
+  });
+
+  test('never goes past the edge of the world', () => {
+    const [[west, south], [east, north]] = boundsCoveringView(mainland, [-96, 38], 0, 4000, 4000);
+    assert.ok(west >= -180 && east <= 180 && south >= -85 && north <= 85);
   });
 });

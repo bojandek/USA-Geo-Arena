@@ -713,3 +713,58 @@ export function globeFrame(
   const zoom = globeZoomForArea(width, height, fill);
   return { zoom, diameter: globeDiameter(zoom) };
 }
+
+/** Below this width the screen is a phone held upright. */
+const NARROW_SCREEN = 640;
+
+/**
+ * The room kept around the country while a question is open.
+ *
+ * The card at the top and the button at the bottom need the same room on
+ * every screen. The sides do not: on a phone the country is limited by the
+ * width, and 70 pixels a side took away more than a third of it, so the
+ * coasts ended up off the edge of the screen. The card is also taller on a
+ * phone, so the country is moved down under it, off the empty sea below.
+ */
+export function flatFramePadding(width: number): MapPadding {
+  if (width < NARROW_SCREEN) return { top: 260, bottom: 90, left: 12, right: 12 };
+  return { top: 130, bottom: 130, left: 70, right: 70 };
+}
+
+/**
+ * A pan limit, widened so that a whole camera view fits inside it.
+ *
+ * The map refuses to show anything outside its limit, and on a tall, narrow
+ * screen it zooms in until the limit fills the height. The country then no
+ * longer fits across the width. Widening the limit to the view the map is
+ * framed on keeps the frame as it was meant to be, and the player can still
+ * pan as far as before.
+ */
+export function boundsCoveringView(
+  bounds: [[number, number], [number, number]],
+  center: [number, number],
+  zoom: number,
+  width: number,
+  height: number,
+): [[number, number], [number, number]] {
+  const middle = toNormalised(center[0], center[1]);
+  // A little extra, so rounding in the map never pulls the camera back in.
+  const world = worldSizeAtZoom(zoom) / 1.02;
+  const [west, north] = fromNormalised(
+    middle.x - width / 2 / world,
+    middle.y - height / 2 / world,
+  );
+  const [east, south] = fromNormalised(
+    middle.x + width / 2 / world,
+    middle.y + height / 2 / world,
+  );
+  return [
+    [Math.max(-180, Math.min(bounds[0][0], west)), Math.max(-85, Math.min(bounds[0][1], south))],
+    [Math.min(180, Math.max(bounds[1][0], east)), Math.min(85, Math.max(bounds[1][1], north))],
+  ];
+}
+
+/** The width of the whole flat world in pixels, with 512-pixel tiles. */
+function worldSizeAtZoom(zoom: number): number {
+  return 512 * 2 ** zoom;
+}

@@ -31,6 +31,9 @@ const WorldPage = lazy(() => import("./pages/WorldPage"));
 const BattlePage = lazy(() => import("./pages/BattlePage"));
 const ArchivePage = lazy(() => import("./pages/ArchivePage"));
 const ReviewPage = lazy(() => import("./pages/ReviewPage"));
+const CreatePage = lazy(() => import("./pages/CreatePage"));
+const PlayPage = lazy(() => import("./pages/PlayPage"));
+const TournamentPage = lazy(() => import("./pages/TournamentPage"));
 const AdminNewsletter = lazy(() => import("./pages/AdminNewsletter"));
 
 // The daily round is where almost every visit goes next, so its code is
@@ -65,6 +68,9 @@ const App = () => (
                 <Route path="/world" element={<RequireAuth><WorldPage /></RequireAuth>} />
                 <Route path="/battle" element={<RequireAuth><BattlePage /></RequireAuth>} />
                 <Route path="/review" element={<RequireAuth><ReviewPage /></RequireAuth>} />
+                <Route path="/create" element={<CreatePage />} />
+                <Route path="/play" element={<PlayPage />} />
+                <Route path="/t/:code" element={<TournamentPage />} />
               </Route>
 
               {/* Everything else keeps the site header and footer. */}

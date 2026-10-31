@@ -7,7 +7,8 @@
 
 import { isBackendConfigured, supabase } from './backend.ts';
 import { nextDayKey } from './round.ts';
-import { getDailyQuestionsForDay } from '../../src/lib/game-data.ts';
+import { dailyRound } from './daily-rounds.ts';
+import type { Question } from '../../src/lib/game-data.ts';
 import { addDays } from '../../src/lib/date-utils.ts';
 import {
   buildDailyNewsletter,
@@ -28,26 +29,26 @@ export function todayKey(): string {
 }
 
 /** The questions in a round, or an empty list if the data cannot be read. */
-function questionsFor(day: string, region: NewsletterRegion) {
+async function questionsFor(day: string, region: NewsletterRegion): Promise<Question[]> {
   try {
-    return getDailyQuestionsForDay(day, region);
+    return await dailyRound(day, region);
   } catch {
     return [];
   }
 }
 
 /** The kinds of question in the round, for the line that says what is coming. */
-function categoriesFor(day: string, region: NewsletterRegion): string[] {
-  return questionsFor(day, region).map((question) => question.category);
+async function categoriesFor(day: string, region: NewsletterRegion): Promise<string[]> {
+  return (await questionsFor(day, region)).map((question) => question.category);
 }
 
 /** Turn the first question of a day into an email card. */
-function questionCard(
+async function questionCard(
   day: string,
   region: NewsletterRegion,
   label: string,
-): FeaturedQuestion | null {
-  const question = questionsFor(day, region)[0];
+): Promise<FeaturedQuestion | null> {
+  const question = (await questionsFor(day, region))[0];
   if (!question) return null;
   return {
     question: question.text,
@@ -103,18 +104,20 @@ export async function buildDailyEmail(
   region: NewsletterRegion,
 ): Promise<ReturnType<typeof buildDailyNewsletter>> {
   const site = siteUrl();
-  const featured = questionCard(day, region, "Today's first question");
-  const previous = [
-    questionCard(addDays(day, -1), region, 'Yesterday'),
-    questionCard(addDays(day, -2), region, 'Two days ago'),
-  ].filter((item): item is FeaturedQuestion => Boolean(item));
+  const featured = await questionCard(day, region, "Today's first question");
+  const previous = (
+    await Promise.all([
+      questionCard(addDays(day, -1), region, 'Yesterday'),
+      questionCard(addDays(day, -2), region, 'Two days ago'),
+    ])
+  ).filter((item): item is FeaturedQuestion => Boolean(item));
 
   return buildDailyNewsletter({
     day,
     site,
     region,
     entries: await boardEntries(day, region),
-    categories: categoriesFor(day, region),
+    categories: await categoriesFor(day, region),
     featured: featured ?? undefined,
     previous,
   });

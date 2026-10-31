@@ -1,0 +1,1749 @@
+[
+  {
+    "id": "world-w1-e-001",
+    "text": "Which art deco municipal stadium, opened in 1940, has a football museum built under its stands?",
+    "lat": -23.5478,
+    "lng": -46.665,
+    "category": "stadium",
+    "venue": "Estádio do Pacaembu",
+    "city": "São Paulo",
+    "country": "Brazil",
+    "hint": "It sits in a valley in a leafy neighbourhood and hosted games at the 1950 World Cup.",
+    "facts": [
+      "🏛️ Opened in 1940 with an art deco facade",
+      "⚽ The Museu do Futebol has been under its stands since 2008",
+      "🌎 Hosted matches at the 1950 World Cup"
+    ],
+    "wikipedia": "Estádio do Pacaembu"
+  },
+  {
+    "id": "world-w1-e-002",
+    "text": "Where was the opening match of the 2014 World Cup played?",
+    "lat": -23.5453,
+    "lng": -46.4742,
+    "category": "event",
+    "venue": "Neo Química Arena",
+    "city": "São Paulo",
+    "country": "Brazil",
+    "hint": "Home of the Timão and its army of fans called the Fiel, in the east zone of a vast metropolis.",
+    "facts": [
+      "🏟️ Opened in 2014 as Arena Corinthians",
+      "⚽ Brazil beat Croatia 3–1 there in the 2014 World Cup opener",
+      "🏅 Hosted football at the 2016 Olympics",
+      "⚫⚪ Home of Corinthians"
+    ],
+    "wikipedia": "Neo Química Arena"
+  },
+  {
+    "id": "world-w1-e-003",
+    "text": "Where do Palmeiras, the Verdão, play their home games?",
+    "lat": -23.5275,
+    "lng": -46.6783,
+    "category": "club",
+    "venue": "Allianz Parque",
+    "city": "São Paulo",
+    "country": "Brazil",
+    "hint": "It was built on the site of the club's old Palestra Itália ground.",
+    "facts": [
+      "🏟️ Opened in 2014",
+      "🌳 Stands where the Palestra Itália ground used to be",
+      "🇮🇹 Palmeiras were founded in 1914 by Italian immigrants",
+      "🎤 Also one of the busiest concert venues in the country"
+    ],
+    "wikipedia": "Allianz Parque"
+  },
+  {
+    "id": "world-w1-e-004",
+    "text": "Where is the Vila Belmiro, the small ground where Pelé played his club football?",
+    "lat": -23.9512,
+    "lng": -46.3389,
+    "category": "club",
+    "venue": "Vila Belmiro",
+    "city": "Santos",
+    "country": "Brazil",
+    "hint": "A tight little ground close to the biggest port on its continent's Atlantic coast.",
+    "facts": [
+      "🏟️ Officially the Estádio Urbano Caldeira, opened in 1916",
+      "👑 Pelé scored hundreds of goals here for Santos",
+      "🕯️ Pelé's wake was held on the pitch in January 2023",
+      "⭐ Neymar also started his career here"
+    ],
+    "wikipedia": "Estádio Urbano Caldeira"
+  },
+  {
+    "id": "world-w1-e-005",
+    "text": "Where did the hosts lose 7–1 in a 2014 World Cup semi-final?",
+    "lat": -19.8658,
+    "lng": -43.9711,
+    "category": "event",
+    "venue": "Mineirão",
+    "city": "Belo Horizonte",
+    "country": "Brazil",
+    "hint": "A huge concrete bowl beside a lake, shared by Cruzeiro and Atlético.",
+    "facts": [
+      "🏟️ Opened in 1965",
+      "😱 Germany beat Brazil 7–1 there on 8 July 2014",
+      "🌊 Next to Lake Pampulha",
+      "🦊 Home of Cruzeiro"
+    ],
+    "wikipedia": "Mineirão"
+  },
+  {
+    "id": "world-w1-e-006",
+    "text": "Where does Sport Club Internacional play its home games?",
+    "lat": -30.0656,
+    "lng": -51.2358,
+    "category": "club",
+    "venue": "Estádio Beira-Rio",
+    "city": "Porto Alegre",
+    "country": "Brazil",
+    "hint": "Built on land reclaimed from the water on the city's riverfront, in the far south.",
+    "facts": [
+      "🏟️ Opened in 1969",
+      "🌊 Built on landfill on the shore of the Guaíba",
+      "⚽ Hosted matches at the 2014 World Cup",
+      "🌧️ Flooded during the 2024 Rio Grande do Sul floods"
+    ],
+    "wikipedia": "Estádio Beira-Rio"
+  },
+  {
+    "id": "world-w1-e-007",
+    "text": "Where did the Dutch thrash the reigning world champions 5–1 at the 2014 World Cup?",
+    "lat": -12.9787,
+    "lng": -38.5043,
+    "category": "event",
+    "venue": "Arena Fonte Nova",
+    "city": "Salvador",
+    "country": "Brazil",
+    "hint": "Home of EC Bahia, rebuilt on the site of an old horseshoe stadium in the first colonial capital.",
+    "facts": [
+      "🏟️ Opened in 2013, replacing the old Estádio Fonte Nova",
+      "⚽ Netherlands beat Spain 5–1 there in 2014",
+      "🔵 Home of EC Bahia"
+    ],
+    "wikipedia": "Arena Fonte Nova"
+  },
+  {
+    "id": "world-w1-e-008",
+    "text": "Where is the Clássico-Rei, the \"King's Derby\" of the far northeast, played?",
+    "lat": -3.8072,
+    "lng": -38.5222,
+    "category": "stadium",
+    "venue": "Castelão",
+    "city": "Fortaleza",
+    "country": "Brazil",
+    "hint": "A big concrete bowl near the equatorial Atlantic coast that hosted 2014 World Cup games.",
+    "facts": [
+      "🏟️ Opened in 1973",
+      "⚽ Hosted six matches at the 2014 World Cup",
+      "🌴 Shared by Ceará SC and Fortaleza EC",
+      "☀️ Officially the Estádio Governador Plácido Castelo"
+    ],
+    "wikipedia": "Castelão (Ceará)"
+  },
+  {
+    "id": "world-w1-e-009",
+    "text": "Which arena, built for the 2013 Confederations Cup and the 2014 World Cup, stands in the green outskirts of the northeast's \"city of bridges\"?",
+    "lat": -8.0406,
+    "lng": -35.0083,
+    "category": "stadium",
+    "venue": "Arena Pernambuco",
+    "city": "São Lourenço da Mata",
+    "country": "Brazil",
+    "hint": "Náutico have used it for home games, a short drive inland from the Atlantic coast.",
+    "facts": [
+      "🏟️ Opened in 2013",
+      "⚽ Hosted matches at the 2013 Confederations Cup and the 2014 World Cup",
+      "🌳 Lies in São Lourenço da Mata, west of Recife"
+    ],
+    "wikipedia": "Arena Pernambuco"
+  },
+  {
+    "id": "world-w1-e-010",
+    "text": "Which stadium in a modernist planned capital is named after a bow-legged winger?",
+    "lat": -15.7835,
+    "lng": -47.8992,
+    "category": "stadium",
+    "venue": "Estádio Nacional Mané Garrincha",
+    "city": "Brasília",
+    "country": "Brazil",
+    "hint": "A ring of pillars holds up its roof, high on the central plateau.",
+    "facts": [
+      "🏟️ Rebuilt for the 2014 World Cup",
+      "⚽ Named after Garrincha, twice a world champion",
+      "🏅 Hosted football at the 2016 Olympics"
+    ],
+    "wikipedia": "Estádio Nacional Mané Garrincha"
+  },
+  {
+    "id": "world-w1-e-011",
+    "text": "Which 2014 World Cup stadium stands in the middle of the rainforest?",
+    "lat": -3.0832,
+    "lng": -60.028,
+    "category": "stadium",
+    "venue": "Arena da Amazônia",
+    "city": "Manaus",
+    "country": "Brazil",
+    "hint": "Its facade was inspired by a straw basket, far up a great river.",
+    "facts": [
+      "🌳 Built for the 2014 World Cup",
+      "🧺 The facade copies an indigenous straw basket",
+      "🔥 England and Italy met there in sticky tropical heat",
+      "🏅 Hosted football at the 2016 Olympics"
+    ],
+    "wikipedia": "Arena da Amazônia"
+  },
+  {
+    "id": "world-w1-e-012",
+    "text": "Which stadium, long known as the \"Estadio Único\", hosted the opening match of the 2011 Copa América?",
+    "lat": -34.9138,
+    "lng": -57.989,
+    "category": "event",
+    "venue": "Estadio Único Diego Armando Maradona",
+    "city": "La Plata",
+    "country": "Argentina",
+    "hint": "In a planned provincial capital famous for its diagonal avenues.",
+    "facts": [
+      "🏟️ Opened in 2003",
+      "⚽ Argentina drew 1–1 with Bolivia there in the 2011 Copa América opener",
+      "🏷️ Renamed after Diego Maradona in 2020"
+    ],
+    "wikipedia": "Estadio Único Diego Armando Maradona"
+  },
+  {
+    "id": "world-w1-e-013",
+    "text": "Where does Racing Club play, in a stadium known as \"El Cilindro\"?",
+    "lat": -34.6676,
+    "lng": -58.3683,
+    "category": "club",
+    "venue": "Estadio Presidente Perón",
+    "city": "Avellaneda",
+    "country": "Argentina",
+    "hint": "A round concrete bowl named after a president, very close to a rival's ground.",
+    "facts": [
+      "🏟️ Opened in 1950",
+      "🔵 Nicknamed El Cilindro for its round shape",
+      "🏆 Racing won the 1967 Intercontinental Cup",
+      "👔 Named after Juan Perón"
+    ],
+    "wikipedia": "Estadio Presidente Perón"
+  },
+  {
+    "id": "world-w1-e-014",
+    "text": "Where do San Lorenzo, the club supported by Pope Francis, play their home games?",
+    "lat": -34.6522,
+    "lng": -58.4404,
+    "category": "club",
+    "venue": "Estadio Pedro Bidegain",
+    "city": "Buenos Aires",
+    "country": "Argentina",
+    "hint": "Known as \"El Nuevo Gasómetro\", in the south-west of a huge capital.",
+    "facts": [
+      "🏟️ Opened in 1993",
+      "⛪ Pope Francis was a lifelong San Lorenzo fan",
+      "🏆 San Lorenzo won the 2014 Copa Libertadores"
+    ],
+    "wikipedia": "Estadio Pedro Bidegain"
+  },
+  {
+    "id": "world-w1-e-015",
+    "text": "Which stadium is named after the top scorer of the 1978 World Cup?",
+    "lat": -31.3689,
+    "lng": -64.2459,
+    "category": "stadium",
+    "venue": "Estadio Mario Alberto Kempes",
+    "city": "Córdoba",
+    "country": "Argentina",
+    "hint": "Built for that 1978 tournament, in a university city in the middle of the country.",
+    "facts": [
+      "🏟️ Opened in 1978",
+      "⚽ Renamed after Mario Kempes in 2010",
+      "🏆 Kempes scored twice in the 1978 final",
+      "🏷️ Formerly known as Estadio Chateau Carreras"
+    ],
+    "wikipedia": "Estadio Mario Alberto Kempes"
+  },
+  {
+    "id": "world-w1-e-016",
+    "text": "Where do the \"Canallas\" of Central play, on the bank of a wide river?",
+    "lat": -32.9139,
+    "lng": -60.6741,
+    "category": "club",
+    "venue": "Estadio Gigante de Arroyito",
+    "city": "Rosario",
+    "country": "Argentina",
+    "hint": "It hosted the infamous 6–0 win by the hosts at the 1978 World Cup.",
+    "facts": [
+      "🏟️ Opened in 1926",
+      "⚽ Argentina beat Peru 6–0 there in 1978",
+      "🌊 Right next to the Paraná River",
+      "🟡🔵 Home of Rosario Central"
+    ],
+    "wikipedia": "Estadio Gigante de Arroyito"
+  },
+  {
+    "id": "world-w1-e-017",
+    "text": "Which stadium is named after the coach known as \"El Loco\", home of Newell's Old Boys?",
+    "lat": -32.9555,
+    "lng": -60.6619,
+    "category": "club",
+    "venue": "Estadio Marcelo Bielsa",
+    "city": "Rosario",
+    "country": "Argentina",
+    "hint": "It stands in a large park, across town from the Canallas.",
+    "facts": [
+      "🏟️ Renamed after Marcelo Bielsa in 2009",
+      "🔴⚫ Home of Newell's Old Boys",
+      "⚽ Lionel Messi played in Newell's youth teams",
+      "🌳 Inside the Parque de la Independencia"
+    ],
+    "wikipedia": "Estadio Marcelo Bielsa"
+  },
+  {
+    "id": "world-w1-e-018",
+    "text": "Where does the \"Semillero del Mundo\", the club where Maradona made his debut, play?",
+    "lat": -34.6062,
+    "lng": -58.4762,
+    "category": "club",
+    "venue": "Estadio Diego Armando Maradona",
+    "city": "Buenos Aires",
+    "country": "Argentina",
+    "hint": "A compact ground in the La Paternal district of a huge capital.",
+    "facts": [
+      "🏟️ Rebuilt and reopened in 2003",
+      "⚽ Maradona debuted for Argentinos Juniors in 1976",
+      "🏷️ Named after Maradona since 2004",
+      "🌱 The club is nicknamed \"the seedbed of the world\""
+    ],
+    "wikipedia": "Estadio Diego Armando Maradona"
+  },
+  {
+    "id": "world-w1-e-019",
+    "text": "Which 1978 World Cup stadium sits at the foot of the Andes in a wine-growing region?",
+    "lat": -32.8897,
+    "lng": -68.88,
+    "category": "stadium",
+    "venue": "Estadio Malvinas Argentinas",
+    "city": "Mendoza",
+    "country": "Argentina",
+    "hint": "Built in a big park on the western edge of a sunny city of vineyards.",
+    "facts": [
+      "🏟️ Opened in 1978",
+      "⚽ Hosted matches at the 1978 World Cup",
+      "🍷 Mendoza is the heart of Argentine wine country",
+      "⛰️ The Andes rise just to the west"
+    ],
+    "wikipedia": "Estadio Malvinas Argentinas"
+  },
+  {
+    "id": "world-w1-e-020",
+    "text": "Where does Colo-Colo, the most successful club in its country, play?",
+    "lat": -33.5064,
+    "lng": -70.606,
+    "category": "club",
+    "venue": "Estadio Monumental David Arellano",
+    "city": "Santiago",
+    "country": "Chile",
+    "hint": "Named after a club founder who died after an injury on a European tour in 1927.",
+    "facts": [
+      "🏆 Colo-Colo won the 1991 Copa Libertadores",
+      "🕯️ David Arellano died on a tour of Spain in 1927",
+      "⚪⚫ Home of Colo-Colo",
+      "🏔️ The Andes rise behind it"
+    ],
+    "wikipedia": "Estadio Monumental David Arellano"
+  },
+  {
+    "id": "world-w1-e-021",
+    "text": "Which stadium beside a lagoon hosted a semi-final of the 1962 World Cup?",
+    "lat": -33.0175,
+    "lng": -71.5378,
+    "category": "stadium",
+    "venue": "Estadio Sausalito",
+    "city": "Viña del Mar",
+    "country": "Chile",
+    "hint": "Home of Everton - not the English one - in a seaside garden city.",
+    "facts": [
+      "🏟️ Opened in 1929",
+      "⚽ Hosted 1962 World Cup games, including a semi-final",
+      "🌊 Next to the Sausalito lagoon",
+      "🔵 Home of Everton de Viña del Mar"
+    ],
+    "wikipedia": "Estadio Sausalito"
+  },
+  {
+    "id": "world-w1-e-022",
+    "text": "Where do Millonarios and Santa Fe share a stadium about 2,600 m above sea level?",
+    "lat": 4.6461,
+    "lng": -74.0775,
+    "category": "stadium",
+    "venue": "Estadio El Campín",
+    "city": "Bogotá",
+    "country": "Colombia",
+    "hint": "In the high capital of a coffee-growing nation.",
+    "facts": [
+      "🏟️ Opened in 1938",
+      "⛰️ About 2,600 m above sea level",
+      "🏆 Hosted the 2001 Copa América final",
+      "💙❤️ Shared by Millonarios and Santa Fe"
+    ],
+    "wikipedia": "Estadio El Campín"
+  },
+  {
+    "id": "world-w1-e-023",
+    "text": "Where does the national team play its World Cup qualifiers, in sticky Caribbean heat?",
+    "lat": 10.9269,
+    "lng": -74.8,
+    "category": "stadium",
+    "venue": "Estadio Metropolitano Roberto Meléndez",
+    "city": "Barranquilla",
+    "country": "Colombia",
+    "hint": "Home of Junior, \"El Tiburón\", in a port city famous for its Carnival.",
+    "facts": [
+      "🏟️ Opened in 1986",
+      "🔥 Colombia's usual home for World Cup qualifiers",
+      "🦈 Home of Atlético Junior",
+      "🎉 The city hosts one of the biggest carnivals in the world"
+    ],
+    "wikipedia": "Estadio Metropolitano Roberto Meléndez"
+  },
+  {
+    "id": "world-w1-e-024",
+    "text": "Where does Barcelona Sporting Club, \"El Ídolo\", play its home games?",
+    "lat": -2.1886,
+    "lng": -79.9256,
+    "category": "club",
+    "venue": "Estadio Monumental Isidro Romero Carbo",
+    "city": "Guayaquil",
+    "country": "Ecuador",
+    "hint": "The biggest stadium in its country, in a port city on a river near the Pacific.",
+    "facts": [
+      "🏟️ Opened in 1987",
+      "📈 The largest stadium in Ecuador",
+      "🏆 Hosted the 2022 Copa Libertadores final",
+      "🟡 The club is named after the Catalan city"
+    ],
+    "wikipedia": "Estadio Monumental Isidro Romero Carbo"
+  },
+  {
+    "id": "world-w1-e-025",
+    "text": "Which national stadium is named after the soldiers of a 1930s war?",
+    "lat": -25.2921,
+    "lng": -57.6574,
+    "category": "stadium",
+    "venue": "Estadio Defensores del Chaco",
+    "city": "Asunción",
+    "country": "Paraguay",
+    "hint": "In a riverside capital, home of La Albirroja.",
+    "facts": [
+      "🏟️ Opened in 1917",
+      "⚔️ Named for the defenders in the Chaco War of 1932–35",
+      "⚽ Home of the Paraguay national team",
+      "🏆 Hosted Copa América matches in 1999"
+    ],
+    "wikipedia": "Estadio Defensores del Chaco"
+  },
+  {
+    "id": "world-w1-e-026",
+    "text": "Where do Rayados play, with a famous saddle-shaped mountain behind one end?",
+    "lat": 25.6694,
+    "lng": -100.2444,
+    "category": "club",
+    "venue": "Estadio BBVA",
+    "city": "Guadalupe",
+    "country": "Mexico",
+    "hint": "Nicknamed \"El Gigante de Acero\", in a big northern industrial city.",
+    "facts": [
+      "🏟️ Opened in 2015",
+      "⛰️ Open end faces the Cerro de la Silla",
+      "⚽ A host venue of the 2026 World Cup",
+      "🔵 Home of CF Monterrey"
+    ],
+    "wikipedia": "Estadio BBVA"
+  },
+  {
+    "id": "world-w1-e-027",
+    "text": "Where do Tigres play, in a university stadium nicknamed \"El Volcán\"?",
+    "lat": 25.723,
+    "lng": -100.312,
+    "category": "club",
+    "venue": "Estadio Universitario",
+    "city": "San Nicolás de los Garza",
+    "country": "Mexico",
+    "hint": "In the north-east, in a suburb of a big industrial city.",
+    "facts": [
+      "🏟️ Opened in 1967",
+      "🌋 Nicknamed El Volcán",
+      "🐯 Home of Tigres UANL",
+      "⚽ Hosted matches at the 1986 World Cup"
+    ],
+    "wikipedia": "Estadio Universitario (UANL)"
+  },
+  {
+    "id": "world-w1-e-028",
+    "text": "Where do Chivas, the club that only fields home-grown national players, play?",
+    "lat": 20.6817,
+    "lng": -103.4625,
+    "category": "club",
+    "venue": "Estadio Akron",
+    "city": "Zapopan",
+    "country": "Mexico",
+    "hint": "A volcano-shaped stadium on the western edge of the home of mariachi.",
+    "facts": [
+      "🏟️ Opened in 2010",
+      "🌋 Designed to look like a volcano",
+      "🇲🇽 Chivas famously field only Mexican players",
+      "⚽ A host venue of the 2026 World Cup"
+    ],
+    "wikipedia": "Estadio Akron"
+  },
+  {
+    "id": "world-w1-e-029",
+    "text": "Which stadium named after the last Aztec emperor hosted games at the 1970 and 1986 World Cups?",
+    "lat": 19.0778,
+    "lng": -98.1661,
+    "category": "stadium",
+    "venue": "Estadio Cuauhtémoc",
+    "city": "Puebla",
+    "country": "Mexico",
+    "hint": "Home of \"La Franja\", in a colonial city in sight of a smoking volcano.",
+    "facts": [
+      "🏟️ Opened in 1968",
+      "⚽ A World Cup venue in 1970 and 1986",
+      "👑 Named after Cuauhtémoc",
+      "🌋 Popocatépetl is nearby"
+    ],
+    "wikipedia": "Estadio Cuauhtémoc"
+  },
+  {
+    "id": "world-w1-e-030",
+    "text": "Where do the \"Diablos Rojos\" play, about 2,600 m above sea level?",
+    "lat": 19.2875,
+    "lng": -99.6667,
+    "category": "club",
+    "venue": "Estadio Nemesio Díez",
+    "city": "Toluca",
+    "country": "Mexico",
+    "hint": "One of the highest top-flight grounds on its continent, west of a giant capital.",
+    "facts": [
+      "🏟️ Opened in 1954",
+      "⛰️ Roughly 2,660 m above sea level",
+      "😈 Home of Deportivo Toluca",
+      "⚽ Hosted World Cup games in 1970 and 1986"
+    ],
+    "wikipedia": "Estadio Nemesio Díez"
+  },
+  {
+    "id": "world-w1-e-031",
+    "text": "Where do the Xolos, named after a hairless dog, play on artificial turf?",
+    "lat": 32.5061,
+    "lng": -116.9931,
+    "category": "club",
+    "venue": "Estadio Caliente",
+    "city": "Tijuana",
+    "country": "Mexico",
+    "hint": "Close to the busiest land border crossing on its continent.",
+    "facts": [
+      "🏟️ Opened in 2007",
+      "🐕 Club Tijuana are named after the xoloitzcuintle dog",
+      "🌱 Plays on an artificial pitch",
+      "🎰 Named after the Caliente betting company"
+    ],
+    "wikipedia": "Estadio Caliente"
+  },
+  {
+    "id": "world-w1-e-032",
+    "text": "Which stadium, the largest in Central America, is home of \"La Selecta\"?",
+    "lat": 13.6814,
+    "lng": -89.2236,
+    "category": "stadium",
+    "venue": "Estadio Cuscatlán",
+    "city": "San Salvador",
+    "country": "El Salvador",
+    "hint": "In a capital surrounded by volcanoes on the Pacific side of the isthmus.",
+    "facts": [
+      "🏟️ Opened in 1976",
+      "📈 The largest stadium in Central America",
+      "🔵 Home of the El Salvador national team"
+    ],
+    "wikipedia": "Estadio Cuscatlán"
+  },
+  {
+    "id": "world-w1-e-033",
+    "text": "Where does \"La Marea Roja\" play, in a stadium named after a striker killed in a 1993 car crash?",
+    "lat": 9.0358,
+    "lng": -79.4694,
+    "category": "stadium",
+    "venue": "Estadio Rommel Fernández",
+    "city": "Panama City",
+    "country": "Panama",
+    "hint": "Near the Pacific end of a famous canal.",
+    "facts": [
+      "🏟️ Opened in 1970",
+      "⚽ Named after Rommel Fernández, who died in 1993",
+      "🔴 Home of the Panama national team"
+    ],
+    "wikipedia": "Estadio Rommel Fernández"
+  },
+  {
+    "id": "world-w1-e-034",
+    "text": "Which ballpark, nicknamed \"El Coloso del Cerro\", is the cathedral of a baseball-mad island?",
+    "lat": 23.1197,
+    "lng": -82.3756,
+    "category": "stadium",
+    "venue": "Estadio Latinoamericano",
+    "city": "Havana",
+    "country": "Cuba",
+    "hint": "Home of Industriales, \"Los Leones\", in an old Caribbean capital.",
+    "facts": [
+      "⚾ Opened in 1946",
+      "🦁 Home of Industriales",
+      "🇺🇸 Barack Obama watched the Tampa Bay Rays play there in 2016"
+    ],
+    "wikipedia": "Estadio Latinoamericano"
+  },
+  {
+    "id": "world-w1-e-035",
+    "text": "Where did Garfield Sobers score 365 not out in 1958?",
+    "lat": 17.9767,
+    "lng": -76.7808,
+    "category": "event",
+    "venue": "Sabina Park",
+    "city": "Kingston",
+    "country": "Jamaica",
+    "hint": "A Test ground on a Caribbean island, with blue mountains on the skyline.",
+    "facts": [
+      "🏏 Sobers's 365* came against Pakistan in 1958",
+      "⛰️ The Blue Mountains form the backdrop",
+      "🏏 Hosted matches at the 2007 World Cup"
+    ],
+    "wikipedia": "Sabina Park"
+  },
+  {
+    "id": "world-w1-e-036",
+    "text": "Where was the 2007 Cricket World Cup final played, finishing in near darkness?",
+    "lat": 13.1044,
+    "lng": -59.6219,
+    "category": "event",
+    "venue": "Kensington Oval",
+    "city": "Bridgetown",
+    "country": "Barbados",
+    "hint": "Called the \"Mecca\" of West Indies cricket, on a small island's south-west coast.",
+    "facts": [
+      "🏆 Australia beat Sri Lanka in the 2007 World Cup final",
+      "🏆 Hosted the 2010 and 2024 T20 World Cup finals",
+      "🏏 Test cricket since 1930"
+    ],
+    "wikipedia": "Kensington Oval"
+  },
+  {
+    "id": "world-w1-e-037",
+    "text": "Which cricket ground, with the Northern Range behind it, has hosted the most West Indies Tests?",
+    "lat": 10.6697,
+    "lng": -61.5225,
+    "category": "stadium",
+    "venue": "Queen's Park Oval",
+    "city": "Port of Spain",
+    "country": "Trinidad and Tobago",
+    "hint": "In a capital on the island that gave the world the steelpan.",
+    "facts": [
+      "🏏 Hosted its first Test in 1930",
+      "⛰️ The Northern Range forms the backdrop",
+      "🎶 Known for its party atmosphere"
+    ],
+    "wikipedia": "Queen's Park Oval"
+  },
+  {
+    "id": "world-w1-e-038",
+    "text": "Where did Brian Lara score 375 in 1994 and 400 not out in 2004?",
+    "lat": 17.1206,
+    "lng": -61.8436,
+    "category": "athlete",
+    "venue": "Antigua Recreation Ground",
+    "city": "St. John's",
+    "country": "Antigua and Barbuda",
+    "hint": "A small ground on a small Leeward island, close to the cathedral.",
+    "facts": [
+      "🏏 Lara made both world records against England",
+      "💥 Viv Richards hit a 56-ball Test hundred there in 1986",
+      "🏏 Test cricket since 1981"
+    ],
+    "wikipedia": "Antigua Recreation Ground"
+  },
+  {
+    "id": "world-w1-e-039",
+    "text": "Where do the Reds of MLS and the Argonauts of the CFL share a lakeside ground?",
+    "lat": 43.6332,
+    "lng": -79.4186,
+    "category": "club",
+    "venue": "BMO Field",
+    "city": "Toronto",
+    "country": "Canada",
+    "hint": "On the grounds of a big annual fair, beside a Great Lake.",
+    "facts": [
+      "🏟️ Opened in 2007",
+      "🏆 Toronto FC won the 2017 MLS Cup there",
+      "🏈 The Argonauts moved in in 2016",
+      "⚽ A host venue of the 2026 World Cup"
+    ],
+    "wikipedia": "BMO Field"
+  },
+  {
+    "id": "world-w1-e-040",
+    "text": "Which ballpark, opened in 1989 as the SkyDome, was the first with a fully retractable motorised roof?",
+    "lat": 43.6414,
+    "lng": -79.3894,
+    "category": "stadium",
+    "venue": "Rogers Centre",
+    "city": "Toronto",
+    "country": "Canada",
+    "hint": "Home of the Blue Jays, right below a needle-shaped tower.",
+    "facts": [
+      "🏟️ Opened in 1989 as SkyDome",
+      "⚾ The Blue Jays won the World Series in 1992 and 1993",
+      "🗼 Next to the CN Tower",
+      "🏨 A hotel has rooms overlooking the field"
+    ],
+    "wikipedia": "Rogers Centre"
+  },
+  {
+    "id": "world-w1-e-041",
+    "text": "Where was the 2015 Women's World Cup final played?",
+    "lat": 49.2768,
+    "lng": -123.112,
+    "category": "event",
+    "venue": "BC Place",
+    "city": "Vancouver",
+    "country": "Canada",
+    "hint": "Under a cable-supported roof beside False Creek on the Pacific coast.",
+    "facts": [
+      "⚽ USA beat Japan 5–2 in the 2015 final",
+      "🔥 Hosted the 2010 Winter Olympics ceremonies",
+      "🏟️ Opened in 1983",
+      "⚽ A host venue of the 2026 World Cup"
+    ],
+    "wikipedia": "BC Place"
+  },
+  {
+    "id": "world-w1-e-042",
+    "text": "Which stadium, home of the Elks, was built for the 1978 Commonwealth Games?",
+    "lat": 53.5597,
+    "lng": -113.4764,
+    "category": "stadium",
+    "venue": "Commonwealth Stadium",
+    "city": "Edmonton",
+    "country": "Canada",
+    "hint": "One of the largest open-air grounds in its league, on the northern prairies.",
+    "facts": [
+      "🏟️ Opened in 1978",
+      "🏈 Home of the Edmonton Elks",
+      "🏃 Hosted the 2001 World Athletics Championships",
+      "🏒 Hosted the 2003 Heritage Classic outdoor NHL game"
+    ],
+    "wikipedia": "Commonwealth Stadium (Edmonton)"
+  },
+  {
+    "id": "world-w1-e-043",
+    "text": "Which stadium with the world's tallest inclined tower hosted the 1976 Summer Olympics?",
+    "lat": 45.5579,
+    "lng": -73.5515,
+    "category": "stadium",
+    "venue": "Olympic Stadium",
+    "city": "Montreal",
+    "country": "Canada",
+    "hint": "Nicknamed \"The Big O\" - or \"The Big Owe\", because of its huge debt.",
+    "facts": [
+      "🏟️ Built for the 1976 Olympics",
+      "🗼 Its inclined tower is 165 m tall",
+      "💸 The debt was only paid off in 2006",
+      "⚾ The Expos played there until 2004"
+    ],
+    "wikipedia": "Olympic Stadium (Montreal)"
+  },
+  {
+    "id": "world-w1-e-044",
+    "text": "Where do the Stampeders play their home games?",
+    "lat": 51.0703,
+    "lng": -114.1214,
+    "category": "stadium",
+    "venue": "McMahon Stadium",
+    "city": "Calgary",
+    "country": "Canada",
+    "hint": "It hosted the ceremonies of a Winter Olympics in the foothills of the Rockies.",
+    "facts": [
+      "🏟️ Opened in 1960",
+      "🏅 Hosted the opening and closing ceremonies of the 1988 Winter Olympics",
+      "🐎 Home of the Calgary Stampeders"
+    ],
+    "wikipedia": "McMahon Stadium"
+  },
+  {
+    "id": "world-w1-e-045",
+    "text": "Where do Al Ahly and Zamalek meet in the most famous derby of their continent?",
+    "lat": 30.0692,
+    "lng": 31.3122,
+    "category": "stadium",
+    "venue": "Cairo International Stadium",
+    "city": "Cairo",
+    "country": "Egypt",
+    "hint": "Opened by President Nasser in 1960, in a vast city on the Nile.",
+    "facts": [
+      "🏟️ Opened in 1960",
+      "🏆 Hosted the Africa Cup of Nations finals of 1986, 2006 and 2019",
+      "🔴⚪ Home of the Cairo derby"
+    ],
+    "wikipedia": "Cairo International Stadium"
+  },
+  {
+    "id": "world-w1-e-046",
+    "text": "Where do Raja and Wydad play one of the fiercest derbies in world football?",
+    "lat": 33.5828,
+    "lng": -7.6467,
+    "category": "club",
+    "venue": "Stade Mohammed V",
+    "city": "Casablanca",
+    "country": "Morocco",
+    "hint": "In the biggest city of its kingdom, a short walk from the Atlantic.",
+    "facts": [
+      "🏷️ Named after King Mohammed V",
+      "🟢🔴 Shared by Raja and Wydad",
+      "⚽ Hosted the 1988 Africa Cup of Nations final"
+    ],
+    "wikipedia": "Stade Mohammed V"
+  },
+  {
+    "id": "world-w1-e-047",
+    "text": "Which stadium is named after an independence day in 1962?",
+    "lat": 36.7599,
+    "lng": 2.9952,
+    "category": "stadium",
+    "venue": "Stade du 5 Juillet",
+    "city": "Algiers",
+    "country": "Algeria",
+    "hint": "It hosted the 1990 Africa Cup of Nations final, won by the hosts.",
+    "facts": [
+      "🏟️ Opened in 1972",
+      "🎉 Named after 5 July 1962, independence day",
+      "🏆 Algeria beat Nigeria 1–0 there in the 1990 final"
+    ],
+    "wikipedia": "Stade du 5 Juillet 1962"
+  },
+  {
+    "id": "world-w1-e-048",
+    "text": "Which 2010 World Cup stadium has roof supports shaped like giraffes?",
+    "lat": -25.461,
+    "lng": 30.929,
+    "category": "stadium",
+    "venue": "Mbombela Stadium",
+    "city": "Mbombela",
+    "country": "South Africa",
+    "hint": "Close to one of the most famous game reserves on its continent.",
+    "facts": [
+      "🦒 Its roof pillars are shaped like giraffes",
+      "🦓 The seats are coloured in zebra stripes",
+      "⚽ Hosted group matches at the 2010 World Cup",
+      "🐘 The city is a gateway to Kruger National Park"
+    ],
+    "wikipedia": "Mbombela Stadium"
+  },
+  {
+    "id": "world-w1-e-049",
+    "text": "Which stadium has a giant arch with a cable car running to the top?",
+    "lat": -29.8292,
+    "lng": 31.03,
+    "category": "stadium",
+    "venue": "Moses Mabhida Stadium",
+    "city": "Durban",
+    "country": "South Africa",
+    "hint": "Built for the 2010 World Cup near warm Indian Ocean beaches.",
+    "facts": [
+      "🏟️ Opened in 2009",
+      "🌉 The arch is over 100 m high, with a SkyCar to the top",
+      "⚽ Spain beat Germany there in the 2010 semi-final"
+    ],
+    "wikipedia": "Moses Mabhida Stadium"
+  },
+  {
+    "id": "world-w1-e-050",
+    "text": "Where did Nelson Mandela hand the Webb Ellis Cup to François Pienaar in 1995?",
+    "lat": -26.1975,
+    "lng": 28.0606,
+    "category": "event",
+    "venue": "Ellis Park Stadium",
+    "city": "Johannesburg",
+    "country": "South Africa",
+    "hint": "A rugby ground on the Witwatersrand, home of the Lions.",
+    "facts": [
+      "🏉 South Africa beat New Zealand 15–12 in the 1995 final",
+      "🎬 The match is the climax of the film Invictus",
+      "⚽ Hosted the 2009 Confederations Cup final",
+      "🦁 Home of the Lions"
+    ],
+    "wikipedia": "Ellis Park Stadium"
+  },
+  {
+    "id": "world-w1-e-051",
+    "text": "Where do the Blue Bulls play rugby in front of a sea of light blue?",
+    "lat": -25.7533,
+    "lng": 28.2228,
+    "category": "club",
+    "venue": "Loftus Versfeld Stadium",
+    "city": "Pretoria",
+    "country": "South Africa",
+    "hint": "In the jacaranda city, the administrative capital, also home of the Sundowns.",
+    "facts": [
+      "🐂 Home of the Bulls",
+      "⚽ Mamelodi Sundowns also play here",
+      "⚽ A 2010 World Cup venue",
+      "💜 The city is famous for its jacaranda trees"
+    ],
+    "wikipedia": "Loftus Versfeld Stadium"
+  },
+  {
+    "id": "world-w1-e-052",
+    "text": "Which Test ground is often called the most beautiful in the world, overlooked by Devil's Peak?",
+    "lat": -33.975,
+    "lng": 18.4692,
+    "category": "stadium",
+    "venue": "Newlands Cricket Ground",
+    "city": "Cape Town",
+    "country": "South Africa",
+    "hint": "In the leafy southern suburbs, next to a brewery.",
+    "facts": [
+      "🏏 Hosted its first Test in 1889",
+      "⛰️ Table Mountain and Devil's Peak tower over it",
+      "🍺 Right beside the Newlands Brewery"
+    ],
+    "wikipedia": "Newlands Cricket Ground"
+  },
+  {
+    "id": "world-w1-e-053",
+    "text": "Where did the hosts chase down 434 in the famous \"438 game\" of 2006?",
+    "lat": -26.1317,
+    "lng": 28.0572,
+    "category": "event",
+    "venue": "Wanderers Stadium",
+    "city": "Johannesburg",
+    "country": "South Africa",
+    "hint": "A steep cricket bowl nicknamed \"the Bullring\".",
+    "facts": [
+      "🏏 South Africa scored 438/9 against Australia's 434/4 on 12 March 2006",
+      "🐂 Nicknamed the Bullring",
+      "🏆 Hosted the 2003 World Cup final and the 2007 T20 World Cup final"
+    ],
+    "wikipedia": "Wanderers Stadium"
+  },
+  {
+    "id": "world-w1-e-054",
+    "text": "Where do Hearts of Oak play, in a stadium where 126 people died in a 2001 crush?",
+    "lat": 5.5517,
+    "lng": -0.1919,
+    "category": "club",
+    "venue": "Accra Sports Stadium",
+    "city": "Accra",
+    "country": "Ghana",
+    "hint": "In a coastal West African capital, home of the Black Stars.",
+    "facts": [
+      "⚠️ 126 people died in the 9 May 2001 disaster",
+      "🌳 Home of Accra Hearts of Oak",
+      "⭐ Formerly called the Ohene Djan Stadium"
+    ],
+    "wikipedia": "Accra Sports Stadium"
+  },
+  {
+    "id": "world-w1-e-055",
+    "text": "Where do Asante Kotoko, the \"Porcupine Warriors\", play their home games?",
+    "lat": 6.6833,
+    "lng": -1.6136,
+    "category": "club",
+    "venue": "Baba Yara Stadium",
+    "city": "Kumasi",
+    "country": "Ghana",
+    "hint": "In the garden city, seat of the old Ashanti kingdom.",
+    "facts": [
+      "🏷️ Named after the winger Baba Yara",
+      "🦔 Home of Asante Kotoko",
+      "⚽ Hosted games at the 2008 Africa Cup of Nations"
+    ],
+    "wikipedia": "Baba Yara Stadium"
+  },
+  {
+    "id": "world-w1-e-056",
+    "text": "Which stadium is named after a poet who became his country's first president?",
+    "lat": 14.7469,
+    "lng": -17.4517,
+    "category": "stadium",
+    "venue": "Stade Léopold Sédar Senghor",
+    "city": "Dakar",
+    "country": "Senegal",
+    "hint": "In a capital on the westernmost point of mainland Africa.",
+    "facts": [
+      "🏟️ Opened in 1985",
+      "✍️ Senghor was a celebrated poet and the first president",
+      "🦁 Long the home of the Lions of Teranga"
+    ],
+    "wikipedia": "Stade Léopold Sédar Senghor"
+  },
+  {
+    "id": "world-w1-e-057",
+    "text": "Where do Simba and Young Africans clash in the Kariakoo derby?",
+    "lat": -6.8536,
+    "lng": 39.2733,
+    "category": "club",
+    "venue": "Benjamin Mkapa Stadium",
+    "city": "Dar es Salaam",
+    "country": "Tanzania",
+    "hint": "A Chinese-built stadium in a big Indian Ocean port.",
+    "facts": [
+      "🏟️ Opened in 2007",
+      "🦁 Simba vs Yanga is the country's biggest derby",
+      "🏗️ Built with Chinese help",
+      "🏷️ Named after former president Benjamin Mkapa"
+    ],
+    "wikipedia": "Benjamin Mkapa Stadium"
+  },
+  {
+    "id": "world-w1-e-058",
+    "text": "Where do Orlando Pirates, the Buccaneers, play their home games?",
+    "lat": -26.2344,
+    "lng": 27.9258,
+    "category": "club",
+    "venue": "Orlando Stadium",
+    "city": "Johannesburg",
+    "country": "South Africa",
+    "hint": "In a famous township south-west of a gold-rush city.",
+    "facts": [
+      "🏟️ Rebuilt and reopened in 2008",
+      "🏴‍☠️ Home of Orlando Pirates",
+      "✊ In Soweto, the township of the 1976 uprising"
+    ],
+    "wikipedia": "Orlando Stadium"
+  },
+  {
+    "id": "world-w1-e-059",
+    "text": "Which stadium hosted the 2006 Asian Games and the 2019 World Athletics Championships?",
+    "lat": 25.2636,
+    "lng": 51.4481,
+    "category": "stadium",
+    "venue": "Khalifa International Stadium",
+    "city": "Doha",
+    "country": "Qatar",
+    "hint": "Its twin arches also watched the third-place play-off of the 2022 World Cup.",
+    "facts": [
+      "🏟️ Opened in 1976",
+      "🏃 2019 World Athletics Championships",
+      "⚽ Croatia beat Morocco there in the 2022 third-place play-off",
+      "❄️ Fitted with outdoor cooling"
+    ],
+    "wikipedia": "Khalifa International Stadium"
+  },
+  {
+    "id": "world-w1-e-060",
+    "text": "Which World Cup stadium is shaped like a Bedouin tent?",
+    "lat": 25.6522,
+    "lng": 51.4875,
+    "category": "stadium",
+    "venue": "Al Bayt Stadium",
+    "city": "Al Khor",
+    "country": "Qatar",
+    "hint": "In the north, it hosted the opening match of the 2022 tournament.",
+    "facts": [
+      "🏕️ Modelled on the bayt al sha'ar tent",
+      "⚽ Ecuador beat the hosts 2–0 in the 2022 opener",
+      "🏆 France beat Morocco there in the 2022 semi-final"
+    ],
+    "wikipedia": "Al Bayt Stadium"
+  },
+  {
+    "id": "world-w1-e-061",
+    "text": "Which stadium with a tent-like roof hosted the first three editions of the Confederations Cup?",
+    "lat": 24.7892,
+    "lng": 46.8397,
+    "category": "event",
+    "venue": "King Fahd International Stadium",
+    "city": "Riyadh",
+    "country": "Saudi Arabia",
+    "hint": "In a desert capital, home of the national team.",
+    "facts": [
+      "🏟️ Opened in 1987",
+      "⛺ Its roof is a giant membrane on cables",
+      "🏆 Hosted the 1992, 1995 and 1997 tournaments"
+    ],
+    "wikipedia": "King Fahd International Stadium"
+  },
+  {
+    "id": "world-w1-e-062",
+    "text": "Which stadium, nicknamed \"The Shining Jewel\", hosted the 2023 Club World Cup final?",
+    "lat": 21.7636,
+    "lng": 39.1636,
+    "category": "stadium",
+    "venue": "King Abdullah Sports City",
+    "city": "Jeddah",
+    "country": "Saudi Arabia",
+    "hint": "Near the Red Sea, home of Al-Ittihad and Al-Ahli.",
+    "facts": [
+      "💎 Nicknamed Al-Jawhara",
+      "🏆 Manchester City beat Fluminense there in December 2023",
+      "⚽ Home of Al-Ittihad and Al-Ahli"
+    ],
+    "wikipedia": "King Abdullah Sports City"
+  },
+  {
+    "id": "world-w1-e-063",
+    "text": "Where do the red and blue giants of the capital meet in a derby that has drawn 100,000 fans?",
+    "lat": 35.7247,
+    "lng": 51.2756,
+    "category": "stadium",
+    "venue": "Azadi Stadium",
+    "city": "Tehran",
+    "country": "Iran",
+    "hint": "Its name means \"Freedom\", and it was built for the 1974 Asian Games.",
+    "facts": [
+      "🏟️ Opened in 1971",
+      "🗽 Azadi means freedom",
+      "🏆 Main venue of the 1974 Asian Games",
+      "🔴🔵 Persepolis vs Esteghlal"
+    ],
+    "wikipedia": "Azadi Stadium"
+  },
+  {
+    "id": "world-w1-e-064",
+    "text": "Which cricket ground with a \"Ring of Fire\" floodlight system hosted the 2021 T20 World Cup final?",
+    "lat": 25.0469,
+    "lng": 55.2186,
+    "category": "event",
+    "venue": "Dubai International Cricket Stadium",
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "hint": "Inside a purpose-built sports city on the Gulf coast.",
+    "facts": [
+      "🏏 Opened in 2009",
+      "💡 Its roof-mounted lights are called the Ring of Fire",
+      "🏆 Australia won the 2021 T20 World Cup final there",
+      "🏆 India won the 2025 Champions Trophy final there"
+    ],
+    "wikipedia": "Dubai International Cricket Stadium"
+  },
+  {
+    "id": "world-w1-e-065",
+    "text": "Which cricket ground has hosted more one-day internationals than any other?",
+    "lat": 25.3311,
+    "lng": 55.4206,
+    "category": "stadium",
+    "venue": "Sharjah Cricket Stadium",
+    "city": "Sharjah",
+    "country": "United Arab Emirates",
+    "hint": "Sachin Tendulkar's \"Desert Storm\" innings was played here in 1998.",
+    "facts": [
+      "🏏 The world record for ODIs hosted",
+      "🌪️ Tendulkar's Desert Storm hundred came in April 1998",
+      "🏟️ International cricket since 1984"
+    ],
+    "wikipedia": "Sharjah Cricket Stadium"
+  },
+  {
+    "id": "world-w1-e-066",
+    "text": "Where do Beitar play, in a ground named after a long-serving mayor?",
+    "lat": 31.7514,
+    "lng": 35.1908,
+    "category": "club",
+    "venue": "Teddy Stadium",
+    "city": "Jerusalem",
+    "country": "Israel",
+    "hint": "In the hills, named after the mayor Teddy Kollek.",
+    "facts": [
+      "🏟️ Opened in 1991",
+      "🏷️ Named after Teddy Kollek",
+      "⚽ Home of Beitar Jerusalem and Hapoel Jerusalem"
+    ],
+    "wikipedia": "Teddy Stadium"
+  },
+  {
+    "id": "world-w1-e-067",
+    "text": "Where did MS Dhoni hit the six that won the 2011 Cricket World Cup?",
+    "lat": 18.9389,
+    "lng": 72.8258,
+    "category": "event",
+    "venue": "Wankhede Stadium",
+    "city": "Mumbai",
+    "country": "India",
+    "hint": "Steps from a seafront promenade nicknamed the Queen's Necklace.",
+    "facts": [
+      "🏆 India beat Sri Lanka in the 2011 final",
+      "🏏 Opened in 1974",
+      "🏏 Sachin Tendulkar's home ground",
+      "🏏 Home of the Mumbai Indians"
+    ],
+    "wikipedia": "Wankhede Stadium"
+  },
+  {
+    "id": "world-w1-e-068",
+    "text": "Which cricket ground, with snow-capped Himalayan peaks behind it, is often called the most scenic in the world?",
+    "lat": 32.1977,
+    "lng": 76.326,
+    "category": "stadium",
+    "venue": "Himachal Pradesh Cricket Association Stadium",
+    "city": "Dharamshala",
+    "country": "India",
+    "hint": "Just down the hill from the home in exile of the Dalai Lama.",
+    "facts": [
+      "🏔️ The Dhauladhar range towers behind it",
+      "🏏 Hosted its first Test in 2017, India against Australia",
+      "⛰️ One of the highest international cricket grounds in the world"
+    ],
+    "wikipedia": "Himachal Pradesh Cricket Association Stadium"
+  },
+  {
+    "id": "world-w1-e-069",
+    "text": "Where do the \"Yellow Army\" Super Kings play, close to the Bay of Bengal?",
+    "lat": 13.0628,
+    "lng": 80.2792,
+    "category": "club",
+    "venue": "M. A. Chidambaram Stadium",
+    "city": "Chennai",
+    "country": "India",
+    "hint": "Known as Chepauk, where the national team won its first ever Test in 1952.",
+    "facts": [
+      "🏏 Hosted its first Test in 1934",
+      "🏆 India beat England there in 1952 for their first Test win",
+      "🤝 Scene of the tied Test of 1986",
+      "🦁 Home of Chennai Super Kings"
+    ],
+    "wikipedia": "M. A. Chidambaram Stadium"
+  },
+  {
+    "id": "world-w1-e-070",
+    "text": "Where did Anil Kumble take all ten wickets in an innings in 1999?",
+    "lat": 28.6378,
+    "lng": 77.2433,
+    "category": "athlete",
+    "venue": "Arun Jaitley Stadium",
+    "city": "New Delhi",
+    "country": "India",
+    "hint": "Formerly named Feroz Shah Kotla, after the fortress next door.",
+    "facts": [
+      "🎯 Kumble took 10/74 against Pakistan in February 1999",
+      "🏟️ Founded in 1883",
+      "🏏 Home of the Delhi Capitals"
+    ],
+    "wikipedia": "Arun Jaitley Stadium"
+  },
+  {
+    "id": "world-w1-e-071",
+    "text": "Where was the record Test total of 952 for 6 made in 1997?",
+    "lat": 6.9397,
+    "lng": 79.8719,
+    "category": "event",
+    "venue": "R. Premadasa Stadium",
+    "city": "Colombo",
+    "country": "Sri Lanka",
+    "hint": "Built on reclaimed marshland in an island's commercial capital.",
+    "facts": [
+      "🏏 Sri Lanka made 952/6 declared against India in 1997",
+      "🏆 Hosted the 2012 T20 World Cup final",
+      "🏟️ Opened in 1986"
+    ],
+    "wikipedia": "R. Premadasa Stadium"
+  },
+  {
+    "id": "world-w1-e-072",
+    "text": "Which cricket ground sits beside a 17th-century Dutch fort?",
+    "lat": 6.03,
+    "lng": 80.215,
+    "category": "stadium",
+    "venue": "Galle International Stadium",
+    "city": "Galle",
+    "country": "Sri Lanka",
+    "hint": "Waves swept across it in the 2004 Boxing Day tsunami.",
+    "facts": [
+      "🏰 Overlooked by the UNESCO-listed Galle Fort",
+      "🌊 Badly damaged in the 2004 tsunami",
+      "🎯 Muttiah Muralitharan took his 800th Test wicket there in 2010"
+    ],
+    "wikipedia": "Galle International Stadium"
+  },
+  {
+    "id": "world-w1-e-073",
+    "text": "Where did Yuvraj Singh hit six sixes in one over at the 2007 T20 World Cup?",
+    "lat": -29.8506,
+    "lng": 31.0297,
+    "category": "athlete",
+    "venue": "Kingsmead Cricket Ground",
+    "city": "Durban",
+    "country": "South Africa",
+    "hint": "A cricket ground near warm Indian Ocean beaches, scene of the \"Timeless Test\" of 1939.",
+    "facts": [
+      "💥 Yuvraj hit Stuart Broad for six sixes on 19 September 2007",
+      "⏳ The 1939 \"Timeless Test\" was abandoned after ten days of play",
+      "🏏 Hosted its first Test in 1923"
+    ],
+    "wikipedia": "Kingsmead Cricket Ground"
+  },
+  {
+    "id": "world-w1-e-074",
+    "text": "Which cricket ground in Mirpur hosted the opening match of the 2011 World Cup?",
+    "lat": 23.8069,
+    "lng": 90.3633,
+    "category": "stadium",
+    "venue": "Sher-e-Bangla National Cricket Stadium",
+    "city": "Dhaka",
+    "country": "Bangladesh",
+    "hint": "Home of the Tigers, in a crowded delta capital.",
+    "facts": [
+      "🏏 India played the hosts in the 2011 World Cup opener",
+      "🏆 Hosted the 2014 T20 World Cup final",
+      "🐅 Home of the Bangladesh team, the Tigers"
+    ],
+    "wikipedia": "Sher-e-Bangla National Cricket Stadium"
+  },
+  {
+    "id": "world-w1-e-075",
+    "text": "Which ivy-covered ballpark hosts the national high school baseball tournament every summer?",
+    "lat": 34.7214,
+    "lng": 135.3617,
+    "category": "stadium",
+    "venue": "Koshien Stadium",
+    "city": "Nishinomiya",
+    "country": "Japan",
+    "hint": "Home of the Hanshin Tigers, between two big port cities.",
+    "facts": [
+      "⚾ Opened in 1924",
+      "🌿 Its outfield walls are covered in ivy",
+      "🐯 Home of the Hanshin Tigers",
+      "🏖️ Losing high schoolers take home a bag of its soil"
+    ],
+    "wikipedia": "Koshien Stadium"
+  },
+  {
+    "id": "world-w1-e-076",
+    "text": "Which domed ballpark is nicknamed the \"Big Egg\"?",
+    "lat": 35.7056,
+    "lng": 139.7519,
+    "category": "stadium",
+    "venue": "Tokyo Dome",
+    "city": "Tokyo",
+    "country": "Japan",
+    "hint": "Home of the Yomiuri Giants, next to an amusement park.",
+    "facts": [
+      "⚾ Opened in 1988",
+      "🥊 Buster Douglas knocked out Mike Tyson there in 1990",
+      "🥚 Nicknamed the Big Egg",
+      "⚾ Home of the Yomiuri Giants"
+    ],
+    "wikipedia": "Tokyo Dome"
+  },
+  {
+    "id": "world-w1-e-077",
+    "text": "Where do the Urawa Red Diamonds play their home games?",
+    "lat": 35.9031,
+    "lng": 139.7175,
+    "category": "club",
+    "venue": "Saitama Stadium 2002",
+    "city": "Saitama",
+    "country": "Japan",
+    "hint": "Built for the 2002 World Cup, north of a huge capital.",
+    "facts": [
+      "🏟️ Opened in 2001",
+      "⚽ Brazil beat Turkey there in the 2002 semi-final",
+      "🔴 Home of Urawa Red Diamonds"
+    ],
+    "wikipedia": "Saitama Stadium 2002"
+  },
+  {
+    "id": "world-w1-e-078",
+    "text": "Where did Ronaldo score twice in the 2002 World Cup final?",
+    "lat": 35.51,
+    "lng": 139.6064,
+    "category": "event",
+    "venue": "International Stadium Yokohama",
+    "city": "Yokohama",
+    "country": "Japan",
+    "hint": "It also hosted the 2019 Rugby World Cup final.",
+    "facts": [
+      "⚽ Brazil beat Germany 2–0 in the 2002 final",
+      "🏉 South Africa beat England there in the 2019 final",
+      "⚓ Home of Yokohama F. Marinos",
+      "🏟️ The largest stadium in Japan by capacity"
+    ],
+    "wikipedia": "International Stadium Yokohama"
+  },
+  {
+    "id": "world-w1-e-079",
+    "text": "Which stadium, with a roof shaped like a traditional kite, hosted the 2002 World Cup opener?",
+    "lat": 37.5683,
+    "lng": 126.8972,
+    "category": "event",
+    "venue": "Seoul World Cup Stadium",
+    "city": "Seoul",
+    "country": "South Korea",
+    "hint": "Beside a big river, built near a former landfill.",
+    "facts": [
+      "🏟️ Opened in 2001",
+      "🪁 The roof is modelled on a traditional kite",
+      "⚽ Senegal beat holders France 1–0 there in 2002",
+      "⚽ Home of FC Seoul"
+    ],
+    "wikipedia": "Seoul World Cup Stadium"
+  },
+  {
+    "id": "world-w1-e-080",
+    "text": "Which ballpark is shared by the LG Twins and the Doosan Bears?",
+    "lat": 37.5122,
+    "lng": 127.0719,
+    "category": "club",
+    "venue": "Jamsil Baseball Stadium",
+    "city": "Seoul",
+    "country": "South Korea",
+    "hint": "Inside a big Olympic sports complex from 1988.",
+    "facts": [
+      "⚾ Opened in 1982",
+      "⚾ Shared by LG Twins and Doosan Bears",
+      "🏅 Part of the 1988 Olympic sports complex"
+    ],
+    "wikipedia": "Jamsil Baseball Stadium"
+  },
+  {
+    "id": "world-w1-e-081",
+    "text": "Where do the Lotte Giants play, with fans wearing orange plastic bags on their heads?",
+    "lat": 35.1939,
+    "lng": 129.0614,
+    "category": "club",
+    "venue": "Sajik Baseball Stadium",
+    "city": "Busan",
+    "country": "South Korea",
+    "hint": "In a big southern port, the country's second city.",
+    "facts": [
+      "⚾ Opened in 1985",
+      "🛍️ Fans tie orange rubbish bags on their heads",
+      "⚾ Home of the Lotte Giants"
+    ],
+    "wikipedia": "Sajik Baseball Stadium"
+  },
+  {
+    "id": "world-w1-e-082",
+    "text": "Which national stadium was built as the main venue of the 1998 Asian Games?",
+    "lat": 13.7553,
+    "lng": 100.6225,
+    "category": "stadium",
+    "venue": "Rajamangala Stadium",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "hint": "Home of the War Elephants, in a capital famous for its temples.",
+    "facts": [
+      "🏟️ Opened in 1998",
+      "🐘 Home of the national team, the War Elephants",
+      "🏆 Main venue of the 1998 Asian Games"
+    ],
+    "wikipedia": "Rajamangala Stadium"
+  },
+  {
+    "id": "world-w1-e-083",
+    "text": "Which stadium, built with Soviet help, hosted the 1962 Asian Games?",
+    "lat": -6.2186,
+    "lng": 106.8022,
+    "category": "stadium",
+    "venue": "Gelora Bung Karno Stadium",
+    "city": "Jakarta",
+    "country": "Indonesia",
+    "hint": "Named after the country's first president, known as \"Bung Karno\".",
+    "facts": [
+      "🏟️ Opened in 1962",
+      "🏆 Main venue of the 1962 and 2018 Asian Games",
+      "🦅 Home of the Garuda national team"
+    ],
+    "wikipedia": "Gelora Bung Karno Stadium"
+  },
+  {
+    "id": "world-w1-e-084",
+    "text": "Which stadium hosted the 1998 Commonwealth Games, the first held in Asia?",
+    "lat": 3.0547,
+    "lng": 101.6914,
+    "category": "stadium",
+    "venue": "Bukit Jalil National Stadium",
+    "city": "Kuala Lumpur",
+    "country": "Malaysia",
+    "hint": "South of a capital known for its twin towers.",
+    "facts": [
+      "🏟️ Opened in 1998",
+      "🏅 Main venue of the 1998 Commonwealth Games",
+      "🐯 Home of the national team, Harimau Malaya"
+    ],
+    "wikipedia": "Bukit Jalil National Stadium"
+  },
+  {
+    "id": "world-w1-e-085",
+    "text": "Which national stadium was built for the 2003 Southeast Asian Games?",
+    "lat": 21.0206,
+    "lng": 105.7639,
+    "category": "stadium",
+    "venue": "Mỹ Đình National Stadium",
+    "city": "Hanoi",
+    "country": "Vietnam",
+    "hint": "In a western district of a capital on the Red River.",
+    "facts": [
+      "🏟️ Opened in 2003",
+      "🏅 Main venue of the 2003 SEA Games",
+      "⭐ Home of the Golden Star Warriors"
+    ],
+    "wikipedia": "Mỹ Đình National Stadium"
+  },
+  {
+    "id": "world-w1-e-086",
+    "text": "Which \"Gongti\" stadium, home of Guoan, was rebuilt and reopened in 2023?",
+    "lat": 39.93,
+    "lng": 116.4422,
+    "category": "club",
+    "venue": "Workers' Stadium",
+    "city": "Beijing",
+    "country": "China",
+    "hint": "In the Chaoyang district of a vast capital, near its nightlife streets.",
+    "facts": [
+      "🏟️ Opened in 1959",
+      "🏗️ Demolished and rebuilt, reopening in 2023",
+      "🟢 Home of Beijing Guoan",
+      "🏅 Hosted Olympic football in 2008"
+    ],
+    "wikipedia": "Workers' Stadium"
+  },
+  {
+    "id": "world-w1-e-087",
+    "text": "Which bowl stadium in Xuhui, home of Shenhua, hosted Olympic football in 2008?",
+    "lat": 31.1828,
+    "lng": 121.4369,
+    "category": "club",
+    "venue": "Shanghai Stadium",
+    "city": "Shanghai",
+    "country": "China",
+    "hint": "In the biggest city near the mouth of a great river.",
+    "facts": [
+      "🏟️ Opened in 1997",
+      "⚽ Hosted football at the 2008 Olympics",
+      "🔵 Home of Shanghai Shenhua"
+    ],
+    "wikipedia": "Shanghai Stadium"
+  },
+  {
+    "id": "world-w1-e-088",
+    "text": "Which stadium, shaped like a magnolia blossom, is often called the largest in the world by capacity?",
+    "lat": 39.0497,
+    "lng": 125.7756,
+    "category": "stadium",
+    "venue": "Rungrado 1st of May Stadium",
+    "city": "Pyongyang",
+    "country": "North Korea",
+    "hint": "On an island in a river in a closed-off capital, scene of the mass games.",
+    "facts": [
+      "🌸 Its roof looks like a magnolia blossom",
+      "🏟️ Opened in 1989",
+      "🎭 The setting for the famous mass games"
+    ],
+    "wikipedia": "Rungrado 1st of May Stadium"
+  },
+  {
+    "id": "world-w1-e-089",
+    "text": "Where were both the 1987 and 2011 Rugby World Cup finals played?",
+    "lat": -36.875,
+    "lng": 174.7447,
+    "category": "event",
+    "venue": "Eden Park",
+    "city": "Auckland",
+    "country": "New Zealand",
+    "hint": "In a volcanic city of sails, home of the Blues.",
+    "facts": [
+      "🏉 The All Blacks won the 1987 and 2011 finals here",
+      "🏏 Famous for its short cricket boundaries",
+      "⚽ Hosted the 2023 Women's World Cup opener"
+    ],
+    "wikipedia": "Eden Park"
+  },
+  {
+    "id": "world-w1-e-090",
+    "text": "Which is the only permanently roofed stadium in the world with a natural grass pitch?",
+    "lat": -45.8693,
+    "lng": 170.524,
+    "category": "stadium",
+    "venue": "Forsyth Barr Stadium",
+    "city": "Dunedin",
+    "country": "New Zealand",
+    "hint": "Home of the Highlanders, in a far southern city with Scottish roots.",
+    "facts": [
+      "🏟️ Opened in 2011",
+      "🌱 Grass grows under its clear ETFE roof",
+      "🏉 Hosted 2011 Rugby World Cup games"
+    ],
+    "wikipedia": "Forsyth Barr Stadium"
+  },
+  {
+    "id": "world-w1-e-091",
+    "text": "Which stadium is nicknamed \"the Cake Tin\"?",
+    "lat": -41.2731,
+    "lng": 174.7858,
+    "category": "stadium",
+    "venue": "Wellington Regional Stadium",
+    "city": "Wellington",
+    "country": "New Zealand",
+    "hint": "Next to the railway yards of a windy harbour capital.",
+    "facts": [
+      "🎂 Nicknamed the Cake Tin",
+      "🏟️ Opened in 2000",
+      "🏉 Home of the Hurricanes",
+      "⚽ Home of Wellington Phoenix"
+    ],
+    "wikipedia": "Wellington Regional Stadium"
+  },
+  {
+    "id": "world-w1-e-092",
+    "text": "Which Test cricket ground sits in the middle of a traffic roundabout?",
+    "lat": -41.3,
+    "lng": 174.7783,
+    "category": "stadium",
+    "venue": "Basin Reserve",
+    "city": "Wellington",
+    "country": "New Zealand",
+    "hint": "It was created when a lake was lifted dry by an earthquake in 1855.",
+    "facts": [
+      "🏏 Hosted its first Test in 1930",
+      "🔄 Surrounded by a busy roundabout",
+      "🌋 The 1855 earthquake turned the planned harbour basin into land"
+    ],
+    "wikipedia": "Basin Reserve"
+  },
+  {
+    "id": "world-w1-e-093",
+    "text": "Which rugby league stadium, known as \"the Cauldron\", hosts the Maroons in State of Origin?",
+    "lat": -27.4648,
+    "lng": 153.0095,
+    "category": "stadium",
+    "venue": "Lang Park",
+    "city": "Brisbane",
+    "country": "Australia",
+    "hint": "Built on an old cemetery in a sunny subtropical river city.",
+    "facts": [
+      "🏉 The Queensland home of State of Origin",
+      "⚰️ The site was once a cemetery",
+      "🐎 Home of the Brisbane Broncos",
+      "🏷️ Known as Suncorp Stadium"
+    ],
+    "wikipedia": "Lang Park"
+  },
+  {
+    "id": "world-w1-e-094",
+    "text": "Where did the visitors' win in January 2021 end the hosts' 32-year unbeaten Test run?",
+    "lat": -27.4858,
+    "lng": 153.0381,
+    "category": "event",
+    "venue": "The Gabba",
+    "city": "Brisbane",
+    "country": "Australia",
+    "hint": "Its nickname is short for Woolloongabba, the suburb it stands in.",
+    "facts": [
+      "🏏 India won the deciding Test in January 2021",
+      "🦁 Home of the Brisbane Lions in the AFL",
+      "🏏 Australia had not lost a Test there since 1988"
+    ],
+    "wikipedia": "The Gabba"
+  },
+  {
+    "id": "world-w1-e-095",
+    "text": "Which ground, overlooked by a cathedral, hosted the first day-night Test match in 2015?",
+    "lat": -34.9156,
+    "lng": 138.5961,
+    "category": "event",
+    "venue": "Adelaide Oval",
+    "city": "Adelaide",
+    "country": "Australia",
+    "hint": "In parklands beside the Torrens, in the city of churches.",
+    "facts": [
+      "🏏 Australia beat New Zealand in the first day-night Test in 2015",
+      "🕰️ Its heritage scoreboard dates from 1911",
+      "🏉 Home of the Crows and Port Adelaide"
+    ],
+    "wikipedia": "Adelaide Oval"
+  },
+  {
+    "id": "world-w1-e-096",
+    "text": "Which stadium on the Burswood peninsula is home to both the Eagles and the Dockers?",
+    "lat": -31.9512,
+    "lng": 115.889,
+    "category": "stadium",
+    "venue": "Perth Stadium",
+    "city": "Perth",
+    "country": "Australia",
+    "hint": "Opened in 2018 with a bronze-coloured facade, beside the Swan River.",
+    "facts": [
+      "🏟️ Opened in 2018",
+      "🦅 Home of West Coast Eagles and Fremantle Dockers",
+      "🏏 Hosts Test cricket"
+    ],
+    "wikipedia": "Perth Stadium"
+  },
+  {
+    "id": "world-w1-e-097",
+    "text": "Which ground is famous for fast, bouncy pitches and the cooling \"Fremantle Doctor\" breeze?",
+    "lat": -31.96,
+    "lng": 115.8797,
+    "category": "stadium",
+    "venue": "WACA Ground",
+    "city": "Perth",
+    "country": "Australia",
+    "hint": "Its name is the initials of the state cricket association.",
+    "facts": [
+      "🏏 Hosted its first Test in 1970",
+      "💨 The Fremantle Doctor blows in from the sea in the afternoon",
+      "⚡ Long known as the fastest pitch in the world"
+    ],
+    "wikipedia": "WACA Ground"
+  },
+  {
+    "id": "world-w1-e-098",
+    "text": "Which cricket ground on the eastern shore of the Derwent is the island state's Test venue?",
+    "lat": -42.8772,
+    "lng": 147.3733,
+    "category": "stadium",
+    "venue": "Bellerive Oval",
+    "city": "Hobart",
+    "country": "Australia",
+    "hint": "The southernmost Test ground in its country, under a big mountain.",
+    "facts": [
+      "🏏 Hosted its first Test in 1989",
+      "🌊 Right on the River Derwent",
+      "🌀 Home of the Hobart Hurricanes"
+    ],
+    "wikipedia": "Bellerive Oval"
+  },
+  {
+    "id": "world-w1-e-099",
+    "text": "Where do the Cats play, a ground famous for its long, narrow shape?",
+    "lat": -38.1581,
+    "lng": 144.3547,
+    "category": "club",
+    "venue": "Kardinia Park",
+    "city": "Geelong",
+    "country": "Australia",
+    "hint": "Home of an AFL club in a bayside city south-west of a big state capital.",
+    "facts": [
+      "🐱 Home of the Geelong Cats",
+      "🏷️ Known by sponsors as GMHBA Stadium",
+      "💪 The Cats have a famously strong home record there"
+    ],
+    "wikipedia": "Kardinia Park (stadium)"
+  },
+  {
+    "id": "world-w1-e-100",
+    "text": "Which stadium, whose roof looks like a cluster of bubbles, is home of the Storm?",
+    "lat": -37.825,
+    "lng": 144.9839,
+    "category": "club",
+    "venue": "Melbourne Rectangular Stadium",
+    "city": "Melbourne",
+    "country": "Australia",
+    "hint": "In a sports precinct next to a cricket colossus and a tennis centre.",
+    "facts": [
+      "🏟️ Opened in 2010",
+      "🫧 Its bioframe roof is a cluster of domes",
+      "⚡ Home of Melbourne Storm",
+      "⚽ Home of Melbourne Victory and Melbourne City"
+    ],
+    "wikipedia": "Melbourne Rectangular Stadium"
+  }
+]

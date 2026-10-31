@@ -233,3 +233,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* The game map's own controls sit above the answer button at the bottom of
+   the screen, so the credit for the map never covers it. */
+.daily-map .maplibregl-ctrl-bottom-right,
+.daily-map .maplibregl-ctrl-bottom-left {
+  bottom: 4.5rem;
+}
+
+/* The credit opens unfolded and is folded once the map has loaded. It is
+   kept out of sight until then, so it does not flash over the hint. */
+.daily-map[data-loading] .maplibregl-ctrl-attrib {
+  visibility: hidden;
+}

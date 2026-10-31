@@ -1,0 +1,1834 @@
+[
+  {
+    "id": "usa-w1-a-001",
+    "text": "Which stadium is nicknamed \"The Big House\"?",
+    "lat": 42.2659,
+    "lng": -83.7488,
+    "category": "stadium",
+    "venue": "Michigan Stadium",
+    "city": "Ann Arbor",
+    "state": "Michigan",
+    "country": "United States",
+    "hint": "The largest stadium in the country, home of the Wolverines.",
+    "facts": [
+      "🏟️ Opened in 1927",
+      "👥 The largest stadium in the United States, with more than 107,000 seats",
+      "〽️ Home of the Michigan Wolverines",
+      "🎵 The band plays \"The Victors\" after every score"
+    ],
+    "wikipedia": "Michigan Stadium"
+  },
+  {
+    "id": "usa-w1-a-002",
+    "text": "Where did the \"Kick Six\" end the 2013 Iron Bowl?",
+    "lat": 32.6022,
+    "lng": -85.4892,
+    "category": "event",
+    "venue": "Jordan–Hare Stadium",
+    "city": "Auburn",
+    "state": "Alabama",
+    "country": "United States",
+    "hint": "Chris Davis ran a missed field goal back the length of the field on the final play here.",
+    "facts": [
+      "🐯 Home of the Auburn Tigers",
+      "🦅 An eagle circles the field before kickoff to cries of \"War Eagle\"",
+      "🧻 Fans roll the oaks at Toomer's Corner after big wins",
+      "🏟️ Opened in 1939"
+    ],
+    "wikipedia": "Jordan–Hare Stadium"
+  },
+  {
+    "id": "usa-w1-a-003",
+    "text": "Where do Hawkeyes fans turn and wave to a children's hospital after the first quarter?",
+    "lat": 41.6586,
+    "lng": -91.5511,
+    "category": "stadium",
+    "venue": "Kinnick Stadium",
+    "city": "Iowa City",
+    "state": "Iowa",
+    "country": "United States",
+    "hint": "The stadium is named after a Heisman winner who died as a Navy pilot in World War II.",
+    "facts": [
+      "👋 \"The Wave\" toward the children's hospital began in 2017",
+      "🏆 Named after 1939 Heisman Trophy winner Nile Kinnick",
+      "🎀 The visitors' locker room is painted pink",
+      "🏟️ Opened in 1929"
+    ],
+    "wikipedia": "Kinnick Stadium"
+  },
+  {
+    "id": "usa-w1-a-004",
+    "text": "Where do the Cornhuskers play in front of a \"Sea of Red\"?",
+    "lat": 40.8206,
+    "lng": -96.7056,
+    "category": "stadium",
+    "venue": "Memorial Stadium (Lincoln)",
+    "city": "Lincoln",
+    "state": "Nebraska",
+    "country": "United States",
+    "hint": "Its sellout streak began in 1962 and has passed 400 games.",
+    "facts": [
+      "🔴 Holds the NCAA record sellout streak, running since 1962",
+      "🌽 Home of the Nebraska Cornhuskers",
+      "📈 On game day the crowd would rank among the state's biggest cities",
+      "🏟️ Opened in 1923"
+    ],
+    "wikipedia": "Memorial Stadium (Lincoln)"
+  },
+  {
+    "id": "usa-w1-a-005",
+    "text": "Where is Autzen Stadium?",
+    "lat": 44.0583,
+    "lng": -123.0686,
+    "category": "stadium",
+    "venue": "Autzen Stadium",
+    "city": "Eugene",
+    "state": "Oregon",
+    "country": "United States",
+    "hint": "Home of the Ducks, famous as one of the loudest venues in college football.",
+    "facts": [
+      "🦆 Home of the Oregon Ducks",
+      "🔊 Known for crowd noise far beyond its size",
+      "🏟️ Opened in 1967",
+      "👟 Nike co-founder Phil Knight is the program's best-known donor"
+    ],
+    "wikipedia": "Autzen Stadium"
+  },
+  {
+    "id": "usa-w1-a-006",
+    "text": "Where do the Hokies jump to \"Enter Sandman\" as they take the field?",
+    "lat": 37.22,
+    "lng": -80.4181,
+    "category": "stadium",
+    "venue": "Lane Stadium",
+    "city": "Blacksburg",
+    "state": "Virginia",
+    "country": "United States",
+    "hint": "The playing surface is called Worsham Field.",
+    "facts": [
+      "🎸 Metallica's \"Enter Sandman\" has been the entrance song since 2000",
+      "🦃 Home of the Virginia Tech Hokies",
+      "🏟️ Opened in 1965",
+      "🪨 Built with the local limestone known as Hokie Stone"
+    ],
+    "wikipedia": "Lane Stadium"
+  },
+  {
+    "id": "usa-w1-a-007",
+    "text": "Where do fans ring cowbells for the Bulldogs at Scott Field?",
+    "lat": 33.4564,
+    "lng": -88.7936,
+    "category": "stadium",
+    "venue": "Davis Wade Stadium",
+    "city": "Starkville",
+    "state": "Mississippi",
+    "country": "United States",
+    "hint": "One of the oldest stadiums in top-tier college football, opened in 1914.",
+    "facts": [
+      "🔔 Cowbells are the signature sound of game day",
+      "🐶 Home of the Mississippi State Bulldogs",
+      "🏟️ Opened in 1914"
+    ],
+    "wikipedia": "Davis Wade Stadium"
+  },
+  {
+    "id": "usa-w1-a-008",
+    "text": "Where do the Rebels play, a short walk from the tailgates in the Grove?",
+    "lat": 34.3619,
+    "lng": -89.5342,
+    "category": "stadium",
+    "venue": "Vaught–Hemingway Stadium",
+    "city": "Oxford",
+    "state": "Mississippi",
+    "country": "United States",
+    "hint": "Fans chant \"Hotty Toddy\" on game days.",
+    "facts": [
+      "🌳 The Grove is one of the most famous tailgating spots in sport",
+      "🔴 Home of the Ole Miss Rebels",
+      "🏈 Named after coach John Vaught and judge William Hemingway",
+      "🏟️ Opened in 1915"
+    ],
+    "wikipedia": "Vaught–Hemingway Stadium"
+  },
+  {
+    "id": "usa-w1-a-009",
+    "text": "Where do the Gamecocks take the field to the opening of \"2001: A Space Odyssey\"?",
+    "lat": 33.9731,
+    "lng": -81.0192,
+    "category": "stadium",
+    "venue": "Williams–Brice Stadium",
+    "city": "Columbia",
+    "state": "South Carolina",
+    "country": "United States",
+    "hint": "Converted railroad cabooses serve as tailgate lounges next to the stadium.",
+    "facts": [
+      "🐓 Home of the South Carolina Gamecocks",
+      "🚂 The \"Cockabooses\" are parked on a track beside the stadium",
+      "🎵 Darude's \"Sandstorm\" is a crowd favorite",
+      "🏟️ Opened in 1934"
+    ],
+    "wikipedia": "Williams–Brice Stadium"
+  },
+  {
+    "id": "usa-w1-a-010",
+    "text": "Where is Kroger Field?",
+    "lat": 38.0228,
+    "lng": -84.5053,
+    "category": "stadium",
+    "venue": "Kroger Field",
+    "city": "Lexington",
+    "state": "Kentucky",
+    "country": "United States",
+    "hint": "Home of the Wildcats, in the heart of horse country.",
+    "facts": [
+      "😺 Home of the Kentucky Wildcats",
+      "🏟️ Opened in 1973 as Commonwealth Stadium",
+      "🛒 Renamed for the Kroger grocery chain in 2017"
+    ],
+    "wikipedia": "Kroger Field"
+  },
+  {
+    "id": "usa-w1-a-011",
+    "text": "Where do the Tigers play below a giant white-rock \"M\" on the hill?",
+    "lat": 38.9358,
+    "lng": -92.3331,
+    "category": "stadium",
+    "venue": "Faurot Field",
+    "city": "Columbia",
+    "state": "Missouri",
+    "country": "United States",
+    "hint": "The field is named after coach Don Faurot, inventor of the split-T.",
+    "facts": [
+      "Ⓜ️ The rock \"M\" in the north end zone dates from 1927",
+      "🐯 Home of the Missouri Tigers",
+      "🎉 Mizzou claims the first homecoming game, in 1911",
+      "🏟️ Opened in 1926"
+    ],
+    "wikipedia": "Faurot Field"
+  },
+  {
+    "id": "usa-w1-a-012",
+    "text": "Where do fans \"Call the Hogs\" for the Razorbacks?",
+    "lat": 36.0681,
+    "lng": -94.1789,
+    "category": "stadium",
+    "venue": "Razorback Stadium",
+    "city": "Fayetteville",
+    "state": "Arkansas",
+    "country": "United States",
+    "hint": "Named after a media businessman, Donald W. Reynolds.",
+    "facts": [
+      "🐗 \"Woo Pig Sooie!\" is the famous Hog Call",
+      "🏟️ Opened in 1938",
+      "⛰️ Set in the Ozarks"
+    ],
+    "wikipedia": "Razorback Stadium"
+  },
+  {
+    "id": "usa-w1-a-013",
+    "text": "Where do the Commodores play their home games?",
+    "lat": 36.1442,
+    "lng": -86.8089,
+    "category": "stadium",
+    "venue": "FirstBank Stadium",
+    "city": "Nashville",
+    "state": "Tennessee",
+    "country": "United States",
+    "hint": "A compact old stadium in Music City.",
+    "facts": [
+      "⚓ Home of the Vanderbilt Commodores",
+      "🏟️ Opened in 1922",
+      "🎸 Just a couple of miles from the honky-tonks of Broadway"
+    ],
+    "wikipedia": "FirstBank Stadium"
+  },
+  {
+    "id": "usa-w1-a-014",
+    "text": "Where does the Sooner Schooner circle the field after scores?",
+    "lat": 35.2058,
+    "lng": -97.4425,
+    "category": "stadium",
+    "venue": "Owen Field",
+    "city": "Norman",
+    "state": "Oklahoma",
+    "country": "United States",
+    "hint": "The field is named for coach Bennie Owen.",
+    "facts": [
+      "🐎 The Sooner Schooner is a covered wagon pulled by ponies named Boomer and Sooner",
+      "🎵 \"Boomer Sooner\" is the fight song",
+      "🏆 The Sooners claim seven national titles",
+      "🏟️ Opened in 1923"
+    ],
+    "wikipedia": "Gaylord Family Oklahoma Memorial Stadium"
+  },
+  {
+    "id": "usa-w1-a-015",
+    "text": "Where is Boone Pickens Stadium?",
+    "lat": 36.1258,
+    "lng": -97.0664,
+    "category": "stadium",
+    "venue": "Boone Pickens Stadium",
+    "city": "Stillwater",
+    "state": "Oklahoma",
+    "country": "United States",
+    "hint": "Home of the Cowboys, whose fans wear orange.",
+    "facts": [
+      "🤠 Home of the Oklahoma State Cowboys",
+      "💰 Named for oilman T. Boone Pickens, a record donor",
+      "🏟️ Opened in 1920 as Lewis Field"
+    ],
+    "wikipedia": "Boone Pickens Stadium"
+  },
+  {
+    "id": "usa-w1-a-016",
+    "text": "Where do Red Raiders fans throw tortillas onto the field?",
+    "lat": 33.5911,
+    "lng": -101.8728,
+    "category": "stadium",
+    "venue": "Galaxy Stadium",
+    "city": "Lubbock",
+    "state": "Texas",
+    "country": "United States",
+    "hint": "The Masked Rider gallops onto the field before every home game.",
+    "facts": [
+      "🌮 Tortilla tosses have cost the team penalties",
+      "🐎 The Masked Rider leads the team out on horseback",
+      "🏟️ Opened in 1947",
+      "🎸 The city is the hometown of Buddy Holly"
+    ],
+    "wikipedia": "Galaxy Stadium"
+  },
+  {
+    "id": "usa-w1-a-017",
+    "text": "Where do the Horned Frogs play their home games?",
+    "lat": 32.7097,
+    "lng": -97.3681,
+    "category": "stadium",
+    "venue": "Amon G. Carter Stadium",
+    "city": "Fort Worth",
+    "state": "Texas",
+    "country": "United States",
+    "hint": "Named after a newspaper publisher, it opened in 1930.",
+    "facts": [
+      "🐸 Home of the TCU Horned Frogs",
+      "📰 Named for Star-Telegram founder Amon G. Carter",
+      "🏆 TCU reached the national title game after the 2022 season",
+      "🏟️ Opened in 1930"
+    ],
+    "wikipedia": "Amon G. Carter Stadium"
+  },
+  {
+    "id": "usa-w1-a-018",
+    "text": "Where do the Bears play on the banks of the Brazos River?",
+    "lat": 31.5582,
+    "lng": -97.1157,
+    "category": "stadium",
+    "venue": "McLane Stadium",
+    "city": "Waco",
+    "state": "Texas",
+    "country": "United States",
+    "hint": "Fans can arrive by boat for \"sailgating\".",
+    "facts": [
+      "🐻 Home of the Baylor Bears",
+      "🏟️ Opened in 2014",
+      "⛵ Fans tie up boats on the Brazos before games",
+      "⚾ Named for Drayton McLane Jr., former owner of the Astros"
+    ],
+    "wikipedia": "McLane Stadium"
+  },
+  {
+    "id": "usa-w1-a-019",
+    "text": "Where do the Cougars play, on the site of old Robertson Stadium?",
+    "lat": 29.7219,
+    "lng": -95.3492,
+    "category": "stadium",
+    "venue": "TDECU Stadium",
+    "city": "Houston",
+    "state": "Texas",
+    "country": "United States",
+    "hint": "Opened in 2014 in the biggest city of its state.",
+    "facts": [
+      "🐾 Home of the Houston Cougars",
+      "🏟️ Opened in 2014",
+      "🏗️ Built where Robertson Stadium stood"
+    ],
+    "wikipedia": "TDECU Stadium"
+  },
+  {
+    "id": "usa-w1-a-020",
+    "text": "Where do Mountaineers fans sing \"Take Me Home, Country Roads\" after wins?",
+    "lat": 39.6502,
+    "lng": -79.9551,
+    "category": "stadium",
+    "venue": "Milan Puskar Stadium",
+    "city": "Morgantown",
+    "state": "West Virginia",
+    "country": "United States",
+    "hint": "Named for a co-founder of the drug maker Mylan.",
+    "facts": [
+      "🎶 John Denver himself sang \"Country Roads\" at its 1980 dedication",
+      "⛰️ Home of the West Virginia Mountaineers",
+      "🏟️ Opened in 1980",
+      "💊 Named after Mylan co-founder Milan Puskar"
+    ],
+    "wikipedia": "Milan Puskar Stadium"
+  },
+  {
+    "id": "usa-w1-a-021",
+    "text": "Where do the purple-clad Wildcats play in a stadium named after their coach?",
+    "lat": 39.2019,
+    "lng": -96.5939,
+    "category": "stadium",
+    "venue": "Bill Snyder Family Football Stadium",
+    "city": "Manhattan",
+    "state": "Kansas",
+    "country": "United States",
+    "hint": "The coach led one of the greatest turnarounds in college football history.",
+    "facts": [
+      "🐱 Home of the Kansas State Wildcats",
+      "🏈 Named for Bill Snyder while he was still coaching",
+      "🍎 The town calls itself \"The Little Apple\"",
+      "🏟️ Opened in 1968"
+    ],
+    "wikipedia": "Bill Snyder Family Football Stadium"
+  },
+  {
+    "id": "usa-w1-a-022",
+    "text": "Where do the Cyclones play their home games?",
+    "lat": 42.0142,
+    "lng": -93.6358,
+    "category": "stadium",
+    "venue": "Jack Trice Stadium",
+    "city": "Ames",
+    "state": "Iowa",
+    "country": "United States",
+    "hint": "Named for the school's first Black athlete, who died after a 1923 game.",
+    "facts": [
+      "🌪️ Home of the Iowa State Cyclones",
+      "🕯️ Jack Trice died of injuries suffered in a 1923 game",
+      "📛 The first major college stadium named after a Black person",
+      "🏟️ Opened in 1975"
+    ],
+    "wikipedia": "Jack Trice Stadium"
+  },
+  {
+    "id": "usa-w1-a-023",
+    "text": "Where do the Cougars play beneath a mountain with a giant \"Y\" on it?",
+    "lat": 40.258,
+    "lng": -111.655,
+    "category": "stadium",
+    "venue": "LaVell Edwards Stadium",
+    "city": "Provo",
+    "state": "Utah",
+    "country": "United States",
+    "hint": "Named for the coach who won the 1984 national title.",
+    "facts": [
+      "🏔️ The block \"Y\" on Y Mountain looks down on the stadium",
+      "🏆 BYU won the 1984 national championship",
+      "🏟️ Opened in 1964 as Cougar Stadium"
+    ],
+    "wikipedia": "LaVell Edwards Stadium"
+  },
+  {
+    "id": "usa-w1-a-024",
+    "text": "Where were the opening ceremonies of the 2002 Winter Olympics held?",
+    "lat": 40.76,
+    "lng": -111.8489,
+    "category": "event",
+    "venue": "Rice–Eccles Stadium",
+    "city": "Salt Lake City",
+    "state": "Utah",
+    "country": "United States",
+    "hint": "Home of the Utes, rebuilt just before the Games.",
+    "facts": [
+      "🔥 Hosted the 2002 Winter Olympics opening and closing ceremonies",
+      "🏈 Home of the Utah Utes",
+      "🏟️ Rebuilt and reopened in 1998"
+    ],
+    "wikipedia": "Rice–Eccles Stadium"
+  },
+  {
+    "id": "usa-w1-a-025",
+    "text": "Where do the Wildcats whose motto is \"Bear Down\" play?",
+    "lat": 32.229,
+    "lng": -110.949,
+    "category": "stadium",
+    "venue": "Casino Del Sol Stadium",
+    "city": "Tucson",
+    "state": "Arizona",
+    "country": "United States",
+    "hint": "A desert campus ringed by saguaro country.",
+    "facts": [
+      "🐻 \"Bear Down\" comes from the dying words of student John \"Button\" Salmon in 1926",
+      "🐱 Home of the Arizona Wildcats",
+      "🌵 Set in the Sonoran Desert",
+      "🏟️ Opened in 1929"
+    ],
+    "wikipedia": "Casino Del Sol Stadium"
+  },
+  {
+    "id": "usa-w1-a-026",
+    "text": "Where do the Broncos play on blue turf?",
+    "lat": 43.603,
+    "lng": -116.196,
+    "category": "stadium",
+    "venue": "Albertsons Stadium",
+    "city": "Boise",
+    "state": "Idaho",
+    "country": "United States",
+    "hint": "The first non-green field in college football, installed in 1986.",
+    "facts": [
+      "🔵 \"The Blue\" was installed in 1986",
+      "🐴 Home of the Boise State Broncos",
+      "🏟️ Opened in 1970"
+    ],
+    "wikipedia": "Albertsons Stadium"
+  },
+  {
+    "id": "usa-w1-a-027",
+    "text": "Where do the Cougars play among the rolling wheat hills of the Palouse?",
+    "lat": 46.732,
+    "lng": -117.16,
+    "category": "stadium",
+    "venue": "Martin Stadium",
+    "city": "Pullman",
+    "state": "Washington",
+    "country": "United States",
+    "hint": "Their fans have flown the \"Ol' Crimson\" flag at every College GameDay since 2003.",
+    "facts": [
+      "🚩 \"Ol' Crimson\" has flown at every GameDay broadcast since 2003",
+      "🐾 Home of the Washington State Cougars",
+      "🌾 Surrounded by Palouse wheat country",
+      "🏟️ Opened in 1972"
+    ],
+    "wikipedia": "Martin Stadium (Pullman)"
+  },
+  {
+    "id": "usa-w1-a-028",
+    "text": "Where do the Beavers play their home games?",
+    "lat": 44.559,
+    "lng": -123.281,
+    "category": "stadium",
+    "venue": "Reser Stadium",
+    "city": "Corvallis",
+    "state": "Oregon",
+    "country": "United States",
+    "hint": "An orange-and-black college town in the Willamette Valley.",
+    "facts": [
+      "🦫 Home of the Oregon State Beavers",
+      "🏟️ Opened in 1953",
+      "🥔 Named for Al and Pat Reser of Reser's Fine Foods"
+    ],
+    "wikipedia": "Reser Stadium"
+  },
+  {
+    "id": "usa-w1-a-029",
+    "text": "Where did \"The Play\" happen in 1982, five laterals through the opposing band?",
+    "lat": 37.8711,
+    "lng": -122.2508,
+    "category": "event",
+    "venue": "California Memorial Stadium",
+    "city": "Berkeley",
+    "state": "California",
+    "country": "United States",
+    "hint": "The stadium sits right on top of the Hayward Fault.",
+    "facts": [
+      "🎺 Kevin Moen scored by running over a Stanford trombone player",
+      "🌍 The Hayward Fault runs beneath the stadium",
+      "🐻 Home of the California Golden Bears",
+      "🏟️ Opened in 1923"
+    ],
+    "wikipedia": "California Memorial Stadium"
+  },
+  {
+    "id": "usa-w1-a-030",
+    "text": "Where do the Terrapins play their home games?",
+    "lat": 38.9903,
+    "lng": -76.9472,
+    "category": "stadium",
+    "venue": "SECU Stadium",
+    "city": "College Park",
+    "state": "Maryland",
+    "country": "United States",
+    "hint": "Home of the Terps, just outside the nation's capital.",
+    "facts": [
+      "🐢 Home of the Maryland Terrapins",
+      "🏟️ Opened in 1950",
+      "🏷️ Formerly Byrd Stadium and Maryland Stadium"
+    ],
+    "wikipedia": "SECU Stadium"
+  },
+  {
+    "id": "usa-w1-a-031",
+    "text": "Where is Scott Stadium?",
+    "lat": 38.0311,
+    "lng": -78.5136,
+    "category": "stadium",
+    "venue": "Scott Stadium",
+    "city": "Charlottesville",
+    "state": "Virginia",
+    "country": "United States",
+    "hint": "Home of the Cavaliers, on a campus founded by Thomas Jefferson.",
+    "facts": [
+      "⚔️ Home of the Virginia Cavaliers",
+      "🏟️ Opened in 1931",
+      "🎓 Fans link arms to sing the \"Good Old Song\""
+    ],
+    "wikipedia": "Scott Stadium"
+  },
+  {
+    "id": "usa-w1-a-032",
+    "text": "Where is Kenan Stadium?",
+    "lat": 35.9069,
+    "lng": -79.0478,
+    "category": "stadium",
+    "venue": "Kenan Stadium",
+    "city": "Chapel Hill",
+    "state": "North Carolina",
+    "country": "United States",
+    "hint": "Home of the Tar Heels, set in a grove of tall pines.",
+    "facts": [
+      "🐏 Home of the North Carolina Tar Heels and their ram Rameses",
+      "🌲 Surrounded by pine trees",
+      "🏟️ Opened in 1927"
+    ],
+    "wikipedia": "Kenan Stadium"
+  },
+  {
+    "id": "usa-w1-a-033",
+    "text": "Where does the Wolfpack play its home games?",
+    "lat": 35.8008,
+    "lng": -78.7194,
+    "category": "stadium",
+    "venue": "Carter–Finley Stadium",
+    "city": "Raleigh",
+    "state": "North Carolina",
+    "country": "United States",
+    "hint": "West of downtown, near the state fairgrounds.",
+    "facts": [
+      "🐺 Home of the NC State Wolfpack",
+      "🏒 Next door to PNC Arena",
+      "🏟️ Opened in 1966"
+    ],
+    "wikipedia": "Carter–Finley Stadium"
+  },
+  {
+    "id": "usa-w1-a-034",
+    "text": "Where is Wallace Wade Stadium?",
+    "lat": 35.9953,
+    "lng": -78.9417,
+    "category": "stadium",
+    "venue": "Wallace Wade Stadium",
+    "city": "Durham",
+    "state": "North Carolina",
+    "country": "United States",
+    "hint": "Blue Devils home; it hosted the only Rose Bowl game played far from the Pacific coast.",
+    "facts": [
+      "🌹 Hosted the 1942 Rose Bowl after Pearl Harbor",
+      "😈 Home of the Duke Blue Devils",
+      "🏟️ Opened in 1929"
+    ],
+    "wikipedia": "Wallace Wade Stadium"
+  },
+  {
+    "id": "usa-w1-a-035",
+    "text": "Where did the Yellow Jackets beat Cumberland 222–0 in 1916?",
+    "lat": 33.7725,
+    "lng": -84.3928,
+    "category": "event",
+    "venue": "Bobby Dodd Stadium",
+    "city": "Atlanta",
+    "state": "Georgia",
+    "country": "United States",
+    "hint": "The oldest stadium in top-tier college football, on a downtown campus.",
+    "facts": [
+      "💯 222–0 is the most lopsided score in college football history",
+      "🐝 Home of the Georgia Tech Yellow Jackets",
+      "🏈 John Heisman coached Tech that day",
+      "🏟️ Football has been played on Grant Field since 1913"
+    ],
+    "wikipedia": "Bobby Dodd Stadium"
+  },
+  {
+    "id": "usa-w1-a-036",
+    "text": "Where do the Eagles who once had Doug Flutie at quarterback play?",
+    "lat": 42.335,
+    "lng": -71.1664,
+    "category": "stadium",
+    "venue": "Alumni Stadium (Boston College)",
+    "city": "Chestnut Hill",
+    "state": "Massachusetts",
+    "country": "United States",
+    "hint": "A statue of Flutie's famous Hail Mary throw stands outside.",
+    "facts": [
+      "🦅 Home of the Boston College Eagles",
+      "🗿 A statue of Doug Flutie stands outside",
+      "🏟️ Opened in 1957"
+    ],
+    "wikipedia": "Alumni Stadium"
+  },
+  {
+    "id": "usa-w1-a-037",
+    "text": "Where do the Orange play their football under a roof?",
+    "lat": 43.0361,
+    "lng": -76.1364,
+    "category": "stadium",
+    "venue": "JMA Wireless Dome",
+    "city": "Syracuse",
+    "state": "New York",
+    "country": "United States",
+    "hint": "The largest domed stadium on a college campus.",
+    "facts": [
+      "🍊 Home of the Syracuse Orange",
+      "🏟️ Opened in 1980 as the Carrier Dome",
+      "🏀 Also sets college basketball attendance records"
+    ],
+    "wikipedia": "JMA Wireless Dome"
+  },
+  {
+    "id": "usa-w1-a-038",
+    "text": "Where did Joe Namath's Jets win Super Bowl III?",
+    "lat": 25.778,
+    "lng": -80.22,
+    "category": "event",
+    "venue": "Orange Bowl (stadium)",
+    "city": "Miami",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "The old shared home of the Dolphins and the Hurricanes, later replaced by a ballpark.",
+    "facts": [
+      "🗣️ Namath had guaranteed the upset beforehand",
+      "🐬 Home of the Dolphins' perfect 1972 season",
+      "🍊 Hosted the Orange Bowl game until 1996",
+      "⚾ LoanDepot Park now stands on the site"
+    ],
+    "wikipedia": "Miami Orange Bowl"
+  },
+  {
+    "id": "usa-w1-a-039",
+    "text": "Where do the Golden Gophers play their home games?",
+    "lat": 44.976,
+    "lng": -93.225,
+    "category": "stadium",
+    "venue": "Huntington Bank Stadium",
+    "city": "Minneapolis",
+    "state": "Minnesota",
+    "country": "United States",
+    "hint": "An on-campus stadium opened in 2009, ending years of playing under a dome.",
+    "facts": [
+      "🐿️ Home of the Minnesota Golden Gophers",
+      "🏟️ Opened in 2009 as TCF Bank Stadium",
+      "🪓 Paul Bunyan's Axe is at stake against Wisconsin"
+    ],
+    "wikipedia": "Huntington Bank Stadium"
+  },
+  {
+    "id": "usa-w1-a-040",
+    "text": "Where do the Boilermakers play their home games?",
+    "lat": 40.4344,
+    "lng": -86.9183,
+    "category": "stadium",
+    "venue": "Ross–Ade Stadium",
+    "city": "West Lafayette",
+    "state": "Indiana",
+    "country": "United States",
+    "hint": "Home of the \"World's Largest Drum\" and a locomotive mascot.",
+    "facts": [
+      "🥁 Purdue's band has the \"World's Largest Drum\"",
+      "🚂 The Boilermaker Special leads the team",
+      "🏟️ Opened in 1924"
+    ],
+    "wikipedia": "Ross–Ade Stadium"
+  },
+  {
+    "id": "usa-w1-a-041",
+    "text": "Where do the Hoosiers play their football games?",
+    "lat": 39.1808,
+    "lng": -86.5256,
+    "category": "stadium",
+    "venue": "Memorial Stadium (Bloomington)",
+    "city": "Bloomington",
+    "state": "Indiana",
+    "country": "United States",
+    "hint": "On a campus better known for decades for its basketball.",
+    "facts": [
+      "🔴 Home of the Indiana Hoosiers",
+      "🪣 The Old Oaken Bucket goes to the winner against Purdue",
+      "🏟️ Opened in 1960"
+    ],
+    "wikipedia": "Memorial Stadium (Indiana University)"
+  },
+  {
+    "id": "usa-w1-a-042",
+    "text": "Where did Red Grange score four touchdowns in 12 minutes against the Wolverines in 1924?",
+    "lat": 40.0992,
+    "lng": -88.2358,
+    "category": "event",
+    "venue": "Gies Memorial Stadium",
+    "city": "Champaign",
+    "state": "Illinois",
+    "country": "United States",
+    "hint": "The Fighting Illini dedicated the stadium that very day.",
+    "facts": [
+      "👻 Grange was nicknamed \"The Galloping Ghost\"",
+      "🔶 Home of the Illinois Fighting Illini",
+      "🏛️ Its columns honor students who died in World War I",
+      "🏟️ Opened in 1923"
+    ],
+    "wikipedia": "Gies Memorial Stadium"
+  },
+  {
+    "id": "usa-w1-a-043",
+    "text": "Where do the Scarlet Knights play their home games?",
+    "lat": 40.5136,
+    "lng": -74.4653,
+    "category": "stadium",
+    "venue": "SHI Stadium",
+    "city": "Piscataway",
+    "state": "New Jersey",
+    "country": "United States",
+    "hint": "Their school played in the very first college football game in 1869.",
+    "facts": [
+      "🛡️ Home of the Rutgers Scarlet Knights",
+      "🏈 Rutgers beat Princeton in the first college game in 1869",
+      "🏟️ Opened in 1994"
+    ],
+    "wikipedia": "SHI Stadium"
+  },
+  {
+    "id": "usa-w1-a-044",
+    "text": "Where do the Midshipmen play their home games?",
+    "lat": 38.985,
+    "lng": -76.507,
+    "category": "stadium",
+    "venue": "Navy–Marine Corps Memorial Stadium",
+    "city": "Annapolis",
+    "state": "Maryland",
+    "country": "United States",
+    "hint": "The stands bear the names of battles fought by sailors and Marines.",
+    "facts": [
+      "⚓ Home of the Navy Midshipmen",
+      "🎖️ A memorial to those who served in the Navy and Marine Corps",
+      "🏟️ Opened in 1959"
+    ],
+    "wikipedia": "Navy–Marine Corps Memorial Stadium"
+  },
+  {
+    "id": "usa-w1-a-045",
+    "text": "Where do the Black Knights of the academy play above the Hudson River?",
+    "lat": 41.3875,
+    "lng": -73.9642,
+    "category": "stadium",
+    "venue": "Michie Stadium",
+    "city": "West Point",
+    "state": "New York",
+    "country": "United States",
+    "hint": "Named for the cadet who organized the first team in 1890.",
+    "facts": [
+      "🎖️ Home of the Army Black Knights",
+      "🏈 Dennis Michie organized the first Army team and died in the Spanish–American War",
+      "🏟️ Opened in 1924"
+    ],
+    "wikipedia": "Michie Stadium"
+  },
+  {
+    "id": "usa-w1-a-046",
+    "text": "Where do the cadet Falcons play below the Rampart Range?",
+    "lat": 38.997,
+    "lng": -104.843,
+    "category": "stadium",
+    "venue": "Falcon Stadium",
+    "city": "Colorado Springs",
+    "state": "Colorado",
+    "country": "United States",
+    "hint": "The stadium sits more than 6,000 feet above sea level.",
+    "facts": [
+      "✈️ Home of the Air Force Falcons",
+      "🎓 Graduation ceremonies end with a flyover by the Thunderbirds",
+      "🏟️ Opened in 1962"
+    ],
+    "wikipedia": "Falcon Stadium"
+  },
+  {
+    "id": "usa-w1-a-047",
+    "text": "Where do the Rams in green and gold play their home games?",
+    "lat": 40.57,
+    "lng": -105.0885,
+    "category": "stadium",
+    "venue": "Canvas Stadium",
+    "city": "Fort Collins",
+    "state": "Colorado",
+    "country": "United States",
+    "hint": "An on-campus stadium opened in 2017, facing a big \"A\" on the foothills.",
+    "facts": [
+      "🐏 Home of the Colorado State Rams",
+      "🏟️ Opened in 2017",
+      "🅰️ The whitewashed \"A\" sits on the foothills west of town"
+    ],
+    "wikipedia": "Canvas Stadium"
+  },
+  {
+    "id": "usa-w1-a-048",
+    "text": "Where do the Cowboys play at the highest elevation in top-tier college football?",
+    "lat": 41.312,
+    "lng": -105.568,
+    "category": "stadium",
+    "venue": "Jonah Field at War Memorial Stadium",
+    "city": "Laramie",
+    "state": "Wyoming",
+    "country": "United States",
+    "hint": "More than 7,000 feet up on the high plains.",
+    "facts": [
+      "🏔️ The field sits at about 7,220 feet",
+      "🤠 Home of the Wyoming Cowboys",
+      "🏟️ Opened in 1950"
+    ],
+    "wikipedia": "War Memorial Stadium (Wyoming)"
+  },
+  {
+    "id": "usa-w1-a-049",
+    "text": "Where do the Lobos play their home games?",
+    "lat": 35.0669,
+    "lng": -106.6283,
+    "category": "stadium",
+    "venue": "University Stadium (Albuquerque)",
+    "city": "Albuquerque",
+    "state": "New Mexico",
+    "country": "United States",
+    "hint": "In a high-desert city famous for its hot-air balloon fiesta.",
+    "facts": [
+      "🐺 Home of the New Mexico Lobos",
+      "🎈 The city hosts the International Balloon Fiesta every October",
+      "🏟️ Opened in 1960"
+    ],
+    "wikipedia": "University Stadium (Albuquerque)"
+  },
+  {
+    "id": "usa-w1-a-050",
+    "text": "Where is Aggie Memorial Stadium?",
+    "lat": 32.2797,
+    "lng": -106.7411,
+    "category": "stadium",
+    "venue": "Aggie Memorial Stadium",
+    "city": "Las Cruces",
+    "state": "New Mexico",
+    "country": "United States",
+    "hint": "The jagged Organ Mountains rise to the east.",
+    "facts": [
+      "🤠 Home of the New Mexico State Aggies",
+      "⛰️ Views of the Organ Mountains",
+      "🏟️ Opened in 1978"
+    ],
+    "wikipedia": "Aggie Memorial Stadium"
+  },
+  {
+    "id": "usa-w1-a-051",
+    "text": "Where is the Sun Bowl stadium, carved into a mountainside?",
+    "lat": 31.773,
+    "lng": -106.508,
+    "category": "stadium",
+    "venue": "Sun Bowl Stadium",
+    "city": "El Paso",
+    "state": "Texas",
+    "country": "United States",
+    "hint": "Home of the Miners and a bowl game since 1963.",
+    "facts": [
+      "⛏️ Home of the UTEP Miners",
+      "🏟️ Opened in 1963",
+      "⛰️ Built into the foothills of the Franklin Mountains",
+      "🌉 Ciudad Juárez lies just across the border"
+    ],
+    "wikipedia": "Sun Bowl (stadium)"
+  },
+  {
+    "id": "usa-w1-a-052",
+    "text": "Where do the red-clad Bulldogs of the San Joaquin Valley play?",
+    "lat": 36.814,
+    "lng": -119.758,
+    "category": "stadium",
+    "venue": "Valley Children's Stadium",
+    "city": "Fresno",
+    "state": "California",
+    "country": "United States",
+    "hint": "Formerly Bulldog Stadium, opened in 1980.",
+    "facts": [
+      "🐶 Home of the Fresno State Bulldogs",
+      "🏟️ Opened in 1980",
+      "🍇 Set in the heart of the Central Valley farm country"
+    ],
+    "wikipedia": "Valley Children's Stadium"
+  },
+  {
+    "id": "usa-w1-a-053",
+    "text": "Where do the Spartans of the Mountain West play, in the capital of Silicon Valley?",
+    "lat": 37.3197,
+    "lng": -121.8683,
+    "category": "stadium",
+    "venue": "CEFCU Stadium",
+    "city": "San Jose",
+    "state": "California",
+    "country": "United States",
+    "hint": "Opened in 1933 near downtown.",
+    "facts": [
+      "🛡️ Home of the San Jose State Spartans",
+      "💻 In the largest city of Silicon Valley",
+      "🏟️ Opened in 1933"
+    ],
+    "wikipedia": "CEFCU Stadium"
+  },
+  {
+    "id": "usa-w1-a-054",
+    "text": "Where do the Aztecs play in a stadium opened in 2022?",
+    "lat": 32.7844,
+    "lng": -117.1228,
+    "category": "stadium",
+    "venue": "Snapdragon Stadium",
+    "city": "San Diego",
+    "state": "California",
+    "country": "United States",
+    "hint": "Built on the site of the Chargers' old home.",
+    "facts": [
+      "🗿 Home of the San Diego State Aztecs",
+      "🏗️ Built where Qualcomm Stadium stood",
+      "⚽ Also home to the Wave and San Diego FC",
+      "🏟️ Opened in 2022"
+    ],
+    "wikipedia": "Snapdragon Stadium"
+  },
+  {
+    "id": "usa-w1-a-055",
+    "text": "Where does the Wolf Pack play its home games?",
+    "lat": 39.5469,
+    "lng": -119.8175,
+    "category": "stadium",
+    "venue": "Mackay Stadium",
+    "city": "Reno",
+    "state": "Nevada",
+    "country": "United States",
+    "hint": "In the \"Biggest Little City in the World\".",
+    "facts": [
+      "🐺 Home of the Nevada Wolf Pack",
+      "🏈 Colin Kaepernick played his college games here",
+      "🏟️ Opened in 1966"
+    ],
+    "wikipedia": "Mackay Stadium"
+  },
+  {
+    "id": "usa-w1-a-056",
+    "text": "Where do the Aggies play in Cache Valley?",
+    "lat": 41.7517,
+    "lng": -111.8117,
+    "category": "stadium",
+    "venue": "Maverik Stadium",
+    "city": "Logan",
+    "state": "Utah",
+    "country": "United States",
+    "hint": "Formerly Romney Stadium.",
+    "facts": [
+      "🐂 Home of the Utah State Aggies",
+      "🏔️ Set in Cache Valley under the Wasatch Range",
+      "🏟️ Opened in 1968"
+    ],
+    "wikipedia": "Maverik Stadium"
+  },
+  {
+    "id": "usa-w1-a-057",
+    "text": "Where do the Thundering Herd play, remembering their 1970 plane crash?",
+    "lat": 38.425,
+    "lng": -82.4208,
+    "category": "stadium",
+    "venue": "Joan C. Edwards Stadium",
+    "city": "Huntington",
+    "state": "West Virginia",
+    "country": "United States",
+    "hint": "Their story was told in a 2006 film starring Matthew McConaughey.",
+    "facts": [
+      "✈️ 75 people died in the 1970 crash, including most of the team",
+      "🐃 Home of the Marshall Thundering Herd",
+      "🎬 The film \"We Are Marshall\" told the story",
+      "🏟️ Opened in 1991"
+    ],
+    "wikipedia": "Joan C. Edwards Stadium"
+  },
+  {
+    "id": "usa-w1-a-058",
+    "text": "Where do the green-clad Bobcats of the MAC play?",
+    "lat": 39.3211,
+    "lng": -82.1028,
+    "category": "stadium",
+    "venue": "Peden Stadium",
+    "city": "Athens",
+    "state": "Ohio",
+    "country": "United States",
+    "hint": "One of the oldest stadiums in its conference, opened in 1929.",
+    "facts": [
+      "🐾 Home of the Ohio Bobcats",
+      "🎓 Ohio University was chartered in 1804",
+      "🏟️ Opened in 1929"
+    ],
+    "wikipedia": "Peden Stadium"
+  },
+  {
+    "id": "usa-w1-a-059",
+    "text": "Where do the Rockets play in a stadium named for their city's famous industry?",
+    "lat": 41.6569,
+    "lng": -83.6136,
+    "category": "stadium",
+    "venue": "Glass Bowl",
+    "city": "Toledo",
+    "state": "Ohio",
+    "country": "United States",
+    "hint": "A nod to the \"Glass City\".",
+    "facts": [
+      "🚀 Home of the Toledo Rockets",
+      "🪟 Named for the glass industry the city is known for",
+      "🏟️ Opened in 1937"
+    ],
+    "wikipedia": "Glass Bowl"
+  },
+  {
+    "id": "usa-w1-a-060",
+    "text": "Where is Doyt Perry Stadium?",
+    "lat": 41.3781,
+    "lng": -83.6225,
+    "category": "stadium",
+    "venue": "Doyt Perry Stadium",
+    "city": "Bowling Green",
+    "state": "Ohio",
+    "country": "United States",
+    "hint": "Home of the orange-and-brown Falcons since 1966.",
+    "facts": [
+      "🦅 Home of the Bowling Green Falcons",
+      "🏈 Named for coach Doyt Perry",
+      "🏟️ Opened in 1966"
+    ],
+    "wikipedia": "Doyt Perry Stadium"
+  },
+  {
+    "id": "usa-w1-a-061",
+    "text": "Where do the Panthers who produced Kurt Warner play under a dome?",
+    "lat": 42.5156,
+    "lng": -92.4673,
+    "category": "stadium",
+    "venue": "UNI-Dome",
+    "city": "Cedar Falls",
+    "state": "Iowa",
+    "country": "United States",
+    "hint": "A white-roofed dome on campus, opened in 1976.",
+    "facts": [
+      "🐾 Home of the Northern Iowa Panthers",
+      "🏈 Kurt Warner played his college football here",
+      "🏟️ Opened in 1976"
+    ],
+    "wikipedia": "UNI-Dome"
+  },
+  {
+    "id": "usa-w1-a-062",
+    "text": "Where do the Chippewas play their home games?",
+    "lat": 43.5775,
+    "lng": -84.7708,
+    "category": "stadium",
+    "venue": "Kelly/Shorts Stadium",
+    "city": "Mount Pleasant",
+    "state": "Michigan",
+    "country": "United States",
+    "hint": "Home of the maroon-and-gold \"Chips\" of the MAC.",
+    "facts": [
+      "🪶 Home of the Central Michigan Chippewas",
+      "🏈 Antonio Brown played his college games here",
+      "🏟️ Opened in 1972"
+    ],
+    "wikipedia": "Kelly/Shorts Stadium"
+  },
+  {
+    "id": "usa-w1-a-063",
+    "text": "Where is Waldo Stadium?",
+    "lat": 42.2858,
+    "lng": -85.6011,
+    "category": "stadium",
+    "venue": "Waldo Stadium",
+    "city": "Kalamazoo",
+    "state": "Michigan",
+    "country": "United States",
+    "hint": "Home of the MAC's Broncos.",
+    "facts": [
+      "🐴 Home of the Western Michigan Broncos",
+      "🚣 \"Row the Boat\" was P. J. Fleck's rallying cry here",
+      "🏟️ Opened in 1939"
+    ],
+    "wikipedia": "Waldo Stadium"
+  },
+  {
+    "id": "usa-w1-a-064",
+    "text": "Where do the Golden Flashes play their home games?",
+    "lat": 41.1392,
+    "lng": -81.3133,
+    "category": "stadium",
+    "venue": "Dix Stadium",
+    "city": "Kent",
+    "state": "Ohio",
+    "country": "United States",
+    "hint": "Home of the Golden Flashes since 1969.",
+    "facts": [
+      "⚡ Home of the Kent State Golden Flashes",
+      "🏈 Hall of Famer Jack Lambert played for the school",
+      "🏟️ Opened in 1969"
+    ],
+    "wikipedia": "Dix Stadium"
+  },
+  {
+    "id": "usa-w1-a-065",
+    "text": "Where do the Zips play their home games?",
+    "lat": 41.0723,
+    "lng": -81.508,
+    "category": "stadium",
+    "venue": "InfoCision Stadium",
+    "city": "Akron",
+    "state": "Ohio",
+    "country": "United States",
+    "hint": "Opened in 2009 in the \"Rubber Capital of the World\".",
+    "facts": [
+      "🦘 Home of the Akron Zips and Zippy the kangaroo",
+      "🛞 The city was the tire capital of the world",
+      "🏟️ Opened in 2009"
+    ],
+    "wikipedia": "InfoCision Stadium–Summa Field"
+  },
+  {
+    "id": "usa-w1-a-066",
+    "text": "Where do the Huskies of the MAC play their home games?",
+    "lat": 41.934,
+    "lng": -88.778,
+    "category": "stadium",
+    "venue": "Huskie Stadium",
+    "city": "DeKalb",
+    "state": "Illinois",
+    "country": "United States",
+    "hint": "In the town where barbed wire was invented.",
+    "facts": [
+      "🐺 Home of the Northern Illinois Huskies",
+      "🧷 Joseph Glidden patented barbed wire in DeKalb",
+      "🏟️ Opened in 1965"
+    ],
+    "wikipedia": "Huskie Stadium"
+  },
+  {
+    "id": "usa-w1-a-067",
+    "text": "Where do the Cardinals of the MAC play their home games?",
+    "lat": 40.2161,
+    "lng": -85.4167,
+    "category": "stadium",
+    "venue": "Scheumann Stadium",
+    "city": "Muncie",
+    "state": "Indiana",
+    "country": "United States",
+    "hint": "In the town sociologists studied as \"Middletown\".",
+    "facts": [
+      "🐦 Home of the Ball State Cardinals",
+      "🫙 The Ball brothers of mason-jar fame gave the school its name",
+      "🏟️ Opened in 1967"
+    ],
+    "wikipedia": "Scheumann Stadium"
+  },
+  {
+    "id": "usa-w1-a-068",
+    "text": "Where do the Bulls of the MAC play their home games?",
+    "lat": 42.9992,
+    "lng": -78.7775,
+    "category": "stadium",
+    "venue": "Broadview Stadium",
+    "city": "Amherst",
+    "state": "New York",
+    "country": "United States",
+    "hint": "Snow is no surprise late in the season here.",
+    "facts": [
+      "🐂 Home of the Buffalo Bulls",
+      "🏈 Khalil Mack played his college games here",
+      "🏟️ Opened in 1993"
+    ],
+    "wikipedia": "Broadview Stadium"
+  },
+  {
+    "id": "usa-w1-a-069",
+    "text": "Where do the Bearcats play their home games?",
+    "lat": 39.1312,
+    "lng": -84.5162,
+    "category": "stadium",
+    "venue": "Nippert Stadium",
+    "city": "Cincinnati",
+    "state": "Ohio",
+    "country": "United States",
+    "hint": "Football has been played on this campus site since 1901.",
+    "facts": [
+      "🐻 Home of the Cincinnati Bearcats",
+      "🐯 The Bengals played their first two seasons here, in 1968 and 1969",
+      "🏟️ One of the oldest playing sites in college football"
+    ],
+    "wikipedia": "Nippert Stadium"
+  },
+  {
+    "id": "usa-w1-a-070",
+    "text": "Where do the Green Wave play on campus?",
+    "lat": 29.9448,
+    "lng": -90.1168,
+    "category": "stadium",
+    "venue": "Yulman Stadium",
+    "city": "New Orleans",
+    "state": "Louisiana",
+    "country": "United States",
+    "hint": "Opened in 2014, ending decades of home games in the Superdome.",
+    "facts": [
+      "🌊 Home of the Tulane Green Wave",
+      "🏟️ Opened in 2014",
+      "🌳 On the Uptown campus near Audubon Park"
+    ],
+    "wikipedia": "Yulman Stadium"
+  },
+  {
+    "id": "usa-w1-a-071",
+    "text": "Where is the Liberty Bowl game played?",
+    "lat": 35.121,
+    "lng": -89.9774,
+    "category": "stadium",
+    "venue": "Simmons Bank Liberty Stadium",
+    "city": "Memphis",
+    "state": "Tennessee",
+    "country": "United States",
+    "hint": "Home of the Tigers, in a city of blues and barbecue.",
+    "facts": [
+      "🐯 Home of the Memphis Tigers",
+      "🏈 Has hosted the Liberty Bowl since 1965",
+      "🎺 Also hosts the Southern Heritage Classic",
+      "🏟️ Opened in 1965"
+    ],
+    "wikipedia": "Simmons Bank Liberty Stadium"
+  },
+  {
+    "id": "usa-w1-a-072",
+    "text": "Where do the UAB Blazers play their home games?",
+    "lat": 33.5278,
+    "lng": -86.8092,
+    "category": "stadium",
+    "venue": "Protective Stadium",
+    "city": "Birmingham",
+    "state": "Alabama",
+    "country": "United States",
+    "hint": "A downtown stadium opened in 2021.",
+    "facts": [
+      "🔥 Home of the UAB Blazers",
+      "🏅 Hosted the opening ceremony of the 2022 World Games",
+      "🏟️ Opened in 2021"
+    ],
+    "wikipedia": "Protective Stadium"
+  },
+  {
+    "id": "usa-w1-a-073",
+    "text": "Where was the Senior Bowl played for seven decades?",
+    "lat": 30.673,
+    "lng": -88.076,
+    "category": "stadium",
+    "venue": "Ladd–Peebles Stadium",
+    "city": "Mobile",
+    "state": "Alabama",
+    "country": "United States",
+    "hint": "An old Gulf Coast stadium opened in 1948.",
+    "facts": [
+      "🎓 Hosted the Senior Bowl from 1951 to 2020",
+      "🏟️ Opened in 1948",
+      "🚢 In a historic Gulf Coast port city"
+    ],
+    "wikipedia": "Ladd–Peebles Stadium"
+  },
+  {
+    "id": "usa-w1-a-074",
+    "text": "Where do the Golden Eagles play in the stadium called \"The Rock\"?",
+    "lat": 31.3289,
+    "lng": -89.3314,
+    "category": "stadium",
+    "venue": "Renasant Stadium",
+    "city": "Hattiesburg",
+    "state": "Mississippi",
+    "country": "United States",
+    "hint": "Brett Favre's college home field.",
+    "facts": [
+      "🦅 Home of the Southern Miss Golden Eagles",
+      "🏈 Brett Favre played his college games here",
+      "🏟️ Opened in 1932"
+    ],
+    "wikipedia": "Renasant Stadium"
+  },
+  {
+    "id": "usa-w1-a-075",
+    "text": "Where do the Bulldogs who produced Terry Bradshaw play?",
+    "lat": 32.532,
+    "lng": -92.6559,
+    "category": "stadium",
+    "venue": "Joe Aillet Stadium",
+    "city": "Ruston",
+    "state": "Louisiana",
+    "country": "United States",
+    "hint": "Fans call it \"The Joe\".",
+    "facts": [
+      "🐶 Home of the Louisiana Tech Bulldogs",
+      "🏈 Terry Bradshaw played for the school",
+      "🏟️ Opened in 1968"
+    ],
+    "wikipedia": "Joe Aillet Stadium"
+  },
+  {
+    "id": "usa-w1-a-076",
+    "text": "Where do the black-and-gold Mountaineers play high in the Blue Ridge?",
+    "lat": 36.2117,
+    "lng": -81.6856,
+    "category": "stadium",
+    "venue": "Kidd Brewer Stadium",
+    "city": "Boone",
+    "state": "North Carolina",
+    "country": "United States",
+    "hint": "Home of the team that stunned the Wolverines in 2007.",
+    "facts": [
+      "⛰️ Home of the App State Mountaineers",
+      "🏆 Won three straight FCS titles, 2005 to 2007",
+      "🏟️ Opened in 1962"
+    ],
+    "wikipedia": "Kidd Brewer Stadium"
+  },
+  {
+    "id": "usa-w1-a-077",
+    "text": "Where is Paulson Stadium?",
+    "lat": 32.4122,
+    "lng": -81.7831,
+    "category": "stadium",
+    "venue": "Paulson Stadium",
+    "city": "Statesboro",
+    "state": "Georgia",
+    "country": "United States",
+    "hint": "Home of the Eagles built by coach Erk Russell.",
+    "facts": [
+      "🦅 Home of the Georgia Southern Eagles",
+      "🏆 Six FCS national championships",
+      "🌲 Called \"the prettiest little stadium in America\"",
+      "🏟️ Opened in 1984"
+    ],
+    "wikipedia": "Allen E. Paulson Stadium"
+  },
+  {
+    "id": "usa-w1-a-078",
+    "text": "Where do the Chanticleers play on teal turf?",
+    "lat": 33.7929,
+    "lng": -79.0175,
+    "category": "stadium",
+    "venue": "Brooks Stadium",
+    "city": "Conway",
+    "state": "South Carolina",
+    "country": "United States",
+    "hint": "Not far from the beaches of the Grand Strand.",
+    "facts": [
+      "🐓 Home of the Coastal Carolina Chanticleers",
+      "🌊 The teal turf is called the \"Surf Turf\"",
+      "🏟️ Opened in 2003"
+    ],
+    "wikipedia": "Brooks Stadium"
+  },
+  {
+    "id": "usa-w1-a-079",
+    "text": "Where do the Owls play within sight of the ocean?",
+    "lat": 26.3761,
+    "lng": -80.1017,
+    "category": "stadium",
+    "venue": "Flagler Credit Union Stadium",
+    "city": "Boca Raton",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "Opened in 2011; the upper seats look out toward the Atlantic.",
+    "facts": [
+      "🦉 Home of the FAU Owls",
+      "🌊 Upper seats look toward the Atlantic Ocean",
+      "🏟️ Opened in 2011"
+    ],
+    "wikipedia": "Flagler Credit Union Stadium"
+  },
+  {
+    "id": "usa-w1-a-080",
+    "text": "Where do the Knights play in \"The Bounce House\"?",
+    "lat": 28.6091,
+    "lng": -81.1924,
+    "category": "stadium",
+    "venue": "Acrisure Bounce House",
+    "city": "Orlando",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "The stands visibly shake when the fans jump.",
+    "facts": [
+      "⚔️ Home of the UCF Knights",
+      "🦘 The stands are built to flex, giving the \"Bounce House\" nickname",
+      "🏟️ Opened in 2007"
+    ],
+    "wikipedia": "Acrisure Bounce House"
+  },
+  {
+    "id": "usa-w1-a-081",
+    "text": "Where do the Mustangs, once of the \"Pony Express\" backfield, play?",
+    "lat": 32.8366,
+    "lng": -96.784,
+    "category": "stadium",
+    "venue": "Gerald J. Ford Stadium",
+    "city": "University Park",
+    "state": "Texas",
+    "country": "United States",
+    "hint": "Opened in 2000 in a wealthy enclave near downtown.",
+    "facts": [
+      "🐎 Home of the SMU Mustangs",
+      "⚖️ SMU received the NCAA \"death penalty\" in 1987",
+      "🏟️ Opened in 2000"
+    ],
+    "wikipedia": "Gerald J. Ford Stadium"
+  },
+  {
+    "id": "usa-w1-a-082",
+    "text": "Where do the Mean Green play their home games?",
+    "lat": 33.2036,
+    "lng": -97.1594,
+    "category": "stadium",
+    "venue": "DATCU Stadium",
+    "city": "Denton",
+    "state": "Texas",
+    "country": "United States",
+    "hint": "Opened in 2011 with wind turbines next to it.",
+    "facts": [
+      "🦅 Home of the North Texas Mean Green",
+      "🌬️ Wind turbines beside it supply power",
+      "🏟️ Opened in 2011 as Apogee Stadium"
+    ],
+    "wikipedia": "DATCU Stadium"
+  },
+  {
+    "id": "usa-w1-a-083",
+    "text": "Where did the Vikings play under an inflatable roof from 1982 to 2013?",
+    "lat": 44.9739,
+    "lng": -93.2581,
+    "category": "stadium",
+    "venue": "Hubert H. Humphrey Metrodome",
+    "city": "Minneapolis",
+    "state": "Minnesota",
+    "country": "United States",
+    "hint": "Its roof collapsed under heavy snow in December 2010.",
+    "facts": [
+      "❄️ The roof deflated under snow in December 2010",
+      "⚾ The Twins won the 1987 and 1991 World Series here",
+      "🏈 Hosted Super Bowl XXVI in 1992",
+      "🏟️ U.S. Bank Stadium was built on the site"
+    ],
+    "wikipedia": "Hubert H. Humphrey Metrodome"
+  },
+  {
+    "id": "usa-w1-a-084",
+    "text": "Where did the Falcons play under a cable-supported roof from 1992 to 2016?",
+    "lat": 33.758,
+    "lng": -84.401,
+    "category": "stadium",
+    "venue": "Georgia Dome",
+    "city": "Atlanta",
+    "state": "Georgia",
+    "country": "United States",
+    "hint": "It hosted two Super Bowls and Olympic basketball.",
+    "facts": [
+      "🏈 Hosted Super Bowls XXVIII and XXXIV",
+      "🏀 Hosted basketball at the 1996 Olympics",
+      "💥 Demolished in 2017"
+    ],
+    "wikipedia": "Georgia Dome"
+  },
+  {
+    "id": "usa-w1-a-085",
+    "text": "Where did the Colts play under an air-supported roof from 1984 to 2007?",
+    "lat": 39.7637,
+    "lng": -86.1633,
+    "category": "stadium",
+    "venue": "RCA Dome",
+    "city": "Indianapolis",
+    "state": "Indiana",
+    "country": "United States",
+    "hint": "It opened as the Hoosier Dome.",
+    "facts": [
+      "🐴 Home of the Colts after they left Baltimore",
+      "🏟️ Opened in 1984 as the Hoosier Dome",
+      "💥 Demolished in 2008"
+    ],
+    "wikipedia": "RCA Dome"
+  },
+  {
+    "id": "usa-w1-a-086",
+    "text": "Where did \"The Greatest Show on Turf\" play its home games?",
+    "lat": 38.6328,
+    "lng": -90.1886,
+    "category": "stadium",
+    "venue": "The Dome at America's Center",
+    "city": "St. Louis",
+    "state": "Missouri",
+    "country": "United States",
+    "hint": "The Rams' home from 1995 until they left in 2016.",
+    "facts": [
+      "🐏 The Rams won Super Bowl XXXIV in the 1999 season",
+      "🏈 Now home of the Battlehawks",
+      "🏟️ Opened in 1995"
+    ],
+    "wikipedia": "The Dome at America's Center"
+  },
+  {
+    "id": "usa-w1-a-087",
+    "text": "Where did the Browns play from 1946 to 1995, birthplace of the Dawg Pound?",
+    "lat": 41.5067,
+    "lng": -81.6972,
+    "category": "stadium",
+    "venue": "Cleveland Stadium",
+    "city": "Cleveland",
+    "state": "Ohio",
+    "country": "United States",
+    "hint": "A lakefront stadium nicknamed \"the Mistake by the Lake\".",
+    "facts": [
+      "🐶 The Dawg Pound bleachers were in the east end zone",
+      "⚾ The Indians also played here until 1993",
+      "🏟️ Opened in 1931",
+      "💥 Demolished in 1996"
+    ],
+    "wikipedia": "Cleveland Stadium"
+  },
+  {
+    "id": "usa-w1-a-088",
+    "text": "Where was \"The Big Sombrero\"?",
+    "lat": 27.9789,
+    "lng": -82.5036,
+    "category": "stadium",
+    "venue": "Tampa Stadium",
+    "city": "Tampa",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "The Buccaneers' first home; it hosted two Super Bowls.",
+    "facts": [
+      "🏴‍☠️ Home of the Buccaneers from 1976 to 1997",
+      "🏈 Hosted Super Bowls XVIII and XXV",
+      "💥 Demolished in 1999"
+    ],
+    "wikipedia": "Tampa Stadium"
+  },
+  {
+    "id": "usa-w1-a-089",
+    "text": "Where was the snowy \"Tuck Rule\" playoff game played in January 2002?",
+    "lat": 42.0928,
+    "lng": -71.2675,
+    "category": "event",
+    "venue": "Foxboro Stadium",
+    "city": "Foxborough",
+    "state": "Massachusetts",
+    "country": "United States",
+    "hint": "It was the Patriots' last game at their old home.",
+    "facts": [
+      "❄️ The Patriots beat the Raiders in overtime",
+      "🏟️ Opened in 1971 as Schaefer Stadium",
+      "⚽ Hosted games of the 1994 World Cup",
+      "💥 Demolished in 2002"
+    ],
+    "wikipedia": "Foxboro Stadium"
+  },
+  {
+    "id": "usa-w1-a-090",
+    "text": "Where did the Broncos play from 1960 to 2000?",
+    "lat": 39.7461,
+    "lng": -105.0217,
+    "category": "stadium",
+    "venue": "Mile High Stadium",
+    "city": "Denver",
+    "state": "Colorado",
+    "country": "United States",
+    "hint": "The old stadium stood right beside its replacement.",
+    "facts": [
+      "🐴 Home of the \"Orange Crush\" defense",
+      "⚾ The Rockies drew record crowds here in 1993 and 1994",
+      "💥 Demolished in 2002"
+    ],
+    "wikipedia": "Mile High Stadium"
+  },
+  {
+    "id": "usa-w1-a-091",
+    "text": "Where did the Packers play from 1925 to 1956, behind a high school?",
+    "lat": 44.5075,
+    "lng": -87.9925,
+    "category": "stadium",
+    "venue": "City Stadium (Green Bay)",
+    "city": "Green Bay",
+    "state": "Wisconsin",
+    "country": "United States",
+    "hint": "A high school team still plays there.",
+    "facts": [
+      "🧀 Home of the Packers for six NFL titles",
+      "🏫 Still used by East High School",
+      "🏟️ Opened in 1925"
+    ],
+    "wikipedia": "City Stadium (Green Bay)"
+  },
+  {
+    "id": "usa-w1-a-092",
+    "text": "Where did the Chiefs play before Arrowhead?",
+    "lat": 39.087,
+    "lng": -94.558,
+    "category": "stadium",
+    "venue": "Kansas City Municipal Stadium",
+    "city": "Kansas City",
+    "state": "Missouri",
+    "country": "United States",
+    "hint": "It was also home of the Monarchs and the A's.",
+    "facts": [
+      "🏈 Hosted the longest NFL game, a double-overtime playoff on Christmas Day 1971",
+      "⚾ Home of the Negro Leagues' Monarchs",
+      "🏟️ Opened in 1923",
+      "💥 Demolished in 1976"
+    ],
+    "wikipedia": "Municipal Stadium (Kansas City, Missouri)"
+  },
+  {
+    "id": "usa-w1-a-093",
+    "text": "Where did the Chargers win their only AFL championship, in January 1964?",
+    "lat": 32.7208,
+    "lng": -117.1506,
+    "category": "event",
+    "venue": "Balboa Stadium",
+    "city": "San Diego",
+    "state": "California",
+    "country": "United States",
+    "hint": "Built in 1914 next to a famous city park.",
+    "facts": [
+      "⚡ The Chargers beat the Patriots 51–10",
+      "🏟️ Opened in 1914",
+      "🎸 The Beatles played here in 1965"
+    ],
+    "wikipedia": "Balboa Stadium"
+  },
+  {
+    "id": "usa-w1-a-094",
+    "text": "Where do the Permian Panthers of \"Friday Night Lights\" play?",
+    "lat": 31.9206,
+    "lng": -102.3647,
+    "category": "stadium",
+    "venue": "Ratliff Stadium",
+    "city": "Odessa",
+    "state": "Texas",
+    "country": "United States",
+    "hint": "The fans chant \"Mojo!\"",
+    "facts": [
+      "📚 H. G. Bissinger's 1990 book made the team famous",
+      "🎬 Inspired a film and a TV series",
+      "🏟️ Opened in 1982"
+    ],
+    "wikipedia": "Ratliff Stadium"
+  },
+  {
+    "id": "usa-w1-a-095",
+    "text": "Where do the high-school Tigers once coached by Paul Brown play?",
+    "lat": 40.7935,
+    "lng": -81.4997,
+    "category": "stadium",
+    "venue": "Paul Brown Tiger Stadium",
+    "city": "Massillon",
+    "state": "Ohio",
+    "country": "United States",
+    "hint": "Newborn boys in town get a miniature football in the hospital.",
+    "facts": [
+      "🐯 Home of the Washington High Tigers",
+      "🏈 Paul Brown coached here before the Browns",
+      "🏟️ Opened in 1939"
+    ],
+    "wikipedia": "Paul Brown Tiger Stadium"
+  },
+  {
+    "id": "usa-w1-a-096",
+    "text": "Where do the Bison play their home games indoors?",
+    "lat": 46.9031,
+    "lng": -96.8017,
+    "category": "stadium",
+    "venue": "Fargodome",
+    "city": "Fargo",
+    "state": "North Dakota",
+    "country": "United States",
+    "hint": "Home of a dynasty in the second tier of college football.",
+    "facts": [
+      "🦬 Home of the North Dakota State Bison",
+      "🏆 NDSU has won more than nine FCS national titles",
+      "🏈 Carson Wentz played here",
+      "🏟️ Opened in 1992"
+    ],
+    "wikipedia": "Fargodome"
+  },
+  {
+    "id": "usa-w1-a-097",
+    "text": "Where do the Grizzlies play in a valley ringed by mountains?",
+    "lat": 46.864,
+    "lng": -113.981,
+    "category": "stadium",
+    "venue": "Washington–Grizzly Stadium",
+    "city": "Missoula",
+    "state": "Montana",
+    "country": "United States",
+    "hint": "Home of the \"Griz\" of the Big Sky Conference.",
+    "facts": [
+      "🐻 Home of the Montana Grizzlies",
+      "🏆 FCS champions in 1995 and 2001",
+      "🏟️ Opened in 1986"
+    ],
+    "wikipedia": "Washington–Grizzly Stadium"
+  },
+  {
+    "id": "usa-w1-a-098",
+    "text": "Where do the Eagles play on red turf?",
+    "lat": 47.493,
+    "lng": -117.588,
+    "category": "stadium",
+    "venue": "Roos Field",
+    "city": "Cheney",
+    "state": "Washington",
+    "country": "United States",
+    "hint": "The field is nicknamed \"The Inferno\".",
+    "facts": [
+      "🔴 Red turf installed in 2010",
+      "🦅 Home of the Eastern Washington Eagles",
+      "🏈 Cooper Kupp played his college games here"
+    ],
+    "wikipedia": "Roos Field"
+  },
+  {
+    "id": "usa-w1-a-099",
+    "text": "Where do the Tigers of the Ivy League play?",
+    "lat": 40.3458,
+    "lng": -74.65,
+    "category": "stadium",
+    "venue": "Princeton Stadium",
+    "city": "Princeton",
+    "state": "New Jersey",
+    "country": "United States",
+    "hint": "It replaced Palmer Stadium in 1998.",
+    "facts": [
+      "🐯 Home of the Princeton Tigers",
+      "🏟️ Opened in 1998",
+      "🏈 Princeton played in the first college game in 1869"
+    ],
+    "wikipedia": "Powers Field at Princeton Stadium"
+  },
+  {
+    "id": "usa-w1-a-100",
+    "text": "Where do the Big Red play high above Cayuga's waters?",
+    "lat": 42.4441,
+    "lng": -76.4787,
+    "category": "stadium",
+    "venue": "Schoellkopf Field",
+    "city": "Ithaca",
+    "state": "New York",
+    "country": "United States",
+    "hint": "Its grandstand is shaped like a crescent.",
+    "facts": [
+      "🔴 Home of the Cornell Big Red",
+      "🌙 The concrete Crescent was added in 1924",
+      "🏟️ Opened in 1915"
+    ],
+    "wikipedia": "Schoellkopf Field"
+  }
+]

@@ -10,6 +10,7 @@
  */
 
 import { questionPool } from './question-pool.ts';
+import { cachedQuestions } from './daily-round.ts';
 import type { Question } from './question-types.ts';
 import type { DailyAnswer, DailyResult } from './game-state.ts';
 
@@ -42,7 +43,8 @@ export function buildReviewQuestions(
     .map((answer) => answer.questionId)
     .filter((id) => missedIds.has(id));
 
-  const byId = new Map(questionPool.map((question) => [question.id, question]));
+  // Questions from the daily bank are only on the device that played them.
+  const byId = new Map([...questionPool, ...cachedQuestions()].map((question) => [question.id, question]));
   const questions: Question[] = [];
   for (const id of wanted) {
     const question = byId.get(id);

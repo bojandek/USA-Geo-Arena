@@ -1,0 +1,1750 @@
+[
+  {
+    "id": "world-w1-f-001",
+    "text": "Where is the circuit of the oldest active 24-hour sports car endurance race?",
+    "lat": 47.9333,
+    "lng": 0.2333,
+    "category": "event",
+    "venue": "Circuit de la Sarthe",
+    "city": "Le Mans",
+    "country": "France",
+    "hint": "Its famous Mulsanne Straight is an ordinary public road for most of the year.",
+    "facts": [
+      "🏁 The 24-hour race was first held in 1923",
+      "🛣️ Much of the lap uses public roads closed for the race",
+      "🏆 Porsche has won the race more times than any other make",
+      "📏 A lap is about 13.6 km long"
+    ],
+    "wikipedia": "Circuit de la Sarthe"
+  },
+  {
+    "id": "world-w1-f-002",
+    "text": "Where is the anti-clockwise circuit named after Enzo and Dino Ferrari?",
+    "lat": 44.3411,
+    "lng": 11.7133,
+    "category": "stadium",
+    "venue": "Autodromo Enzo e Dino Ferrari",
+    "city": "Imola",
+    "country": "Italy",
+    "hint": "It sits beside the Santerno river in Emilia-Romagna.",
+    "facts": [
+      "🏎️ Hosted the San Marino Grand Prix from 1981 to 2006",
+      "🕯️ Ayrton Senna died at the Tamburello corner in 1994",
+      "🔄 One of the few circuits run anti-clockwise",
+      "🌧️ Returned to the F1 calendar in 2020"
+    ],
+    "wikipedia": "Imola Circuit"
+  },
+  {
+    "id": "world-w1-f-003",
+    "text": "Where is the Ferrari-owned hill circuit where Valentino Rossi won seven premier-class races in a row?",
+    "lat": 43.9975,
+    "lng": 11.3719,
+    "category": "athlete",
+    "venue": "Mugello Circuit",
+    "city": "Scarperia e San Piero",
+    "country": "Italy",
+    "hint": "It lies among the Tuscan hills north of Florence.",
+    "facts": [
+      "🏍️ Rossi won here every year from 2002 to 2008",
+      "🐎 Owned by Ferrari since 1988",
+      "🏎️ Hosted its first Formula 1 Grand Prix in 2020",
+      "📏 The lap is about 5.2 km long"
+    ],
+    "wikipedia": "Mugello Circuit"
+  },
+  {
+    "id": "world-w1-f-004",
+    "text": "Where is the circuit famous for blue-and-red striped run-off areas and the long Mistral Straight?",
+    "lat": 43.2506,
+    "lng": 5.7917,
+    "category": "stadium",
+    "venue": "Circuit Paul Ricard",
+    "city": "Le Castellet",
+    "country": "France",
+    "hint": "It sits on a plateau above the Mediterranean, between Marseille and Toulon.",
+    "facts": [
+      "🥃 Built by pastis maker Paul Ricard and opened in 1970",
+      "🎨 Its striped run-off zones slow cars without gravel",
+      "🏎️ Hosted Formula 1 again between 2018 and 2022"
+    ],
+    "wikipedia": "Circuit Paul Ricard"
+  },
+  {
+    "id": "world-w1-f-005",
+    "text": "Where is the circuit whose old layout ran flat-out on long straights through a forest?",
+    "lat": 49.3278,
+    "lng": 8.5658,
+    "category": "stadium",
+    "venue": "Hockenheimring",
+    "city": "Hockenheim",
+    "country": "Germany",
+    "hint": "It lies in the Rhine plain, not far from Mannheim and Heidelberg.",
+    "facts": [
+      "🌲 The old forest straights were cut from the layout in 2002",
+      "🕯️ Jim Clark died here in a Formula 2 race in 1968",
+      "🏟️ The stadium section is ringed by huge grandstands",
+      "🏎️ A long-time home of the German Grand Prix"
+    ],
+    "wikipedia": "Hockenheimring"
+  },
+  {
+    "id": "world-w1-f-006",
+    "text": "Where is the \"Cathedral\" of motorcycle racing, a world championship venue since the very first season in 1949?",
+    "lat": 52.9617,
+    "lng": 6.5233,
+    "category": "stadium",
+    "venue": "TT Circuit Assen",
+    "city": "Assen",
+    "country": "Netherlands",
+    "hint": "A circuit built for bikes among the flat fields of Drenthe.",
+    "facts": [
+      "🏍️ On the calendar since the championship began in 1949",
+      "⛪ Nicknamed the Cathedral of motorcycle racing",
+      "📅 Its race was traditionally held on a Saturday",
+      "🏁 Home of the Dutch TT"
+    ],
+    "wikipedia": "TT Circuit Assen"
+  },
+  {
+    "id": "world-w1-f-007",
+    "text": "Where did Jacques Villeneuve and Michael Schumacher collide in the title decider of 1997?",
+    "lat": 36.7083,
+    "lng": -6.0342,
+    "category": "event",
+    "venue": "Circuito de Jerez",
+    "city": "Jerez de la Frontera",
+    "country": "Spain",
+    "hint": "A motorcycle-mad circuit in sherry country in the far south-west.",
+    "facts": [
+      "🏎️ Villeneuve clinched the 1997 F1 title here",
+      "🏍️ A fixture of the motorcycle Grand Prix calendar since 1987",
+      "🍷 The town gave its name to sherry"
+    ],
+    "wikipedia": "Circuito de Jerez"
+  },
+  {
+    "id": "world-w1-f-008",
+    "text": "Where did Lewis Hamilton take his record-breaking 92nd Formula 1 win, in 2020?",
+    "lat": 37.2319,
+    "lng": -8.6319,
+    "category": "athlete",
+    "venue": "Algarve International Circuit",
+    "city": "Portimão",
+    "country": "Portugal",
+    "hint": "A roller-coaster track with blind crests near the resort beaches of the south coast.",
+    "facts": [
+      "🎢 Opened in 2008, famous for its steep elevation changes",
+      "🏆 Hamilton passed Michael Schumacher's 91 wins here",
+      "🏍️ Joined the MotoGP calendar in 2020"
+    ],
+    "wikipedia": "Algarve International Circuit"
+  },
+  {
+    "id": "world-w1-f-009",
+    "text": "Where is the seaside circuit renamed after Marco Simoncelli, a few kilometres from Valentino Rossi's home village?",
+    "lat": 43.9614,
+    "lng": 12.6833,
+    "category": "athlete",
+    "venue": "Misano World Circuit Marco Simoncelli",
+    "city": "Misano Adriatico",
+    "country": "Italy",
+    "hint": "It sits on the Adriatic Riviera, close to Rimini and Riccione.",
+    "facts": [
+      "🏍️ Renamed in 2012 after Simoncelli, who died in 2011",
+      "🏠 Rossi grew up in nearby Tavullia",
+      "🏁 Hosts the San Marino motorcycle Grand Prix"
+    ],
+    "wikipedia": "Misano World Circuit"
+  },
+  {
+    "id": "world-w1-f-010",
+    "text": "Where is the mountain circuit of the great 1000 km touring car race, with The Chase and Conrod Straight?",
+    "lat": -33.4475,
+    "lng": 149.5564,
+    "category": "event",
+    "venue": "Mount Panorama Circuit",
+    "city": "Bathurst",
+    "country": "Australia",
+    "hint": "It loops over a hill in an old gold-rush town west of the Blue Mountains.",
+    "facts": [
+      "🚗 Home of the Bathurst 1000",
+      "🏆 Peter Brock won the race nine times",
+      "🛣️ The track is a public road outside race weekends",
+      "⛰️ The lap climbs about 174 m up the mountain"
+    ],
+    "wikipedia": "Mount Panorama Circuit"
+  },
+  {
+    "id": "world-w1-f-011",
+    "text": "Where is the circuit next to a capital's main international airport, with a double-sided main grandstand?",
+    "lat": 2.7606,
+    "lng": 101.7375,
+    "category": "stadium",
+    "venue": "Sepang International Circuit",
+    "city": "Sepang",
+    "country": "Malaysia",
+    "hint": "Afternoon tropical storms often soak it, in South-East Asia.",
+    "facts": [
+      "✈️ Lies beside Kuala Lumpur International Airport",
+      "🏎️ Hosted Formula 1 from 1999 to 2017",
+      "🏍️ Still a MotoGP venue",
+      "🕯️ Marco Simoncelli died here in 2011"
+    ],
+    "wikipedia": "Sepang International Circuit"
+  },
+  {
+    "id": "world-w1-f-012",
+    "text": "Where is the fastest street circuit on the Formula 1 calendar, raced at night along a waterfront?",
+    "lat": 21.6319,
+    "lng": 39.1044,
+    "category": "stadium",
+    "venue": "Jeddah Corniche Circuit",
+    "city": "Jeddah",
+    "country": "Saudi Arabia",
+    "hint": "It runs along a corniche on the Red Sea.",
+    "facts": [
+      "🌙 Raced under floodlights",
+      "🏎️ First held in December 2021",
+      "💨 Average lap speeds pass 250 km/h",
+      "🌊 Runs along the Red Sea shore"
+    ],
+    "wikipedia": "Jeddah Corniche Circuit"
+  },
+  {
+    "id": "world-w1-f-013",
+    "text": "Where is the circuit whose first corner, Paddock Hill Bend, plunges steeply out of sight?",
+    "lat": 51.3567,
+    "lng": 0.2625,
+    "category": "stadium",
+    "venue": "Brands Hatch",
+    "city": "West Kingsdown",
+    "country": "United Kingdom",
+    "hint": "It sits in the Kent countryside south-east of the capital.",
+    "facts": [
+      "🏎️ Hosted the British Grand Prix 12 times from 1964 to 1986",
+      "🏁 Nigel Mansell won his first F1 race here in 1985",
+      "🏍️ Began as a motorcycle dirt track in the 1920s"
+    ],
+    "wikipedia": "Brands Hatch"
+  },
+  {
+    "id": "world-w1-f-014",
+    "text": "Where are the Tourist Trophy motorcycle races, run on over 60 km of closed public roads?",
+    "lat": 54.1678,
+    "lng": -4.4778,
+    "category": "event",
+    "venue": "Snaefell Mountain Course",
+    "city": "Douglas",
+    "country": "Isle of Man",
+    "hint": "A self-governing island in the middle of the Irish Sea.",
+    "facts": [
+      "🏍️ First run in 1907",
+      "🛣️ The Mountain Course is about 60.7 km long",
+      "🏆 Joey Dunlop won 26 TT races",
+      "⛰️ It climbs over the slopes of Snaefell"
+    ],
+    "wikipedia": "Isle of Man TT Mountain Course"
+  },
+  {
+    "id": "world-w1-f-015",
+    "text": "Where did Ayrton Senna win his first Formula 1 race, from pole in torrential rain in 1985?",
+    "lat": 38.7508,
+    "lng": -9.3942,
+    "category": "athlete",
+    "venue": "Circuito do Estoril",
+    "city": "Estoril",
+    "country": "Portugal",
+    "hint": "A coastal resort area just west of a capital on the Atlantic.",
+    "facts": [
+      "🌧️ Senna lapped almost the whole field in the wet",
+      "🏎️ Hosted Formula 1 from 1984 to 1996",
+      "🏍️ Later hosted motorcycle Grands Prix"
+    ],
+    "wikipedia": "Circuito do Estoril"
+  },
+  {
+    "id": "world-w1-f-016",
+    "text": "Which hairpin mountain pass is the most famous stage of the winter rally that opens the World Rally Championship season?",
+    "lat": 43.9778,
+    "lng": 7.3917,
+    "category": "event",
+    "venue": "Col de Turini",
+    "city": "La Bollène-Vésubie",
+    "country": "France",
+    "hint": "A snowy road high in the Alpes-Maritimes, above the Riviera.",
+    "facts": [
+      "🌙 Its night stage was called the Night of the Long Knives",
+      "❄️ Often covered in snow and ice in January",
+      "🏁 A classic stage of the Monte Carlo Rally",
+      "⛰️ Summit at about 1,607 m"
+    ],
+    "wikipedia": "Col de Turini"
+  },
+  {
+    "id": "world-w1-f-017",
+    "text": "Where did the original desert rally from Europe finish, on a beach beside a pink lake?",
+    "lat": 14.8383,
+    "lng": -17.2448,
+    "category": "event",
+    "venue": "Lake Retba",
+    "city": "Rufisque",
+    "country": "Senegal",
+    "hint": "Its pink colour comes from algae, near the westernmost tip of Africa.",
+    "facts": [
+      "🌸 Its water looks pink thanks to the algae Dunaliella salina",
+      "🏁 The Paris–Dakar Rally finished here for many years",
+      "🧂 Salt is harvested from the lake by hand",
+      "🏜️ The rally left Africa for South America in 2009"
+    ],
+    "wikipedia": "Lake Retba"
+  },
+  {
+    "id": "world-w1-f-018",
+    "text": "Where is the world's first purpose-built motor racing circuit, with a giant banked concrete track?",
+    "lat": 51.3489,
+    "lng": -0.4725,
+    "category": "stadium",
+    "venue": "Brooklands",
+    "city": "Weybridge",
+    "country": "United Kingdom",
+    "hint": "In Surrey, south-west of the capital.",
+    "facts": [
+      "🏁 Opened in 1907",
+      "✈️ Also an early aerodrome and aircraft factory",
+      "🏎️ Racing ended with the Second World War",
+      "🏛️ Today it is a museum"
+    ],
+    "wikipedia": "Brooklands"
+  },
+  {
+    "id": "world-w1-f-019",
+    "text": "Where is the twisting street circuit of the Formula 3 Grand Prix won by Ayrton Senna and Michael Schumacher?",
+    "lat": 22.1972,
+    "lng": 113.5508,
+    "category": "event",
+    "venue": "Guia Circuit",
+    "city": "Macau",
+    "country": "China",
+    "hint": "A gambling hub on the Pearl River Delta, a former colony.",
+    "facts": [
+      "🏎️ Senna won the race in 1983 and Schumacher in 1990",
+      "🏍️ Also hosts a famous motorcycle race",
+      "🔄 The Lisboa bend is its best-known corner",
+      "🎰 The track runs through a city of casinos"
+    ],
+    "wikipedia": "Guia Circuit"
+  },
+  {
+    "id": "world-w1-f-020",
+    "text": "Where is the circuit built by Honda with both a road course and an oval, home of a MotoGP round?",
+    "lat": 36.5333,
+    "lng": 140.2283,
+    "category": "stadium",
+    "venue": "Mobility Resort Motegi",
+    "city": "Motegi",
+    "country": "Japan",
+    "hint": "In Tochigi prefecture, north of the capital region.",
+    "facts": [
+      "🏍️ Opened in 1997",
+      "🏭 Owned by Honda",
+      "🔵 Its oval hosted American open-wheel races from 1998"
+    ],
+    "wikipedia": "Motegi Circuit"
+  },
+  {
+    "id": "world-w1-f-021",
+    "text": "Which mountain-top finish of the Grande Boucle climbs through 21 numbered hairpins?",
+    "lat": 45.0603,
+    "lng": 6.0714,
+    "category": "event",
+    "venue": "Alpe d'Huez",
+    "city": "Huez",
+    "country": "France",
+    "hint": "Each hairpin carries a plaque naming past stage winners, in the Oisans.",
+    "facts": [
+      "🔄 21 hairpin bends lead to the top",
+      "🟧 Bend 7 is known as Dutch Corner",
+      "🚴 First used as a finish in 1952, won by Fausto Coppi",
+      "⛷️ Also a big ski resort"
+    ],
+    "wikipedia": "Alpe d'Huez"
+  },
+  {
+    "id": "world-w1-f-022",
+    "text": "Where did cyclist Tom Simpson collapse and die during the Grande Boucle of 1967?",
+    "lat": 44.1744,
+    "lng": 5.2789,
+    "category": "athlete",
+    "venue": "Mont Ventoux",
+    "city": "Bédoin",
+    "country": "France",
+    "hint": "A bald, windswept mountain rising alone in Provence.",
+    "facts": [
+      "🪨 Its bare limestone summit looks like a moon landscape",
+      "🕯️ A memorial to Tom Simpson stands near the top",
+      "💨 Known as the Giant of Provence",
+      "⛰️ Summit at 1,909 m"
+    ],
+    "wikipedia": "Mont Ventoux"
+  },
+  {
+    "id": "world-w1-f-023",
+    "text": "Which pass is the most climbed in the history of the Grande Boucle, first crossed in 1910?",
+    "lat": 42.9082,
+    "lng": 0.1451,
+    "category": "event",
+    "venue": "Col du Tourmalet",
+    "city": "Barèges",
+    "country": "France",
+    "hint": "A high road pass in the central Pyrenees.",
+    "facts": [
+      "⛰️ About 2,115 m high",
+      "🚴 First crossed by the race in 1910",
+      "🗿 A statue of a cyclist, the Géant du Tourmalet, stands at the top",
+      "🔭 The Pic du Midi observatory rises above it"
+    ],
+    "wikipedia": "Col du Tourmalet"
+  },
+  {
+    "id": "world-w1-f-024",
+    "text": "Where does \"the Hell of the North\" cobbled classic finish, with a lap and a half of an open-air track?",
+    "lat": 50.6781,
+    "lng": 3.2052,
+    "category": "event",
+    "venue": "Vélodrome André-Pétrieux",
+    "city": "Roubaix",
+    "country": "France",
+    "hint": "An old concrete velodrome in the far north, close to the border.",
+    "facts": [
+      "🚿 Its old showers carry plaques of past winners",
+      "🏆 Roger De Vlaeminck and Tom Boonen won the race four times each",
+      "🚴 The race was first run in 1896"
+    ],
+    "wikipedia": "Roubaix Velodrome"
+  },
+  {
+    "id": "world-w1-f-025",
+    "text": "Which 2,757 m pass, with 48 numbered hairpins on one side, is a legend of the Giro?",
+    "lat": 46.5286,
+    "lng": 10.4528,
+    "category": "event",
+    "venue": "Stelvio Pass",
+    "city": "Bormio",
+    "country": "Italy",
+    "hint": "The highest paved pass of the eastern Alps, near the Swiss border.",
+    "facts": [
+      "🔄 48 hairpins on the northern ramp",
+      "⛰️ 2,757 m above sea level",
+      "🚴 First crossed by the Giro in 1953, won by Fausto Coppi",
+      "🏁 Often the Cima Coppi, highest point of the race"
+    ],
+    "wikipedia": "Stelvio Pass"
+  },
+  {
+    "id": "world-w1-f-026",
+    "text": "Which brutally steep climb was made famous by Marco Pantani's attack in the 1994 Giro?",
+    "lat": 46.248,
+    "lng": 10.2991,
+    "category": "athlete",
+    "venue": "Mortirolo Pass",
+    "city": "Mazzo di Valtellina",
+    "country": "Italy",
+    "hint": "A narrow road linking Valtellina with Val Camonica in Lombardy.",
+    "facts": [
+      "🚴 Pantani's 1994 attack here made the climb famous",
+      "📈 Gradients pass 18 percent",
+      "🗿 A monument to Pantani stands on the climb"
+    ],
+    "wikipedia": "Mortirolo Pass"
+  },
+  {
+    "id": "world-w1-f-027",
+    "text": "Which high Alpine pass did the Grande Boucle first climb in 1911?",
+    "lat": 45.064,
+    "lng": 6.408,
+    "category": "event",
+    "venue": "Col du Galibier",
+    "city": "Valloire",
+    "country": "France",
+    "hint": "It links the Maurienne valley with the Col du Lautaret.",
+    "facts": [
+      "⛰️ About 2,642 m at the summit",
+      "🗿 A monument to race founder Henri Desgrange stands on the south side",
+      "🚴 Andy Schleck won a stage finish on top in 2011",
+      "❄️ Closed by snow in winter"
+    ],
+    "wikipedia": "Col du Galibier"
+  },
+  {
+    "id": "world-w1-f-028",
+    "text": "Which narrow cobbled hill of the Ronde is so steep that riders are sometimes forced to walk?",
+    "lat": 50.8106,
+    "lng": 3.5823,
+    "category": "event",
+    "venue": "Koppenberg",
+    "city": "Oudenaarde",
+    "country": "Belgium",
+    "hint": "A tiny farm lane in the Flemish Ardennes.",
+    "facts": [
+      "📈 Gradients up to about 22 percent",
+      "🪨 Cobbled and only a few metres wide",
+      "🚴 Part of the Tour of Flanders"
+    ],
+    "wikipedia": "Koppenberg"
+  },
+  {
+    "id": "world-w1-f-029",
+    "text": "Which cobbled \"wall\" topped by a chapel was the decisive climb of the Tour of Flanders for decades?",
+    "lat": 50.7725,
+    "lng": 3.89,
+    "category": "event",
+    "venue": "Muur van Geraardsbergen",
+    "city": "Geraardsbergen",
+    "country": "Belgium",
+    "hint": "The Oudenberg chapel sits at its summit.",
+    "facts": [
+      "⛪ A chapel stands at the top",
+      "🪨 Cobbled, with very steep ramps",
+      "🚴 Returned to the Tour of Flanders in 2017",
+      "🏁 Also climbed in Omloop Het Nieuwsblad"
+    ],
+    "wikipedia": "Muur van Geraardsbergen"
+  },
+  {
+    "id": "world-w1-f-030",
+    "text": "Which dead-straight cobbled road through a forest is the most feared sector of \"the Hell of the North\"?",
+    "lat": 50.399,
+    "lng": 3.4125,
+    "category": "event",
+    "venue": "Trouée d'Arenberg",
+    "city": "Wallers",
+    "country": "France",
+    "hint": "About 2.4 km of cobbles beside an old coal mine.",
+    "facts": [
+      "🪨 About 2.4 km of rough cobbles",
+      "⛏️ Runs past the old Arenberg mine",
+      "🚴 First used in the race in 1968",
+      "⭐ Rated five stars, the hardest grade"
+    ],
+    "wikipedia": "Trouée d'Arenberg"
+  },
+  {
+    "id": "world-w1-f-031",
+    "text": "Which short climb above the Riviera decides \"La Classicissima\", the longest one-day classic?",
+    "lat": 43.825,
+    "lng": 7.815,
+    "category": "event",
+    "venue": "Poggio di San Remo",
+    "city": "Sanremo",
+    "country": "Italy",
+    "hint": "Riders crest it with just over 5 km left to the finish on the Via Roma.",
+    "facts": [
+      "🚴 Added to the race in 1960",
+      "🌸 The race is nicknamed La Primavera",
+      "📏 Milan–San Remo is about 290 km long"
+    ],
+    "wikipedia": "Poggio di San Remo"
+  },
+  {
+    "id": "world-w1-f-032",
+    "text": "On which pass did Wim van Est fall into a ravine while wearing the yellow jersey in 1951?",
+    "lat": 42.9767,
+    "lng": -0.3397,
+    "category": "event",
+    "venue": "Col d'Aubisque",
+    "city": "Eaux-Bonnes",
+    "country": "France",
+    "hint": "A high pass in the western Pyrenees, linked to the Col du Soulor.",
+    "facts": [
+      "🚴 Van Est survived the fall and was pulled out with tyres",
+      "⛰️ About 1,709 m high",
+      "🚲 Giant bicycle sculptures stand at the top"
+    ],
+    "wikipedia": "Col d'Aubisque"
+  },
+  {
+    "id": "world-w1-f-033",
+    "text": "Which brutally steep climb in the Carnic Alps became a Giro summit finish in 2003?",
+    "lat": 46.5,
+    "lng": 12.9167,
+    "category": "event",
+    "venue": "Monte Zoncolan",
+    "city": "Ovaro",
+    "country": "Italy",
+    "hint": "Gradients pass 20 percent, in the far north-east of the peninsula.",
+    "facts": [
+      "📈 The Ovaro side averages almost 12 percent",
+      "🚴 Gilberto Simoni won the first summit finish in 2003",
+      "⛷️ Also a ski area"
+    ],
+    "wikipedia": "Monte Zoncolan"
+  },
+  {
+    "id": "world-w1-f-034",
+    "text": "Which short hill was for years the final climb of the Amstel Gold Race?",
+    "lat": 50.8611,
+    "lng": 5.8237,
+    "category": "event",
+    "venue": "Cauberg",
+    "city": "Valkenburg",
+    "country": "Netherlands",
+    "hint": "A rare hill in the southern tip of the flat country, in Limburg.",
+    "facts": [
+      "🏆 Philippe Gilbert won the 2012 world title on its slopes",
+      "🍺 The Amstel Gold Race is named after a beer",
+      "📏 Only about 1.2 km long"
+    ],
+    "wikipedia": "Cauberg"
+  },
+  {
+    "id": "world-w1-f-035",
+    "text": "Which steep wall lined with chapels is the finish of La Flèche Wallonne?",
+    "lat": 50.5155,
+    "lng": 5.2467,
+    "category": "event",
+    "venue": "Mur de Huy",
+    "city": "Huy",
+    "country": "Belgium",
+    "hint": "A narrow road above the Meuse valley in Wallonia.",
+    "facts": [
+      "📈 Pitches up to about 26 percent",
+      "🏆 Alejandro Valverde won the race five times",
+      "⛪ Lined with small chapels"
+    ],
+    "wikipedia": "Mur de Huy"
+  },
+  {
+    "id": "world-w1-f-036",
+    "text": "Which climb, among the steepest in pro cycling, first featured in the Vuelta in 1999?",
+    "lat": 43.2215,
+    "lng": -5.9424,
+    "category": "event",
+    "venue": "Alto de l'Angliru",
+    "city": "Riosa",
+    "country": "Spain",
+    "hint": "Its Cueña les Cabres ramp reaches over 23 percent, in the Asturian mountains.",
+    "facts": [
+      "📈 Maximum gradient about 23.5 percent",
+      "🚴 José María Jiménez won the first finish here in 1999",
+      "🌧️ Often shrouded in fog and rain"
+    ],
+    "wikipedia": "Alto de l'Angliru"
+  },
+  {
+    "id": "world-w1-f-037",
+    "text": "Where is the Streif, the most feared downhill course of the alpine World Cup?",
+    "lat": 47.4242,
+    "lng": 12.3653,
+    "category": "event",
+    "venue": "Streif",
+    "city": "Kitzbühel",
+    "country": "Austria",
+    "hint": "Its Mausefalle jump launches racers above a Tyrolean ski town every January.",
+    "facts": [
+      "⛷️ The Mausefalle has a gradient of about 85 percent",
+      "🏁 Home of the Hahnenkamm races",
+      "🏆 Didier Cuche won the downhill here a record five times",
+      "📏 About 3.3 km long"
+    ],
+    "wikipedia": "Streif"
+  },
+  {
+    "id": "world-w1-f-038",
+    "text": "Where is the ski jump that has hosted competitions since 1892, high above a capital?",
+    "lat": 59.9639,
+    "lng": 10.6678,
+    "category": "stadium",
+    "venue": "Holmenkollbakken",
+    "city": "Oslo",
+    "country": "Norway",
+    "hint": "It towers on a hill above the fjord, with a ski museum at its foot.",
+    "facts": [
+      "🎿 Ski jumping held here since 1892",
+      "🔥 Hosted the 1952 Winter Olympics",
+      "🏗️ Rebuilt for the 2011 World Championships",
+      "🏛️ Has a ski museum at its base"
+    ],
+    "wikipedia": "Holmenkollbakken"
+  },
+  {
+    "id": "world-w1-f-039",
+    "text": "Where is the giant ski-flying hill built by the Gorišek brothers, home of the World Cup season finale?",
+    "lat": 46.4764,
+    "lng": 13.7211,
+    "category": "stadium",
+    "venue": "Letalnica bratov Gorišek",
+    "city": "Kranjska Gora",
+    "country": "Slovenia",
+    "hint": "In the Planica valley below the Ponce peaks, close to two borders.",
+    "facts": [
+      "🏔️ Opened in 1969",
+      "🛫 Flights beyond 240 m are common here",
+      "🎉 Hosts the final event of the ski jumping season"
+    ],
+    "wikipedia": "Letalnica bratov Gorišek"
+  },
+  {
+    "id": "world-w1-f-040",
+    "text": "Where is the longest downhill course of the alpine World Cup, beneath the Eiger, Mönch and Jungfrau?",
+    "lat": 46.5925,
+    "lng": 7.9479,
+    "category": "event",
+    "venue": "Lauberhorn",
+    "city": "Wengen",
+    "country": "Switzerland",
+    "hint": "It ends in a car-free village of the Bernese Oberland.",
+    "facts": [
+      "📏 About 4.5 km long",
+      "🪨 Famous for the Hundschopf jump",
+      "🚂 The village can only be reached by train",
+      "🏔️ First held in 1930"
+    ],
+    "wikipedia": "Lauberhorn"
+  },
+  {
+    "id": "world-w1-f-041",
+    "text": "Where is the ski jump with a tower designed by Zaha Hadid, part of the Four Hills Tournament?",
+    "lat": 47.2489,
+    "lng": 11.3992,
+    "category": "stadium",
+    "venue": "Bergisel Ski Jump",
+    "city": "Innsbruck",
+    "country": "Austria",
+    "hint": "It looks down on a Tyrolean capital that hosted two Winter Olympics.",
+    "facts": [
+      "🏗️ The Zaha Hadid tower opened in 2002",
+      "🔥 Olympic jumping venue in 1964 and 1976",
+      "🎆 Hosts the third event of the Four Hills Tournament"
+    ],
+    "wikipedia": "Bergisel Ski Jump"
+  },
+  {
+    "id": "world-w1-f-042",
+    "text": "Where is the ski-flying hill where Stefan Kraft flew a world record 253.5 m in 2017?",
+    "lat": 59.9383,
+    "lng": 10.0061,
+    "category": "stadium",
+    "venue": "Vikersundbakken",
+    "city": "Vikersund",
+    "country": "Norway",
+    "hint": "A small village beside the lake Tyrifjorden, west of the capital.",
+    "facts": [
+      "🛫 Kraft's 253.5 m stood as the world record for years",
+      "🏔️ One of the largest ski-flying hills in the world",
+      "🎿 Has hosted the Ski Flying World Championships several times"
+    ],
+    "wikipedia": "Vikersundbakken"
+  },
+  {
+    "id": "world-w1-f-043",
+    "text": "Where is the Olimpia delle Tofane, the piste of the women's alpine races at the 2026 Winter Olympics?",
+    "lat": 46.5347,
+    "lng": 12.1203,
+    "category": "stadium",
+    "venue": "Olimpia delle Tofane",
+    "city": "Cortina d'Ampezzo",
+    "country": "Italy",
+    "hint": "Below the Tofane peaks in the Dolomites, an Olympic host also in 1956.",
+    "facts": [
+      "🔥 The town also hosted the 1956 Winter Olympics",
+      "⛷️ Hosted the 2021 Alpine World Ski Championships",
+      "🪨 The Schuss runs between rocky cliffs",
+      "🥇 Lindsey Vonn won 12 World Cup races here"
+    ],
+    "wikipedia": "Olimpia delle Tofane"
+  },
+  {
+    "id": "world-w1-f-044",
+    "text": "Where is the sliding track that hosted bobsleigh, luge and skeleton at the 2014 Winter Olympics?",
+    "lat": 43.667,
+    "lng": 40.2886,
+    "category": "stadium",
+    "venue": "Sliding Center Sanki",
+    "city": "Krasnaya Polyana",
+    "country": "Russia",
+    "hint": "In the mountain cluster of a Black Sea resort's Games, in the Western Caucasus.",
+    "facts": [
+      "🛷 Hosted bobsleigh, luge and skeleton in 2014",
+      "⛰️ Built in the Western Caucasus mountains",
+      "🚡 Part of the Games' mountain cluster"
+    ],
+    "wikipedia": "Sliding Center Sanki"
+  },
+  {
+    "id": "world-w1-f-045",
+    "text": "Where is the famous natural-ice run that toboggan riders descend head-first, a club tradition since the 1880s?",
+    "lat": 46.5026,
+    "lng": 9.845,
+    "category": "event",
+    "venue": "Cresta Run",
+    "city": "St. Moritz",
+    "country": "Switzerland",
+    "hint": "In a glitzy Engadin resort that hosted two Winter Olympics.",
+    "facts": [
+      "🛷 Riders go head-first on a heavy toboggan",
+      "🔥 On the Olympic programme here in 1928 and 1948",
+      "❄️ Rebuilt from natural ice every winter"
+    ],
+    "wikipedia": "Cresta Run"
+  },
+  {
+    "id": "world-w1-f-046",
+    "text": "Where are the twin ski jumps of the 1998 Winter Olympics, where the home team won large-hill team gold?",
+    "lat": 36.6953,
+    "lng": 137.8374,
+    "category": "stadium",
+    "venue": "Hakuba Ski Jumping Stadium",
+    "city": "Hakuba",
+    "country": "Japan",
+    "hint": "In the Northern Alps, a ski village of Nagano prefecture.",
+    "facts": [
+      "🥇 The home team won the large-hill team event in 1998",
+      "🎿 Kazuyoshi Funaki won the individual large hill",
+      "⛷️ The valley also hosted Olympic alpine skiing"
+    ],
+    "wikipedia": "Hakuba Ski Jumping Stadium"
+  },
+  {
+    "id": "world-w1-f-047",
+    "text": "Where did Kamil Stoch win the large-hill gold at the 2018 Winter Olympics?",
+    "lat": 37.6617,
+    "lng": 128.6806,
+    "category": "athlete",
+    "venue": "Alpensia Ski Jumping Stadium",
+    "city": "Pyeongchang",
+    "country": "South Korea",
+    "hint": "In the snowy Taebaek mountains of Gangwon province.",
+    "facts": [
+      "🥇 Stoch won the large hill in 2018",
+      "🏔️ Part of the Alpensia Resort",
+      "❄️ The Games were held in February 2018"
+    ],
+    "wikipedia": "Alpensia Ski Jumping Stadium"
+  },
+  {
+    "id": "world-w1-f-048",
+    "text": "Where is the hill that opens the Four Hills Tournament every December?",
+    "lat": 47.4056,
+    "lng": 10.2928,
+    "category": "event",
+    "venue": "Schattenbergschanze",
+    "city": "Oberstdorf",
+    "country": "Germany",
+    "hint": "In the far south of the Allgäu, in Bavaria.",
+    "facts": [
+      "🎆 First event of the Four Hills Tournament",
+      "🎿 Hosted the Nordic World Ski Championships in 1987, 2005 and 2021",
+      "🛫 The village also has a giant ski-flying hill"
+    ],
+    "wikipedia": "ORLEN Arena Oberstdorf"
+  },
+  {
+    "id": "world-w1-f-049",
+    "text": "Where is the final jump of the Four Hills Tournament, held on Epiphany?",
+    "lat": 47.4153,
+    "lng": 13.2061,
+    "category": "event",
+    "venue": "Paul-Ausserleitner-Schanze",
+    "city": "Bischofshofen",
+    "country": "Austria",
+    "hint": "In the Pongau region, south of the city of Salzburg.",
+    "facts": [
+      "🏁 Final stop of the Four Hills, on 6 January",
+      "🦅 The Golden Eagle is handed to the overall winner here",
+      "🎿 Named after a jumper who died after a fall in 1952"
+    ],
+    "wikipedia": "Paul-Ausserleitner-Schanze"
+  },
+  {
+    "id": "world-w1-f-050",
+    "text": "Where is the abandoned, graffiti-covered bobsleigh track of the 1984 Winter Olympics?",
+    "lat": 43.8411,
+    "lng": 18.4422,
+    "category": "event",
+    "venue": "Sarajevo Olympic Bobsleigh and Luge Track",
+    "city": "Sarajevo",
+    "country": "Bosnia and Herzegovina",
+    "hint": "On Mount Trebević, above a valley capital.",
+    "facts": [
+      "🛷 Built for the 1984 Winter Olympics",
+      "🎨 Now covered in graffiti",
+      "💥 Used as an artillery position during the 1990s war",
+      "🚡 A cable car reaches the mountain again since 2018"
+    ],
+    "wikipedia": "Sarajevo Olympic Bobsleigh and Luge Track"
+  },
+  {
+    "id": "world-w1-f-051",
+    "text": "Where were the first Winter Olympic Games held, in 1924?",
+    "lat": 45.9267,
+    "lng": 6.8739,
+    "category": "event",
+    "venue": "Stade Olympique de Chamonix",
+    "city": "Chamonix",
+    "country": "France",
+    "hint": "In a valley in the shadow of Mont Blanc.",
+    "facts": [
+      "🔥 First Winter Olympics, in 1924",
+      "⛸️ The skating stadium was the main venue",
+      "🥇 Charles Jewtraw won the first gold, in speed skating",
+      "🏔️ Mont Blanc rises above the valley"
+    ],
+    "wikipedia": "Stade Olympique de Chamonix"
+  },
+  {
+    "id": "world-w1-f-052",
+    "text": "Where is the brick stadium of the 1912 Olympics, said to have seen more athletics world records than any other?",
+    "lat": 59.3453,
+    "lng": 18.0792,
+    "category": "stadium",
+    "venue": "Stockholm Olympic Stadium",
+    "city": "Stockholm",
+    "country": "Sweden",
+    "hint": "A red-brick arena with towers in a Baltic capital built on islands.",
+    "facts": [
+      "🏛️ Built for the 1912 Olympics",
+      "🏃 Jim Thorpe won the pentathlon and decathlon here",
+      "🐎 Hosted the equestrian events of the 1956 Olympics"
+    ],
+    "wikipedia": "Stockholm Olympic Stadium"
+  },
+  {
+    "id": "world-w1-f-053",
+    "text": "Where is the stadium of the 1928 Olympics, where an Olympic flame burned for the first time?",
+    "lat": 52.3433,
+    "lng": 4.8542,
+    "category": "stadium",
+    "venue": "Olympic Stadium Amsterdam",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "hint": "A brick stadium designed by Jan Wils in a city of canals.",
+    "facts": [
+      "🔥 The Olympic flame burned for the first time at these Games",
+      "🏛️ Designed by architect Jan Wils",
+      "🏃 Women ran in Olympic athletics for the first time in 1928"
+    ],
+    "wikipedia": "Olympic Stadium (Amsterdam)"
+  },
+  {
+    "id": "world-w1-f-054",
+    "text": "Where was the main stadium of the 1908 Olympics, whose marathon fixed the 42.195 km distance?",
+    "lat": 51.5136,
+    "lng": -0.2274,
+    "category": "event",
+    "venue": "White City Stadium",
+    "city": "London",
+    "country": "United Kingdom",
+    "hint": "Its site in the west of the capital later became a broadcasting centre.",
+    "facts": [
+      "🏃 The 1908 marathon set the 42.195 km distance",
+      "😵 Dorando Pietri was helped over the line and disqualified",
+      "🐕 Later a greyhound racing track",
+      "📺 BBC buildings now stand on the site"
+    ],
+    "wikipedia": "White City Stadium"
+  },
+  {
+    "id": "world-w1-f-055",
+    "text": "Where is Kenzo Tange's swooping, cable-hung arena built for swimming at the 1964 Olympics?",
+    "lat": 35.6675,
+    "lng": 139.7003,
+    "category": "stadium",
+    "venue": "Yoyogi National Gymnasium",
+    "city": "Tokyo",
+    "country": "Japan",
+    "hint": "Beside a big park and the Meiji Shrine in Shibuya.",
+    "facts": [
+      "🏗️ Designed by Kenzo Tange",
+      "🏊 Built for swimming and diving at the 1964 Olympics",
+      "🌉 Its roof hangs from cables like a suspension bridge",
+      "🤾 Hosted handball at the 2020 Games"
+    ],
+    "wikipedia": "Yoyogi National Stadium"
+  },
+  {
+    "id": "world-w1-f-056",
+    "text": "Where was judo first held at the Olympics, in 1964, in a hall later famous for rock concerts?",
+    "lat": 35.6933,
+    "lng": 139.75,
+    "category": "event",
+    "venue": "Nippon Budokan",
+    "city": "Tokyo",
+    "country": "Japan",
+    "hint": "Its octagonal roof echoes Mount Fuji, near the Imperial Palace.",
+    "facts": [
+      "🥋 Built for judo at the 1964 Olympics",
+      "🥇 Anton Geesink won the open category",
+      "🎸 The Beatles played here in 1966",
+      "🎌 Hosted judo again at the 2020 Games"
+    ],
+    "wikipedia": "Nippon Budokan"
+  },
+  {
+    "id": "world-w1-f-057",
+    "text": "Where is the wave-roofed pool designed by Zaha Hadid for the 2012 Olympics?",
+    "lat": 51.5402,
+    "lng": -0.0106,
+    "category": "stadium",
+    "venue": "London Aquatics Centre",
+    "city": "London",
+    "country": "United Kingdom",
+    "hint": "In the Olympic Park at Stratford, in the east of the capital.",
+    "facts": [
+      "🌊 The roof is shaped like a wave",
+      "🏗️ Designed by Zaha Hadid",
+      "🏊 Open to the public since 2014"
+    ],
+    "wikipedia": "London Aquatics Centre"
+  },
+  {
+    "id": "world-w1-f-058",
+    "text": "Where is the \"Pringle\"-roofed velodrome where Chris Hoy won his sixth Olympic gold?",
+    "lat": 51.5504,
+    "lng": -0.0153,
+    "category": "athlete",
+    "venue": "Lee Valley VeloPark",
+    "city": "London",
+    "country": "United Kingdom",
+    "hint": "In the Olympic Park in the east of the capital.",
+    "facts": [
+      "🚴 Hoy won his sixth Olympic gold here in 2012",
+      "🥨 Nicknamed the Pringle for its curved roof",
+      "🌲 The track is made of Siberian pine",
+      "🚵 Also has BMX and mountain bike tracks"
+    ],
+    "wikipedia": "Lee Valley VeloPark"
+  },
+  {
+    "id": "world-w1-f-059",
+    "text": "Where did Michael Phelps win eight gold medals at a single Olympic Games?",
+    "lat": 39.9917,
+    "lng": 116.3842,
+    "category": "athlete",
+    "venue": "Beijing National Aquatics Center",
+    "city": "Beijing",
+    "country": "China",
+    "hint": "A bubble-skinned box of a pool beside the Bird's Nest.",
+    "facts": [
+      "🥇 Phelps won 8 golds here in 2008",
+      "🫧 Its walls are made of ETFE bubbles",
+      "🥌 Became the Ice Cube for curling in 2022",
+      "🌍 25 world records fell here in 2008"
+    ],
+    "wikipedia": "Water Cube"
+  },
+  {
+    "id": "world-w1-f-060",
+    "text": "Where were the 2012 Olympic rowing races held, on a lake owned by a famous school?",
+    "lat": 51.4933,
+    "lng": -0.6655,
+    "category": "event",
+    "venue": "Dorney Lake",
+    "city": "Dorney",
+    "country": "United Kingdom",
+    "hint": "Owned by Eton College, close to Windsor Castle.",
+    "facts": [
+      "🚣 Owned by Eton College",
+      "🥇 Hosted 2012 Olympic rowing and canoe sprint",
+      "📏 The course is 2,200 m long",
+      "🏰 Windsor Castle is nearby"
+    ],
+    "wikipedia": "Dorney Lake"
+  },
+  {
+    "id": "world-w1-f-061",
+    "text": "Where is the course built for golf's return to the Olympics in 2016?",
+    "lat": -23.005,
+    "lng": -43.403,
+    "category": "event",
+    "venue": "Olympic Golf Course",
+    "city": "Rio de Janeiro",
+    "country": "Brazil",
+    "hint": "In a nature reserve near the beaches of Barra da Tijuca.",
+    "facts": [
+      "⛳ Golf returned to the Games after 112 years",
+      "🥇 Justin Rose won the men's gold",
+      "🥇 Inbee Park won the women's gold",
+      "🦫 Capybaras roam the course"
+    ],
+    "wikipedia": "Olympic Golf Course"
+  },
+  {
+    "id": "world-w1-f-062",
+    "text": "Where is the indoor arena designed by Arata Isozaki for the 1992 Olympics?",
+    "lat": 41.3634,
+    "lng": 2.1526,
+    "category": "stadium",
+    "venue": "Palau Sant Jordi",
+    "city": "Barcelona",
+    "country": "Spain",
+    "hint": "On Montjuïc hill above a Mediterranean port, next to the Olympic stadium.",
+    "facts": [
+      "🤸 Hosted gymnastics at the 1992 Olympics",
+      "🏗️ Designed by Arata Isozaki",
+      "🏊 Turned into a pool hall for World Aquatics Championships",
+      "🎤 A major concert venue"
+    ],
+    "wikipedia": "Palau Sant Jordi"
+  },
+  {
+    "id": "world-w1-f-063",
+    "text": "Where is the copper-domed arena built for the 1968 Olympic basketball tournament?",
+    "lat": 19.4053,
+    "lng": -99.0997,
+    "category": "stadium",
+    "venue": "Palacio de los Deportes",
+    "city": "Mexico City",
+    "country": "Mexico",
+    "hint": "It stands in the Magdalena Mixhuca sports city, at high altitude.",
+    "facts": [
+      "🏀 Built for basketball at the 1968 Olympics",
+      "🟠 Its dome is clad in copper",
+      "🎸 Now a big concert venue",
+      "🏎️ Stands beside the Grand Prix circuit"
+    ],
+    "wikipedia": "Palacio de los Deportes"
+  },
+  {
+    "id": "world-w1-f-064",
+    "text": "Where is the clay tennis club of the Masters named after the principality, though it lies just over the border?",
+    "lat": 43.7517,
+    "lng": 7.4407,
+    "category": "event",
+    "venue": "Monte Carlo Country Club",
+    "city": "Roquebrune-Cap-Martin",
+    "country": "France",
+    "hint": "Its terraced courts look out over the sea on the Riviera.",
+    "facts": [
+      "🎾 Home of the Monte-Carlo Masters",
+      "🏆 Rafael Nadal won the event 11 times",
+      "📍 The club is in Roquebrune-Cap-Martin, outside Monaco"
+    ],
+    "wikipedia": "Monte Carlo Country Club"
+  },
+  {
+    "id": "world-w1-f-065",
+    "text": "Where is the \"Magic Box\" with retractable roofs, which once hosted a Masters event on blue clay?",
+    "lat": 40.3689,
+    "lng": -3.6842,
+    "category": "stadium",
+    "venue": "Caja Mágica",
+    "city": "Madrid",
+    "country": "Spain",
+    "hint": "On the banks of the Manzanares river in a capital.",
+    "facts": [
+      "🔵 Hosted the Masters on blue clay in 2012",
+      "🏗️ Designed by Dominique Perrault",
+      "🎾 Opened in 2009",
+      "🏆 Also hosted the Davis Cup Finals"
+    ],
+    "wikipedia": "Caja Mágica"
+  },
+  {
+    "id": "world-w1-f-066",
+    "text": "Where was Monica Seles stabbed on court during a match in 1993?",
+    "lat": 53.5739,
+    "lng": 9.9917,
+    "category": "athlete",
+    "venue": "Am Rothenbaum",
+    "city": "Hamburg",
+    "country": "Germany",
+    "hint": "A clay-court tennis stadium in a big port city on the Elbe.",
+    "facts": [
+      "🔪 Seles was attacked during a changeover here in 1993",
+      "🎾 Hosts a clay-court ATP 500 event",
+      "🏛️ The tournament dates back to 1892"
+    ],
+    "wikipedia": "Am Rothenbaum"
+  },
+  {
+    "id": "world-w1-f-067",
+    "text": "Where is the grass-court club whose June championships are the classic warm-up for Wimbledon?",
+    "lat": 51.4875,
+    "lng": -0.2117,
+    "category": "event",
+    "venue": "Queen's Club",
+    "city": "London",
+    "country": "United Kingdom",
+    "hint": "In West Kensington, in the west of the capital.",
+    "facts": [
+      "🎾 Founded in 1886",
+      "🏆 Andy Murray won the event five times",
+      "🏓 Also a centre of real tennis and rackets"
+    ],
+    "wikipedia": "Queen's Club"
+  },
+  {
+    "id": "world-w1-f-068",
+    "text": "Where is the old grass-court stadium that hosted the southern summer's Grand Slam until 1987?",
+    "lat": -37.8383,
+    "lng": 145.0319,
+    "category": "stadium",
+    "venue": "Kooyong Stadium",
+    "city": "Melbourne",
+    "country": "Australia",
+    "hint": "A leafy suburb in the south-east of a big southern city.",
+    "facts": [
+      "🎾 Hosted the Australian Open until 1987",
+      "🌱 Its courts were grass",
+      "🏆 Later home of the Kooyong Classic exhibition"
+    ],
+    "wikipedia": "Kooyong Stadium"
+  },
+  {
+    "id": "world-w1-f-069",
+    "text": "Where was the 2010 Ryder Cup played, finishing on a Monday for the first time after heavy rain?",
+    "lat": 51.6031,
+    "lng": -2.9325,
+    "category": "event",
+    "venue": "Celtic Manor Resort",
+    "city": "Newport",
+    "country": "United Kingdom",
+    "hint": "A resort hotel on a hill above the Usk valley.",
+    "facts": [
+      "🏆 Europe won 14½–13½ in 2010",
+      "🌧️ Rain pushed the finish to Monday",
+      "⛳ The Twenty Ten course was built for the event"
+    ],
+    "wikipedia": "Celtic Manor Resort"
+  },
+  {
+    "id": "world-w1-f-070",
+    "text": "Where is \"the Home of Golf\", with the little Swilcan Bridge on its first and 18th holes?",
+    "lat": 56.343,
+    "lng": -2.803,
+    "category": "stadium",
+    "venue": "Old Course at St Andrews",
+    "city": "St Andrews",
+    "country": "United Kingdom",
+    "hint": "Beside a university town's long sandy beach in Fife.",
+    "facts": [
+      "⛳ Golf has been played here since the 1400s",
+      "🌉 The Swilcan Bridge crosses the burn on holes 1 and 18",
+      "🏆 Has hosted The Open more than any other course",
+      "🛣️ The 17th is the famous Road Hole"
+    ],
+    "wikipedia": "Old Course at St Andrews"
+  },
+  {
+    "id": "world-w1-f-071",
+    "text": "Where did Jean van de Velde wade into the burn on the last hole and lose The Open of 1999?",
+    "lat": 56.497,
+    "lng": -2.717,
+    "category": "event",
+    "venue": "Carnoustie Golf Links",
+    "city": "Carnoustie",
+    "country": "United Kingdom",
+    "hint": "A brutal links on the Angus coast nicknamed \"Carnasty\".",
+    "facts": [
+      "🌊 Van de Velde led by three shots on the 72nd tee",
+      "🏆 Paul Lawrie won the playoff",
+      "⛳ Ben Hogan won The Open here in 1953"
+    ],
+    "wikipedia": "Carnoustie Golf Links"
+  },
+  {
+    "id": "world-w1-f-072",
+    "text": "Where did Jordan Spieth win The Open in 2017, among big sand dunes?",
+    "lat": 53.622,
+    "lng": -3.033,
+    "category": "event",
+    "venue": "Royal Birkdale Golf Club",
+    "city": "Southport",
+    "country": "United Kingdom",
+    "hint": "On the Lancashire coast north of Liverpool.",
+    "facts": [
+      "🏆 Spieth won The Open here in 2017",
+      "🏆 Padraig Harrington won here in 2008",
+      "🏝️ The fairways run between big sand dunes"
+    ],
+    "wikipedia": "Royal Birkdale Golf Club"
+  },
+  {
+    "id": "world-w1-f-073",
+    "text": "Where did Shane Lowry win The Open in 2019, its first visit to the course in 68 years?",
+    "lat": 55.2,
+    "lng": -6.635,
+    "category": "event",
+    "venue": "Royal Portrush Golf Club",
+    "city": "Portrush",
+    "country": "United Kingdom",
+    "hint": "On the Causeway Coast in County Antrim.",
+    "facts": [
+      "🏆 Lowry won by six shots in 2019",
+      "📅 First hosted The Open in 1951",
+      "🕳️ Calamity Corner is its famous par 3",
+      "🔁 The Open returned here in 2025"
+    ],
+    "wikipedia": "Royal Portrush Golf Club"
+  },
+  {
+    "id": "world-w1-f-074",
+    "text": "Where is the links of the Honourable Company of Edinburgh Golfers?",
+    "lat": 56.042,
+    "lng": -2.821,
+    "category": "stadium",
+    "venue": "Muirfield",
+    "city": "Gullane",
+    "country": "United Kingdom",
+    "hint": "Near the Firth of Forth in East Lothian.",
+    "facts": [
+      "📜 The club's written records date back to 1744",
+      "🏆 Jack Nicklaus won his first Open here in 1966",
+      "🔄 Laid out in two loops of nine holes",
+      "🚺 Admitted women members from 2017"
+    ],
+    "wikipedia": "Muirfield"
+  },
+  {
+    "id": "world-w1-f-075",
+    "text": "Where is the links with the \"Postage Stamp\", the shortest hole on The Open rota?",
+    "lat": 55.532,
+    "lng": -4.65,
+    "category": "event",
+    "venue": "Royal Troon Golf Club",
+    "city": "Troon",
+    "country": "United Kingdom",
+    "hint": "On the Ayrshire coast, looking out to the Isle of Arran.",
+    "facts": [
+      "📮 The Postage Stamp 8th is only about 123 yards",
+      "🏆 Henrik Stenson won with a record 264 in 2016",
+      "🏆 Xander Schauffele won here in 2024"
+    ],
+    "wikipedia": "Royal Troon Golf Club"
+  },
+  {
+    "id": "world-w1-f-076",
+    "text": "Where was the 1977 \"Duel in the Sun\" between Tom Watson and Jack Nicklaus?",
+    "lat": 55.3153,
+    "lng": -4.8328,
+    "category": "event",
+    "venue": "Turnberry",
+    "city": "Turnberry",
+    "country": "United Kingdom",
+    "hint": "A seaside links with a lighthouse on the Firth of Clyde.",
+    "facts": [
+      "☀️ Watson beat Nicklaus by one shot in 1977",
+      "🗼 A lighthouse stands beside the 9th",
+      "🏆 Greg Norman won The Open here in 1986",
+      "🏆 Stewart Cink beat a 59-year-old Tom Watson in a 2009 playoff"
+    ],
+    "wikipedia": "Trump Turnberry"
+  },
+  {
+    "id": "world-w1-f-077",
+    "text": "Where did Darren Clarke win The Open in 2011, at the age of 42?",
+    "lat": 51.274,
+    "lng": 1.367,
+    "category": "athlete",
+    "venue": "Royal St George's Golf Club",
+    "city": "Sandwich",
+    "country": "United Kingdom",
+    "hint": "The only course on the current Open rota in the south-east, on the Kent coast.",
+    "facts": [
+      "🏆 Darren Clarke won here in 2011",
+      "🏆 Collin Morikawa won here in 2021",
+      "📅 Hosted the first Open held outside Scotland, in 1894"
+    ],
+    "wikipedia": "Royal St George's Golf Club"
+  },
+  {
+    "id": "world-w1-f-078",
+    "text": "Where was the first Ryder Cup on the European continent, captained for Europe by Seve Ballesteros in 1997?",
+    "lat": 36.2858,
+    "lng": -5.3339,
+    "category": "event",
+    "venue": "Valderrama Golf Club",
+    "city": "Sotogrande",
+    "country": "Spain",
+    "hint": "A cork-oak-lined course near the Strait at the southern tip of the peninsula.",
+    "facts": [
+      "🏆 Europe won 14½–13½ in 1997",
+      "🧢 Seve Ballesteros was the home captain",
+      "🌳 Lined with cork oaks"
+    ],
+    "wikipedia": "Valderrama Golf Club"
+  },
+  {
+    "id": "world-w1-f-079",
+    "text": "Where did Francesco Molinari win all five of his matches at the 2018 Ryder Cup?",
+    "lat": 48.7532,
+    "lng": 2.0755,
+    "category": "athlete",
+    "venue": "Le Golf National",
+    "city": "Guyancourt",
+    "country": "France",
+    "hint": "In the south-western suburbs of a capital, near Versailles.",
+    "facts": [
+      "🥇 Molinari won 5 points out of 5",
+      "🏆 Europe won 17½–10½",
+      "⛳ Hosted golf at the 2024 Olympics",
+      "💧 Water guards the closing holes"
+    ],
+    "wikipedia": "Le Golf National"
+  },
+  {
+    "id": "world-w1-f-080",
+    "text": "Where did Europe win the 2023 Ryder Cup under captain Luke Donald?",
+    "lat": 41.9608,
+    "lng": 12.6344,
+    "category": "event",
+    "venue": "Marco Simone Golf and Country Club",
+    "city": "Guidonia Montecelio",
+    "country": "Italy",
+    "hint": "Below a medieval castle in the hills north-east of the Eternal City.",
+    "facts": [
+      "🏆 Europe won 16½–11½",
+      "🏰 A medieval castle stands above the course",
+      "⛳ Luke Donald captained Europe"
+    ],
+    "wikipedia": "Marco Simone Golf and Country Club"
+  },
+  {
+    "id": "world-w1-f-081",
+    "text": "Under which landmark do runners pass just before the finish of the marathon where Eliud Kipchoge twice set the world record?",
+    "lat": 52.5163,
+    "lng": 13.3777,
+    "category": "athlete",
+    "venue": "Brandenburg Gate",
+    "city": "Berlin",
+    "country": "Germany",
+    "hint": "A neoclassical gate topped by a four-horse chariot.",
+    "facts": [
+      "🏃 Kipchoge set world records here in 2018 and 2022",
+      "🐎 Topped by the Quadriga",
+      "🧱 Stood right by the Wall until 1989"
+    ],
+    "wikipedia": "Brandenburg Gate"
+  },
+  {
+    "id": "world-w1-f-082",
+    "text": "Where did Abebe Bikila finish his barefoot Olympic marathon win in 1960, by torchlight?",
+    "lat": 41.8897,
+    "lng": 12.4908,
+    "category": "athlete",
+    "venue": "Arch of Constantine",
+    "city": "Rome",
+    "country": "Italy",
+    "hint": "An ancient triumphal arch beside the Colosseum.",
+    "facts": [
+      "🦶 Bikila ran the whole race barefoot",
+      "🔥 The race finished at night under torchlight",
+      "🏛️ The arch dates from 315 AD",
+      "🥇 It was Ethiopia's first Olympic gold"
+    ],
+    "wikipedia": "Arch of Constantine"
+  },
+  {
+    "id": "world-w1-f-083",
+    "text": "Where did Eliud Kipchoge become the first person to run a marathon distance in under two hours, in 2019?",
+    "lat": 48.2161,
+    "lng": 16.3956,
+    "category": "athlete",
+    "venue": "Prater",
+    "city": "Vienna",
+    "country": "Austria",
+    "hint": "A long chestnut-lined avenue in a park with a giant Ferris wheel.",
+    "facts": [
+      "⏱️ Kipchoge ran 1:59:40 in October 2019",
+      "⚠️ Not an official record because of rotating pacers",
+      "🎡 The park's giant wheel dates from 1897",
+      "🌳 The Hauptallee is about 4.4 km long"
+    ],
+    "wikipedia": "Prater"
+  },
+  {
+    "id": "world-w1-f-084",
+    "text": "Where is the \"Home of Champions\", the high-altitude town where many of the world's best distance runners train?",
+    "lat": 0.6731,
+    "lng": 35.5083,
+    "category": "athlete",
+    "venue": "Iten",
+    "city": "Iten",
+    "country": "Kenya",
+    "hint": "Perched at about 2,400 m on the rim of the Kerio Valley.",
+    "facts": [
+      "🏃 Sits at about 2,400 m altitude",
+      "🏫 St Patrick's High School produced many champions",
+      "🏞️ Overlooks the Kerio Valley"
+    ],
+    "wikipedia": "Iten"
+  },
+  {
+    "id": "world-w1-f-085",
+    "text": "Where is the athletics stadium of the \"Dream Mile\", where Sebastian Coe set a mile world record in 1979?",
+    "lat": 59.9247,
+    "lng": 10.7339,
+    "category": "stadium",
+    "venue": "Bislett Stadium",
+    "city": "Oslo",
+    "country": "Norway",
+    "hint": "A city stadium in a Nordic capital, home of a Diamond League meeting.",
+    "facts": [
+      "🏃 Coe ran the mile in 3:48.95 here in 1979",
+      "⛸️ Hosted speed skating at the 1952 Olympics",
+      "🏗️ Rebuilt in the mid-2000s",
+      "💎 Home of the Bislett Games"
+    ],
+    "wikipedia": "Bislett Stadium"
+  },
+  {
+    "id": "world-w1-f-086",
+    "text": "Where did Ben Ainslie win his fourth straight Olympic sailing gold, in 2012?",
+    "lat": 50.5705,
+    "lng": -2.456,
+    "category": "athlete",
+    "venue": "Weymouth and Portland National Sailing Academy",
+    "city": "Portland",
+    "country": "United Kingdom",
+    "hint": "On a tied island joined to the mainland by Chesil Beach, on the Dorset coast.",
+    "facts": [
+      "⛵ Hosted the 2012 Olympic and Paralympic sailing",
+      "🥇 Ainslie won the Finn class",
+      "🌊 Races were sailed in Portland Harbour and Weymouth Bay"
+    ],
+    "wikipedia": "Weymouth and Portland National Sailing Academy"
+  },
+  {
+    "id": "world-w1-f-087",
+    "text": "Where is the Derby run each June, on a twisting course with Tattenham Corner?",
+    "lat": 51.3097,
+    "lng": -0.2556,
+    "category": "event",
+    "venue": "Epsom Downs Racecourse",
+    "city": "Epsom",
+    "country": "United Kingdom",
+    "hint": "On chalk downs in Surrey, south of the capital.",
+    "facts": [
+      "🏇 The Derby was first run in 1780",
+      "🗳️ Suffragette Emily Davison was struck by the King's horse here in 1913",
+      "🔄 Tattenham Corner leads into the home straight"
+    ],
+    "wikipedia": "Epsom Downs Racecourse"
+  },
+  {
+    "id": "world-w1-f-088",
+    "text": "Where is \"HQ\", the largest dedicated rugby union stadium in the world?",
+    "lat": 51.4558,
+    "lng": -0.3414,
+    "category": "stadium",
+    "venue": "Twickenham Stadium",
+    "city": "London",
+    "country": "United Kingdom",
+    "hint": "Built on a former cabbage patch in the south-west suburbs of a capital.",
+    "facts": [
+      "🥬 Nicknamed the Cabbage Patch",
+      "🏟️ Holds about 82,000 fans",
+      "🏆 Hosted the 1991 and 2015 Rugby World Cup finals",
+      "🎵 Fans sing Swing Low, Sweet Chariot"
+    ],
+    "wikipedia": "Twickenham Stadium"
+  },
+  {
+    "id": "world-w1-f-089",
+    "text": "Where is \"Ally Pally\", home of the PDC World Darts Championship over Christmas?",
+    "lat": 51.5942,
+    "lng": -0.1308,
+    "category": "event",
+    "venue": "Alexandra Palace",
+    "city": "London",
+    "country": "United Kingdom",
+    "hint": "A Victorian palace on a hill in the north of the capital.",
+    "facts": [
+      "🎯 Home of the PDC world championship since 2008",
+      "📺 The first regular high-definition TV service was broadcast from here in 1936",
+      "🎱 Also hosts the Masters snooker"
+    ],
+    "wikipedia": "Alexandra Palace"
+  },
+  {
+    "id": "world-w1-f-090",
+    "text": "Where did Ayrton Senna storm from fifth to first on a wet opening lap in 1993?",
+    "lat": 52.8292,
+    "lng": -1.375,
+    "category": "athlete",
+    "venue": "Donington Park",
+    "city": "Castle Donington",
+    "country": "United Kingdom",
+    "hint": "Beside East Midlands Airport in Leicestershire.",
+    "facts": [
+      "🌧️ Senna won the 1993 European Grand Prix after that opening lap",
+      "🏛️ Cars raced here before the Second World War",
+      "🏍️ Long a home of British motorcycle Grands Prix",
+      "🎸 Also hosts the Download rock festival"
+    ],
+    "wikipedia": "Donington Park"
+  },
+  {
+    "id": "world-w1-f-091",
+    "text": "Where did Ben Stokes score 135 not out to win an Ashes Test by one wicket in 2019?",
+    "lat": 53.8169,
+    "lng": -1.5822,
+    "category": "athlete",
+    "venue": "Headingley Cricket Ground",
+    "city": "Leeds",
+    "country": "United Kingdom",
+    "hint": "A Yorkshire ground in a big northern city.",
+    "facts": [
+      "🏏 Stokes hit 135* to win the 2019 Test",
+      "🔥 Ian Botham's 149* in 1981 is also legendary here",
+      "🏉 Shares its site with a rugby league ground"
+    ],
+    "wikipedia": "Headingley Cricket Ground"
+  },
+  {
+    "id": "world-w1-f-092",
+    "text": "Where were the team bases when the America's Cup was raced in 2000, 2003 and 2021?",
+    "lat": -36.8435,
+    "lng": 174.76,
+    "category": "event",
+    "venue": "Viaduct Harbour",
+    "city": "Auckland",
+    "country": "New Zealand",
+    "hint": "A waterfront basin on the Waitematā Harbour in the City of Sails.",
+    "facts": [
+      "⛵ Built up as the America's Cup village for 2000",
+      "🏆 Team New Zealand beat Luna Rossa in 2021",
+      "🍽️ Now lined with bars and restaurants"
+    ],
+    "wikipedia": "Viaduct Harbour"
+  },
+  {
+    "id": "world-w1-f-093",
+    "text": "Where do the yachts of the Boxing Day ocean race finish, after crossing Bass Strait?",
+    "lat": -42.8825,
+    "lng": 147.3331,
+    "category": "event",
+    "venue": "Constitution Dock",
+    "city": "Hobart",
+    "country": "Australia",
+    "hint": "At the mouth of the Derwent river on the island state.",
+    "facts": [
+      "⛵ The Sydney to Hobart race starts on 26 December",
+      "🌊 Crossing Bass Strait is the most feared part",
+      "⚠️ Six sailors died in the 1998 race"
+    ],
+    "wikipedia": "Constitution Dock"
+  },
+  {
+    "id": "world-w1-f-094",
+    "text": "Beside which bridge does the Boat Race between Oxford and Cambridge begin?",
+    "lat": 51.4669,
+    "lng": -0.2131,
+    "category": "event",
+    "venue": "Putney Bridge",
+    "city": "London",
+    "country": "United Kingdom",
+    "hint": "On the Thames in the south-west of the capital.",
+    "facts": [
+      "🚣 The men's race was first rowed in 1829",
+      "📏 The Championship Course runs about 6.8 km to Mortlake",
+      "👩 The women's race has used the course since 2015"
+    ],
+    "wikipedia": "Putney Bridge"
+  },
+  {
+    "id": "world-w1-f-095",
+    "text": "Where were the surfing events of the 2024 Summer Olympics held, some 15,000 km from the host city?",
+    "lat": -17.8472,
+    "lng": -149.2672,
+    "category": "event",
+    "venue": "Teahupoʻo",
+    "city": "Teahupoʻo",
+    "country": "French Polynesia",
+    "hint": "A reef break with a fearsome barrel off a village on a Pacific island.",
+    "facts": [
+      "🏄 Hosted Olympic surfing in 2024",
+      "🌊 Known for its heavy, thick-lipped waves",
+      "🗼 A new judges' tower on the reef caused controversy"
+    ],
+    "wikipedia": "Teahupoʻo"
+  },
+  {
+    "id": "world-w1-f-096",
+    "text": "Where is the Grand National run, over fences like Becher's Brook and The Chair?",
+    "lat": 53.4769,
+    "lng": -2.9417,
+    "category": "event",
+    "venue": "Aintree Racecourse",
+    "city": "Aintree",
+    "country": "United Kingdom",
+    "hint": "On the northern edge of a Merseyside port city.",
+    "facts": [
+      "🐎 Red Rum won the race three times",
+      "🏇 First run in 1839",
+      "🌊 Becher's Brook is named after a rider who fell into it"
+    ],
+    "wikipedia": "Aintree Racecourse"
+  },
+  {
+    "id": "world-w1-f-097",
+    "text": "Where is the Prix de l'Arc de Triomphe run every October?",
+    "lat": 48.8588,
+    "lng": 2.2296,
+    "category": "event",
+    "venue": "Longchamp Racecourse",
+    "city": "Paris",
+    "country": "France",
+    "hint": "In the Bois de Boulogne, beside the Seine.",
+    "facts": [
+      "🏇 The Arc was first run in 1920",
+      "🏗️ The grandstand was rebuilt and reopened in 2018",
+      "🏆 Enable won the race twice"
+    ],
+    "wikipedia": "Longchamp Racecourse"
+  },
+  {
+    "id": "world-w1-f-098",
+    "text": "Where is \"the race that stops a nation\", run on the first Tuesday of November?",
+    "lat": -37.7903,
+    "lng": 144.9125,
+    "category": "event",
+    "venue": "Flemington Racecourse",
+    "city": "Melbourne",
+    "country": "Australia",
+    "hint": "Beside the Maribyrnong river in a sport-mad southern city.",
+    "facts": [
+      "🏇 The Melbourne Cup was first run in 1861",
+      "🌹 The course is lined with thousands of roses",
+      "🐎 Makybe Diva won it three years in a row",
+      "🏆 Phar Lap won in 1930"
+    ],
+    "wikipedia": "Flemington Racecourse"
+  },
+  {
+    "id": "world-w1-f-099",
+    "text": "Where is the Palio, the bareback horse race run twice each summer around a shell-shaped square?",
+    "lat": 43.3183,
+    "lng": 11.3314,
+    "category": "event",
+    "venue": "Piazza del Campo",
+    "city": "Siena",
+    "country": "Italy",
+    "hint": "Ten contrade race around a square below the Torre del Mangia.",
+    "facts": [
+      "🐎 Run on 2 July and 16 August",
+      "⏱️ The race lasts about 90 seconds",
+      "🐚 The square is shaped like a shell",
+      "🏰 Ten of the 17 contrade run each time"
+    ],
+    "wikipedia": "Piazza del Campo"
+  },
+  {
+    "id": "world-w1-f-100",
+    "text": "Where has the World Snooker Championship been played every year since 1977?",
+    "lat": 53.3811,
+    "lng": -1.4667,
+    "category": "event",
+    "venue": "Crucible Theatre",
+    "city": "Sheffield",
+    "country": "United Kingdom",
+    "hint": "A theatre in a steel-making city of South Yorkshire.",
+    "facts": [
+      "🎱 Home of the world championship since 1977",
+      "🏆 Stephen Hendry and Ronnie O'Sullivan won seven titles each",
+      "🎭 Also a working theatre"
+    ],
+    "wikipedia": "Crucible Theatre"
+  }
+]

@@ -1,5 +1,5 @@
-// Generates the brand mark: a dark app tile with a globe centred on the USA,
-// the country in brand red, circled by a glowing brand-red orbit ring.
+// Generates the brand mark: a brand-red app tile with a globe centred on the
+// USA, the country in brand red, circled by a glowing white orbit ring.
 //
 // The country shapes come from real data (US Census state outlines, Natural
 // Earth for the rest of the world) projected orthographically, the way a
@@ -88,13 +88,13 @@ const grid = gridPath(project, CX, CY, R);
 
 const defs = `<defs>
   <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%" stop-color="#20232E"/><stop offset="100%" stop-color="#08090D"/>
+    <stop offset="0%" stop-color="#FF5C68"/><stop offset="100%" stop-color="#D42639"/>
   </linearGradient>
   <radialGradient id="glow" cx="0.5" cy="0.45" r="0.55">
-    <stop offset="0%" stop-color="#FF4655" stop-opacity="0.45"/><stop offset="100%" stop-color="#FF4655" stop-opacity="0"/>
+    <stop offset="0%" stop-color="#FFD1C4" stop-opacity="0.45"/><stop offset="100%" stop-color="#FFD1C4" stop-opacity="0"/>
   </radialGradient>
   <linearGradient id="ring" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="#FF8A5C"/><stop offset="50%" stop-color="#FF4655"/><stop offset="100%" stop-color="#FF8A5C"/>
+    <stop offset="0%" stop-color="#FFE3D6"/><stop offset="50%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#FFE3D6"/>
   </linearGradient>
   <filter id="ringglow" x="-20%" y="-50%" width="140%" height="200%">
     <feGaussianBlur stdDeviation="1.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
@@ -128,7 +128,7 @@ const mark = `
   <circle cx="${CX}" cy="${CY}" r="${f(R - 0.4 * SW)}" fill="none" stroke="#cfeaff" stroke-opacity="0.45" stroke-width="${f(0.8 * SW)}"/>
   <g transform="rotate(-18 50 50)" filter="url(#ringglow)">
     <path d="M93,50 A43,12 0 0 1 7,50" fill="none" stroke="url(#ring)" stroke-width="3.4" stroke-linecap="round"/>
-    <circle cx="66" cy="61.3" r="3.1" fill="#fff"/>
+    <circle cx="66" cy="61.3" r="3.1" fill="#FFB905"/>
   </g>`;
 
 const svg = (body) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">${defs}${body}</svg>`;

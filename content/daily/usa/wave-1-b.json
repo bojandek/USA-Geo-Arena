@@ -1,0 +1,1815 @@
+[
+  {
+    "id": "usa-w1-b-001",
+    "text": "Where do the Cavaliers play their home games?",
+    "lat": 41.4964,
+    "lng": -81.6881,
+    "category": "club",
+    "venue": "Rocket Arena",
+    "city": "Cleveland",
+    "state": "Ohio",
+    "country": "United States",
+    "hint": "A downtown arena that shares a plaza with the Guardians’ ballpark.",
+    "facts": [
+      "🏀 Opened in 1994 as Gund Arena",
+      "🏆 Hosted NBA Finals games every year from 2015 to 2018",
+      "⚾ Next to Progressive Field in the Gateway complex",
+      "🚀 Long known as Rocket Mortgage FieldHouse"
+    ],
+    "wikipedia": "Rocket Arena"
+  },
+  {
+    "id": "usa-w1-b-002",
+    "text": "Where do the Clippers play their home games?",
+    "lat": 33.9451,
+    "lng": -118.3431,
+    "category": "club",
+    "venue": "Intuit Dome",
+    "city": "Inglewood",
+    "state": "California",
+    "country": "United States",
+    "hint": "Steve Ballmer’s privately built arena, a short walk from SoFi Stadium.",
+    "facts": [
+      "🏀 Opened in 2024",
+      "🧱 \"The Wall\" is a steep 51-row section behind one basket",
+      "💰 Privately financed by owner Steve Ballmer",
+      "🏟️ Seats about 18,000 for basketball"
+    ],
+    "wikipedia": "Intuit Dome"
+  },
+  {
+    "id": "usa-w1-b-003",
+    "text": "Where do the Devils play their home games?",
+    "lat": 40.7336,
+    "lng": -74.1711,
+    "category": "club",
+    "venue": "Prudential Center",
+    "city": "Newark",
+    "state": "New Jersey",
+    "country": "United States",
+    "hint": "Nicknamed \"The Rock\", it stands downtown in the largest city of its state.",
+    "facts": [
+      "🏒 Opened in 2007",
+      "🪨 Nicknamed The Rock after the sponsor’s Gibraltar logo",
+      "🏀 Also home to Seton Hall men’s basketball"
+    ],
+    "wikipedia": "Prudential Center"
+  },
+  {
+    "id": "usa-w1-b-004",
+    "text": "Where do the Sabres play their home games?",
+    "lat": 42.875,
+    "lng": -78.8764,
+    "category": "club",
+    "venue": "KeyBank Center",
+    "city": "Buffalo",
+    "state": "New York",
+    "country": "United States",
+    "hint": "A waterfront arena at the eastern end of Lake Erie.",
+    "facts": [
+      "🏒 Opened in 1996 as Marine Midland Arena",
+      "📛 Later called HSBC Arena and First Niagara Center",
+      "🦬 Home of the Sabres since its first season"
+    ],
+    "wikipedia": "KeyBank Center"
+  },
+  {
+    "id": "usa-w1-b-005",
+    "text": "Where do the Lightning play their home games?",
+    "lat": 27.9428,
+    "lng": -82.4519,
+    "category": "club",
+    "venue": "Benchmark International Arena",
+    "city": "Tampa",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "A waterfront arena whose team won the Stanley Cup in 2004, 2020 and 2021.",
+    "facts": [
+      "🏒 Opened in 1996 as the Ice Palace",
+      "⚡ Tesla coils above the ice fire bolts of lightning",
+      "🏆 The Lightning clinched the 2021 Stanley Cup there",
+      "📛 Long known as Amalie Arena"
+    ],
+    "wikipedia": "Benchmark International Arena"
+  },
+  {
+    "id": "usa-w1-b-006",
+    "text": "Where did the Hurricanes win the 2006 Stanley Cup?",
+    "lat": 35.8033,
+    "lng": -78.7219,
+    "category": "stadium",
+    "venue": "Lenovo Center",
+    "city": "Raleigh",
+    "state": "North Carolina",
+    "country": "United States",
+    "hint": "Built beside the football stadium of the NC State Wolfpack.",
+    "facts": [
+      "🏒 Opened in 1999",
+      "🏆 The Hurricanes beat Edmonton in game 7 of the 2006 Final here",
+      "🏀 Also home to NC State men’s basketball",
+      "📛 Long known as PNC Arena"
+    ],
+    "wikipedia": "Lenovo Center"
+  },
+  {
+    "id": "usa-w1-b-007",
+    "text": "Where do the Predators play their home games?",
+    "lat": 36.1592,
+    "lng": -86.7786,
+    "category": "club",
+    "venue": "Bridgestone Arena",
+    "city": "Nashville",
+    "state": "Tennessee",
+    "country": "United States",
+    "hint": "Right on the honky-tonk strip of Lower Broadway.",
+    "facts": [
+      "🏒 Opened in 1996",
+      "🐟 Fans throw catfish onto the ice",
+      "🎸 Across the street from the Country Music Hall of Fame",
+      "🏆 Hosted the 2017 Stanley Cup Final"
+    ],
+    "wikipedia": "Bridgestone Arena"
+  },
+  {
+    "id": "usa-w1-b-008",
+    "text": "Where do the Aces of the WNBA play their home games?",
+    "lat": 36.0907,
+    "lng": -115.179,
+    "category": "club",
+    "venue": "Michelob Ultra Arena",
+    "city": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "hint": "Inside the Mandalay Bay resort at the south end of the Strip.",
+    "facts": [
+      "🏀 Opened in 1999 as the Mandalay Bay Events Center",
+      "🏆 The Aces won WNBA titles in 2022 and 2023",
+      "🥊 Has hosted major boxing and UFC cards"
+    ],
+    "wikipedia": "Michelob Ultra Arena"
+  },
+  {
+    "id": "usa-w1-b-009",
+    "text": "Where do the Wings of the WNBA play their home games?",
+    "lat": 32.7306,
+    "lng": -97.108,
+    "category": "club",
+    "venue": "College Park Center",
+    "city": "Arlington",
+    "state": "Texas",
+    "country": "United States",
+    "hint": "A university arena a few miles from the Cowboys’ and Rangers’ homes.",
+    "facts": [
+      "🏀 Opened in 2012 on the UT Arlington campus",
+      "🎓 Also home of the UTA Mavericks",
+      "🚚 The Wings moved there from Tulsa in 2016"
+    ],
+    "wikipedia": "College Park Center"
+  },
+  {
+    "id": "usa-w1-b-010",
+    "text": "Where do the Sun of the WNBA play their home games?",
+    "lat": 41.4911,
+    "lng": -72.0897,
+    "category": "club",
+    "venue": "Mohegan Sun Arena",
+    "city": "Uncasville",
+    "state": "Connecticut",
+    "country": "United States",
+    "hint": "An arena inside a tribal casino resort beside the Thames River.",
+    "facts": [
+      "🏀 Opened in 2001",
+      "🪶 Owned by the Mohegan Tribe",
+      "☀️ The Sun were the first WNBA team owned by a Native American tribe"
+    ],
+    "wikipedia": "Mohegan Sun Arena"
+  },
+  {
+    "id": "usa-w1-b-011",
+    "text": "Where do the Sky of the WNBA play their home games?",
+    "lat": 41.8536,
+    "lng": -87.6214,
+    "category": "club",
+    "venue": "Wintrust Arena",
+    "city": "Chicago",
+    "state": "Illinois",
+    "country": "United States",
+    "hint": "Next to the McCormick Place convention center, it is also home to DePaul basketball.",
+    "facts": [
+      "🏀 Opened in 2017",
+      "🎓 Home of DePaul Blue Demons basketball",
+      "🏆 The Sky clinched the 2021 WNBA title there"
+    ],
+    "wikipedia": "Wintrust Arena"
+  },
+  {
+    "id": "usa-w1-b-012",
+    "text": "Where do the Mystics play their home games?",
+    "lat": 38.847,
+    "lng": -76.9914,
+    "category": "club",
+    "venue": "CareFirst Arena",
+    "city": "Washington",
+    "state": "District of Columbia",
+    "country": "United States",
+    "hint": "A small arena in Congress Heights that is also the Wizards’ practice home.",
+    "facts": [
+      "🏀 Opened in 2018 on the St. Elizabeths East campus",
+      "🏋️ The Wizards practise there",
+      "🏆 The Mystics won the 2019 WNBA title",
+      "📛 Originally the Entertainment and Sports Arena"
+    ],
+    "wikipedia": "CareFirst Arena"
+  },
+  {
+    "id": "usa-w1-b-013",
+    "text": "Where did Bill Russell’s Celtics raise most of their championship banners?",
+    "lat": 42.3658,
+    "lng": -71.0617,
+    "category": "stadium",
+    "venue": "Boston Garden",
+    "city": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "hint": "Built above a railway station, famous for its parquet floor and dead spots.",
+    "facts": [
+      "🏟️ Opened in 1928, closed in 1995",
+      "🍀 The Celtics won 16 NBA titles while playing there",
+      "🏒 Also home of the Bruins",
+      "🚆 Built above North Station"
+    ],
+    "wikipedia": "Boston Garden"
+  },
+  {
+    "id": "usa-w1-b-014",
+    "text": "Where did the Bulls play before the United Center opened in 1994?",
+    "lat": 41.8817,
+    "lng": -87.6728,
+    "category": "stadium",
+    "venue": "Chicago Stadium",
+    "city": "Chicago",
+    "state": "Illinois",
+    "country": "United States",
+    "hint": "Called the Madhouse on Madison for its noise and giant pipe organ.",
+    "facts": [
+      "🏟️ Opened in 1929, demolished in 1995",
+      "🎹 Famous for its huge Barton pipe organ",
+      "🏆 The Bulls clinched the 1992 NBA title there",
+      "🗳️ Franklin D. Roosevelt was nominated there in 1932"
+    ],
+    "wikipedia": "Chicago Stadium"
+  },
+  {
+    "id": "usa-w1-b-015",
+    "text": "Where did the Red Wings play before Joe Louis Arena?",
+    "lat": 42.3544,
+    "lng": -83.1006,
+    "category": "stadium",
+    "venue": "Olympia Stadium",
+    "city": "Detroit",
+    "state": "Michigan",
+    "country": "United States",
+    "hint": "Known as the Old Red Barn.",
+    "facts": [
+      "🏟️ Opened in 1927, closed in 1979",
+      "🏆 Home of the Red Wings through seven Stanley Cup seasons",
+      "🎸 The Beatles played there in 1964"
+    ],
+    "wikipedia": "Olympia Stadium"
+  },
+  {
+    "id": "usa-w1-b-016",
+    "text": "Where did the Red Wings end a 42-year Stanley Cup drought in 1997?",
+    "lat": 42.3253,
+    "lng": -83.0514,
+    "category": "stadium",
+    "venue": "Joe Louis Arena",
+    "city": "Detroit",
+    "state": "Michigan",
+    "country": "United States",
+    "hint": "A riverfront arena named after a boxing champion, nicknamed The Joe.",
+    "facts": [
+      "🏟️ Opened in 1979, closed in 2017",
+      "🐙 Fans threw octopuses onto the ice",
+      "🥊 Named for heavyweight champion Joe Louis",
+      "🏆 The Red Wings also clinched the 2002 Cup there"
+    ],
+    "wikipedia": "Joe Louis Arena"
+  },
+  {
+    "id": "usa-w1-b-017",
+    "text": "Where did the Islanders win four straight Stanley Cups?",
+    "lat": 40.7228,
+    "lng": -73.5906,
+    "category": "stadium",
+    "venue": "Nassau Veterans Memorial Coliseum",
+    "city": "Uniondale",
+    "state": "New York",
+    "country": "United States",
+    "hint": "A Long Island arena nicknamed the Old Barn.",
+    "facts": [
+      "🏟️ Opened in 1972",
+      "🏆 Home of the Islanders’ four straight Cups, 1980–1983",
+      "🏀 Julius Erving starred there for the ABA Nets"
+    ],
+    "wikipedia": "Nassau Veterans Memorial Coliseum"
+  },
+  {
+    "id": "usa-w1-b-018",
+    "text": "Where did Mario Lemieux’s Penguins play under a retractable steel dome?",
+    "lat": 40.4417,
+    "lng": -79.99,
+    "category": "stadium",
+    "venue": "Civic Arena",
+    "city": "Pittsburgh",
+    "state": "Pennsylvania",
+    "country": "United States",
+    "hint": "Nicknamed The Igloo, it was the first major arena with a retractable roof.",
+    "facts": [
+      "🏟️ Opened in 1961, demolished in 2011–12",
+      "🥶 Nicknamed The Igloo",
+      "🔩 Its stainless steel dome could open to the sky",
+      "🏒 Home of the Penguins from 1967 to 2010"
+    ],
+    "wikipedia": "Civic Arena (Pittsburgh)"
+  },
+  {
+    "id": "usa-w1-b-019",
+    "text": "Where did the Blues play their first 27 seasons?",
+    "lat": 38.6292,
+    "lng": -90.2828,
+    "category": "stadium",
+    "venue": "St. Louis Arena",
+    "city": "St. Louis",
+    "state": "Missouri",
+    "country": "United States",
+    "hint": "Nicknamed the Checkerdome during a pet-food sponsorship.",
+    "facts": [
+      "🏟️ Opened in 1929, demolished in 1999",
+      "🏁 Called the Checkerdome from 1977 to 1983",
+      "🏒 Hosted the Stanley Cup Final in the Blues’ first three seasons"
+    ],
+    "wikipedia": "St. Louis Arena"
+  },
+  {
+    "id": "usa-w1-b-020",
+    "text": "Where did the Mavericks play from 1980 to 2001?",
+    "lat": 32.7728,
+    "lng": -96.8081,
+    "category": "stadium",
+    "venue": "Reunion Arena",
+    "city": "Dallas",
+    "state": "Texas",
+    "country": "United States",
+    "hint": "A downtown arena beside a landmark tower topped by a lit-up ball.",
+    "facts": [
+      "🏟️ Opened in 1980, demolished in 2009",
+      "🏒 Home of the Stars when they won the 1999 Stanley Cup",
+      "🗼 Next to Reunion Tower"
+    ],
+    "wikipedia": "Reunion Arena"
+  },
+  {
+    "id": "usa-w1-b-021",
+    "text": "Where did the North Stars play until 1993?",
+    "lat": 44.8583,
+    "lng": -93.24,
+    "category": "stadium",
+    "venue": "Met Center",
+    "city": "Bloomington",
+    "state": "Minnesota",
+    "country": "United States",
+    "hint": "A suburban arena that stood near the Twins’ first ballpark, today’s mega-mall site.",
+    "facts": [
+      "🏟️ Opened in 1967, demolished in 1994",
+      "⭐ Home of the North Stars from 1967 to 1993",
+      "🛋️ An IKEA store now stands on the site"
+    ],
+    "wikipedia": "Met Center"
+  },
+  {
+    "id": "usa-w1-b-022",
+    "text": "Where did the Hawks play before their current arena was built on the same spot?",
+    "lat": 33.7575,
+    "lng": -84.3967,
+    "category": "stadium",
+    "venue": "Omni Coliseum",
+    "city": "Atlanta",
+    "state": "Georgia",
+    "country": "United States",
+    "hint": "A rust-coloured steel arena that stood next to CNN Center.",
+    "facts": [
+      "🏟️ Opened in 1972, demolished in 1997",
+      "🏀 Home of the Hawks for 25 years",
+      "🏒 The NHL Flames played there before moving to Calgary"
+    ],
+    "wikipedia": "Omni Coliseum"
+  },
+  {
+    "id": "usa-w1-b-023",
+    "text": "Where did the Bullets and Capitals play before moving downtown in 1997?",
+    "lat": 38.9025,
+    "lng": -76.8469,
+    "category": "stadium",
+    "venue": "Capital Centre",
+    "city": "Landover",
+    "state": "Maryland",
+    "country": "United States",
+    "hint": "A suburban arena off the Beltway with an early giant video screen called the Telscreen.",
+    "facts": [
+      "🏟️ Opened in 1973, demolished in 2002",
+      "📺 The Telscreen was one of the first big arena video boards",
+      "🏀 Hosted games of the 1978 NBA Finals"
+    ],
+    "wikipedia": "Capital Centre (Landover, Maryland)"
+  },
+  {
+    "id": "usa-w1-b-024",
+    "text": "Where is the livestock pavilion where the Warriors played in the 1960s and the Beatles in 1964?",
+    "lat": 37.7067,
+    "lng": -122.4186,
+    "category": "stadium",
+    "venue": "Cow Palace",
+    "city": "Daly City",
+    "state": "California",
+    "country": "United States",
+    "hint": "Just south of the big city line, it also hosted two Republican national conventions.",
+    "facts": [
+      "🐄 Opened in 1941 for livestock shows",
+      "🎸 The Beatles played there in 1964",
+      "🗳️ Hosted the 1956 and 1964 Republican conventions",
+      "🏒 The Sharks played their first two seasons there"
+    ],
+    "wikipedia": "Cow Palace"
+  },
+  {
+    "id": "usa-w1-b-025",
+    "text": "Where is the 1910 arena that was the Bruins’ first home?",
+    "lat": 42.3411,
+    "lng": -71.0844,
+    "category": "stadium",
+    "venue": "Matthews Arena",
+    "city": "Boston",
+    "state": "Massachusetts",
+    "country": "United States",
+    "hint": "Long the home of the Northeastern Huskies, near Symphony Hall.",
+    "facts": [
+      "🏒 Opened in 1910 as Boston Arena",
+      "🐻 The Bruins played there from 1924 to 1928",
+      "🎓 Home of Northeastern hockey and basketball"
+    ],
+    "wikipedia": "Matthews Arena"
+  },
+  {
+    "id": "usa-w1-b-026",
+    "text": "Where do the Jayhawks play basketball?",
+    "lat": 38.9543,
+    "lng": -95.2524,
+    "category": "club",
+    "venue": "Allen Fieldhouse",
+    "city": "Lawrence",
+    "state": "Kansas",
+    "country": "United States",
+    "hint": "Its court is named after James Naismith, the inventor of the game.",
+    "facts": [
+      "🏀 Opened in 1955",
+      "📜 Named for coach Phog Allen",
+      "🌫️ Visitors are warned to \"Beware of the Phog\"",
+      "📜 Naismith’s original rules are shown in the building next door"
+    ],
+    "wikipedia": "Allen Fieldhouse"
+  },
+  {
+    "id": "usa-w1-b-027",
+    "text": "Where do the Tar Heels play basketball?",
+    "lat": 35.8997,
+    "lng": -79.0439,
+    "category": "club",
+    "venue": "Dean Smith Center",
+    "city": "Chapel Hill",
+    "state": "North Carolina",
+    "country": "United States",
+    "hint": "Nicknamed the Dean Dome after a legendary coach.",
+    "facts": [
+      "🏀 Opened in 1986",
+      "👟 Michael Jordan’s No. 23 hangs in its rafters",
+      "🎓 Seats more than 21,000"
+    ],
+    "wikipedia": "Dean Smith Center"
+  },
+  {
+    "id": "usa-w1-b-028",
+    "text": "Where do the Badgers play basketball and hockey?",
+    "lat": 43.0694,
+    "lng": -89.397,
+    "category": "stadium",
+    "venue": "Kohl Center",
+    "city": "Madison",
+    "state": "Wisconsin",
+    "country": "United States",
+    "hint": "Named for a senator who also owned the Bucks.",
+    "facts": [
+      "🏀 Opened in 1998",
+      "🏒 Hosts both basketball and hockey",
+      "💵 Named for Herb Kohl, longtime owner of the Bucks"
+    ],
+    "wikipedia": "Kohl Center"
+  },
+  {
+    "id": "usa-w1-b-029",
+    "text": "Where do Tom Izzo’s Spartans play basketball?",
+    "lat": 42.7282,
+    "lng": -84.4924,
+    "category": "stadium",
+    "venue": "Breslin Center",
+    "city": "East Lansing",
+    "state": "Michigan",
+    "country": "United States",
+    "hint": "The student section here is called the Izzone.",
+    "facts": [
+      "🏀 Opened in 1989",
+      "📣 Students pack the Izzone",
+      "🏆 Home of the 2000 national champions"
+    ],
+    "wikipedia": "Jack Breslin Student Events Center"
+  },
+  {
+    "id": "usa-w1-b-030",
+    "text": "Where do the Wolverines play basketball?",
+    "lat": 42.265,
+    "lng": -83.7468,
+    "category": "stadium",
+    "venue": "Crisler Center",
+    "city": "Ann Arbor",
+    "state": "Michigan",
+    "country": "United States",
+    "hint": "A domed arena across the road from the Big House.",
+    "facts": [
+      "🏀 Opened in 1967",
+      "📛 Named for coach and athletic director Fritz Crisler",
+      "5️⃣ Home of the Fab Five in the early 1990s"
+    ],
+    "wikipedia": "Crisler Center"
+  },
+  {
+    "id": "usa-w1-b-031",
+    "text": "Where do the Boilermakers play basketball?",
+    "lat": 40.4333,
+    "lng": -86.9161,
+    "category": "stadium",
+    "venue": "Mackey Arena",
+    "city": "West Lafayette",
+    "state": "Indiana",
+    "country": "United States",
+    "hint": "A domed arena on a campus famous for engineers and astronauts.",
+    "facts": [
+      "🏀 Opened in 1967",
+      "📛 Named for athletic director Guy \"Red\" Mackey",
+      "🗼 Home court of 7-foot-4 star Zach Edey"
+    ],
+    "wikipedia": "Mackey Arena"
+  },
+  {
+    "id": "usa-w1-b-032",
+    "text": "Where do the Golden Gophers play basketball on a raised floor?",
+    "lat": 44.9769,
+    "lng": -93.2283,
+    "category": "stadium",
+    "venue": "Williams Arena",
+    "city": "Minneapolis",
+    "state": "Minnesota",
+    "country": "United States",
+    "hint": "Nicknamed The Barn; the court sits above the front-row seats.",
+    "facts": [
+      "🏀 Opened in 1928",
+      "🏚️ Nicknamed The Barn",
+      "⬆️ Its raised floor is unique in major college basketball"
+    ],
+    "wikipedia": "Williams Arena"
+  },
+  {
+    "id": "usa-w1-b-033",
+    "text": "Where do the Cyclones play basketball?",
+    "lat": 42.021,
+    "lng": -93.6348,
+    "category": "stadium",
+    "venue": "Hilton Coliseum",
+    "city": "Ames",
+    "state": "Iowa",
+    "country": "United States",
+    "hint": "Its comeback wins gave rise to the phrase \"Hilton Magic\".",
+    "facts": [
+      "🏀 Opened in 1971",
+      "✨ \"Hilton Magic\" describes its home comebacks",
+      "🌪️ Home of the Iowa State Cyclones"
+    ],
+    "wikipedia": "Hilton Coliseum"
+  },
+  {
+    "id": "usa-w1-b-034",
+    "text": "Where is the \"Madison Square Garden of the Plains\", home of the Cowboys’ basketball team?",
+    "lat": 36.1258,
+    "lng": -97.065,
+    "category": "stadium",
+    "venue": "Gallagher-Iba Arena",
+    "city": "Stillwater",
+    "state": "Oklahoma",
+    "country": "United States",
+    "hint": "Named for a legendary wrestling coach and a legendary basketball coach.",
+    "facts": [
+      "🏀 Opened in 1938",
+      "🤼 Also home of the dominant wrestling program",
+      "📜 Named for Ed Gallagher and Henry Iba"
+    ],
+    "wikipedia": "Gallagher-Iba Arena"
+  },
+  {
+    "id": "usa-w1-b-035",
+    "text": "Where do the Wildcats of the \"Little Apple\" play basketball?",
+    "lat": 39.2004,
+    "lng": -96.5938,
+    "category": "stadium",
+    "venue": "Bramlage Coliseum",
+    "city": "Manhattan",
+    "state": "Kansas",
+    "country": "United States",
+    "hint": "Opened in 1988, it replaced the old Ahearn Field House.",
+    "facts": [
+      "🏀 Opened in 1988",
+      "🍎 Its town is nicknamed the Little Apple",
+      "🟣 Home of Kansas State basketball"
+    ],
+    "wikipedia": "Bramlage Coliseum"
+  },
+  {
+    "id": "usa-w1-b-036",
+    "text": "Where do the Volunteers play basketball on \"The Summitt\" court?",
+    "lat": 35.9512,
+    "lng": -83.925,
+    "category": "stadium",
+    "venue": "Thompson–Boling Arena",
+    "city": "Knoxville",
+    "state": "Tennessee",
+    "country": "United States",
+    "hint": "Its court honours Pat Summitt, coach of eight national champions.",
+    "facts": [
+      "🏀 Opened in 1987",
+      "🏆 Pat Summitt’s Lady Vols won 8 NCAA titles",
+      "🌊 Stands near the Tennessee River"
+    ],
+    "wikipedia": "Thompson–Boling Arena"
+  },
+  {
+    "id": "usa-w1-b-037",
+    "text": "Where do the Tigers play basketball in an arena named for \"Pistol Pete\"?",
+    "lat": 30.4142,
+    "lng": -91.1845,
+    "category": "stadium",
+    "venue": "Pete Maravich Assembly Center",
+    "city": "Baton Rouge",
+    "state": "Louisiana",
+    "country": "United States",
+    "hint": "Nicknamed the Deaf Dome; Shaquille O’Neal played here in college.",
+    "facts": [
+      "🏀 Opened in 1972",
+      "🔫 Named for Pete Maravich, college basketball’s all-time top scorer",
+      "🏀 Shaq’s college home court"
+    ],
+    "wikipedia": "Pete Maravich Assembly Center"
+  },
+  {
+    "id": "usa-w1-b-038",
+    "text": "Where do the Razorbacks play basketball?",
+    "lat": 36.0615,
+    "lng": -94.1782,
+    "category": "stadium",
+    "venue": "Bud Walton Arena",
+    "city": "Fayetteville",
+    "state": "Arkansas",
+    "country": "United States",
+    "hint": "Named for a co-founder of the world’s biggest retailer.",
+    "facts": [
+      "🏀 Opened in 1993",
+      "🛒 Named for Walmart co-founder Bud Walton",
+      "🏆 The 1994 national champions played their home games here"
+    ],
+    "wikipedia": "Bud Walton Arena"
+  },
+  {
+    "id": "usa-w1-b-039",
+    "text": "Where is the \"Cathedral of College Basketball\", home of the Quakers?",
+    "lat": 39.9514,
+    "lng": -75.1886,
+    "category": "stadium",
+    "venue": "The Palestra",
+    "city": "Philadelphia",
+    "state": "Pennsylvania",
+    "country": "United States",
+    "hint": "An Ivy League gym from 1927, home of the Big 5 rivalries.",
+    "facts": [
+      "🏀 Opened in 1927",
+      "🏛️ Has hosted more college games than any other arena",
+      "🎓 Home of Penn basketball"
+    ],
+    "wikipedia": "The Palestra"
+  },
+  {
+    "id": "usa-w1-b-040",
+    "text": "Where do the Huskies, giants of women’s college basketball, play on campus?",
+    "lat": 41.8053,
+    "lng": -72.2542,
+    "category": "stadium",
+    "venue": "Gampel Pavilion",
+    "city": "Storrs",
+    "state": "Connecticut",
+    "country": "United States",
+    "hint": "A domed campus arena in a small rural college town.",
+    "facts": [
+      "🏀 Opened in 1990",
+      "🏆 UConn women have won 12 NCAA titles",
+      "📛 Named for donor Harry Gampel"
+    ],
+    "wikipedia": "Gampel Pavilion"
+  },
+  {
+    "id": "usa-w1-b-041",
+    "text": "Where did Lute Olson’s Wildcats play basketball in the desert?",
+    "lat": 32.23,
+    "lng": -110.95,
+    "category": "stadium",
+    "venue": "McKale Center",
+    "city": "Tucson",
+    "state": "Arizona",
+    "country": "United States",
+    "hint": "A campus arena named for a coach nicknamed \"Pop\".",
+    "facts": [
+      "🏀 Opened in 1973",
+      "🏆 Home of the 1997 national champions",
+      "🌵 Named for J.F. \"Pop\" McKale"
+    ],
+    "wikipedia": "McKale Center"
+  },
+  {
+    "id": "usa-w1-b-042",
+    "text": "Where do the Huskies play basketball, a short walk from Husky Stadium?",
+    "lat": 47.652,
+    "lng": -122.302,
+    "category": "stadium",
+    "venue": "Hec Edmundson Pavilion",
+    "city": "Seattle",
+    "state": "Washington",
+    "country": "United States",
+    "hint": "Opened in 1927 and named for a longtime track and basketball coach.",
+    "facts": [
+      "🏀 Opened in 1927",
+      "🏃 Named for coach Clarence \"Hec\" Edmundson",
+      "✈️ Sponsored as Alaska Airlines Arena"
+    ],
+    "wikipedia": "Hec Edmundson Pavilion"
+  },
+  {
+    "id": "usa-w1-b-043",
+    "text": "Where do the Cardinal play basketball?",
+    "lat": 37.4296,
+    "lng": -122.1605,
+    "category": "stadium",
+    "venue": "Maples Pavilion",
+    "city": "Stanford",
+    "state": "California",
+    "country": "United States",
+    "hint": "On a campus founded by a railroad baron, in the heart of tech country.",
+    "facts": [
+      "🏀 Opened in 1969",
+      "🏆 Tara VanDerveer’s title-winning women’s teams played here",
+      "🌲 Stanford’s home court"
+    ],
+    "wikipedia": "Maples Pavilion"
+  },
+  {
+    "id": "usa-w1-b-044",
+    "text": "Where do the Hawkeyes play basketball?",
+    "lat": 41.6636,
+    "lng": -91.5544,
+    "category": "stadium",
+    "venue": "Carver–Hawkeye Arena",
+    "city": "Iowa City",
+    "state": "Iowa",
+    "country": "United States",
+    "hint": "Built into a hillside, so many fans enter at the top.",
+    "facts": [
+      "🏀 Opened in 1983",
+      "🤼 Also home of Hawkeye wrestling",
+      "🌟 Caitlin Clark’s college home court"
+    ],
+    "wikipedia": "Carver–Hawkeye Arena"
+  },
+  {
+    "id": "usa-w1-b-045",
+    "text": "Where do the Fighting Illini play basketball under a flying-saucer roof?",
+    "lat": 40.0963,
+    "lng": -88.236,
+    "category": "stadium",
+    "venue": "State Farm Center",
+    "city": "Champaign",
+    "state": "Illinois",
+    "country": "United States",
+    "hint": "A concrete dome from 1963 that was called Assembly Hall until 2013.",
+    "facts": [
+      "🏀 Opened in 1963",
+      "🛸 Its saucer-shaped dome was an engineering landmark",
+      "📛 Called Assembly Hall until 2013"
+    ],
+    "wikipedia": "State Farm Center"
+  },
+  {
+    "id": "usa-w1-b-046",
+    "text": "Where do the Buckeyes play basketball?",
+    "lat": 40.0075,
+    "lng": -83.0251,
+    "category": "stadium",
+    "venue": "Value City Arena",
+    "city": "Columbus",
+    "state": "Ohio",
+    "country": "United States",
+    "hint": "Part of the Jerome Schottenstein Center on a giant campus.",
+    "facts": [
+      "🏀 Opened in 1998",
+      "🏒 Also home of Buckeye hockey",
+      "🎓 Seats about 19,000"
+    ],
+    "wikipedia": "Value City Arena"
+  },
+  {
+    "id": "usa-w1-b-047",
+    "text": "Where do the Cardinals of the ACC play basketball, downtown by the river?",
+    "lat": 38.2575,
+    "lng": -85.7539,
+    "category": "stadium",
+    "venue": "KFC Yum! Center",
+    "city": "Louisville",
+    "state": "Kentucky",
+    "country": "United States",
+    "hint": "A riverfront arena named after a fried chicken brand.",
+    "facts": [
+      "🏀 Opened in 2010",
+      "🍗 Named for KFC and its parent Yum! Brands",
+      "🏇 Its city hosts the Kentucky Derby"
+    ],
+    "wikipedia": "KFC Yum! Center"
+  },
+  {
+    "id": "usa-w1-b-048",
+    "text": "Where do Mark Few’s Bulldogs play basketball?",
+    "lat": 47.665,
+    "lng": -117.399,
+    "category": "stadium",
+    "venue": "McCarthey Athletic Center",
+    "city": "Spokane",
+    "state": "Washington",
+    "country": "United States",
+    "hint": "A small Jesuit school’s gym nicknamed The Kennel.",
+    "facts": [
+      "🏀 Opened in 2004",
+      "🐶 Nicknamed The Kennel",
+      "🎓 Gonzaga’s home court"
+    ],
+    "wikipedia": "McCarthey Athletic Center"
+  },
+  {
+    "id": "usa-w1-b-049",
+    "text": "Where do the Longhorns play basketball?",
+    "lat": 30.281,
+    "lng": -97.7305,
+    "category": "stadium",
+    "venue": "Moody Center",
+    "city": "Austin",
+    "state": "Texas",
+    "country": "United States",
+    "hint": "Opened in 2022 to replace the Frank Erwin Center.",
+    "facts": [
+      "🏀 Opened in 2022",
+      "🎸 A major concert venue in the Live Music Capital",
+      "🤘 Home of Texas basketball"
+    ],
+    "wikipedia": "Moody Center"
+  },
+  {
+    "id": "usa-w1-b-050",
+    "text": "Where do the WooSox, the Red Sox’ Triple-A club, play?",
+    "lat": 42.2569,
+    "lng": -71.8,
+    "category": "club",
+    "venue": "Polar Park",
+    "city": "Worcester",
+    "state": "Massachusetts",
+    "country": "United States",
+    "hint": "Opened in 2021 in the Canal District, an hour west of the Red Sox’ big-league home.",
+    "facts": [
+      "⚾ Opened in 2021",
+      "🧦 Home of the Worcester Red Sox, known as the WooSox",
+      "🚚 The club moved there from McCoy Stadium in Pawtucket"
+    ],
+    "wikipedia": "Polar Park (baseball park)"
+  },
+  {
+    "id": "usa-w1-b-051",
+    "text": "Where did Jerry Tarkanian’s Runnin’ Rebels play?",
+    "lat": 36.105,
+    "lng": -115.1442,
+    "category": "stadium",
+    "venue": "Thomas & Mack Center",
+    "city": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "hint": "Also the longtime home of the National Finals Rodeo every December.",
+    "facts": [
+      "🏀 Opened in 1983",
+      "🤠 Longtime host of the National Finals Rodeo",
+      "🏆 Home of the 1990 national champions"
+    ],
+    "wikipedia": "Thomas & Mack Center"
+  },
+  {
+    "id": "usa-w1-b-052",
+    "text": "Where do the NMSU Aggies play basketball?",
+    "lat": 32.284,
+    "lng": -106.7422,
+    "category": "stadium",
+    "venue": "Pan American Center",
+    "city": "Las Cruces",
+    "state": "New Mexico",
+    "country": "United States",
+    "hint": "A domed arena in the desert near the Organ Mountains.",
+    "facts": [
+      "🏀 Opened in 1968",
+      "⛰️ Near the Organ Mountains",
+      "🎓 Home of New Mexico State"
+    ],
+    "wikipedia": "Pan American Center"
+  },
+  {
+    "id": "usa-w1-b-053",
+    "text": "Where do the BYU Cougars play basketball?",
+    "lat": 40.254,
+    "lng": -111.649,
+    "category": "stadium",
+    "venue": "Marriott Center",
+    "city": "Provo",
+    "state": "Utah",
+    "country": "United States",
+    "hint": "One of the biggest campus arenas, below a mountain marked with a giant Y.",
+    "facts": [
+      "🏀 Opened in 1971",
+      "🏔️ Y Mountain looms over the campus",
+      "👥 Seats about 19,000"
+    ],
+    "wikipedia": "Marriott Center"
+  },
+  {
+    "id": "usa-w1-b-054",
+    "text": "Where do the Commodores play basketball, with the benches on the baselines?",
+    "lat": 36.1446,
+    "lng": -86.8074,
+    "category": "stadium",
+    "venue": "Memorial Gymnasium",
+    "city": "Nashville",
+    "state": "Tennessee",
+    "country": "United States",
+    "hint": "Its team benches sit at the ends of the court, not along the sides.",
+    "facts": [
+      "🏀 Opened in 1952",
+      "🪑 Team benches sit behind the baselines",
+      "⚓ Home of Vanderbilt basketball"
+    ],
+    "wikipedia": "Memorial Gymnasium (Vanderbilt University)"
+  },
+  {
+    "id": "usa-w1-b-055",
+    "text": "Where is the \"Old Barn\" where the first ACC tournaments were played?",
+    "lat": 35.783,
+    "lng": -78.67,
+    "category": "stadium",
+    "venue": "Reynolds Coliseum",
+    "city": "Raleigh",
+    "state": "North Carolina",
+    "country": "United States",
+    "hint": "Now home of the Wolfpack women, once coached by Kay Yow.",
+    "facts": [
+      "🏀 Opened in 1949",
+      "🏟️ Hosted the early ACC tournaments",
+      "👩 NC State women’s basketball plays there"
+    ],
+    "wikipedia": "Reynolds Coliseum"
+  },
+  {
+    "id": "usa-w1-b-056",
+    "text": "Where do the Hokies play basketball?",
+    "lat": 37.2222,
+    "lng": -80.4189,
+    "category": "stadium",
+    "venue": "Cassell Coliseum",
+    "city": "Blacksburg",
+    "state": "Virginia",
+    "country": "United States",
+    "hint": "A campus arena high in the Blue Ridge country.",
+    "facts": [
+      "🏀 Opened in 1962",
+      "🦃 Home of the Hokies",
+      "🎓 Virginia Tech’s home court"
+    ],
+    "wikipedia": "Cassell Coliseum"
+  },
+  {
+    "id": "usa-w1-b-057",
+    "text": "Where does the Crimson Tide play basketball?",
+    "lat": 33.2029,
+    "lng": -87.5397,
+    "category": "stadium",
+    "venue": "Coleman Coliseum",
+    "city": "Tuscaloosa",
+    "state": "Alabama",
+    "country": "United States",
+    "hint": "Across campus from Bryant-Denny Stadium.",
+    "facts": [
+      "🏀 Opened in 1968",
+      "🤸 Also home of Crimson Tide gymnastics",
+      "📛 Named for Jeff Coleman"
+    ],
+    "wikipedia": "Coleman Coliseum"
+  },
+  {
+    "id": "usa-w1-b-058",
+    "text": "Where do Bruce Pearl’s Tigers play basketball?",
+    "lat": 32.6025,
+    "lng": -85.493,
+    "category": "stadium",
+    "venue": "Neville Arena",
+    "city": "Auburn",
+    "state": "Alabama",
+    "country": "United States",
+    "hint": "Its student section is called The Jungle.",
+    "facts": [
+      "🏀 Opened in 2010 as Auburn Arena",
+      "🐯 The student section is The Jungle",
+      "🏆 Home of the 2019 Final Four team"
+    ],
+    "wikipedia": "Neville Arena"
+  },
+  {
+    "id": "usa-w1-b-059",
+    "text": "Where do the Gators play basketball?",
+    "lat": 29.6494,
+    "lng": -82.3511,
+    "category": "stadium",
+    "venue": "Stephen C. O’Connell Center",
+    "city": "Gainesville",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "Nicknamed the O-Dome.",
+    "facts": [
+      "🏀 Opened in 1980",
+      "🏆 Home of the back-to-back champions of 2006 and 2007",
+      "🐊 Also hosts gymnastics and volleyball"
+    ],
+    "wikipedia": "Stephen C. O'Connell Center"
+  },
+  {
+    "id": "usa-w1-b-060",
+    "text": "Where is Stegeman Coliseum, home court of the SEC’s Bulldogs?",
+    "lat": 33.9428,
+    "lng": -83.378,
+    "category": "stadium",
+    "venue": "Stegeman Coliseum",
+    "city": "Athens",
+    "state": "Georgia",
+    "country": "United States",
+    "hint": "A campus arena in the Classic City that hosted Olympic volleyball.",
+    "facts": [
+      "🏀 Opened in 1964",
+      "🤸 Home of the GymDogs gymnastics team",
+      "🏐 Hosted volleyball at the 1996 Olympics"
+    ],
+    "wikipedia": "Stegeman Coliseum"
+  },
+  {
+    "id": "usa-w1-b-061",
+    "text": "Where did Wayne Rooney play his MLS home games, at Buzzard Point?",
+    "lat": 38.8684,
+    "lng": -77.0129,
+    "category": "stadium",
+    "venue": "Audi Field",
+    "city": "Washington",
+    "state": "District of Columbia",
+    "country": "United States",
+    "hint": "Opened in 2018 near the Anacostia River.",
+    "facts": [
+      "⚽ Opened in 2018",
+      "🦅 Home of D.C. United and the NWSL’s Spirit",
+      "🇬🇧 Wayne Rooney played there for D.C. United in 2018–19"
+    ],
+    "wikipedia": "Audi Field"
+  },
+  {
+    "id": "usa-w1-b-062",
+    "text": "Where is Q2 Stadium, home of the MLS club in verde and black?",
+    "lat": 30.3877,
+    "lng": -97.7195,
+    "category": "stadium",
+    "venue": "Q2 Stadium",
+    "city": "Austin",
+    "state": "Texas",
+    "country": "United States",
+    "hint": "Opened in 2021 for the first major-league team in the Live Music Capital.",
+    "facts": [
+      "⚽ Opened in 2021",
+      "🌳 Home of Austin FC, the city’s first major-league team",
+      "💚 Fans fill the Moontower supporters’ section"
+    ],
+    "wikipedia": "Q2 Stadium"
+  },
+  {
+    "id": "usa-w1-b-063",
+    "text": "Where do the Crew play their MLS home games?",
+    "lat": 39.9685,
+    "lng": -83.0171,
+    "category": "club",
+    "venue": "Lower.com Field",
+    "city": "Columbus",
+    "state": "Ohio",
+    "country": "United States",
+    "hint": "A downtown stadium opened in 2021 beside the Arena District.",
+    "facts": [
+      "⚽ Opened in 2021",
+      "🏆 The Crew won MLS Cup 2023 there",
+      "🟡 Replaced Historic Crew Stadium, MLS’s first soccer-specific venue"
+    ],
+    "wikipedia": "Lower.com Field"
+  },
+  {
+    "id": "usa-w1-b-064",
+    "text": "Where is TQL Stadium, the MLS home with a glowing fin-covered facade in the West End?",
+    "lat": 39.1114,
+    "lng": -84.5222,
+    "category": "stadium",
+    "venue": "TQL Stadium",
+    "city": "Cincinnati",
+    "state": "Ohio",
+    "country": "United States",
+    "hint": "Opened in 2021 for an orange-and-blue club that started in the second tier.",
+    "facts": [
+      "⚽ Opened in 2021",
+      "🏙️ In the West End neighbourhood",
+      "🏆 FC Cincinnati won the 2023 Supporters’ Shield"
+    ],
+    "wikipedia": "TQL Stadium"
+  },
+  {
+    "id": "usa-w1-b-065",
+    "text": "Where do the Loons play their MLS home games?",
+    "lat": 44.9531,
+    "lng": -93.1647,
+    "category": "club",
+    "venue": "Allianz Field",
+    "city": "Saint Paul",
+    "state": "Minnesota",
+    "country": "United States",
+    "hint": "A stadium wrapped in a translucent skin, in the Midway area of the Twin Cities’ capital.",
+    "facts": [
+      "⚽ Opened in 2019",
+      "🦆 Minnesota United are nicknamed the Loons",
+      "💡 Its skin can light up in different colours"
+    ],
+    "wikipedia": "Allianz Field"
+  },
+  {
+    "id": "usa-w1-b-066",
+    "text": "Where does Sporting KC play its MLS home games?",
+    "lat": 39.1217,
+    "lng": -94.8232,
+    "category": "club",
+    "venue": "Children's Mercy Park",
+    "city": "Kansas City",
+    "state": "Kansas",
+    "country": "United States",
+    "hint": "On the other side of the state line from its namesake big city, beside a NASCAR track.",
+    "facts": [
+      "⚽ Opened in 2011",
+      "🏁 Next to Kansas Speedway",
+      "🇺🇸 A regular host of national team games"
+    ],
+    "wikipedia": "Children's Mercy Park"
+  },
+  {
+    "id": "usa-w1-b-067",
+    "text": "Where do the Union play, in the shadow of the Commodore Barry Bridge?",
+    "lat": 39.8322,
+    "lng": -75.3789,
+    "category": "club",
+    "venue": "Subaru Park",
+    "city": "Chester",
+    "state": "Pennsylvania",
+    "country": "United States",
+    "hint": "A riverside stadium in a small industrial city south of a big one.",
+    "facts": [
+      "⚽ Opened in 2010",
+      "🌉 Beside the Commodore Barry Bridge on the Delaware River",
+      "🏆 The Union won the 2020 Supporters’ Shield"
+    ],
+    "wikipedia": "Subaru Park"
+  },
+  {
+    "id": "usa-w1-b-068",
+    "text": "Where do the Red Bulls play their MLS home games?",
+    "lat": 40.7367,
+    "lng": -74.1503,
+    "category": "club",
+    "venue": "Sports Illustrated Stadium",
+    "city": "Harrison",
+    "state": "New Jersey",
+    "country": "United States",
+    "hint": "A soccer-only stadium on the Passaic River, a train ride from the big city.",
+    "facts": [
+      "⚽ Opened in 2010 as Red Bull Arena",
+      "📛 Renamed Sports Illustrated Stadium in 2025",
+      "🇫🇷 Thierry Henry played for the Red Bulls there"
+    ],
+    "wikipedia": "Sports Illustrated Stadium"
+  },
+  {
+    "id": "usa-w1-b-069",
+    "text": "Where did David Beckham play his MLS home games?",
+    "lat": 33.864,
+    "lng": -118.261,
+    "category": "stadium",
+    "venue": "Dignity Health Sports Park",
+    "city": "Carson",
+    "state": "California",
+    "country": "United States",
+    "hint": "A stadium on the campus of Cal State Dominguez Hills.",
+    "facts": [
+      "⚽ Opened in 2003 as the Home Depot Center",
+      "🏆 The Galaxy have won MLS Cups there",
+      "🚴 The complex also has a tennis stadium and a velodrome"
+    ],
+    "wikipedia": "Dignity Health Sports Park"
+  },
+  {
+    "id": "usa-w1-b-070",
+    "text": "Where is BMO Stadium, home of LAFC and Angel City?",
+    "lat": 34.0128,
+    "lng": -118.2841,
+    "category": "stadium",
+    "venue": "BMO Stadium",
+    "city": "Los Angeles",
+    "state": "California",
+    "country": "United States",
+    "hint": "Next door to the Memorial Coliseum in Exposition Park.",
+    "facts": [
+      "⚽ Opened in 2018 as Banc of California Stadium",
+      "🏟️ Built on the site of the old Sports Arena",
+      "⚽ Home of LAFC and Angel City FC"
+    ],
+    "wikipedia": "BMO Stadium"
+  },
+  {
+    "id": "usa-w1-b-071",
+    "text": "Where do the Timbers and the Thorns play?",
+    "lat": 45.5214,
+    "lng": -122.6917,
+    "category": "club",
+    "venue": "Providence Park",
+    "city": "Portland",
+    "state": "Oregon",
+    "country": "United States",
+    "hint": "A century-old downtown ground where a lumberjack saws a log after every goal.",
+    "facts": [
+      "⚽ Opened in 1926",
+      "🪓 Timber Joey cuts a slice off a log after each goal",
+      "🌹 The Thorns draw some of the NWSL’s biggest crowds"
+    ],
+    "wikipedia": "Providence Park"
+  },
+  {
+    "id": "usa-w1-b-072",
+    "text": "Where is America First Field, home of MLS’s RSL?",
+    "lat": 40.5829,
+    "lng": -111.8934,
+    "category": "stadium",
+    "venue": "America First Field",
+    "city": "Sandy",
+    "state": "Utah",
+    "country": "United States",
+    "hint": "A suburban stadium with views of the Wasatch Range.",
+    "facts": [
+      "⚽ Opened in 2008 as Rio Tinto Stadium",
+      "🏔️ Mountain views of the Wasatch Front",
+      "🏆 RSL won MLS Cup in 2009"
+    ],
+    "wikipedia": "America First Field"
+  },
+  {
+    "id": "usa-w1-b-073",
+    "text": "Where do the Rapids play their MLS home games?",
+    "lat": 39.8056,
+    "lng": -104.8919,
+    "category": "club",
+    "venue": "Dick's Sporting Goods Park",
+    "city": "Commerce City",
+    "state": "Colorado",
+    "country": "United States",
+    "hint": "A stadium surrounded by about two dozen soccer fields, next to a bison refuge.",
+    "facts": [
+      "⚽ Opened in 2007",
+      "🥅 Surrounded by about two dozen fields",
+      "🦬 Beside the Rocky Mountain Arsenal wildlife refuge"
+    ],
+    "wikipedia": "Dick's Sporting Goods Park"
+  },
+  {
+    "id": "usa-w1-b-074",
+    "text": "Where is the stadium that houses the National Soccer Hall of Fame?",
+    "lat": 33.1544,
+    "lng": -96.8353,
+    "category": "stadium",
+    "venue": "Toyota Stadium",
+    "city": "Frisco",
+    "state": "Texas",
+    "country": "United States",
+    "hint": "A suburban MLS ground whose academy produced Weston McKennie.",
+    "facts": [
+      "⚽ Opened in 2005",
+      "🏛️ Home of the National Soccer Hall of Fame",
+      "🏈 Also hosts the FCS college championship game"
+    ],
+    "wikipedia": "Toyota Stadium (Texas)"
+  },
+  {
+    "id": "usa-w1-b-075",
+    "text": "Where do the Dynamo and the Dash play?",
+    "lat": 29.7522,
+    "lng": -95.3524,
+    "category": "club",
+    "venue": "Shell Energy Stadium",
+    "city": "Houston",
+    "state": "Texas",
+    "country": "United States",
+    "hint": "An orange-clad stadium in East Downtown.",
+    "facts": [
+      "⚽ Opened in 2012",
+      "🧡 Its facade is wrapped in orange",
+      "🏆 The Dynamo won the 2018 U.S. Open Cup final there"
+    ],
+    "wikipedia": "Shell Energy Stadium"
+  },
+  {
+    "id": "usa-w1-b-076",
+    "text": "Where is Geodis Park, the largest soccer-specific stadium in the country?",
+    "lat": 36.1301,
+    "lng": -86.766,
+    "category": "stadium",
+    "venue": "Geodis Park",
+    "city": "Nashville",
+    "state": "Tennessee",
+    "country": "United States",
+    "hint": "Built on old state fairgrounds in Music City.",
+    "facts": [
+      "⚽ Opened in 2022",
+      "🏟️ Holds 30,000, the most of any US soccer-specific stadium",
+      "🎸 Home of Nashville SC"
+    ],
+    "wikipedia": "Geodis Park"
+  },
+  {
+    "id": "usa-w1-b-077",
+    "text": "Where did Lionel Messi score a stoppage-time free kick on his Inter Miami debut in 2023?",
+    "lat": 26.1933,
+    "lng": -80.1606,
+    "category": "stadium",
+    "venue": "Chase Stadium",
+    "city": "Fort Lauderdale",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "Built on the site of the old Lockhart Stadium.",
+    "facts": [
+      "⚽ Opened in 2020 as DRV PNK Stadium",
+      "🏟️ Built where Lockhart Stadium stood",
+      "🎯 Messi’s winner came against Cruz Azul in the Leagues Cup"
+    ],
+    "wikipedia": "Chase Stadium"
+  },
+  {
+    "id": "usa-w1-b-078",
+    "text": "Where does CITY SC play, in a stadium opened in 2023?",
+    "lat": 38.6314,
+    "lng": -90.2103,
+    "category": "stadium",
+    "venue": "Energizer Park",
+    "city": "St. Louis",
+    "state": "Missouri",
+    "country": "United States",
+    "hint": "Built in Downtown West near Union Station, with a majority-female ownership.",
+    "facts": [
+      "⚽ Opened in 2023 as CityPark",
+      "👩 First MLS club with majority female ownership",
+      "🔋 Later renamed Energizer Park"
+    ],
+    "wikipedia": "Energizer Park"
+  },
+  {
+    "id": "usa-w1-b-079",
+    "text": "Where do the Lions and the Pride play their home games?",
+    "lat": 28.5411,
+    "lng": -81.3893,
+    "category": "club",
+    "venue": "Inter&Co Stadium",
+    "city": "Orlando",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "A downtown soccer stadium in the theme-park capital.",
+    "facts": [
+      "⚽ Opened in 2017",
+      "🦁 Home of Orlando City and the Orlando Pride",
+      "🏆 The Pride won the 2024 NWSL Championship"
+    ],
+    "wikipedia": "Inter&Co Stadium"
+  },
+  {
+    "id": "usa-w1-b-080",
+    "text": "Where is the first stadium built for a women’s professional team?",
+    "lat": 39.1203,
+    "lng": -94.5662,
+    "category": "stadium",
+    "venue": "CPKC Stadium",
+    "city": "Kansas City",
+    "state": "Missouri",
+    "country": "United States",
+    "hint": "A riverfront stadium of the Current, opened in 2024.",
+    "facts": [
+      "⚽ Opened in 2024",
+      "👩 First stadium built for a women’s pro team",
+      "🏆 Hosted the 2024 NWSL Championship"
+    ],
+    "wikipedia": "CPKC Stadium"
+  },
+  {
+    "id": "usa-w1-b-081",
+    "text": "Where do the Courage play their NWSL home games?",
+    "lat": 35.7862,
+    "lng": -78.7551,
+    "category": "club",
+    "venue": "WakeMed Soccer Park",
+    "city": "Cary",
+    "state": "North Carolina",
+    "country": "United States",
+    "hint": "A soccer complex in a suburb of the state capital.",
+    "facts": [
+      "⚽ Stadium opened in 2002",
+      "🏆 The Courage won NWSL titles in 2018 and 2019",
+      "🎓 Has hosted the NCAA College Cup"
+    ],
+    "wikipedia": "WakeMed Soccer Park"
+  },
+  {
+    "id": "usa-w1-b-082",
+    "text": "Where does Racing play its NWSL home games?",
+    "lat": 38.2594,
+    "lng": -85.7319,
+    "category": "club",
+    "venue": "Lynn Family Stadium",
+    "city": "Louisville",
+    "state": "Kentucky",
+    "country": "United States",
+    "hint": "A stadium in the Butchertown neighbourhood, in the hometown of the Derby.",
+    "facts": [
+      "⚽ Opened in 2020",
+      "🏟️ Home of Louisville City FC and Racing Louisville",
+      "🥩 In the Butchertown neighbourhood"
+    ],
+    "wikipedia": "Lynn Family Stadium"
+  },
+  {
+    "id": "usa-w1-b-083",
+    "text": "Where did the Fire play their MLS home games from 2006 to 2019?",
+    "lat": 41.7647,
+    "lng": -87.8061,
+    "category": "stadium",
+    "venue": "SeatGeek Stadium",
+    "city": "Bridgeview",
+    "state": "Illinois",
+    "country": "United States",
+    "hint": "A suburban stadium that later became home of the Red Stars.",
+    "facts": [
+      "⚽ Opened in 2006 as Toyota Park",
+      "🔥 Home of the Fire until 2019",
+      "⭐ The Red Stars also played there"
+    ],
+    "wikipedia": "SeatGeek Stadium"
+  },
+  {
+    "id": "usa-w1-b-084",
+    "text": "Where is the oldest professional ballpark in the country, which hosted an MLB game in 2024?",
+    "lat": 33.5022,
+    "lng": -86.8558,
+    "category": "stadium",
+    "venue": "Rickwood Field",
+    "city": "Birmingham",
+    "state": "Alabama",
+    "country": "United States",
+    "hint": "Opened in 1910; Willie Mays starred here for the Black Barons.",
+    "facts": [
+      "⚾ Opened in 1910",
+      "🎩 Willie Mays played there for the Black Barons",
+      "🏟️ The Giants and Cardinals played there in June 2024"
+    ],
+    "wikipedia": "Rickwood Field"
+  },
+  {
+    "id": "usa-w1-b-085",
+    "text": "Where is the ballpark with the snorting bull sign, home of the Triple-A Bulls?",
+    "lat": 35.9917,
+    "lng": -78.9042,
+    "category": "stadium",
+    "venue": "Durham Bulls Athletic Park",
+    "city": "Durham",
+    "state": "North Carolina",
+    "country": "United States",
+    "hint": "Opened in 1995 in the old American Tobacco district.",
+    "facts": [
+      "⚾ Opened in 1995",
+      "🐂 The bull sign snorts smoke after home runs",
+      "🎬 The team was made famous by the 1988 film Bull Durham"
+    ],
+    "wikipedia": "Durham Bulls Athletic Park"
+  },
+  {
+    "id": "usa-w1-b-086",
+    "text": "Where is the 1915 ballpark that played the Racine Belles’ home in \"A League of Their Own\"?",
+    "lat": 37.9928,
+    "lng": -87.5622,
+    "category": "stadium",
+    "venue": "Bosse Field",
+    "city": "Evansville",
+    "state": "Indiana",
+    "country": "United States",
+    "hint": "One of the oldest ballparks still in regular use, on a southern river town’s north side.",
+    "facts": [
+      "⚾ Opened in 1915",
+      "🎬 Filming site of A League of Their Own",
+      "🏟️ Among the oldest pro ballparks still in use"
+    ],
+    "wikipedia": "Bosse Field"
+  },
+  {
+    "id": "usa-w1-b-087",
+    "text": "Where is the ballpark named for the man once credited with inventing baseball?",
+    "lat": 42.6993,
+    "lng": -74.9267,
+    "category": "stadium",
+    "venue": "Doubleday Field",
+    "city": "Cooperstown",
+    "state": "New York",
+    "country": "United States",
+    "hint": "A short walk from the Baseball Hall of Fame in a lakeside village.",
+    "facts": [
+      "⚾ Hosted the annual Hall of Fame Game for decades",
+      "📜 Named for Abner Doubleday",
+      "🏡 In the village where the Hall of Fame stands"
+    ],
+    "wikipedia": "Doubleday Field"
+  },
+  {
+    "id": "usa-w1-b-088",
+    "text": "Where is the Little League World Series championship game played?",
+    "lat": 41.23,
+    "lng": -76.98,
+    "category": "stadium",
+    "venue": "Howard J. Lamade Stadium",
+    "city": "South Williamsport",
+    "state": "Pennsylvania",
+    "country": "United States",
+    "hint": "A hillside stadium where fans slide down the grass bank on cardboard.",
+    "facts": [
+      "⚾ Opened in 1959",
+      "🛷 Kids slide down the hill on cardboard",
+      "🌍 Teams come from around the world"
+    ],
+    "wikipedia": "Howard J. Lamade Stadium"
+  },
+  {
+    "id": "usa-w1-b-089",
+    "text": "Where has the Men’s College World Series been played since 2011?",
+    "lat": 41.267,
+    "lng": -95.932,
+    "category": "stadium",
+    "venue": "Charles Schwab Field Omaha",
+    "city": "Omaha",
+    "state": "Nebraska",
+    "country": "United States",
+    "hint": "A downtown ballpark that replaced Rosenblatt Stadium.",
+    "facts": [
+      "⚾ Opened in 2011 as TD Ameritrade Park",
+      "🏆 Home of the Men’s College World Series",
+      "🗿 The \"Road to Omaha\" statue moved there from Rosenblatt"
+    ],
+    "wikipedia": "Charles Schwab Field Omaha"
+  },
+  {
+    "id": "usa-w1-b-090",
+    "text": "Where do the Diamondbacks and Rockies share a spring-training home on tribal land?",
+    "lat": 33.5461,
+    "lng": -111.8853,
+    "category": "stadium",
+    "venue": "Salt River Fields at Talking Stick",
+    "city": "Scottsdale",
+    "state": "Arizona",
+    "country": "United States",
+    "hint": "The first spring-training complex built on Native American land.",
+    "facts": [
+      "⚾ Opened in 2011",
+      "🪶 On the Salt River Pima–Maricopa Indian Community",
+      "🌵 Shared by the D-backs and the Rockies"
+    ],
+    "wikipedia": "Salt River Fields at Talking Stick"
+  },
+  {
+    "id": "usa-w1-b-091",
+    "text": "Where do the Dodgers and White Sox hold spring training?",
+    "lat": 33.5142,
+    "lng": -112.2958,
+    "category": "stadium",
+    "venue": "Camelback Ranch",
+    "city": "Glendale",
+    "state": "Arizona",
+    "country": "United States",
+    "hint": "A Cactus League complex in the western suburbs of a desert metropolis.",
+    "facts": [
+      "⚾ Opened in 2009",
+      "🌵 Shared by the Dodgers and the White Sox",
+      "🌴 The Dodgers moved there from Dodgertown in Vero Beach"
+    ],
+    "wikipedia": "Camelback Ranch"
+  },
+  {
+    "id": "usa-w1-b-092",
+    "text": "Where do the Cubs hold spring training?",
+    "lat": 33.4313,
+    "lng": -111.8816,
+    "category": "stadium",
+    "venue": "Sloan Park",
+    "city": "Mesa",
+    "state": "Arizona",
+    "country": "United States",
+    "hint": "The biggest ballpark in the Cactus League.",
+    "facts": [
+      "⚾ Opened in 2014",
+      "🐻 Spring home of the Cubs",
+      "👥 Largest capacity in the Cactus League"
+    ],
+    "wikipedia": "Sloan Park"
+  },
+  {
+    "id": "usa-w1-b-093",
+    "text": "Where do the Cardinals and Marlins share spring training?",
+    "lat": 26.8911,
+    "lng": -80.1164,
+    "category": "stadium",
+    "venue": "Roger Dean Chevrolet Stadium",
+    "city": "Jupiter",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "A Grapefruit League park in a coastal town popular with golfers.",
+    "facts": [
+      "⚾ Opened in 1998",
+      "🐦 Spring home of the Cardinals and the Marlins",
+      "🌴 Also home to two Class A teams"
+    ],
+    "wikipedia": "Roger Dean Chevrolet Stadium"
+  },
+  {
+    "id": "usa-w1-b-094",
+    "text": "Where do the Orioles hold spring training?",
+    "lat": 27.3478,
+    "lng": -82.5172,
+    "category": "stadium",
+    "venue": "Ed Smith Stadium",
+    "city": "Sarasota",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "A Gulf Coast ballpark the White Sox used before the Orioles.",
+    "facts": [
+      "⚾ Opened in 1989",
+      "🐦 Spring home of the Orioles since 2010",
+      "⚪ The White Sox trained there first"
+    ],
+    "wikipedia": "Ed Smith Stadium"
+  },
+  {
+    "id": "usa-w1-b-095",
+    "text": "Where did the Rays play their home games in 2025 after a hurricane tore their dome’s roof?",
+    "lat": 27.9803,
+    "lng": -82.5067,
+    "category": "stadium",
+    "venue": "George M. Steinbrenner Field",
+    "city": "Tampa",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "The Yankees’ spring-training park, built with the same field dimensions as their Bronx home.",
+    "facts": [
+      "⚾ Opened in 1996 as Legends Field",
+      "🌀 Hurricane Milton damaged Tropicana Field in 2024",
+      "📏 Same field dimensions as Yankee Stadium"
+    ],
+    "wikipedia": "George M. Steinbrenner Field"
+  },
+  {
+    "id": "usa-w1-b-096",
+    "text": "Where do the Red Sox hold spring training, with a replica Green Monster?",
+    "lat": 26.5481,
+    "lng": -81.7633,
+    "category": "stadium",
+    "venue": "JetBlue Park",
+    "city": "Fort Myers",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "A Grapefruit League park whose left-field wall has seats built inside it.",
+    "facts": [
+      "⚾ Opened in 2012",
+      "🟩 Its Green Monster copy has seats inside the wall",
+      "✈️ Named for JetBlue Airways"
+    ],
+    "wikipedia": "JetBlue Park"
+  },
+  {
+    "id": "usa-w1-b-097",
+    "text": "Where do the Twins hold spring training?",
+    "lat": 26.5383,
+    "lng": -81.8419,
+    "category": "stadium",
+    "venue": "Hammond Stadium",
+    "city": "Fort Myers",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "The centrepiece of the Lee Health Sports Complex on the Gulf Coast.",
+    "facts": [
+      "⚾ Opened in 1991",
+      "🏟️ Part of the Lee Health Sports Complex",
+      "🦪 Also home of the Mighty Mussels"
+    ],
+    "wikipedia": "Hammond Stadium"
+  },
+  {
+    "id": "usa-w1-b-098",
+    "text": "Where is one of the few surviving Negro league ballparks, home of the Stars in the 1930s?",
+    "lat": 42.3897,
+    "lng": -83.0508,
+    "category": "stadium",
+    "venue": "Hamtramck Stadium",
+    "city": "Hamtramck",
+    "state": "Michigan",
+    "country": "United States",
+    "hint": "In a small city completely surrounded by a much bigger one.",
+    "facts": [
+      "⚾ Opened in 1930",
+      "🌟 Home of the Negro National League’s Detroit Stars",
+      "🏛️ Listed on the National Register of Historic Places"
+    ],
+    "wikipedia": "Hamtramck Stadium"
+  },
+  {
+    "id": "usa-w1-b-099",
+    "text": "Where did 17-year-old Jackie Mitchell strike out Babe Ruth and Lou Gehrig?",
+    "lat": 35.0454,
+    "lng": -85.2863,
+    "category": "stadium",
+    "venue": "Engel Stadium",
+    "city": "Chattanooga",
+    "state": "Tennessee",
+    "country": "United States",
+    "hint": "The Lookouts’ ballpark from 1930 to 1999.",
+    "facts": [
+      "⚾ Opened in 1930",
+      "👩 Jackie Mitchell struck out Ruth and Gehrig there in 1931",
+      "🔭 Home of the Lookouts until 1999",
+      "📛 Named for team president Joe Engel"
+    ],
+    "wikipedia": "Engel Stadium"
+  },
+  {
+    "id": "usa-w1-b-100",
+    "text": "Where do the Isotopes, named after a Simpsons episode, play?",
+    "lat": 35.0697,
+    "lng": -106.6292,
+    "category": "stadium",
+    "venue": "Isotopes Park",
+    "city": "Albuquerque",
+    "state": "New Mexico",
+    "country": "United States",
+    "hint": "A high-desert ballpark at the foot of the Sandia Mountains.",
+    "facts": [
+      "⚾ Opened in 2003",
+      "🍩 The team name comes from a Simpsons episode",
+      "🏜️ Next to the university arena known as The Pit"
+    ],
+    "wikipedia": "Isotopes Park"
+  }
+]

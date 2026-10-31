@@ -45,6 +45,7 @@ export const NAV_CATEGORIES: NavCategory[] = [
   { to: '/daily', label: 'USA' },
   { to: '/world', label: 'World', emoji: '🌍' },
   { to: '/battle', label: 'Battle', emoji: '⚡' },
+  { to: '/create', label: 'Create', emoji: '🛠️' },
   { to: '/archive', label: 'Archive', emoji: '📅' },
   { to: '/leaderboard', label: 'Scores', emoji: '📊' },
   { to: '/achievements', label: 'Badges', emoji: '🏅' },

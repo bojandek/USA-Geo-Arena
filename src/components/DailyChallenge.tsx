@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Map, {
   Marker,
@@ -6,7 +6,7 @@ import Map, {
   Layer,
   type MapRef,
 } from 'react-map-gl/maplibre';
-import type { GeoJSONSource, Map as MapLibreMap, PaddingOptions } from 'maplibre-gl';
+import { LngLat, type GeoJSONSource, type Map as MapLibreMap, type PaddingOptions } from 'maplibre-gl';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Trophy,
@@ -45,11 +45,8 @@ import {
   getRegion,
   REGIONS,
   boundsForQuestion,
-  frameForOutlyingAnswer,
   outlyingStateForQuestion,
-  OUTLYING_LABEL_ZOOM,
   regionPath,
-  toBoundsArray,
   type RegionId,
 } from '@/lib/regions';
 import { formatFullDayLabel, todayKey } from '@/lib/date-utils';
@@ -65,14 +62,13 @@ import { applyAtmosphere } from '@/lib/map-atmosphere';
 import { placeNameAtPoint, setPlaceLabelsVisible } from '@/lib/map-places';
 import { ANALYTICS_EVENTS, trackEvent } from '@/lib/analytics';
 import { MISSED_DISTANCE_KM, buildReviewQuestions, latestReviewableResult } from '@/lib/review';
-import { frameTwoPoints, worldWidthInPixels, CLOSE_UP_ZOOM, MARKER_CLEARANCE, arcCoordinates, revealPoint, toLineFeature, toPointFeature, globeFrame, globeAnswerFrame, clampPadding } from '@/lib/map-framing';
+import { frameTwoPoints, worldWidthInPixels, CLOSE_UP_ZOOM, MARKER_CLEARANCE, arcCoordinates, revealPoint, toLineFeature, toPointFeature, globeFrame, globeAnswerFrame, clampPadding, flatFramePadding, boundsCoveringView } from '@/lib/map-framing';
 import { describeMissWithArrow } from '@/lib/geo';
 import { playSound, getSoundSnapshot, isSoundEnabled, subscribeSound } from '@/lib/sound';
 import { vibrate } from '@/lib/haptics';
 import { celebrate } from '@/lib/confetti';
 import { buildHintTiers, nextHint, secondsUntilFreeHint, FREE_HINT_DELAY_SECONDS } from '@/lib/hints';
 import {
-  buildChallengeUrl,
   challengeHeadline,
   challengeOutcome,
 } from '@/lib/challenge';
@@ -80,6 +76,9 @@ import { reportPageUrl, wikipediaUrl } from '@/lib/question-links';
 import { questionTeaser } from '@/lib/question-teaser';
 import AdSlot from '@/components/AdSlot';
 import NewsletterSignup from '@/components/NewsletterSignup';
+import ShareSheet from '@/components/ShareSheet';
+import { SITE_URL } from '@/lib/site-content';
+import type { SharePayload } from '@/lib/share-links';
 
 /** The colour the line from the guess to the real place is drawn in. */
 const LINE_COLOUR = '#ef4444';
@@ -97,19 +96,74 @@ interface DailyChallengeProps {
    */
   questions?: Question[];
   /**
+   * The day's round as the server handed it out. Unlike `questions`, this is
+   * the real daily round and is recorded like one; without it the bundled
+   * rotation is played.
+   */
+  round?: Question[];
+  /**
    * The score the player has to beat, taken from the link they followed.
    *
    * It is null when nobody has challenged them.
    */
   challengeScore?: number | null;
+  /**
+   * A round somebody made, or a private tournament.
+   *
+   * It plays like a review - nothing is recorded - but it brings its own
+   * name, its own share and anything extra the result screen should show.
+   */
+  custom?: CustomRoundConfig;
   onBack?: () => void;
+}
+
+/** A finished custom round, as it is handed back to the page that runs it. */
+export interface CustomRoundResult {
+  score: number;
+  maxScore: number;
+  accuracy: number;
+  answers: QuizAnswer[];
+  hintCost: number;
+}
+
+/** How a custom round is labelled, shared and finished. */
+export interface CustomRoundConfig {
+  /** The name in the header, such as "Custom round" or a tournament name. */
+  label: string;
+  /** The small line under the name. */
+  subtitle: string;
+  /** Who the score to beat belongs to. */
+  rivalName?: string;
+  /** Called once, when the last question is answered. */
+  onFinish?: (result: CustomRoundResult) => void;
+  /** What is shared from the result screen. */
+  share: (result: CustomRoundResult) => SharePayload;
+  /** Shown on the result screen, under the score. */
+  resultExtra?: ReactNode;
+  /** False when the round may be played only once, as in a tournament. */
+  allowReplay?: boolean;
+}
+
+/**
+ * Folds the credit for the map into its small button.
+ *
+ * The credit opens unfolded, and on a phone it ran under the hint above the
+ * answer button. It stays one tap away on its button.
+ */
+function foldAttribution(map: MapLibreMap) {
+  map
+    .getContainer()
+    .querySelector('.maplibregl-ctrl-attrib.maplibregl-compact-show')
+    ?.classList.remove('maplibregl-compact-show');
 }
 
 export default function DailyChallenge({
   selectedDate,
   region,
   questions,
+  round,
   challengeScore = null,
+  custom,
   onBack,
 }: DailyChallengeProps) {
   const today = todayKey();
@@ -126,7 +180,6 @@ export default function DailyChallenge({
   // country and drawn flat; the world round is framed on the globe.
   const mapCenter = regionConfig.view.center;
   const mapZoom = regionConfig.view.zoom;
-  const mapBounds = regionConfig.view.bounds;
   // The air around the planet and the names on it are the player's choice,
   // and so is the projection on the world round. The American round stays
   // flat: a globe of one country is mostly empty space.
@@ -170,8 +223,8 @@ export default function DailyChallenge({
   // in Los Angeles was playing yesterday's questions while the board and the
   // streak said today.
   const dailyQuestions: Question[] = useMemo(
-    () => questions ?? getDailyQuestionsForDay(challengeDate, regionId),
-    [questions, challengeDate, regionId],
+    () => questions ?? round ?? getDailyQuestionsForDay(challengeDate, regionId),
+    [questions, round, challengeDate, regionId],
   );
 
   const { mapStyleId } = useMapStyle();
@@ -238,6 +291,11 @@ export default function DailyChallenge({
   // the same number.
   const hintSpendRef = useRef<number>(0);
 
+  // The custom round is read from a ref in the completion handler, so a page
+  // that rebuilds its config on every render does not rebuild the handler.
+  const customRef = useRef(custom);
+  customRef.current = custom;
+
   // The streak multiplier is worked out from the streak the player was on when
   // the round started, so the bonus is never a surprise - the game shows the
   // multiplier while the player is answering. A review round and an archived
@@ -301,7 +359,21 @@ export default function DailyChallenge({
       streak_multiplier: multiplier,
       questions: dailyQuestions.length,
       review: isReview,
+      custom: Boolean(customRef.current),
     });
+
+    // A custom round hands the result back to the page that runs it - a
+    // tournament sends the guesses to its own board from there.
+    if (customRef.current?.onFinish) {
+      const located = answersRef.current.reduce((sum, answer) => sum + answer.locationPoints, 0);
+      customRef.current.onFinish({
+        score: finalScore,
+        maxScore,
+        accuracy: maxScore > 0 ? Math.round((located / (maxScore * LOCATION_SHARE)) * 100) : 0,
+        answers: answersRef.current,
+        hintCost: hintSpendRef.current,
+      });
+    }
 
     // The round goes on the global board, so the player can be compared with
     // everybody else who played the same round. The guesses go up, not the
@@ -343,7 +415,9 @@ export default function DailyChallenge({
     }
 
     toast.success(
-      isReview
+      custom
+        ? 'Round finished! 🎯'
+        : isReview
         ? 'Review finished! 🎯'
         : isArchiveMode
           ? 'Archive day updated! 🗺️'
@@ -389,7 +463,17 @@ export default function DailyChallenge({
     soundOn,
   ]);
 
-  const session = useQuizSession({ questions: dailyQuestions, onComplete: handleComplete });
+  // Whether the map has loaded. Until it has, the player is looking at an
+  // empty screen, so the clock for the time bonus has not started yet.
+  const [mapReady, setMapReady] = useState(false);
+  useEffect(() => {
+    setMapReady(false);
+  }, [regionId]);
+  const session = useQuizSession({
+    questions: dailyQuestions,
+    onComplete: handleComplete,
+    ready: mapReady,
+  });
   const {
     currentQuestion,
     currentQuestionIndex,
@@ -439,37 +523,6 @@ export default function DailyChallenge({
     [challengeScore, finalScore],
   );
 
-  /**
-   * Sends a challenge to somebody else.
-   *
-   * The score to beat travels inside the link, so there is no account, no
-   * server and nothing to set up. The person who opens it plays the same ten
-   * questions and finds out where they stood.
-   */
-  const handleChallengeFriend = async () => {
-    const url = buildChallengeUrl(finalScore, regionId);
-    const text = `I scored ${formatPoints(finalScore)} points on today's ${regionConfig.label} Challenge. Can you beat me? 🏆`;
-
-    trackEvent(ANALYTICS_EVENTS.challengeFriend, {
-      region: regionId,
-      score: finalScore,
-    });
-
-    if (navigator.share) {
-      try {
-        await navigator.share({ text, url });
-        return;
-      } catch {
-        // The share sheet was dismissed, so the link is copied instead.
-      }
-    }
-    try {
-      await navigator.clipboard.writeText(`${text}\n${url}`);
-      toast.success('Challenge link copied - send it to a friend!');
-    } catch {
-      toast.error('Could not copy the challenge link');
-    }
-  };
   const averageDistance = answers.length
     ? Math.round(answers.reduce((sum, a) => sum + a.distance, 0) / answers.length)
     : 0;
@@ -661,12 +714,13 @@ export default function DailyChallenge({
   useEffect(() => {
     setHintsRevealed(0);
     setQuestionElapsed(0);
+    if (!mapReady) return;
     const started = Date.now();
     const timer = window.setInterval(() => {
       setQuestionElapsed(Math.floor((Date.now() - started) / 1000));
     }, 1000);
     return () => window.clearInterval(timer);
-  }, [currentQuestionIndex]);
+  }, [currentQuestionIndex, mapReady]);
 
   const hintTiers = useMemo(
     () => (currentQuestion ? buildHintTiers(currentQuestion) : []),
@@ -1000,7 +1054,7 @@ export default function DailyChallenge({
       const map = mapRef.current.getMap();
       // The card at the top and the button at the bottom are the reason the
       // map is framed on an area rather than on the whole window.
-      const padding = { top: 130, bottom: 130, left: 70, right: 70 };
+      const padding = flatFramePadding(map.getContainer().clientWidth);
       // The globe is round, so it only needs a little room at the sides to
       // stay clear of the edge of the screen - the card is above it, not
       // beside it. Narrow side padding is what lets the sphere use the width
@@ -1047,9 +1101,9 @@ export default function DailyChallenge({
 
   // The map follows the question.
   //
-  // For a question on the mainland this is the country. For a question in
-  // Alaska or Hawaii it is that part of the country instead, because nobody
-  // thinks to pan that far off the edge of the screen. The map is not moved
+  // The map shows the country for every question. It does not travel to
+  // Alaska or Hawaii on its own: zooming in on Honolulu for a question about
+  // Honolulu gives the answer away. The map is not moved
   // when the player is answering, only when the question changes, so a player
   // who has found the spot is not dragged away from it.
   // The map is created after the question is known, so the question is kept
@@ -1067,26 +1121,29 @@ export default function DailyChallenge({
   /**
    * Puts the map where the question is.
    *
-   * The limits move with the question, so that the middle of the screen can
-   * reach Alaska and Hawaii. They are set before the map is framed, because
-   * a limit that the centre is outside of would pull the map straight back.
+   * The limits move with the question, so that the player can pan to Alaska
+   * and Hawaii when the question is there. They are set before the map is
+   * framed, because a limit the view is outside of would pull it straight
+   * back.
    */
   const applyFraming = useCallback(
     (map: MapLibreMap, question: Question, duration: number) => {
       // A globe cannot be held inside a box. The limits are worked out on
       // the flat map, and a player who has asked for a globe has to be free
       // to spin it.
-      map.setMaxBounds(
-        isGlobe ? null : boundsForQuestion(question, regionId),
-      );
-
+      //
       // The globe is the whole planet. There is nothing to frame per question,
       // and moving the camera on every question would undo the spin the player
       // has just given it, so the round keeps one frame from start to finish.
       if (isGlobe) {
+        map.setMaxBounds(null);
         resetView(duration);
         return;
       }
+      const limit = boundsForQuestion(question, regionId);
+      // The frame is worked out before the limit goes on, so the old limit
+      // cannot shape it.
+      map.setMaxBounds(null);
 
       // The answer framing leaves a padding on the map, so that the two
       // markers sit in the free area under the card. This frame has a padding
@@ -1094,28 +1151,39 @@ export default function DailyChallenge({
       // the country off the centre of the screen.
       map.setPadding({ top: 0, bottom: 0, left: 0, right: 0 });
 
-      const outlying = frameForOutlyingAnswer(question.lat, question.lng);
-      const fit = outlying ?? regionConfig.view.fit;
-      if (!fit) return;
+      const fit = regionConfig.view.fit;
+      if (!fit) {
+        map.setMaxBounds(limit);
+        return;
+      }
 
-      const padding = { top: 130, bottom: 130, left: 70, right: 70 };
+      const container = map.getContainer();
+      const padding = flatFramePadding(container.clientWidth);
 
-      // A frame over Alaska is wide, and a wide frame comes out much further
-      // out than the zoom at which the names of the towns are written. The
-      // camera is worked out first so that it can be pulled in far enough
-      // for the name to be on the screen - the map travels there on its own,
-      // so it has to arrive somewhere the player can read.
+      // The camera is worked out first, so the limit can be widened to cover
+      // the view it frames.
       const camera = map.cameraForBounds(fit, { padding });
       if (!camera) {
+        map.setMaxBounds(limit);
         map.fitBounds(fit, { padding, duration });
         return;
       }
       // The camera may come back without a zoom, and a frame with no zoom
       // is no frame at all, so the map is asked to fit the box directly.
       const zoom = camera.zoom ?? map.getZoom();
-      const fitted = outlying
-        ? Math.max(zoom, OUTLYING_LABEL_ZOOM)
-        : zoom;
+      const fitted = zoom;
+      if (limit) {
+        const center = LngLat.convert(camera.center ?? map.getCenter());
+        map.setMaxBounds(
+          boundsCoveringView(
+            limit,
+            [center.lng, center.lat],
+            fitted,
+            container.clientWidth,
+            container.clientHeight,
+          ),
+        );
+      }
       // The duration belongs in the options. The second argument of easeTo is
       // event data, and a duration put there is ignored: the map then eases
       // for half a second even when the frame was meant to be instant.
@@ -1138,6 +1206,8 @@ export default function DailyChallenge({
     // put on the old one is gone. The counter tells the line to put itself
     // back on the new map.
     setMapEpoch((epoch) => epoch + 1);
+    setMapReady(true);
+    foldAttribution(map);
     const question = currentQuestionRef.current;
     if (question) applyFraming(map, question, 0);
     else resetView(0);
@@ -1204,52 +1274,40 @@ export default function DailyChallenge({
     setCamera(null);
     setCloseUp(false);
     // The map is moved to the new question by the effect that follows the
-    // question, so that it can go to Alaska or Hawaii when it has to. The
+    // question, which also sets the limit for it. The
     // globe is not moved that way - it is the whole planet whatever the
     // question - so it goes back to the framed world here.
     if (isGlobe) resetView(900);
   };
 
-  const handleShare = async () => {
-    const shareText = generateShareText(
-      finalScore,
-      maxScore,
-      totalTimeBonus,
-      regionId,
-      multiplier,
-      answers,
-    );
-
-    trackEvent(ANALYTICS_EVENTS.share, {
-      region: regionId,
-      score: finalScore,
-      streak_multiplier: multiplier,
-    });
-
-    // The link points at the share route, which draws a card for this score
-    // and then sends the visitor on to the game. Social networks read the
-    // picture from that address, so the preview shows the actual result.
-    const shareUrl = buildShareUrl({
-      score: finalScore,
-      maxScore: maxScore * multiplier,
-      streak: streak,
-      region: regionId,
-    });
-
-    if (navigator.share) {
-      try {
-        await navigator.share({ text: shareText, url: shareUrl });
-      } catch {
-        // The user dismissed the share sheet - nothing to report.
-      }
-    } else {
-      try {
-        await navigator.clipboard.writeText(`${shareText}\n${shareUrl}`);
-        toast.success('Results copied to clipboard!');
-      } catch {
-        toast.error('Could not copy to clipboard');
-      }
+  /**
+   * What the result screen shares.
+   *
+   * The daily share points at the share route, which writes the preview for
+   * this score and then sends the visitor on to the same round, with the
+   * score to beat in the link - so every shared result is also a challenge.
+   * A custom round brings its own words and its own link.
+   */
+  const buildSharePayload = (): SharePayload => {
+    if (custom) {
+      return custom.share({
+        score: finalScore,
+        maxScore,
+        accuracy,
+        answers,
+        hintCost: hintSpendRef.current,
+      });
     }
+    return {
+      text: generateShareText(finalScore, maxScore, totalTimeBonus, regionId, multiplier, answers),
+      url: buildShareUrl({
+        score: finalScore,
+        maxScore: maxScore * multiplier,
+        streak,
+        region: regionId,
+        date: challengeDate,
+      }),
+    };
   };
 
   const handleRestart = () => {
@@ -1376,10 +1434,10 @@ export default function DailyChallenge({
           <Card className="border-2 border-primary/20 shadow-2xl rounded-3xl overflow-hidden">
             <CardHeader className="bg-gradient-to-r from-primary to-secondary text-white text-center py-10">
               <div className="text-7xl mb-6">
-                {totalScore >= 1170 ? '🔥' : totalScore >= 1040 ? '🏆' : totalScore >= 910 ? '⭐' : '🎯'}
+                {percentage >= 90 ? '🔥' : percentage >= 80 ? '🏆' : percentage >= 70 ? '⭐' : '🎯'}
               </div>
               <CardTitle className="text-5xl md:text-6xl font-bold mb-4 font-[Caveat]">
-                Challenge Complete!
+                {custom ? 'Round Complete!' : 'Challenge Complete!'}
               </CardTitle>
               <p className="text-2xl opacity-90">
                 <CountUp value={finalScore} className="font-bold" /> / {formatPoints(maxScore * multiplier)} points
@@ -1419,11 +1477,13 @@ export default function DailyChallenge({
                     {challengeHeadline(outcome)}
                   </p>
                   <p className="text-sm text-gray-600 mt-1">
-                    You scored {formatPoints(finalScore)} · they scored{' '}
-                    {formatPoints(challengeScore)}
+                    You scored {formatPoints(finalScore)} ·{' '}
+                    {custom?.rivalName ?? 'they'} scored {formatPoints(challengeScore)}
                   </p>
                 </div>
               )}
+
+              {custom?.resultExtra}
 
               {/* What the round earned: XP towards the level, any badge it
                   unlocked, and where the day's missions stand. */}
@@ -1531,24 +1591,39 @@ export default function DailyChallenge({
                 </Button>
               )}
 
-              <div className="flex flex-col sm:flex-row gap-3 pt-4">
-                <Button onClick={handleShare} size="lg" className="flex-1 rounded-full font-semibold">
-                  <Share2 className="w-5 h-5 mr-2" />
-                  Share Results
-                </Button>
-                <Button
-                  onClick={handleChallengeFriend}
-                  variant="outline"
-                  size="lg"
-                  className="flex-1 rounded-full"
-                >
-                  <Swords className="w-5 h-5 mr-2" />
-                  Challenge a friend
-                </Button>
-                <Button onClick={handleRestart} variant="outline" size="lg" className="flex-1 rounded-full">
-                  <RotateCcw className="w-5 h-5 mr-2" />
-                  Play Again
-                </Button>
+              <div className="pt-4 space-y-3">
+                <ShareSheet
+                  payload={buildSharePayload()}
+                  card={{
+                    title: custom
+                      ? custom.label
+                      : isArchiveMode
+                        ? `${regionConfig.label} · ${formatFullDayLabel(challengeDate)}`
+                        : `${regionConfig.label} Challenge`,
+                    score: finalScore,
+                    maxScore: maxScore * multiplier,
+                    accuracy,
+                    answers,
+                    footnote:
+                      outcome && challengeScore !== null
+                        ? outcome === 'won'
+                          ? `Beat ${custom?.rivalName ?? 'my friend'} by ${formatPoints(finalScore - challengeScore)}`
+                          : outcome === 'tie'
+                            ? `Tied with ${custom?.rivalName ?? 'my friend'}`
+                            : undefined
+                        : streakBonus > 0
+                          ? `🔥 ${multiplier}× streak bonus`
+                          : undefined,
+                    site: SITE_URL,
+                  }}
+                  analytics={{ region: regionId, score: finalScore, custom: Boolean(custom) }}
+                />
+                {(!custom || custom.allowReplay !== false) && (
+                  <Button onClick={handleRestart} variant="outline" size="lg" className="w-full rounded-full">
+                    <RotateCcw className="w-5 h-5 mr-2" />
+                    Play Again
+                  </Button>
+                )}
               </div>
             </CardContent>
           </Card>
@@ -1566,7 +1641,7 @@ export default function DailyChallenge({
   return (
     <div className="h-full w-full relative overflow-hidden overflow-x-clip bg-gray-50">
       {/* ============ MAP - the base layer, it fills the whole screen ============ */}
-      <div className="absolute inset-0">
+      <div className="daily-map absolute inset-0" data-loading={mapReady ? undefined : ''}>
         <Map
           ref={mapRef}
           // The key remounts the map when the region changes, so the new
@@ -1580,12 +1655,18 @@ export default function DailyChallenge({
               ? {
                   bounds: regionConfig.view.fit,
                   fitBoundsOptions: {
-                    padding: { top: 130, bottom: 130, left: 70, right: 70 },
+                    padding: flatFramePadding(window.innerWidth),
                   },
                 }
               : { longitude: mapCenter[0], latitude: mapCenter[1], zoom: mapZoom }
           }
-          maxBounds={toBoundsArray(mapBounds)}
+          // No pan limit here. The framing puts one on as soon as the map has
+          // loaded, widened to the screen; a fixed limit on a tall phone
+          // screen would zoom the map in until the coasts were cut off.
+          //
+          // The credit for the map is folded into a small button, so that it
+          // does not sit under the answer button on a phone.
+          attributionControl={{ compact: true }}
           // The world must be on the screen once. Letting the map repeat it
           // puts the same continent at both edges, which reads as a bug.
           renderWorldCopies={false}
@@ -1667,14 +1748,18 @@ export default function DailyChallenge({
             </div>
             <div className="hidden sm:block leading-tight">
               <p className="text-xs font-bold text-gray-800">
-                {isReview
+                {custom
+                  ? custom.label
+                  : isReview
                   ? 'Review'
                   : isArchiveMode
                     ? 'Archive day'
                     : `${regionConfig.shortLabel} Challenge`}
               </p>
               <p className="text-[10px] text-gray-500 truncate max-w-[9rem]">
-                {isReview
+                {custom
+                  ? custom.subtitle
+                  : isReview
                   ? `${dailyQuestions.length} missed questions`
                   : isArchiveMode
                     ? formatFullDayLabel(challengeDate)
@@ -1718,12 +1803,12 @@ export default function DailyChallenge({
               </span>
             </span>
 
-            {/* When the answer is in Alaska or Hawaii the map has travelled
-                there, and the player is told so. */}
+            {/* When the answer is in Alaska or Hawaii the map stays on the
+                mainland, so the player is told where to pan. */}
             {outlyingState && (
               <span
                 className="flex items-center gap-1 bg-sky-50/95 backdrop-blur rounded-full px-2.5 py-1.5 shadow-md border border-sky-200"
-                title={`This question is in ${outlyingState}. The map has moved there.`}
+                title={`This question is in ${outlyingState}. Pan the map there.`}
               >
                 <MapPin className="h-3.5 w-3.5 text-sky-600" />
                 <span className="text-xs font-bold text-sky-800">{outlyingState}</span>
@@ -1788,8 +1873,8 @@ export default function DailyChallenge({
                         <div className="mb-2.5 flex items-center gap-2 rounded-xl bg-primary/10 border border-primary/25 px-3 py-2">
                           <Trophy className="w-4 h-4 text-primary shrink-0" />
                           <p className="text-xs sm:text-sm font-semibold text-gray-700">
-                            A friend scored {formatPoints(challengeScore)} points.
-                            Beat them.
+                            {custom?.rivalName ?? 'A friend'} scored{' '}
+                            {formatPoints(challengeScore)} points. Beat them.
                           </p>
                         </div>
                       )}

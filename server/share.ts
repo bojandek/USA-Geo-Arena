@@ -38,7 +38,14 @@ async function handler(request: Request) {
   const site = String(process.env.SITE_URL || 'https://geo-arena-six.vercel.app').replace(/\/$/, '');
 
   const percentage = max > 0 ? Math.round((score / max) * 100) : 0;
-  const target = region === 'World' ? `${site}/world` : `${site}/daily`;
+  // A result shared today is also a challenge: the link carries the score,
+  // so whoever opens it plays the same round with that score to beat. An
+  // older result has a different round behind it, so it only opens the game.
+  const day = searchParams.get('day') ?? '';
+  const dayTime = /^\d{4}-\d{2}-\d{2}$/.test(day) ? Date.parse(`${day}T12:00:00Z`) : NaN;
+  const isCurrent = Number.isFinite(dayTime) && Math.abs(Date.now() - dayTime) <= 36 * 60 * 60 * 1000;
+  const beat = readNumber(searchParams.get('score'), 0, 100_000);
+  const target = `${site}/${region === 'World' ? 'world' : 'daily'}${isCurrent && beat > 0 ? `?beat=${beat}` : ''}`;
   // The score is carried by the title and description. The picture is the
   // branded static card: social crawlers fetch it without running JavaScript,
   // and a static asset is the one form every one of them accepts.

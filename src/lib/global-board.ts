@@ -35,7 +35,7 @@ const PLAYER_KEY = 'geoarena-player';
  * exists so that the same device cannot post the same round a hundred times,
  * and it is not connected to anything else that is stored.
  */
-function playerHash(): string {
+export function playerHash(): string {
   if (typeof localStorage === 'undefined') return '';
   try {
     const existing = localStorage.getItem(PLAYER_KEY);

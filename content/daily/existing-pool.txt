@@ -1,0 +1,422 @@
+usa | AT&T Stadium | Where is the AT&T Stadium, home of the Dallas Cowboys?
+usa | Acrisure Stadium | Where is Acrisure Stadium, home of the Pittsburgh Steelers?
+usa | Alamodome | Where is the Alamodome, former home of the San Antonio Spurs?
+usa | Alaska Airlines Center | Where is the Alaska Airlines Center in Anchorage?
+usa | Allegiant Stadium | Where is Allegiant Stadium, home of the Las Vegas Raiders?
+usa | Aloha Stadium | Where is Aloha Stadium in Honolulu?
+usa | Alyeska Resort | Where is the Alyeska Resort in Alaska?
+usa | Amerant Bank Arena | Where is Amerant Bank Arena, home of the Florida Panthers?
+usa | American Airlines Center | Where is the American Airlines Center, home of the Dallas Mavericks?
+usa | American Family Field | Where is American Family Field, home of the Milwaukee Brewers?
+usa | Angel Stadium | Where is Angel Stadium, home of the Los Angeles Angels?
+usa | Aqueduct Racetrack | Where is Aqueduct Racetrack in New York?
+usa | Arthur Ashe Stadium | Where is Arthur Ashe Stadium at the US Open?
+usa | Assembly Hall | Where is Assembly Hall, home of Indiana Hoosiers basketball?
+usa | Astrodome | Where is the Astrodome in Houston?
+usa | Atlanta Motor Speedway | Where is Atlanta Motor Speedway?
+usa | Atlanta–Fulton County Stadium | Where was game 5 of the 1996 World Series between the Braves and the Yankees played?
+usa | Augusta National Golf Club | Where is Augusta National Golf Club?
+usa | Ball Arena | Where is Ball Arena, home of the Denver Nuggets?
+usa | Baltimore Memorial Stadium | Where was Memorial Stadium, the old home of the Baltimore Colts and Orioles?
+usa | Bandon Dunes | Where is Bandon Dunes?
+usa | Bank of America Stadium | Where is Bank of America Stadium, home of the Carolina Panthers?
+usa | Barclays Center | Where is Barclays Center, home of the Brooklyn Nets?
+usa | BayCare Ballpark | Where is BayCare Ballpark in Clearwater?
+usa | Beaver Stadium | Where is Beaver Stadium, home of the Penn State Nittany Lions?
+usa | Belmont Park | Where is Belmont Park, home of the Belmont Stakes?
+usa | Ben Hill Griffin Stadium | Where is Ben Hill Griffin Stadium, home of the Florida Gators?
+usa | Boston Marathon finish line | Where does the Boston Marathon finish?
+usa | Braves Field | Where did the Boston Braves play from 1915 to 1952?
+usa | Bristol Motor Speedway | Where is Bristol Motor Speedway, the half-mile track called the Last Great Colosseum?
+usa | Bryant-Denny Stadium | Where is Bryant-Denny Stadium, home of the Alabama Crimson Tide?
+usa | Busch Memorial Stadium | Where is Busch Memorial Stadium in St. Louis?
+usa | Busch Stadium | Where is Busch Stadium, home of the St. Louis Cardinals?
+usa | Caesars Superdome | Where is Caesars Superdome, home of the New Orleans Saints?
+usa | Camden Yards | Where is Camden Yards, home of the Baltimore Orioles?
+usa | Cameron Indoor Stadium | Where is Cameron Indoor Stadium, home of Duke basketball?
+usa | Camp Randall Stadium | Where is Camp Randall Stadium in Madison?
+usa | Camping World Stadium | Where is Camping World Stadium, home of the Citrus Bowl?
+usa | Candlestick Park | Where did "The Catch" happen in the 1981 NFC Championship?
+usa | Capital One Arena | Where is Capital One Arena, home of the Washington Wizards?
+usa | Centennial Olympic Stadium (1996 cauldron) | Where was the cauldron lit for the 1996 Atlanta Olympics?
+usa | Charlotte Sports Park | Where was the ballpark of the Charlotte Stone Crabs?
+usa | Chase Center | Where is Chase Center, home of the Golden State Warriors?
+usa | Chase Field | Where is Chase Field, home of the Arizona Diamondbacks?
+usa | Churchill Downs | Where is Churchill Downs, home of the Kentucky Derby?
+usa | Circuit of the Americas | Where is the Circuit of the Americas, home of the United States Grand Prix?
+usa | Citi Field | Where is Citi Field, home of the New York Mets?
+usa | Citizens Bank Park | Where did Bryce Harper hit his pennant-winning home run in 2022?
+usa | Cleveland Browns Stadium | Where is Huntington Bank Field, home of the Cleveland Browns?
+usa | Climate Pledge Arena | Where is Climate Pledge Arena, home of the Seattle Kraken?
+usa | Cole Field House | Where did Texas Western beat Kentucky in the 1966 NCAA final?
+usa | Comerica Park | Where is Comerica Park, home of the Detroit Tigers?
+usa | Comiskey Park | Where was the first MLB All-Star Game played, in 1933?
+usa | Coors Field | Where is Coors Field, home of the Colorado Rockies?
+usa | Cotton Bowl | Where do Texas and Oklahoma play the Red River Rivalry?
+usa | Crosley Field | Where is Crosley Field in Cincinnati?
+usa | Crypto.com Arena | Where is Crypto.com Arena, home of the Los Angeles Lakers?
+usa | Cypress Point Golf Club | Where is Cypress Point Golf Club on the Monterey Peninsula?
+usa | Daikin Park | Where is Daikin Park, home of the Houston Astros?
+usa | Darlington Raceway | Where is Darlington Raceway, home of the Southern 500?
+usa | Darrell K Royal Stadium | Where is Darrell K Royal Stadium, home of the Texas Longhorns?
+usa | Darrell K Royal Texas Memorial Stadium | Where is the Darrell K Royal Texas Memorial Stadium?
+usa | David Booth Kansas Memorial Stadium | Where is David Booth Kansas Memorial Stadium, home of the Kansas Jayhawks?
+usa | Daytona International Speedway | Where is Daytona International Speedway?
+usa | Delta Center | Where is the Delta Center, home of the Utah Jazz?
+usa | Diamond Head | Where is Diamond Head in Honolulu?
+usa | Doak Campbell Stadium | Where is Doak Campbell Stadium, home of the Florida State Seminoles?
+usa | Dodger Stadium | Where is Dodger Stadium, home of the Los Angeles Dodgers?
+usa | Ebbets Field | Where did Jackie Robinson make his MLB debut on April 15, 1947?
+usa | Empower Field at Mile High | Where is Empower Field at Mile High, home of the Denver Broncos?
+usa | Enterprise Center | Where is Enterprise Center, home of the St. Louis Blues?
+usa | EverBank Stadium | Where is EverBank Stadium, home of the Jacksonville Jaguars?
+usa | Fairbanks | Where is Fairbanks in Alaska?
+usa | FedExForum | Where is FedExForum, home of the Memphis Grizzlies?
+usa | Fenway Park | Where is the famous Fenway Park located?
+usa | Ferry Field | Where did Jesse Owens set his long jump world record in 1935?
+usa | Fiserv Forum | Where is Fiserv Forum, home of the Milwaukee Bucks?
+usa | Folsom Field | Where is Folsom Field, home of the Colorado Buffaloes?
+usa | Forbes Field | Where did Bill Mazeroski hit his walk-off home run in the 1960 World Series?
+usa | Ford Field | Where is Ford Field, home of the Detroit Lions?
+usa | Francis Field | Where was the main stadium of the 1904 Olympics, the first Games held in the United States?
+usa | Franklin Field | Where did the Philadelphia Eagles win the 1960 NFL Championship?
+usa | Freedom Hall | Where was the 1962 NCAA final between Cincinnati and Ohio State played?
+usa | Frost Bank Center | Where is the Frost Bank Center, home of the San Antonio Spurs?
+usa | GEHA Field at Arrowhead Stadium | Where is GEHA Field at Arrowhead Stadium, home of the Kansas City Chiefs?
+usa | Gainbridge Fieldhouse | Where is Gainbridge Fieldhouse, home of the Indiana Pacers?
+usa | Gateway Center Arena | Where is the home of the Atlanta Dream?
+usa | Giants Stadium | Where is Giants Stadium in East Rutherford?
+usa | Gillette Stadium | Where is Gillette Stadium, home of the New England Patriots?
+usa | Globe Life Field | Where is Globe Life Field, home of the Texas Rangers?
+usa | Golden 1 Center | Where is Golden 1 Center, home of the Sacramento Kings?
+usa | Grant Park | Where did the Chicago Cubs hold their 2016 World Series victory rally?
+usa | Great American Ball Park | Where is Great American Ball Park, home of the Cincinnati Reds?
+usa | Griffith Stadium | Where was game 7 of the 1924 World Series played?
+usa | Hard Rock Stadium | Where is Hard Rock Stadium, home of the Miami Dolphins?
+usa | Harvard Stadium | Where is Harvard Stadium, the first big concrete stadium in America?
+usa | Hershey Sports Arena | Where did Wilt Chamberlain score his hundred point game?
+usa | Highmark Stadium | Where is Highmark Stadium, home of the Buffalo Bills?
+usa | Hilltop Park | Where did the New York Highlanders, later the Yankees, play from 1903 to 1912?
+usa | Hilo | Where is Hilo on the island of Hawaii?
+usa | Hinkle Fieldhouse | Where did tiny Milan win the 1954 Indiana state title that inspired the film Hoosiers?
+usa | Homer | Where is Homer in Alaska?
+usa | Honda Center | Where is Honda Center, home of the Anaheim Ducks?
+usa | Hughes Stadium | Where is Hughes Stadium, home of the Morgan State Bears?
+usa | Huntington Avenue Grounds | Where was the first game of the first modern World Series played, in 1903?
+usa | Huntington Bank Field | Where is Huntington Bank Field, home of the Cleveland Browns?
+usa | Husky Stadium | Where is Husky Stadium, home of the Washington Huskies?
+usa | IU Natatorium | Where did Katie Ledecky set the 1500m freestyle world record in 2018?
+usa | Indian Wells Tennis Garden | Where is the Indian Wells Tennis Garden?
+usa | Indianapolis Motor Speedway | Where is the Indianapolis Motor Speedway, the "Brickyard"?
+usa | Jeppesen Stadium | Where was the 1962 AFL Championship game played?
+usa | Jon M. Huntsman Center | Where did Magic Johnson meet Larry Bird in the 1979 NCAA final?
+usa | Juneau | Where is Juneau in Alaska?
+usa | Kapiolani Park | Where is Kapiolani Park in Honolulu?
+usa | Kaseya Center | Where is the arena that used to be called the American Airlines Arena?
+usa | Kauffman Stadium | Where is Kauffman Stadium, home of the Kansas City Royals?
+usa | Ketchikan | Where is Ketchikan in Alaska?
+usa | Kezar Stadium | Where is the historic Kezar Stadium in San Francisco?
+usa | Kia Center | Where is the Kia Center, home of the Orlando Magic?
+usa | Kingdome | Where was the 1989 NCAA final between Michigan and Seton Hall played?
+usa | Kona Ironman World Championship | Where is the Ironman World Championship in Hawaii?
+usa | Kyle Field | Where is Kyle Field, home of the Texas A&M Aggies?
+usa | LP Field | Where is the stadium known as LP Field from 2006 to 2015, home of the Tennessee Titans?
+usa | Lahaina | Where is Lahaina on Maui?
+usa | Lambeau Field | Where is Lambeau Field, home of the Green Bay Packers?
+usa | League Park | Where did Bill Wambsganss turn an unassisted triple play in the 1920 World Series?
+usa | Legion Field | Where is Legion Field, the Football Capital of the South?
+usa | Levi's Stadium | Where is Levi's Stadium, home of the San Francisco 49ers?
+usa | Lihue | Where is Lihue on Kauai?
+usa | Lime Rock Park | Where is Lime Rock Park?
+usa | Lincoln Financial Field | Where is Lincoln Financial Field, home of the Philadelphia Eagles?
+usa | Little Caesars Arena | Where is Little Caesars Arena, home of the Detroit Pistons?
+usa | Long Beach street circuit | Where is the Grand Prix of Long Beach street race held?
+usa | Los Angeles Memorial Coliseum (1984 opening ceremony) | Where was the 1984 Summer Olympics opening ceremony held?
+usa | Los Angeles Memorial Sports Arena | Where was the 1963 NBA All Star Game played?
+usa | Lucas Oil Stadium | Where is Lucas Oil Stadium, home of the Indianapolis Colts?
+usa | Lumen Field | Where is Lumen Field, home of the Seattle Seahawks?
+usa | M&T Bank Stadium | Where is M&T Bank Stadium, home of the Baltimore Ravens?
+usa | Madison Square Garden | Where is Madison Square Garden, the oldest arena in the NBA?
+usa | Market Square Arena | Where did Louisville beat UCLA in the 1980 NCAA basketball final?
+usa | Matthew Knight Arena | Where is Matthew Knight Arena in Eugene?
+usa | Memorial Stadium | Where is Memorial Stadium, home of the Clemson Tigers?
+usa | Mercedes-Benz Stadium | Where is Mercedes-Benz Stadium, home of the Atlanta Falcons?
+usa | Merion Golf Club | Where did Ben Hogan hit his famous 1-iron at the 1950 US Open?
+usa | MetLife Stadium | Where is MetLife Stadium, home of the New York Giants and Jets?
+usa | Metropolitan Stadium | Where did Sandy Koufax clinch the 1965 World Series?
+usa | Michigan International Speedway | Where is Michigan International Speedway?
+usa | Moda Center | Where is Moda Center, home of the Portland Trail Blazers?
+usa | Mortgage Matchup Center | Where is Mortgage Matchup Center, home of the Phoenix Suns?
+usa | NRG Stadium | Where is NRG Stadium, home of the Houston Texans?
+usa | National Baseball Hall of Fame | Where is the National Baseball Hall of Fame?
+usa | Nationals Park | Where is Nationals Park, home of the Washington Nationals?
+usa | Nationwide Arena | Where is Nationwide Arena, home of the Columbus Blue Jackets?
+usa | Newport Casino | Where were the first US National tennis championships held, in 1881?
+usa | Neyland Stadium | Where is Neyland Stadium, home of the Tennessee Volunteers?
+usa | Nissan Stadium | Where is Nissan Stadium, home of the Tennessee Titans?
+usa | Nome | Where is Nome in Alaska?
+usa | Northwest Stadium | Where is Northwest Stadium, home of the Washington Commanders?
+usa | Notre Dame Stadium | Where is Notre Dame Stadium, home of the Fighting Irish?
+usa | Oakland Coliseum | Where is the historic Oakland Coliseum, former home of the Oakland Athletics?
+usa | Oakmont Country Club | Where is Oakmont Country Club, a regular host of the US Open?
+usa | Ohio Stadium | Where is Ohio Stadium, known as the Horseshoe?
+usa | Olympic Center (Herb Brooks Arena) | Where did the "Miracle on Ice" take place?
+usa | Oracle Park | Where is Oracle Park, home of the San Francisco Giants?
+usa | PNC Park | Where is PNC Park, home of the Pittsburgh Pirates?
+usa | PPG Paints Arena | Where is PPG Paints Arena, home of the Pittsburgh Penguins?
+usa | Pauley Pavilion | Where is Pauley Pavilion, home of UCLA basketball?
+usa | PayPal Park | Where is PayPal Park, home of the San Jose Earthquakes?
+usa | Paycom Center | Where is Paycom Center, home of the Oklahoma City Thunder?
+usa | Paycor Stadium | Where is Paycor Stadium, home of the Cincinnati Bengals?
+usa | Pebble Beach Golf Links | Where is Pebble Beach Golf Links?
+usa | Petco Park | Where is Petco Park, home of the San Diego Padres?
+usa | Pimlico Race Course | Where is Pimlico Race Course?
+usa | Pinehurst No. 2 | Where is Pinehurst No. 2, host of the United States Open?
+usa | Pocono Raceway | Where is Pocono Raceway?
+usa | Polo Grounds | Where is the historic Polo Grounds in Manhattan?
+usa | Pontiac Silverdome | Where was the first indoor World Cup match played, in 1994?
+usa | Progressive Field | Where is Progressive Field, home of the Cleveland Guardians?
+usa | Publix Field at Joker Marchant Stadium | Where is Joker Marchant Stadium in Lakeland?
+usa | Qualcomm Stadium | Where was the Super Bowl played in January 1998?
+usa | RFK Stadium | Where was RFK Stadium in Washington?
+usa | Rate Field | Where is Rate Field, home of the Chicago White Sox?
+usa | Raymond James Stadium | Where did the Tampa Bay Buccaneers become the first team to win a Super Bowl in their home stadium?
+usa | Rice Stadium | Where was the Super Bowl played in January 1974?
+usa | Riverfront Stadium | Where is Riverfront Stadium in Cincinnati?
+usa | Road America | Where is Road America in Elkhart Lake, Wisconsin?
+usa | Rose Bowl | Location of the historic Rose Bowl stadium?
+usa | Rosenblatt Stadium | Where was the College World Series played from 1950 to 2010?
+usa | Rupp Arena | Where did Villanova beat Georgetown in the 1985 NCAA final?
+usa | Rynearson Stadium | Where is Rynearson Stadium, home of the Eastern Michigan Eagles?
+usa | SAP Center | Where is the SAP Center, home of the San Jose Sharks?
+usa | Sanford Stadium | Where is Sanford Stadium, home of the Georgia Bulldogs?
+usa | Santa Anita Park | Where is Santa Anita Park?
+usa | Santa Monica College | Where did Joan Benoit’s winning 1984 Olympic marathon start?
+usa | Saratoga Race Course | Where is Saratoga Race Course?
+usa | Seals Stadium | Where did the San Francisco Giants play their first West Coast home games in 1958?
+usa | Sebring International Raceway | Where is Sebring International Raceway?
+usa | Shea Stadium | Where did the "Miracle Mets" clinch the 1969 World Series?
+usa | Shibe Park | Where is Shibe Park in Philadelphia?
+usa | Shinnecock Hills Golf Club | Where is Shinnecock Hills Golf Club?
+usa | Smoothie King Center | Where is the Smoothie King Center, home of the New Orleans Pelicans?
+usa | SoFi Stadium | Where is the SoFi Stadium in Inglewood, near Los Angeles?
+usa | Soldier Field | Where is Soldier Field, home of the Chicago Bears?
+usa | Spartan Stadium | Where is Spartan Stadium, home of the Michigan State Spartans?
+usa | Spectrum Center | Where is the Spectrum Center, home of the Charlotte Hornets?
+usa | Sportsman’s Park | Where did Enos Slaughter make his mad dash in game 7 of the 1946 World Series?
+usa | Squaw Valley | Where were the 1960 Winter Olympics held?
+usa | Stanford Stadium | Where was the famous 1962 USA–USSR track meet held?
+usa | State Farm Arena | Where is State Farm Arena, home of the Atlanta Hawks?
+usa | State Farm Stadium | Where is State Farm Stadium, home of the Arizona Cardinals?
+usa | Sullivan Arena | Where is Sullivan Arena in Anchorage?
+usa | Sun Devil Stadium | Where was the Super Bowl played in January 1996?
+usa | Sutter Health Park | Where is Sutter Health Park, temporary home of the Athletics?
+usa | T-Mobile Arena | Where is T-Mobile Arena, home of the Vegas Golden Knights?
+usa | T-Mobile Park | Where is T-Mobile Park, home of the Seattle Mariners?
+usa | TD Garden | Where is TD Garden, home of the Boston Celtics?
+usa | Talladega Superspeedway | Where is Talladega Superspeedway?
+usa | Target Center | Where is the Target Center, home of the Minnesota Timberwolves?
+usa | Target Field | Where is Target Field, home of the Minnesota Twins?
+usa | Texas Motor Speedway | Where is Texas Motor Speedway in Fort Worth?
+usa | Texas Stadium | Where is Texas Stadium in Irving, Texas?
+usa | The Country Club | Where is The Country Club, the historic golf club outside Boston?
+usa | The Forum | Where did the Showtime Lakers clinch the 1987 NBA title against the Celtics?
+usa | The Spectrum | Where did Christian Laettner hit "The Shot" to beat Kentucky in 1992?
+usa | Three Rivers Stadium | Where is Three Rivers Stadium in Pittsburgh?
+usa | Tiger Stadium | Where is Tiger Stadium, home of the LSU Tigers?
+usa | Tom Benson Hall of Fame Stadium | Where is the NFL’s preseason Hall of Fame Game played?
+usa | Torrey Pines Golf Course | Where is Torrey Pines Golf Course?
+usa | Toyota Center | Where is the Toyota Center, home of the Houston Rockets?
+usa | Tropicana Field | Where is Tropicana Field, home of the Tampa Bay Rays?
+usa | Truist Park | Where is Truist Park, home of the Atlanta Braves?
+usa | Tulane Stadium | Where was the Super Bowl played in January 1970?
+usa | U.S. Bank Stadium | Where is U.S. Bank Stadium, home of the Minnesota Vikings?
+usa | UBS Arena | Where is UBS Arena, home of the New York Islanders?
+usa | United Center | Where is the United Center, home of the Chicago Bulls?
+usa | University Arena (The Pit) | Where did NC State beat Houston in the 1983 NCAA final?
+usa | Veterans Stadium | Where is Veterans Stadium in Philadelphia?
+usa | Wailuku | Where is Wailuku on Maui?
+usa | War Memorial Stadium | Where did the Buffalo Bills play before they moved to Orchard Park?
+usa | Watkins Glen International | Where is Watkins Glen International?
+usa | WeatherTech Raceway Laguna Seca | Where is WeatherTech Raceway Laguna Seca, home of the Corkscrew?
+usa | West Side Grounds | Where did the Chicago Cubs play their home games when they won the 1908 World Series?
+usa | West Side Tennis Club | Where was the US Open tennis championship played before it moved to Flushing Meadows?
+usa | Williams Stadium | Where is Williams Stadium, home of the Liberty Flames?
+usa | Wrigley Field | Where is Wrigley Field, home of the Chicago Cubs?
+usa | Xcel Energy Center | Where is Xcel Energy Center, home of the Minnesota Wild?
+usa | Xfinity Mobile Arena | Where is Xfinity Mobile Arena, home of the Philadelphia 76ers?
+usa | Yale Bowl | Where is the Yale Bowl?
+usa | Yankee Stadium | Location of the iconic Yankee Stadium?
+usa | loanDepot park | Where is loanDepot park, home of the Miami Marlins?
+world | Albert Park Circuit | Where is the Albert Park Circuit in Melbourne?
+world | All England Lawn Tennis Club | Location of Wimbledon Tennis Championships?
+world | Allianz Arena | Where is Allianz Arena located?
+world | Anfield | Location of the famous Anfield stadium?
+world | Arena Națională | Where is the Arena Națională in Bucharest?
+world | Arena da Baixada | Where is the Arena da Baixada in Curitiba?
+world | Arena do Grêmio | Where is the Arena do Grêmio in Porto Alegre?
+world | Atatürk Olympic Stadium | Where was the 2005 UEFA Champions League final, decided by a famous penalty?
+world | Athens Olympic Stadium (OAKA) | Where is the Athens Olympic Stadium, main venue of the 2004 Games?
+world | Autodromo Hermanos Rodriguez | Where is the Autodromo Hermanos Rodriguez in Mexico City?
+world | Autodromo Jose Carlos Pace | Where is the Autodromo Jose Carlos Pace in Sao Paulo?
+world | Autodromo Nazionale Monza | Location of the famous Monza racing circuit?
+world | Bahrain International Circuit | Where is the Bahrain International Circuit?
+world | Baku City Circuit | Where is the Baku City Circuit?
+world | Beijing National Stadium | Where were the 2008 Summer Olympics held?
+world | Buddh International Circuit | Where is the Buddh International Circuit?
+world | Camp Nou | Where is Camp Nou, home of FC Barcelona?
+world | Celtic Park | Where is Celtic Park, the home of Celtic FC?
+world | Central Lenin Stadium | Where were the 1980 Summer Olympics held?
+world | Centre Court at Wimbledon | Where is Centre Court at Wimbledon, the most famous tennis court in the world?
+world | Circuit Gilles Villeneuve | Where is the Circuit Gilles Villeneuve in Montreal?
+world | Circuit de Barcelona-Catalunya | Where is the Circuit de Barcelona-Catalunya?
+world | Circuit de Monaco | Where is the famous Circuit de Monaco?
+world | Circuit de Spa-Francorchamps | Where is the Circuit de Spa-Francorchamps?
+world | Croke Park | Where is Croke Park in Dublin?
+world | Deutsche Bank Park | Where is the Deutsche Bank Park, formerly the Commerzbank-Arena, in Frankfurt?
+world | Eden Gardens (1987 final) | Where was the 1987 Cricket World Cup final, won by Australia?
+world | Eden Gardens | Where is the Eden Gardens in Kolkata?
+world | El Monumental, Buenos Aires | Where was the 1978 FIFA World Cup final played?
+world | Emirates Stadium | Location of the Emirates Stadium?
+world | Estadi Olimpic de Montjuic | Location of the 1992 Summer Olympics?
+world | Estadio Alejandro Morera Soto | Where is the Estadio Alejandro Morera Soto in Alajuela?
+world | Estadio Alejandro Villanueva | Where is the Estadio Alejandro Villanueva, home of Alianza Lima?
+world | Estadio Atanasio Girardot | Where is the Estadio Atanasio Girardot in Medellin?
+world | Estadio Azteca (1970 final) | Where was the 1970 FIFA World Cup final, the first ever shown in colour?
+world | Estadio Azteca (1986 final) | Where did the 1986 World Cup final take place, Maradona's crowning moment?
+world | Estadio Azteca | Where is the Azteca Stadium?
+world | Estadio Campeon del Siglo | Where is the Estadio Campeón del Siglo, home of Peñarol?
+world | Estadio Centenario | Where is the Estadio Centenario in Montevideo?
+world | Estadio Centenario, Montevideo | Where was the first FIFA World Cup final ever played?
+world | Estadio Corregidora | Where is the Estadio Corregidora in Queretaro?
+world | Estadio Departamental Libertad | Where is the Estadio Departamental Libertad in Pasto?
+world | Estadio Gonzalo Pozo Ripalda | Where is the Estadio Gonzalo Pozo Ripalda in Quito?
+world | Estadio Gran Canaria | Where is the Estadio Gran Canaria in Las Palmas?
+world | Estadio Hernando Siles | Where is the Estadio Hernando Siles in La Paz?
+world | Estadio Jalisco | Where is the Estadio Jalisco in Guadalajara?
+world | Estadio Metropolitano de Merida | Where is the Estadio Metropolitano de Merida?
+world | Estadio Monumental Virgen de Chapi | Where is the Estadio Monumental Virgen de Chapi in Arequipa?
+world | Estadio Monumental de Maturin | Where is the Estadio Monumental de Maturin?
+world | Estadio Monumental | Where is the Estadio Monumental in Buenos Aires, home of River Plate?
+world | Estadio Nacional de Chile | Where is the Estadio Nacional de Chile in Santiago?
+world | Estadio Nacional de Costa Rica | Where is the Estadio Nacional de Costa Rica in San Jose?
+world | Estadio Nacional del Peru | Where is the Estadio Nacional del Peru in Lima?
+world | Estadio Olímpico Atahualpa | Where is the Estadio Olímpico Atahualpa in Quito?
+world | Estadio Olímpico Lluís Companys | Where is the Estadi Olímpic Lluís Companys, Barcelona's temporary home from 2023 to 2025?
+world | Estadio Olímpico Pascual Guerrero | Where is the Estadio Olímpico Pascual Guerrero in Cali?
+world | Estadio Olímpico Universitario | Where is the Estadio Olímpico Universitario in Mexico City?
+world | Estadio da Luz | Where is the new Estádio da Luz, home of Benfica?
+world | Estádio José Alvalade | Where is the Estádio José Alvalade, home of Sporting CP?
+world | Estádio Municipal de Aveiro | Where is the Estádio Municipal de Aveiro?
+world | Estádio Municipal de Braga | Where is the Estádio Municipal de Braga, home of SC Braga?
+world | Estádio Nilton Santos | Where is the Estádio Nilton Santos, also known as the Engenhão, in Rio de Janeiro?
+world | Estádio da Luz | Where is the Estádio da Luz, home of Benfica?
+world | Estádio da Madeira | Where is the Estádio da Madeira in Funchal?
+world | Estádio do Bessa | Where is the Estádio do Bessa, home of Boavista?
+world | Estádio do Dragão | Where is the Estádio do Dragão, home of FC Porto?
+world | Estádio do Morumbi | Where is the Estádio do Morumbi in Sao Paulo?
+world | Estádio do Restelo | Where is the Estádio do Restelo in Belem?
+world | Etihad Stadium | Location of the Etihad Stadium?
+world | FNB Stadium | Where is the FNB Stadium, also known as Soccer City, in Johannesburg?
+world | Foro Italico | Where is the Foro Italico in Rome?
+world | Fuji Speedway | Where is the Fuji Speedway?
+world | Gaddafi Stadium | Where was the 1996 Cricket World Cup final played?
+world | Gran Parque Central | Where is the Gran Parque Central in Montevideo?
+world | Helsinki Olympic Stadium | Where were the 1952 Summer Olympics held?
+world | Heysel Stadium | Where did the 1985 European Cup final happen, where a crowd tragedy unfolded?
+world | Hungaroring | Where is the Hungaroring, home of the Hungarian Grand Prix?
+world | Iffley Road track, Oxford | Where did Roger Bannister run the first four minute mile?
+world | Japan National Stadium | Where were the opening and closing ceremonies of the 2020 Summer Olympics (held in 2021)?
+world | King Power Stadium | Where is the King Power Stadium in Leicester?
+world | La Bombonera | Location of the famous La Bombonera stadium?
+world | Letzigrund stadium | Where is the Letzigrund stadium in Zurich?
+world | London Stadium | Where were the 2012 Summer Olympics held?
+world | Lord's Cricket Ground | Where was the 1979 Cricket World Cup final won?
+world | Lusail Stadium | Location of the iconic Lusail Stadium?
+world | Luzhniki Stadium | Where is the Luzhniki Stadium in Moscow?
+world | Luzhniki Stadium, Moscow | Where did Steve Ovett and Sebastian Coe swap 800m and 1500m gold at the 1980 Olympics?
+world | Luzhniki | Where was the 2008 Champions League final, when Manchester United beat Chelsea on penalties?
+world | M. Chinnaswamy Stadium | Where did India and England tie a 2011 Cricket World Cup match, both scoring 338?
+world | Maracana | Location of the iconic Maracanã Stadium?
+world | Maracanazinho arena | Where is the Maracanazinho arena in Rio de Janeiro?
+world | Maracanã (2016 Olympic ceremonies) | Where were the opening and closing ceremonies of the 2016 Summer Olympics held?
+world | Maracanã | Where did the 1950 "Maracanazo" happen, when Brazil lost the deciding match of the World Cup?
+world | Marina Bay Street Circuit | Where is the Marina Bay Street Circuit in Singapore?
+world | Melbourne Cricket Ground | Where is the Melbourne Cricket Ground (MCG)?
+world | Melbourne Park | Where is Melbourne Park, home of the Australian Open?
+world | Mestalla | Where is the Mestalla, home of Valencia CF?
+world | Millennium Stadium | Where was the 2006 FA Cup final, decided by penalties after a Steven Gerrard equaliser?
+world | Moi International Sports Centre | Where is the Moi International Sports Centre in Nairobi?
+world | Montjuïc Olympic Stadium | Where were the 1992 Olympic Games held?
+world | Montreal Forum (1976 Olympic gymnastics) | Where did Nadia Comaneci score the first perfect ten in the Olympics?
+world | Montreal Forum | Where was the 1976 Olympics, where Nadia Comaneci scored a perfect ten?
+world | National Stadium of Wales | Where was the 2017 Champions League final, when Real Madrid became the first club to retain the trophy?
+world | National Stadium | Where is the National Stadium in Lagos?
+world | Nurburgring | Where is the Nurburgring, home of the Nordschleife?
+world | Old Trafford | Where is Old Trafford stadium located?
+world | Old Trafford, Manchester | Where was the 2003 Champions League final, the first between two Italian clubs?
+world | Old Wembley Stadium | Where did England win the 1966 World Cup final?
+world | Olympia Schwimmhalle, Munich | Where did Mark Spitz win seven gold medals in a single Olympics?
+world | Olympiastadion Berlin (2006 final) | Where did Zidane headbutt Materazzi in the 2006 World Cup final?
+world | Olympiastadion Berlin (2009 World Championships) | Where did Usain Bolt set the 100m world record?
+world | Olympiastadion Berlin (2015 final) | Where was the 2015 Champions League final, won by Barcelona?
+world | Olympiastadion | Location of the Olympic Stadium that hosted 1936 Summer Olympics?
+world | Olympic Stadium, Athens | Where was the 1994 Champions League final, won 4-0 by Milan?
+world | Orange Vélodrome | Where is the Orange Vélodrome, home of Olympique de Marseille?
+world | Panathenaic Stadium | Where is the Panathenaic Stadium in Athens?
+world | Parc Olympique Lyonnais | Where is the Parc Olympique Lyonnais, known as Groupama Stadium?
+world | Parc des Princes | Where is the Parc des Princes stadium?
+world | Parc des Princes, Paris | Where was the first European Cup final in 1956, Real Madrid's comeback against Reims?
+world | Philippe-Chatrier court at Roland Garros | Where is the Philippe-Chatrier court at Roland Garros?
+world | Ramón Sánchez Pizjuán | Where is the Ramón Sánchez Pizjuán, home of Sevilla FC?
+world | Red Bull Ring | Where is the Red Bull Ring in Spielberg?
+world | Riverside Stadium | Where is the Riverside Stadium in Middlesbrough?
+world | Riyadh Air Metropolitano | Where is the Metropolitano, home of Atlético Madrid?
+world | San Mamés | Where is San Mamés, the home of Athletic Bilbao?
+world | San Siro | Where is the San Siro stadium?
+world | Santiago Bernabeu | Where is the legendary Santiago Bernabéu stadium located?
+world | Santiago Bernabéu, Madrid | Where was the 1982 FIFA World Cup final played?
+world | Seoul Olympic Stadium | Where were the 1988 Summer Olympics held?
+world | Signal Iduna Park | Where is the Signal Iduna Park (Westfalenstadion)?
+world | Silverstone Circuit | Where is the Silverstone Circuit, home of the British Grand Prix?
+world | Spa-Francorchamps, in the Ardennes | Where did Michael Schumacher take his first Formula 1 win?
+world | St James' Park | Where is St James' Park, home of Newcastle United?
+world | St. Jakob-Park | Where is the St. Jakob-Park in Basel?
+world | Stade Geoffroy-Guichard | Where is the Stade Geoffroy-Guichard in Saint-Étienne?
+world | Stade Olympique de Radès | Where is the Stade Olympique de Radès in Tunis?
+world | Stade Tata Raphael (then Stade du 20 Mai) | Where did Muhammad Ali fight George Foreman in "Rumble in the Jungle"?
+world | Stade Velodrome | Where is the famous Velodrome stadium?
+world | Stade de France | Which stadium hosted the 1998 FIFA World Cup final?
+world | Stade de la Beaujoire | Where is the Stade de la Beaujoire in Nantes?
+world | Stade de la Meinau | Where is the Stade de la Meinau in Strasbourg?
+world | Stade de la Mosson | Where is the Stade de la Mosson in Montpellier?
+world | Stadio Ennio Tardini | Where is the Stadio Ennio Tardini in Parma?
+world | Stadio Nazionale PNF | Where was the 1934 FIFA World Cup final played?
+world | Stadio Olimpico Grande Torino | Where is the Stadio Olimpico Grande Torino in Turin?
+world | Stadio Olimpico | Where is the Stadio Olimpico in Rome?
+world | Stadio Olimpico, Rome (Golden Gala) | Where did Hicham El Guerrouj set his 1500m and mile world records?
+world | Stadio Olimpico, Rome | Where were the 1960 Summer Olympics held?
+world | Stadio San Nicola | Where is Stadio San Nicola, home of SSC Bari?
+world | Stadion Wankdorf | Where is the Wankdorf Stadium in Bern?
+world | Stadium Australia | Where were the 2000 Summer Olympics held?
+world | Stadium Australia, Sydney | Where did Cathy Freeman win the 400m at the 2000 Olympics?
+world | Stadium de Toulouse | Where is the Stadium de Toulouse?
+world | Stamford Bridge | Where is the famous Stamford Bridge stadium?
+world | Suzuka International Racing Course | Where is the Suzuka International Racing Course?
+world | Sydney Cricket Ground | Where is the Sydney Cricket Ground?
+world | Telstra Stadium | Where was the 2003 Rugby World Cup final, won by a drop goal in extra time?
+world | The Bird's Nest, Beijing | Where did Usain Bolt run 9.69 seconds to win 100m gold at the 2008 Olympics?
+world | The National Stadium, Tokyo | Where did Mike Powell break Bob Beamon's long jump world record?
+world | The Olympiastadion, Berlin | Where did Jesse Owens win four gold medals at the 1936 Olympics?
+world | The Olympic Stadium, London | Where did Usain Bolt become the first man to retain both the 100m and 200m Olympic titles?
+world | The Olympic Stadium, Mexico City (long jump, 1968) | Where did Bob Beamon jump 8.90 m, an Olympic record that still stands?
+world | The Ullevi stadium, Gothenburg | Where did Jonathan Edwards set the triple jump world record?
+world | Tottenham Hotspur Stadium | Where is the Tottenham Hotspur Stadium, home of Spurs?
+world | Vasil Levski National Stadium | Where is the Vasil Levski National Stadium in Sofia?
+world | Villa Park | Where is Villa Park, home of Aston Villa?
+world | Wankdorf Stadium | Where was the 1954 FIFA World Cup final, the "Miracle of Bern"?
+world | Wembley Stadium (2024 final) | Where was the 2024 Champions League final, Real Madrid's fifteenth title?
+world | Wembley Stadium | Where is Wembley Stadium located?
+world | West Melbourne Stadium (now Festival Hall) | Where did Larisa Latynina win the first four of her nine Olympic gold medals?
+world | Yas Marina Circuit | Where is the Yas Marina Circuit in Abu Dhabi?
+world | Zandvoort circuit | Where is the Zandvoort circuit?

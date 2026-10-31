@@ -1,0 +1,1813 @@
+[
+  {
+    "id": "usa-w1-c-001",
+    "text": "Where was the 1974 US Open nicknamed the 'Massacre at Winged Foot' played?",
+    "lat": 40.9625,
+    "lng": -73.7536,
+    "category": "event",
+    "venue": "Winged Foot Golf Club",
+    "city": "Mamaroneck",
+    "state": "New York",
+    "country": "United States",
+    "hint": "A Tillinghast-designed club in the leafy suburbs north of the biggest city in the country.",
+    "facts": [
+      "⛳ Designed by A.W. Tillinghast, opened in 1923",
+      "🏆 Has hosted the US Open six times",
+      "😱 Phil Mickelson double-bogeyed the 72nd hole to lose the 2006 US Open here",
+      "🏌️ Bryson DeChambeau won the 2020 US Open here"
+    ],
+    "wikipedia": "Winged Foot Golf Club"
+  },
+  {
+    "id": "usa-w1-c-002",
+    "text": "Where did Jack Nicklaus win two of his US Opens, in 1967 and 1980?",
+    "lat": 40.7009,
+    "lng": -74.3301,
+    "category": "athlete",
+    "venue": "Baltusrol Golf Club",
+    "city": "Springfield",
+    "state": "New Jersey",
+    "country": "United States",
+    "hint": "A club named after a farmer who was murdered on the land in 1831.",
+    "facts": [
+      "⛳ Named after Baltus Roll, who owned the farm",
+      "📅 Founded in 1895",
+      "🏆 Hosted the PGA Championship in 2005 and 2016",
+      "🏌️ Its Lower Course was designed by A.W. Tillinghast"
+    ],
+    "wikipedia": "Baltusrol Golf Club"
+  },
+  {
+    "id": "usa-w1-c-003",
+    "text": "Where is the public course whose first tee sign warns it is recommended only for highly skilled golfers?",
+    "lat": 40.742,
+    "lng": -73.455,
+    "category": "stadium",
+    "venue": "Bethpage Black Course",
+    "city": "Farmingdale",
+    "state": "New York",
+    "country": "United States",
+    "hint": "A state park course out on Long Island.",
+    "facts": [
+      "⛳ In 2002 it became the first truly public course to host the US Open",
+      "🏆 Tiger Woods won that 2002 US Open",
+      "🏌️ Brooks Koepka won the 2019 PGA Championship here",
+      "🏆 Hosted the 2025 Ryder Cup"
+    ],
+    "wikipedia": "Bethpage Black Course"
+  },
+  {
+    "id": "usa-w1-c-004",
+    "text": "Which course did Ben Hogan call 'the Monster' after winning the 1951 US Open there?",
+    "lat": 42.544,
+    "lng": -83.277,
+    "category": "athlete",
+    "venue": "Oakland Hills Country Club",
+    "city": "Bloomfield Hills",
+    "state": "Michigan",
+    "country": "United States",
+    "hint": "A Donald Ross course in the northern suburbs of the Motor City.",
+    "facts": [
+      "⛳ Designed by Donald Ross, opened in 1918",
+      "🏆 Hosted the 2004 Ryder Cup, won by Europe",
+      "🔥 Its historic clubhouse burned down in 2022"
+    ],
+    "wikipedia": "Oakland Hills Country Club"
+  },
+  {
+    "id": "usa-w1-c-005",
+    "text": "Where did unknown Jack Fleck beat Ben Hogan in a playoff at the 1955 US Open?",
+    "lat": 37.709,
+    "lng": -122.495,
+    "category": "event",
+    "venue": "Olympic Club",
+    "city": "San Francisco",
+    "state": "California",
+    "country": "United States",
+    "hint": "Its Lake Course sits between the ocean and Lake Merced, by the Golden Gate city.",
+    "facts": [
+      "📅 Founded in 1860, one of the oldest athletic clubs in the country",
+      "🏆 Has hosted the US Open five times",
+      "🏌️ Webb Simpson won the 2012 US Open here"
+    ],
+    "wikipedia": "Olympic Club"
+  },
+  {
+    "id": "usa-w1-c-006",
+    "text": "Which club in the canyons above the Pacific hosts the PGA Tour's Genesis Invitational?",
+    "lat": 34.05,
+    "lng": -118.5,
+    "category": "stadium",
+    "venue": "Riviera Country Club",
+    "city": "Pacific Palisades",
+    "state": "California",
+    "country": "United States",
+    "hint": "Hollywood stars have long played this George C. Thomas design on the west side of a giant city.",
+    "facts": [
+      "⛳ Opened in 1927, designed by George C. Thomas Jr.",
+      "🏆 Ben Hogan won the 1948 US Open here",
+      "🏅 Chosen as the golf venue for the 2028 Summer Olympics"
+    ],
+    "wikipedia": "Riviera Country Club"
+  },
+  {
+    "id": "usa-w1-c-007",
+    "text": "Where did Tiger Woods win the 2007 PGA Championship in blistering August heat?",
+    "lat": 36.0726,
+    "lng": -95.9497,
+    "category": "athlete",
+    "venue": "Southern Hills Country Club",
+    "city": "Tulsa",
+    "state": "Oklahoma",
+    "country": "United States",
+    "hint": "A Perry Maxwell course in an old oil city of the southern plains.",
+    "facts": [
+      "⛳ Designed by Perry Maxwell, opened in 1936",
+      "🏆 Has hosted the PGA Championship five times",
+      "🏌️ Justin Thomas won the 2022 PGA Championship here"
+    ],
+    "wikipedia": "Southern Hills Country Club"
+  },
+  {
+    "id": "usa-w1-c-008",
+    "text": "Where did the American team win the 2008 Ryder Cup under captain Paul Azinger?",
+    "lat": 38.242,
+    "lng": -85.472,
+    "category": "event",
+    "venue": "Valhalla Golf Club",
+    "city": "Louisville",
+    "state": "Kentucky",
+    "country": "United States",
+    "hint": "A Jack Nicklaus design on the edge of the city of the Run for the Roses.",
+    "facts": [
+      "⛳ Designed by Jack Nicklaus, opened in 1986",
+      "🏆 Tiger Woods won the 2000 PGA Championship here in a playoff",
+      "🏌️ Xander Schauffele won the 2024 PGA Championship here",
+      "🚔 Scottie Scheffler was arrested outside the gates during that 2024 event"
+    ],
+    "wikipedia": "Valhalla Golf Club"
+  },
+  {
+    "id": "usa-w1-c-009",
+    "text": "Where is the famous island-green 17th hole of The Players Championship?",
+    "lat": 30.198,
+    "lng": -81.394,
+    "category": "stadium",
+    "venue": "TPC Sawgrass",
+    "city": "Ponte Vedra Beach",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "The PGA Tour's own headquarters sits beside this course near the Atlantic beaches.",
+    "facts": [
+      "⛳ The Stadium Course was designed by Pete Dye and opened in 1980",
+      "🏝️ The 17th is a short par 3 to a green surrounded by water",
+      "🏆 Home of The Players Championship since 1982"
+    ],
+    "wikipedia": "TPC Sawgrass"
+  },
+  {
+    "id": "usa-w1-c-010",
+    "text": "Where did the American team win back the Ryder Cup in 2016?",
+    "lat": 44.834,
+    "lng": -93.591,
+    "category": "event",
+    "venue": "Hazeltine National Golf Club",
+    "city": "Chaska",
+    "state": "Minnesota",
+    "country": "United States",
+    "hint": "A Robert Trent Jones course in the land of ten thousand lakes.",
+    "facts": [
+      "⛳ Designed by Robert Trent Jones Sr., opened in 1962",
+      "🏆 Tony Jacklin won the 1970 US Open here",
+      "🏌️ Y.E. Yang came from behind to beat Tiger Woods at the 2009 PGA Championship here"
+    ],
+    "wikipedia": "Hazeltine National Golf Club"
+  },
+  {
+    "id": "usa-w1-c-011",
+    "text": "Where is the course whose 18th hole runs toward a red-and-white striped lighthouse?",
+    "lat": 32.136,
+    "lng": -80.81,
+    "category": "stadium",
+    "venue": "Harbour Town Golf Links",
+    "city": "Hilton Head Island",
+    "state": "South Carolina",
+    "country": "United States",
+    "hint": "Part of the Sea Pines resort on a Lowcountry barrier island.",
+    "facts": [
+      "⛳ Designed by Pete Dye with Jack Nicklaus, opened in 1969",
+      "🏆 Hosts the RBC Heritage every spring",
+      "🧥 The winner receives a tartan jacket"
+    ],
+    "wikipedia": "Harbour Town Golf Links"
+  },
+  {
+    "id": "usa-w1-c-012",
+    "text": "Where is the stadium-enclosed 16th hole, the loudest party in golf?",
+    "lat": 33.64,
+    "lng": -111.91,
+    "category": "stadium",
+    "venue": "TPC Scottsdale",
+    "city": "Scottsdale",
+    "state": "Arizona",
+    "country": "United States",
+    "hint": "A desert course that hosts the best-attended tournament on the PGA Tour.",
+    "facts": [
+      "⛳ Stadium Course designed by Tom Weiskopf and Jay Morrish",
+      "🏆 The Phoenix Open has been played here since 1987",
+      "🏟️ Tiger Woods made a hole-in-one on the 16th in 1997",
+      "🍺 Crowds of several hundred thousand attend during tournament week"
+    ],
+    "wikipedia": "TPC Scottsdale"
+  },
+  {
+    "id": "usa-w1-c-013",
+    "text": "Where did Bobby Jones, the only man to win golf's old Grand Slam, learn to play?",
+    "lat": 33.743,
+    "lng": -84.303,
+    "category": "athlete",
+    "venue": "East Lake Golf Club",
+    "city": "Atlanta",
+    "state": "Georgia",
+    "country": "United States",
+    "hint": "The Tour Championship course on the east side of a big southern capital.",
+    "facts": [
+      "🏆 Hosts the Tour Championship, the FedEx Cup finale",
+      "🇺🇸 Hosted the 1963 Ryder Cup",
+      "🏌️ Tiger Woods won the 2018 Tour Championship here, his first win in five years"
+    ],
+    "wikipedia": "East Lake Golf Club"
+  },
+  {
+    "id": "usa-w1-c-014",
+    "text": "Which course is called 'Hogan's Alley' after the local hero who won its tour event five times?",
+    "lat": 32.717,
+    "lng": -97.373,
+    "category": "athlete",
+    "venue": "Colonial Country Club",
+    "city": "Fort Worth",
+    "state": "Texas",
+    "country": "United States",
+    "hint": "A club in a cowtown whose tournament winner gets a plaid jacket.",
+    "facts": [
+      "⛳ Opened in 1936",
+      "🏆 Hosted the 1941 US Open",
+      "🏌️‍♀️ Annika Sörenstam played the 2003 event, the first woman on the PGA Tour in 58 years"
+    ],
+    "wikipedia": "Colonial Country Club (Fort Worth)"
+  },
+  {
+    "id": "usa-w1-c-015",
+    "text": "Which club did Arnold Palmer buy and turn into the home of his own invitational?",
+    "lat": 28.458,
+    "lng": -81.511,
+    "category": "athlete",
+    "venue": "Bay Hill Club and Lodge",
+    "city": "Orlando",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "In theme-park country in the middle of the peninsula.",
+    "facts": [
+      "🏌️ Palmer bought the club in the 1970s",
+      "🏆 Tiger Woods won the Arnold Palmer Invitational eight times",
+      "📅 Hosts a PGA Tour event every March"
+    ],
+    "wikipedia": "Bay Hill Club and Lodge"
+  },
+  {
+    "id": "usa-w1-c-016",
+    "text": "Which course did Jack Nicklaus build near his hometown, naming it after the Scottish links where he won his first Open?",
+    "lat": 40.1405,
+    "lng": -83.1414,
+    "category": "athlete",
+    "venue": "Muirfield Village",
+    "city": "Dublin",
+    "state": "Ohio",
+    "country": "United States",
+    "hint": "In the suburbs of the capital of the Buckeye State.",
+    "facts": [
+      "⛳ Opened in 1974",
+      "🏆 Home of the Memorial Tournament since 1976",
+      "🇪🇺 Hosted the 1987 Ryder Cup, Europe's first win on American soil"
+    ],
+    "wikipedia": "Muirfield Village"
+  },
+  {
+    "id": "usa-w1-c-017",
+    "text": "Where is the 'Green Mile', the brutal closing stretch of three holes?",
+    "lat": 35.116,
+    "lng": -80.842,
+    "category": "stadium",
+    "venue": "Quail Hollow Club",
+    "city": "Charlotte",
+    "state": "North Carolina",
+    "country": "United States",
+    "hint": "A club in a southern banking city, host of two recent PGA Championships.",
+    "facts": [
+      "🏆 Justin Thomas won the 2017 PGA Championship here",
+      "🏌️ Scottie Scheffler won the 2025 PGA Championship here",
+      "🌍 Hosted the 2022 Presidents Cup"
+    ],
+    "wikipedia": "Quail Hollow Club"
+  },
+  {
+    "id": "usa-w1-c-018",
+    "text": "Where does the PGA Tour traditionally open its year on the Plantation Course?",
+    "lat": 21.0014,
+    "lng": -156.6542,
+    "category": "stadium",
+    "venue": "Kapalua Resort",
+    "city": "Kapalua",
+    "state": "Hawaii",
+    "country": "United States",
+    "hint": "A former pineapple plantation on the northwest shore of a Pacific island.",
+    "facts": [
+      "⛳ The Plantation Course was designed by Coore and Crenshaw and opened in 1991",
+      "🏆 Has hosted the tour's winners-only season opener since 1999",
+      "🐋 Humpback whales can be seen offshore in winter",
+      "🍍 The land was once a pineapple plantation"
+    ],
+    "wikipedia": "Kapalua Resort"
+  },
+  {
+    "id": "usa-w1-c-019",
+    "text": "Where did Rory McIlroy win his first major, the 2011 US Open, by eight shots?",
+    "lat": 38.996,
+    "lng": -77.177,
+    "category": "athlete",
+    "venue": "Congressional Country Club",
+    "city": "Bethesda",
+    "state": "Maryland",
+    "country": "United States",
+    "hint": "A club founded by politicians and tycoons just outside the nation's capital.",
+    "facts": [
+      "🏛️ Founded in 1924",
+      "🏆 Ken Venturi won the 1964 US Open here in brutal heat",
+      "🏌️ Ernie Els won the 1997 US Open here"
+    ],
+    "wikipedia": "Congressional Country Club"
+  },
+  {
+    "id": "usa-w1-c-020",
+    "text": "Where did Arnold Palmer drive the first green and shoot 65 to win the 1960 US Open?",
+    "lat": 39.643,
+    "lng": -104.963,
+    "category": "event",
+    "venue": "Cherry Hills Country Club",
+    "city": "Cherry Hills Village",
+    "state": "Colorado",
+    "country": "United States",
+    "hint": "A mile-high club in the suburbs of the biggest city on the Front Range.",
+    "facts": [
+      "🏆 Palmer came from seven shots back in the final round",
+      "⛳ Founded in 1922",
+      "🏌️ Andy North won the 1978 US Open here"
+    ],
+    "wikipedia": "Cherry Hills Country Club"
+  },
+  {
+    "id": "usa-w1-c-021",
+    "text": "Where did the American team crush Europe 19–9 in the 2021 Ryder Cup?",
+    "lat": 43.851,
+    "lng": -87.735,
+    "category": "event",
+    "venue": "Whistling Straits",
+    "city": "Haven",
+    "state": "Wisconsin",
+    "country": "United States",
+    "hint": "A links-style Pete Dye course on the bluffs of a Great Lake.",
+    "facts": [
+      "⛳ Built by Herb Kohler on a former army airfield, opened in 1998",
+      "🏆 Hosted the PGA Championship in 2004, 2010 and 2015",
+      "🏖️ Famous for having around a thousand bunkers"
+    ],
+    "wikipedia": "Whistling Straits"
+  },
+  {
+    "id": "usa-w1-c-022",
+    "text": "Where was the 2015 US Open played on brown fescue fairways beside Puget Sound?",
+    "lat": 47.2,
+    "lng": -122.57,
+    "category": "event",
+    "venue": "Chambers Bay",
+    "city": "University Place",
+    "state": "Washington",
+    "country": "United States",
+    "hint": "A former sand and gravel mine turned links course in the Pacific Northwest.",
+    "facts": [
+      "⛳ Built on an old gravel mine, opened in 2007",
+      "🏆 Jordan Spieth won the 2015 US Open here",
+      "🌲 The first US Open held in the Pacific Northwest",
+      "🚂 A railway runs along the shoreline beside the course"
+    ],
+    "wikipedia": "Chambers Bay"
+  },
+  {
+    "id": "usa-w1-c-023",
+    "text": "Where is NASCAR's shortest track, a half-mile paperclip that has been on the schedule since 1949?",
+    "lat": 36.6339,
+    "lng": -79.8511,
+    "category": "stadium",
+    "venue": "Martinsville Speedway",
+    "city": "Ridgeway",
+    "state": "Virginia",
+    "country": "United States",
+    "hint": "A flat oval in the southern Piedmont, racing since 1947.",
+    "facts": [
+      "🏁 Opened in 1947, the only track still on the Cup schedule since its first season",
+      "🕰️ Race winners receive a grandfather clock",
+      "🌭 Famous for its cheap Jesse Jones hot dogs",
+      "📏 The track is 0.526 miles long"
+    ],
+    "wikipedia": "Martinsville Speedway"
+  },
+  {
+    "id": "usa-w1-c-024",
+    "text": "Which three-quarter-mile 'Action Track' hosts NASCAR on an old state fairgrounds?",
+    "lat": 37.5917,
+    "lng": -77.4209,
+    "category": "stadium",
+    "venue": "Richmond Raceway",
+    "city": "Richmond",
+    "state": "Virginia",
+    "country": "United States",
+    "hint": "A D-shaped oval in a state capital on the James River.",
+    "facts": [
+      "🏁 A 0.75-mile D-shaped oval",
+      "📅 Racing began here in 1946",
+      "🔄 A 2013 race here led to the team-orders scandal that shook the playoffs"
+    ],
+    "wikipedia": "Richmond Raceway"
+  },
+  {
+    "id": "usa-w1-c-025",
+    "text": "Where is NASCAR's longest race, the 600-mile Memorial Day classic, run every year?",
+    "lat": 35.3525,
+    "lng": -80.6825,
+    "category": "event",
+    "venue": "Charlotte Motor Speedway",
+    "city": "Concord",
+    "state": "North Carolina",
+    "country": "United States",
+    "hint": "A 1.5-mile quad-oval in the heart of stock car country.",
+    "facts": [
+      "🏁 Opened in 1960",
+      "💡 In 1992 it became the first superspeedway to race under lights",
+      "🏎️ Also hosts the Roval, a road course using the oval and infield"
+    ],
+    "wikipedia": "Charlotte Motor Speedway"
+  },
+  {
+    "id": "usa-w1-c-026",
+    "text": "Which one-mile concrete oval is nicknamed the 'Monster Mile'?",
+    "lat": 39.19,
+    "lng": -75.53,
+    "category": "stadium",
+    "venue": "Dover Motor Speedway",
+    "city": "Dover",
+    "state": "Delaware",
+    "country": "United States",
+    "hint": "A high-banked track in the capital of the First State.",
+    "facts": [
+      "🏁 Opened in 1969",
+      "👹 A giant statue of the monster 'Miles' stands outside",
+      "🪨 Its surface has been concrete since 1995"
+    ],
+    "wikipedia": "Dover Motor Speedway"
+  },
+  {
+    "id": "usa-w1-c-027",
+    "text": "Where was NASCAR's championship decided in the desert every year from 2020 to 2025?",
+    "lat": 33.3747,
+    "lng": -112.3111,
+    "category": "event",
+    "venue": "Phoenix Raceway",
+    "city": "Avondale",
+    "state": "Arizona",
+    "country": "United States",
+    "hint": "A one-mile oval with a famous dogleg, on the west side of a big desert metro.",
+    "facts": [
+      "🏁 Opened in 1964",
+      "🏆 Hosted the Cup Series title race from 2020 to 2025",
+      "↩️ Known for the dogleg on its backstretch"
+    ],
+    "wikipedia": "Phoenix Raceway"
+  },
+  {
+    "id": "usa-w1-c-028",
+    "text": "Where did NASCAR settle its season championship every year from 2002 to 2019?",
+    "lat": 25.4519,
+    "lng": -80.4086,
+    "category": "event",
+    "venue": "Homestead–Miami Speedway",
+    "city": "Homestead",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "A 1.5-mile oval near the southern tip of the peninsula, by the Everglades.",
+    "facts": [
+      "🏁 Opened in 1995",
+      "🌀 Built in an area hit hard by Hurricane Andrew in 1992",
+      "🏆 NASCAR's title race returned here for 2026"
+    ],
+    "wikipedia": "Homestead–Miami Speedway"
+  },
+  {
+    "id": "usa-w1-c-029",
+    "text": "Where is the 1.5-mile oval north of the Strip that hosts NASCAR playoff races?",
+    "lat": 36.2713,
+    "lng": -115.0111,
+    "category": "stadium",
+    "venue": "Las Vegas Motor Speedway",
+    "city": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "hint": "The neon city's raceway, with its own dragstrip and dirt track.",
+    "facts": [
+      "🏁 Opened in 1996",
+      "🏎️ A dragstrip, a dirt track and a short track share the complex",
+      "😢 IndyCar champion Dan Wheldon died in a crash here in 2011"
+    ],
+    "wikipedia": "Las Vegas Motor Speedway"
+  },
+  {
+    "id": "usa-w1-c-030",
+    "text": "Which abandoned short track came back to life to host NASCAR's All-Star Race in 2023?",
+    "lat": 36.1422,
+    "lng": -81.0725,
+    "category": "stadium",
+    "venue": "North Wilkesboro Speedway",
+    "city": "North Wilkesboro",
+    "state": "North Carolina",
+    "country": "United States",
+    "hint": "A 0.625-mile oval in the moonshine-running foothills of the Blue Ridge.",
+    "facts": [
+      "🏁 Opened in 1947 and hosted the Cup Series until 1996",
+      "🥃 Moonshiner turned racing legend Junior Johnson grew up nearby",
+      "🔁 Revived in 2023 after decades of silence"
+    ],
+    "wikipedia": "North Wilkesboro Speedway"
+  },
+  {
+    "id": "usa-w1-c-031",
+    "text": "Which hilly road course in wine country hosts NASCAR's Cup Series?",
+    "lat": 38.1608,
+    "lng": -122.455,
+    "category": "stadium",
+    "venue": "Sonoma Raceway",
+    "city": "Sonoma",
+    "state": "California",
+    "country": "United States",
+    "hint": "A circuit at the gateway to the wine valleys north of the Golden Gate.",
+    "facts": [
+      "🏁 Opened in 1968, long known as Sears Point",
+      "🏎️ Also hosts NHRA drag racing",
+      "🍷 Surrounded by vineyards and rolling hills"
+    ],
+    "wikipedia": "Sonoma Raceway"
+  },
+  {
+    "id": "usa-w1-c-032",
+    "text": "Which mountain does the 'Race to the Clouds' hill climb run up, with 156 turns?",
+    "lat": 38.8405,
+    "lng": -105.0442,
+    "category": "event",
+    "venue": "Pikes Peak",
+    "city": "Colorado Springs",
+    "state": "Colorado",
+    "country": "United States",
+    "hint": "A fourteener whose summit view inspired 'America the Beautiful'.",
+    "facts": [
+      "🏁 First run in 1916",
+      "🛣️ The course climbs 12.42 miles with 156 turns",
+      "⚡ Romain Dumas set the record of 7:57 in an electric Volkswagen in 2018",
+      "🎶 The view from the top inspired 'America the Beautiful'"
+    ],
+    "wikipedia": "Pikes Peak"
+  },
+  {
+    "id": "usa-w1-c-033",
+    "text": "Where have land speed records been chased on a dried-up lake bed since 1914?",
+    "lat": 40.7625,
+    "lng": -113.8956,
+    "category": "event",
+    "venue": "Bonneville Speedway",
+    "city": "Wendover",
+    "state": "Utah",
+    "country": "United States",
+    "hint": "Salt flats left by a prehistoric lake, near a state line in the Great Basin.",
+    "facts": [
+      "🧂 A remnant of prehistoric Lake Bonneville",
+      "🏎️ Hosts Speed Week every August",
+      "🚀 Craig Breedlove's Spirit of America passed 600 mph here in 1965"
+    ],
+    "wikipedia": "Bonneville Speedway"
+  },
+  {
+    "id": "usa-w1-c-034",
+    "text": "Where is the world's biggest motorcycle museum, beside a manicured IndyCar road course?",
+    "lat": 33.5325,
+    "lng": -86.6189,
+    "category": "stadium",
+    "venue": "Barber Motorsports Park",
+    "city": "Birmingham",
+    "state": "Alabama",
+    "country": "United States",
+    "hint": "In the wooded hills east of the Magic City.",
+    "facts": [
+      "🏁 Opened in 2003",
+      "🏍️ Its museum holds the world's largest motorcycle collection",
+      "🕷️ Giant sculptures, including a huge spider, sit around the circuit"
+    ],
+    "wikipedia": "Barber Motorsports Park"
+  },
+  {
+    "id": "usa-w1-c-035",
+    "text": "Which half-mile dirt track, owned by Tony Stewart, put NASCAR trucks on clay?",
+    "lat": 40.3186,
+    "lng": -84.6339,
+    "category": "stadium",
+    "venue": "Eldora Speedway",
+    "city": "Rossburg",
+    "state": "Ohio",
+    "country": "United States",
+    "hint": "A high-banked clay oval in farm country near the western edge of the Buckeye State.",
+    "facts": [
+      "🏁 Opened in 1954 by Earl Baltes",
+      "🏆 Hosts the Kings Royal and the Dirt Late Model Dream",
+      "🚚 The Truck Series raced here from 2013 to 2019"
+    ],
+    "wikipedia": "Eldora Speedway"
+  },
+  {
+    "id": "usa-w1-c-036",
+    "text": "Where is the half-mile dirt oval known as the 'Sprint Car Capital of the World'?",
+    "lat": 41.3275,
+    "lng": -93.1117,
+    "category": "stadium",
+    "venue": "Knoxville Raceway",
+    "city": "Knoxville",
+    "state": "Iowa",
+    "country": "United States",
+    "hint": "A county fairgrounds track in corn country.",
+    "facts": [
+      "🏁 Hosts the Knoxville Nationals every August since 1961",
+      "🏛️ The National Sprint Car Hall of Fame overlooks the track",
+      "🏎️ Races winged 410 sprint cars on Saturday nights"
+    ],
+    "wikipedia": "Knoxville Raceway"
+  },
+  {
+    "id": "usa-w1-c-037",
+    "text": "Where are drag racing's biggest event, the U.S. Nationals, held every Labor Day weekend?",
+    "lat": 39.8128,
+    "lng": -86.3408,
+    "category": "event",
+    "venue": "Lucas Oil Indianapolis Raceway Park",
+    "city": "Brownsburg",
+    "state": "Indiana",
+    "country": "United States",
+    "hint": "Just west of the city of the Brickyard.",
+    "facts": [
+      "🏁 Opened in 1960",
+      "🏆 Has hosted the U.S. Nationals since 1961",
+      "🏎️ The complex has a dragstrip, an oval and a road course"
+    ],
+    "wikipedia": "Lucas Oil Indianapolis Raceway Park"
+  },
+  {
+    "id": "usa-w1-c-038",
+    "text": "Where is the racecourse and sales ring where many of the world's top thoroughbreds are auctioned?",
+    "lat": 38.0456,
+    "lng": -84.6106,
+    "category": "stadium",
+    "venue": "Keeneland",
+    "city": "Lexington",
+    "state": "Kentucky",
+    "country": "United States",
+    "hint": "In bluegrass horse country, where the racing scenes of 'Seabiscuit' were filmed.",
+    "facts": [
+      "🏇 Opened in 1936",
+      "💰 Its September yearling sale is the world's largest thoroughbred auction",
+      "🏆 Hosted the Breeders' Cup in 2015, 2020 and 2022",
+      "🎬 Racing scenes for the film 'Seabiscuit' were shot here"
+    ],
+    "wikipedia": "Keeneland"
+  },
+  {
+    "id": "usa-w1-c-039",
+    "text": "Where did American Pharoah win his final prep race before his 2015 Triple Crown?",
+    "lat": 34.485,
+    "lng": -93.0571,
+    "category": "event",
+    "venue": "Oaklawn Park",
+    "city": "Hot Springs",
+    "state": "Arkansas",
+    "country": "United States",
+    "hint": "A track in a historic spa town once loved by gangsters like Al Capone.",
+    "facts": [
+      "🏇 Opened in 1904",
+      "🏆 Hosts its state's Derby every spring",
+      "🐎 American Pharoah won that Derby here in April 2015"
+    ],
+    "wikipedia": "Oaklawn Racing Casino Resort"
+  },
+  {
+    "id": "usa-w1-c-040",
+    "text": "Where does 'the turf meet the surf', at the racetrack founded by Bing Crosby?",
+    "lat": 32.9761,
+    "lng": -117.2619,
+    "category": "stadium",
+    "venue": "Del Mar Racetrack",
+    "city": "Del Mar",
+    "state": "California",
+    "country": "United States",
+    "hint": "A seaside track just north of a big navy city near the southern border.",
+    "facts": [
+      "🎤 Founded in 1937 by Bing Crosby and friends",
+      "🏇 Seabiscuit beat Ligaroti in a famous 1938 match race here",
+      "🏆 Hosted the Breeders' Cup in 2017 and 2021"
+    ],
+    "wikipedia": "Del Mar Fairgrounds"
+  },
+  {
+    "id": "usa-w1-c-041",
+    "text": "Where is the Pegasus World Cup run beneath a giant statue of a winged horse slaying a dragon?",
+    "lat": 25.9785,
+    "lng": -80.138,
+    "category": "event",
+    "venue": "Gulfstream Park",
+    "city": "Hallandale Beach",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "A track on the southeast coast between two big beach cities.",
+    "facts": [
+      "🏇 Opened in 1939",
+      "🗿 The Pegasus statue stands about 110 feet tall",
+      "🏆 Also hosts its state's Derby, a key spring prep race"
+    ],
+    "wikipedia": "Gulfstream Park"
+  },
+  {
+    "id": "usa-w1-c-042",
+    "text": "Which old racetrack is famous for the flock of pink flamingos in its infield?",
+    "lat": 25.8481,
+    "lng": -80.2783,
+    "category": "stadium",
+    "venue": "Hialeah Park Race Track",
+    "city": "Hialeah",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "A Mediterranean-style track near the airport of a big subtropical city.",
+    "facts": [
+      "🏇 Opened in 1925",
+      "🦩 Its flamingo colony is a designated Audubon bird sanctuary",
+      "📜 Listed on the National Register of Historic Places"
+    ],
+    "wikipedia": "Hialeah Park Race Track"
+  },
+  {
+    "id": "usa-w1-c-043",
+    "text": "Which racetrack turns into the Jazz & Heritage Festival grounds every spring?",
+    "lat": 29.983,
+    "lng": -90.0813,
+    "category": "stadium",
+    "venue": "Fair Grounds Race Course",
+    "city": "New Orleans",
+    "state": "Louisiana",
+    "country": "United States",
+    "hint": "Horses have raced here since the 1850s in the Big Easy.",
+    "facts": [
+      "🏇 One of the oldest racing sites in the country, dating to 1852",
+      "🎷 Home of Jazz Fest since 1972",
+      "🏆 Hosts its state's Derby every March"
+    ],
+    "wikipedia": "Fair Grounds Race Course"
+  },
+  {
+    "id": "usa-w1-c-044",
+    "text": "Where is Man o' War buried beneath a bronze statue?",
+    "lat": 38.15,
+    "lng": -84.5167,
+    "category": "athlete",
+    "venue": "Kentucky Horse Park",
+    "city": "Lexington",
+    "state": "Kentucky",
+    "country": "United States",
+    "hint": "A working horse farm turned park in the heart of bluegrass country.",
+    "facts": [
+      "🐎 Opened in 1978",
+      "🏆 Hosted the 2010 World Equestrian Games, the first held outside Europe",
+      "🏛️ Home of the International Museum of the Horse"
+    ],
+    "wikipedia": "Kentucky Horse Park"
+  },
+  {
+    "id": "usa-w1-c-045",
+    "text": "Where is Secretariat, the 1973 Triple Crown winner, buried?",
+    "lat": 38.1904,
+    "lng": -84.2451,
+    "category": "athlete",
+    "venue": "Claiborne Farm",
+    "city": "Paris",
+    "state": "Kentucky",
+    "country": "United States",
+    "hint": "A historic stud farm in the bluegrass, east of the horse capital of the world.",
+    "facts": [
+      "🐎 Founded in 1910 by Arthur B. Hancock",
+      "🏆 Secretariat's sire Bold Ruler also stood here",
+      "🪦 Secretariat was buried whole, a rare honour for a horse"
+    ],
+    "wikipedia": "Claiborne Farm"
+  },
+  {
+    "id": "usa-w1-c-046",
+    "text": "Where is the tennis center that hosts the Cincinnati Open, a tournament dating to 1899?",
+    "lat": 39.3489,
+    "lng": -84.2771,
+    "category": "stadium",
+    "venue": "Lindner Family Tennis Center",
+    "city": "Mason",
+    "state": "Ohio",
+    "country": "United States",
+    "hint": "Beside a big amusement park and an interstate north of the Queen City.",
+    "facts": [
+      "🎾 The tournament was founded in 1899",
+      "🏟️ It moved to this site in 1979",
+      "🏆 Hosts combined ATP and WTA 1000 events every August"
+    ],
+    "wikipedia": "Lindner Family Tennis Center"
+  },
+  {
+    "id": "usa-w1-c-047",
+    "text": "Which island park hosted the Miami Open tennis tournament from 1987 to 2018?",
+    "lat": 25.7102,
+    "lng": -80.1564,
+    "category": "stadium",
+    "venue": "Crandon Park",
+    "city": "Key Biscayne",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "A barrier island park across a causeway from downtown.",
+    "facts": [
+      "🎾 The tournament moved to the football stadium grounds in 2019",
+      "🏆 Andre Agassi won the event here six times",
+      "🏖️ The park has a long beach and a nature center"
+    ],
+    "wikipedia": "Crandon Park"
+  },
+  {
+    "id": "usa-w1-c-048",
+    "text": "Where is basketball's Hall of Fame, in the city where the game was invented?",
+    "lat": 42.0938,
+    "lng": -72.5847,
+    "category": "stadium",
+    "venue": "Naismith Memorial Basketball Hall of Fame",
+    "city": "Springfield",
+    "state": "Massachusetts",
+    "country": "United States",
+    "hint": "Its building has a giant glowing ball, on a riverbank in the city where the game was invented.",
+    "facts": [
+      "🏀 James Naismith invented basketball here in 1891",
+      "🏛️ The Hall of Fame was founded in 1959",
+      "⚪ Its current building opened in 2002"
+    ],
+    "wikipedia": "Naismith Memorial Basketball Hall of Fame"
+  },
+  {
+    "id": "usa-w1-c-049",
+    "text": "Where was volleyball invented in 1895, in the city that now holds its Hall of Fame?",
+    "lat": 42.2057,
+    "lng": -72.606,
+    "category": "event",
+    "venue": "International Volleyball Hall of Fame",
+    "city": "Holyoke",
+    "state": "Massachusetts",
+    "country": "United States",
+    "hint": "An old paper-mill city just north of basketball's birthplace.",
+    "facts": [
+      "🏐 William G. Morgan invented 'Mintonette' at the local YMCA in 1895",
+      "🏛️ The Hall of Fame was founded in 1978",
+      "🏀 Basketball's birthplace is only a few miles to the south"
+    ],
+    "wikipedia": "International Volleyball Hall of Fame"
+  },
+  {
+    "id": "usa-w1-c-050",
+    "text": "Where is the NASCAR Hall of Fame?",
+    "lat": 35.2216,
+    "lng": -80.8433,
+    "category": "stadium",
+    "venue": "NASCAR Hall of Fame",
+    "city": "Charlotte",
+    "state": "North Carolina",
+    "country": "United States",
+    "hint": "Uptown in a southern banking city surrounded by race shops.",
+    "facts": [
+      "🏁 Opened in 2010",
+      "🏆 First class: Dale Earnhardt, Richard Petty, Junior Johnson, Bill France Sr. and Bill France Jr.",
+      "🏎️ 'Glory Road' displays cars on a banked ramp"
+    ],
+    "wikipedia": "NASCAR Hall of Fame"
+  },
+  {
+    "id": "usa-w1-c-051",
+    "text": "Where is the National Wrestling Hall of Fame, at the home of a college wrestling dynasty?",
+    "lat": 36.1265,
+    "lng": -97.0633,
+    "category": "stadium",
+    "venue": "National Wrestling Hall of Fame and Museum",
+    "city": "Stillwater",
+    "state": "Oklahoma",
+    "country": "United States",
+    "hint": "On the campus of the Cowboys' university on the southern plains.",
+    "facts": [
+      "🤼 Founded in 1976",
+      "🏆 Oklahoma State has won more NCAA wrestling titles than any other school",
+      "🏅 Honours Olympic champions such as Dan Gable"
+    ],
+    "wikipedia": "National Wrestling Hall of Fame and Museum"
+  },
+  {
+    "id": "usa-w1-c-052",
+    "text": "Which Hall of Fame building is topped by the world's largest basketball?",
+    "lat": 35.9631,
+    "lng": -83.9108,
+    "category": "stadium",
+    "venue": "Women's Basketball Hall of Fame",
+    "city": "Knoxville",
+    "state": "Tennessee",
+    "country": "United States",
+    "hint": "In the city of Pat Summitt's Lady Vols.",
+    "facts": [
+      "🏀 Opened in 1999",
+      "⚪ The giant ball is 30 feet tall and weighs about 10 tons",
+      "🏆 Pat Summitt won eight NCAA titles at the local university"
+    ],
+    "wikipedia": "Women's Basketball Hall of Fame"
+  },
+  {
+    "id": "usa-w1-c-053",
+    "text": "Where is the International Swimming Hall of Fame, a short walk from the beach?",
+    "lat": 26.1163,
+    "lng": -80.1076,
+    "category": "stadium",
+    "venue": "International Swimming Hall of Fame",
+    "city": "Fort Lauderdale",
+    "state": "Florida",
+    "country": "United States",
+    "hint": "A spring-break beach city of canals, north of the Magic City.",
+    "facts": [
+      "🏊 Founded in 1965",
+      "🥇 Inductees include Johnny Weissmuller, Mark Spitz and Greg Louganis",
+      "🏖️ Sits between the Intracoastal Waterway and the Atlantic"
+    ],
+    "wikipedia": "International Swimming Hall of Fame"
+  },
+  {
+    "id": "usa-w1-c-054",
+    "text": "Where is the national hockey Hall of Fame, in a small Iron Range mining town?",
+    "lat": 47.4714,
+    "lng": -92.5283,
+    "category": "stadium",
+    "venue": "United States Hockey Hall of Fame",
+    "city": "Eveleth",
+    "state": "Minnesota",
+    "country": "United States",
+    "hint": "The town claims the world's largest free-standing hockey stick.",
+    "facts": [
+      "🏒 Opened in 1973",
+      "🏑 'The Big Stick' outside town is 107 feet long",
+      "🥇 Honours the 1980 'Miracle on Ice' team"
+    ],
+    "wikipedia": "United States Hockey Hall of Fame"
+  },
+  {
+    "id": "usa-w1-c-055",
+    "text": "Where is the national ski and snowboard Hall of Fame, in a mining town on the Upper Peninsula?",
+    "lat": 46.503,
+    "lng": -87.6655,
+    "category": "stadium",
+    "venue": "U.S. Ski and Snowboard Hall of Fame",
+    "city": "Ishpeming",
+    "state": "Michigan",
+    "country": "United States",
+    "hint": "Near the famous Suicide Hill ski jump on the Marquette Iron Range.",
+    "facts": [
+      "⛷️ Founded in 1954",
+      "🎿 The local ski club, founded in 1887, is one of the oldest in the country",
+      "🏂 Snowboarders are inducted alongside skiers"
+    ],
+    "wikipedia": "National Ski Hall of Fame"
+  },
+  {
+    "id": "usa-w1-c-056",
+    "text": "Where is the Hall of Fame of professional cowboys, which also honours famous bulls and broncs?",
+    "lat": 38.9128,
+    "lng": -104.8242,
+    "category": "stadium",
+    "venue": "ProRodeo Hall of Fame",
+    "city": "Colorado Springs",
+    "state": "Colorado",
+    "country": "United States",
+    "hint": "Beside the pro rodeo association's headquarters at the foot of the Rockies.",
+    "facts": [
+      "🤠 Opened in 1979",
+      "🐂 Inducts bucking stock as well as cowboys",
+      "🏛️ Next door to the PRCA headquarters"
+    ],
+    "wikipedia": "ProRodeo Hall of Fame"
+  },
+  {
+    "id": "usa-w1-c-057",
+    "text": "Where did the national Olympic and Paralympic Museum open in 2020?",
+    "lat": 38.8295,
+    "lng": -104.8296,
+    "category": "stadium",
+    "venue": "United States Olympic & Paralympic Museum",
+    "city": "Colorado Springs",
+    "state": "Colorado",
+    "country": "United States",
+    "hint": "In the city that is also home to the national Olympic committee and a training center.",
+    "facts": [
+      "🏅 Opened in July 2020",
+      "🏛️ Designed by Diller Scofidio + Renfro",
+      "♿ Built to be one of the most accessible museums in the world"
+    ],
+    "wikipedia": "United States Olympic & Paralympic Museum"
+  },
+  {
+    "id": "usa-w1-c-058",
+    "text": "Where is the National Track & Field Hall of Fame, in an old armory with a famously fast indoor track?",
+    "lat": 40.8421,
+    "lng": -73.9413,
+    "category": "stadium",
+    "venue": "Fort Washington Avenue Armory",
+    "city": "New York City",
+    "state": "New York",
+    "country": "United States",
+    "hint": "Uptown on the north of a famous island, beside a big hospital.",
+    "facts": [
+      "🏃 Has hosted the Millrose Games since 2012",
+      "🏛️ Home of the National Track & Field Hall of Fame",
+      "🏟️ Built as a National Guard armory in the early 1900s"
+    ],
+    "wikipedia": "Fort Washington Avenue Armory"
+  },
+  {
+    "id": "usa-w1-c-059",
+    "text": "Where is the museum dedicated to 'The Greatest', in the boxer's hometown?",
+    "lat": 38.2582,
+    "lng": -85.7601,
+    "category": "athlete",
+    "venue": "Muhammad Ali Center",
+    "city": "Louisville",
+    "state": "Kentucky",
+    "country": "United States",
+    "hint": "On the riverfront of the city of the Run for the Roses.",
+    "facts": [
+      "🥊 Opened in 2005",
+      "🏅 Ali won Olympic gold in 1960 as Cassius Clay",
+      "✈️ The local airport was renamed after him in 2019"
+    ],
+    "wikipedia": "Muhammad Ali Center"
+  },
+  {
+    "id": "usa-w1-c-060",
+    "text": "Where was Babe Ruth born?",
+    "lat": 39.2856,
+    "lng": -76.6253,
+    "category": "athlete",
+    "venue": "Babe Ruth Birthplace",
+    "city": "Baltimore",
+    "state": "Maryland",
+    "country": "United States",
+    "hint": "A rowhouse a few blocks from a famous orange-and-black ballpark.",
+    "facts": [
+      "⚾ Ruth was born here on 6 February 1895",
+      "🏠 The rowhouse is now a museum",
+      "🍺 His father's saloon stood where Camden Yards' outfield is today"
+    ],
+    "wikipedia": "Babe Ruth Birthplace and Museum"
+  },
+  {
+    "id": "usa-w1-c-061",
+    "text": "Which town renamed itself after the 1912 Olympic pentathlon and decathlon champion, and holds his tomb?",
+    "lat": 40.8731,
+    "lng": -75.7364,
+    "category": "athlete",
+    "venue": "Jim Thorpe Memorial",
+    "city": "Jim Thorpe",
+    "state": "Pennsylvania",
+    "country": "United States",
+    "hint": "A former coal town in the Poconos once called Mauch Chunk.",
+    "facts": [
+      "🏘️ Formed in 1954 by merging Mauch Chunk and East Mauch Chunk",
+      "🥇 Thorpe won pentathlon and decathlon gold in Stockholm in 1912",
+      "⚖️ His medals were stripped in 1913 and restored in 1983"
+    ],
+    "wikipedia": "Jim Thorpe, Pennsylvania"
+  },
+  {
+    "id": "usa-w1-c-062",
+    "text": "Where did Brooks Koepka win his first major, the 2017 US Open, on a course only a decade old?",
+    "lat": 43.245,
+    "lng": -88.395,
+    "category": "athlete",
+    "venue": "Erin Hills",
+    "city": "Erin",
+    "state": "Wisconsin",
+    "country": "United States",
+    "hint": "A public course on glacial kettle moraine farmland northwest of a big brewing city.",
+    "facts": [
+      "⛳ Opened in 2006",
+      "🏆 Koepka tied the US Open scoring record of 16 under par here in 2017",
+      "🌾 Built on land shaped by glaciers",
+      "🏌️ Hosted the 2011 U.S. Amateur"
+    ],
+    "wikipedia": "Erin Hills"
+  },
+  {
+    "id": "usa-w1-c-063",
+    "text": "Where were the first World Athletics Championships on American soil held, in 2022?",
+    "lat": 44.042,
+    "lng": -123.071,
+    "category": "event",
+    "venue": "Hayward Field",
+    "city": "Eugene",
+    "state": "Oregon",
+    "country": "United States",
+    "hint": "Known as Track Town, home of Steve Prefontaine's university.",
+    "facts": [
+      "🏃 Completely rebuilt, reopening in 2020",
+      "👟 Nike co-founder Bill Bowerman coached here",
+      "🏆 Has hosted many Olympic Trials in track and field"
+    ],
+    "wikipedia": "Hayward Field"
+  },
+  {
+    "id": "usa-w1-c-064",
+    "text": "Where did a fictional boxer run up 72 stone steps in a famous movie training montage?",
+    "lat": 39.9649,
+    "lng": -75.1802,
+    "category": "event",
+    "venue": "Rocky Steps",
+    "city": "Philadelphia",
+    "state": "Pennsylvania",
+    "country": "United States",
+    "hint": "The entrance of a grand art museum at the end of a tree-lined parkway.",
+    "facts": [
+      "🎬 Made famous by the 1976 film Rocky",
+      "🗿 A bronze Rocky statue stands at the foot of the steps",
+      "🏛️ The steps lead to the Philadelphia Museum of Art"
+    ],
+    "wikipedia": "Rocky Steps"
+  },
+  {
+    "id": "usa-w1-c-065",
+    "text": "Where did Muhammad Ali floor Sonny Liston with the 'phantom punch' in 1965?",
+    "lat": 44.0956,
+    "lng": -70.2053,
+    "category": "event",
+    "venue": "The Colisée",
+    "city": "Lewiston",
+    "state": "Maine",
+    "country": "United States",
+    "hint": "A small hockey arena in an old mill town in the far northeast.",
+    "facts": [
+      "🥊 The fight ended in the first round",
+      "📸 Neil Leifer's photo of Ali standing over Liston became iconic",
+      "🏒 The arena opened in 1958 as the Central Maine Youth Center"
+    ],
+    "wikipedia": "The Colisée"
+  },
+  {
+    "id": "usa-w1-c-066",
+    "text": "Where did Evel Knievel crash jumping the fountains on New Year's Eve 1967?",
+    "lat": 36.1178,
+    "lng": -115.175,
+    "category": "event",
+    "venue": "Caesars Palace",
+    "city": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "hint": "A Roman-themed casino on a famous neon boulevard.",
+    "facts": [
+      "🏍️ Knievel suffered a crushed pelvis and femur in the crash",
+      "🥊 Hosted the Hagler–Hearns fight in 1985",
+      "🎰 Opened in 1966"
+    ],
+    "wikipedia": "Caesars Palace"
+  },
+  {
+    "id": "usa-w1-c-067",
+    "text": "Where did Mike Tyson bite Evander Holyfield's ear in 1997?",
+    "lat": 36.1048,
+    "lng": -115.1686,
+    "category": "event",
+    "venue": "MGM Grand Garden Arena",
+    "city": "Las Vegas",
+    "state": "Nevada",
+    "country": "United States",
+    "hint": "Inside a giant green hotel-casino on the Strip.",
+    "facts": [
+      "🥊 Tyson was disqualified after the third round",
+      "🏟️ Opened in 1993",
+      "💰 Mayweather and Pacquiao fought here in 2015"
+    ],
+    "wikipedia": "MGM Grand Garden Arena"
+  },
+  {
+    "id": "usa-w1-c-068",
+    "text": "Where did Evel Knievel try to jump a canyon in a steam-powered rocket in 1974?",
+    "lat": 42.6,
+    "lng": -114.4167,
+    "category": "event",
+    "venue": "Snake River Canyon",
+    "city": "Twin Falls",
+    "state": "Idaho",
+    "country": "United States",
+    "hint": "A deep gorge on the edge of a farm town in the high desert.",
+    "facts": [
+      "🚀 The Skycycle X-2's parachute opened too early",
+      "🪂 Stuntman Eddie Braun completed the jump in 2016",
+      "🌉 BASE jumpers leap from the nearby Perrine Bridge"
+    ],
+    "wikipedia": "Snake River Canyon (Idaho)"
+  },
+  {
+    "id": "usa-w1-c-069",
+    "text": "Where did a pipe bomb explode during the 1996 Summer Olympics?",
+    "lat": 33.76,
+    "lng": -84.3932,
+    "category": "event",
+    "venue": "Centennial Olympic Park",
+    "city": "Atlanta",
+    "state": "Georgia",
+    "country": "United States",
+    "hint": "A downtown park built as the gathering place of the Games.",
+    "facts": [
+      "🎆 Built as the central gathering place for the 1996 Games",
+      "⛲ Its Fountain of Rings is shaped like the Olympic rings",
+      "💣 The bombing killed one person and injured more than 100"
+    ],
+    "wikipedia": "Centennial Olympic Park"
+  },
+  {
+    "id": "usa-w1-c-070",
+    "text": "Where were the canoe slalom races of the 1996 Summer Olympics paddled?",
+    "lat": 35.068,
+    "lng": -84.463,
+    "category": "event",
+    "venue": "Ocoee Whitewater Center",
+    "city": "Copperhill",
+    "state": "Tennessee",
+    "country": "United States",
+    "hint": "A river gorge in a national forest of the southern Appalachians.",
+    "facts": [
+      "🛶 The 1996 slalom was held on a natural river",
+      "🌲 Located in the Cherokee National Forest",
+      "🌊 Dam releases control the flow of the rapids"
+    ],
+    "wikipedia": "Ocoee Whitewater Center"
+  },
+  {
+    "id": "usa-w1-c-071",
+    "text": "Which granite dome's park hosted Olympic tennis, archery and track cycling in 1996?",
+    "lat": 33.8059,
+    "lng": -84.1454,
+    "category": "event",
+    "venue": "Stone Mountain",
+    "city": "Stone Mountain",
+    "state": "Georgia",
+    "country": "United States",
+    "hint": "Its face carries a huge carved relief of three Confederate leaders.",
+    "facts": [
+      "🎾 Andre Agassi won Olympic gold at the park's tennis center",
+      "🗿 Its relief carving is the largest bas-relief in the world",
+      "🪨 The dome rises about 825 feet above the surrounding land"
+    ],
+    "wikipedia": "Stone Mountain"
+  },
+  {
+    "id": "usa-w1-c-072",
+    "text": "Where were the rowing and canoe sprint races of the 1984 Summer Olympics held?",
+    "lat": 34.3924,
+    "lng": -119.3346,
+    "category": "event",
+    "venue": "Lake Casitas",
+    "city": "Oak View",
+    "state": "California",
+    "country": "United States",
+    "hint": "A reservoir in the hills behind the coast, far north of the host city.",
+    "facts": [
+      "🚣 A reservoir completed in 1959",
+      "🏅 Hosted rowing and canoeing at the 1984 Games",
+      "🐟 Famous for trophy-size bass"
+    ],
+    "wikipedia": "Lake Casitas"
+  },
+  {
+    "id": "usa-w1-c-073",
+    "text": "Where did mountain biking make its Olympic debut, alongside the equestrian events, in 1996?",
+    "lat": 33.6614,
+    "lng": -83.9325,
+    "category": "event",
+    "venue": "Georgia International Horse Park",
+    "city": "Conyers",
+    "state": "Georgia",
+    "country": "United States",
+    "hint": "A horse park in the eastern suburbs of the 1996 host city.",
+    "facts": [
+      "🐎 Built for the 1996 Games",
+      "🚵 Olympic mountain biking was first held here",
+      "🏇 Hosted the 1996 Olympic equestrian events"
+    ],
+    "wikipedia": "Georgia International Horse Park"
+  },
+  {
+    "id": "usa-w1-c-074",
+    "text": "Where did bobsledders race at both the 1932 and 1980 Winter Olympics?",
+    "lat": 44.217,
+    "lng": -73.925,
+    "category": "event",
+    "venue": "Mt. Van Hoevenberg Olympic Bobsled Run",
+    "city": "Lake Placid",
+    "state": "New York",
+    "country": "United States",
+    "hint": "A mountain run in the Adirondacks, outside a twice-Olympic village.",
+    "facts": [
+      "🛷 Built for the 1932 Winter Olympics",
+      "🏅 Hosted bobsleigh at both the 1932 and 1980 Games",
+      "📜 The historic run is on the National Register of Historic Places"
+    ],
+    "wikipedia": "Mt. Van Hoevenberg Olympic Bobsled Run"
+  },
+  {
+    "id": "usa-w1-c-075",
+    "text": "Where were the alpine skiing races of the 1980 Winter Olympics held?",
+    "lat": 44.3658,
+    "lng": -73.9028,
+    "category": "event",
+    "venue": "Whiteface Mountain",
+    "city": "Wilmington",
+    "state": "New York",
+    "country": "United States",
+    "hint": "A high Adirondack peak with a memorial highway almost to its summit.",
+    "facts": [
+      "⛷️ Claims the biggest vertical drop in the east, about 3,430 feet",
+      "🛣️ The Veterans Memorial Highway climbs near the summit",
+      "🏅 Ingemar Stenmark won two gold medals here in 1980"
+    ],
+    "wikipedia": "Whiteface Mountain"
+  },
+  {
+    "id": "usa-w1-c-076",
+    "text": "Where are the ski jump towers that hosted Olympic ski jumping in 1932 and 1980?",
+    "lat": 44.2561,
+    "lng": -73.964,
+    "category": "stadium",
+    "venue": "Lake Placid Olympic Ski Jumping Complex",
+    "city": "Lake Placid",
+    "state": "New York",
+    "country": "United States",
+    "hint": "Towers that rise over an Adirondack village twice chosen for the Winter Games.",
+    "facts": [
+      "🏅 Ski jumping was held here at both the 1932 and 1980 Games",
+      "🏗️ Modernised for the 2023 World University Games",
+      "🎿 Hosts World Cup ski jumping"
+    ],
+    "wikipedia": "Lake Placid Olympic Ski Jumping Complex"
+  },
+  {
+    "id": "usa-w1-c-077",
+    "text": "Where were the bobsled, luge, skeleton and ski jumping events of the 2002 Winter Olympics held?",
+    "lat": 40.7121,
+    "lng": -111.5619,
+    "category": "event",
+    "venue": "Utah Olympic Park",
+    "city": "Park City",
+    "state": "Utah",
+    "country": "United States",
+    "hint": "A mountain venue above an old silver mining town in the Wasatch.",
+    "facts": [
+      "🛷 Its sliding track hosted bobsled, luge and skeleton in 2002",
+      "🎿 Still a training base for national team athletes",
+      "🏛️ Home of the Alf Engen Ski Museum"
+    ],
+    "wikipedia": "Utah Olympic Park"
+  },
+  {
+    "id": "usa-w1-c-078",
+    "text": "Which speed skating oval is nicknamed 'the fastest ice on Earth'?",
+    "lat": 40.6478,
+    "lng": -112.0088,
+    "category": "stadium",
+    "venue": "Utah Olympic Oval",
+    "city": "Kearns",
+    "state": "Utah",
+    "country": "United States",
+    "hint": "Built for the 2002 Winter Games in the suburbs of the host city.",
+    "facts": [
+      "⛸️ Its altitude of about 1,425 m helps skaters go faster",
+      "🏅 Dozens of world records have been set here",
+      "🏗️ Its roof is suspended from cables"
+    ],
+    "wikipedia": "Utah Olympic Oval"
+  },
+  {
+    "id": "usa-w1-c-079",
+    "text": "Where were the downhill and super-G races of the 2002 Winter Olympics held?",
+    "lat": 41.216,
+    "lng": -111.857,
+    "category": "event",
+    "venue": "Snowbasin",
+    "city": "Huntsville",
+    "state": "Utah",
+    "country": "United States",
+    "hint": "A resort in the Wasatch, east of an old railroad town.",
+    "facts": [
+      "⛷️ Opened in 1939",
+      "🏅 Hosted the 2002 Olympic downhill, super-G and combined",
+      "🥇 Fritz Strobl won the men's downhill here"
+    ],
+    "wikipedia": "Snowbasin"
+  },
+  {
+    "id": "usa-w1-c-080",
+    "text": "Which skiers-only resort hosted slalom, moguls and aerials at the 2002 Winter Olympics?",
+    "lat": 40.6228,
+    "lng": -111.4894,
+    "category": "event",
+    "venue": "Deer Valley",
+    "city": "Park City",
+    "state": "Utah",
+    "country": "United States",
+    "hint": "A resort famous for its service, beside an old silver mining town.",
+    "facts": [
+      "🏂 One of the few resorts that bans snowboarding",
+      "⛷️ Opened in 1981",
+      "🏆 A regular stop on the freestyle skiing World Cup"
+    ],
+    "wikipedia": "Deer Valley"
+  },
+  {
+    "id": "usa-w1-c-081",
+    "text": "Where were the cross-country skiing and biathlon events of the 2002 Winter Olympics held?",
+    "lat": 40.4792,
+    "lng": -111.4972,
+    "category": "event",
+    "venue": "Soldier Hollow",
+    "city": "Midway",
+    "state": "Utah",
+    "country": "United States",
+    "hint": "In the Heber Valley on the back side of the Wasatch.",
+    "facts": [
+      "🎿 Built for the 2002 Games",
+      "🐕 Hosts the Soldier Hollow Classic sheepdog championship",
+      "🏔️ Still open for public cross-country skiing"
+    ],
+    "wikipedia": "Soldier Hollow"
+  },
+  {
+    "id": "usa-w1-c-082",
+    "text": "Where is Corbet's Couloir, the steep chute skiers drop into from a cornice?",
+    "lat": 43.59,
+    "lng": -110.89,
+    "category": "stadium",
+    "venue": "Jackson Hole Mountain Resort",
+    "city": "Teton Village",
+    "state": "Wyoming",
+    "country": "United States",
+    "hint": "Below the jagged Tetons, near a cowboy town with antler arches.",
+    "facts": [
+      "⛷️ Over 4,100 feet of vertical drop",
+      "🚡 Its red aerial tram is nicknamed 'Big Red'",
+      "🏆 Hosts the Kings and Queens of Corbet's contest"
+    ],
+    "wikipedia": "Jackson Hole Mountain Resort"
+  },
+  {
+    "id": "usa-w1-c-083",
+    "text": "Which ski mountain, a volcano in the Eastern Sierra, often stays open into summer?",
+    "lat": 37.6306,
+    "lng": -119.0325,
+    "category": "stadium",
+    "venue": "Mammoth Mountain",
+    "city": "Mammoth Lakes",
+    "state": "California",
+    "country": "United States",
+    "hint": "A lava dome ski area on the dry east side of the Range of Light.",
+    "facts": [
+      "🌋 The mountain is a lava dome complex",
+      "⛷️ Founded by ski pioneer Dave McCoy",
+      "❄️ Seasons often last into June or July"
+    ],
+    "wikipedia": "Mammoth Mountain Ski Area"
+  },
+  {
+    "id": "usa-w1-c-084",
+    "text": "Which ski resort introduced the world's first chairlifts in 1936?",
+    "lat": 43.655,
+    "lng": -114.4092,
+    "category": "stadium",
+    "venue": "Sun Valley Resort",
+    "city": "Sun Valley",
+    "state": "Idaho",
+    "country": "United States",
+    "hint": "A railroad-built resort beside Ketchum in the Wood River Valley.",
+    "facts": [
+      "🚡 The first chairlifts were adapted from banana-loading conveyors",
+      "🚂 Built by the Union Pacific Railroad",
+      "✍️ Ernest Hemingway lived and is buried in nearby Ketchum"
+    ],
+    "wikipedia": "Sun Valley, Idaho"
+  },
+  {
+    "id": "usa-w1-c-085",
+    "text": "Where is the Birds of Prey downhill, a stop on the alpine World Cup every December?",
+    "lat": 39.6314,
+    "lng": -106.5217,
+    "category": "stadium",
+    "venue": "Beaver Creek Resort",
+    "city": "Avon",
+    "state": "Colorado",
+    "country": "United States",
+    "hint": "An upscale resort in the Vail Valley.",
+    "facts": [
+      "⛷️ Opened in 1980",
+      "🏆 Co-hosted the Alpine World Ski Championships in 1999 and 2015",
+      "🍪 Hands out free chocolate chip cookies every afternoon"
+    ],
+    "wikipedia": "Beaver Creek Resort"
+  },
+  {
+    "id": "usa-w1-c-086",
+    "text": "Which ski area is nicknamed 'the Beast of the East', where Mikaela Shiffrin often wins World Cup slaloms?",
+    "lat": 43.626,
+    "lng": -72.798,
+    "category": "stadium",
+    "venue": "Killington Ski Resort",
+    "city": "Killington",
+    "state": "Vermont",
+    "country": "United States",
+    "hint": "The largest ski area in the Green Mountains.",
+    "facts": [
+      "⛷️ Opened in 1958",
+      "🏆 Has hosted women's World Cup races since 2016",
+      "❄️ Often among the first in the east to open each season"
+    ],
+    "wikipedia": "Killington Ski Resort"
+  },
+  {
+    "id": "usa-w1-c-087",
+    "text": "Where do skiers hike up a glacial bowl each spring to ski its steep headwall?",
+    "lat": 44.2625,
+    "lng": -71.2983,
+    "category": "stadium",
+    "venue": "Tuckerman Ravine",
+    "city": "Pinkham Notch",
+    "state": "New Hampshire",
+    "country": "United States",
+    "hint": "A cirque on the flank of the highest peak in the northeast, known for extreme weather.",
+    "facts": [
+      "⛷️ Spring skiing here dates back to the 1930s",
+      "🏁 Toni Matt schussed the headwall in the 1939 Inferno race",
+      "⛰️ Lies on Mount Washington in the White Mountains"
+    ],
+    "wikipedia": "Tuckerman Ravine"
+  },
+  {
+    "id": "usa-w1-c-088",
+    "text": "Which in-town ski jumping hill, named after a Norwegian stonemason, has trained dozens of Olympians?",
+    "lat": 40.483,
+    "lng": -106.839,
+    "category": "stadium",
+    "venue": "Howelsen Hill Ski Area",
+    "city": "Steamboat Springs",
+    "state": "Colorado",
+    "country": "United States",
+    "hint": "In a ranching ski town of the Yampa Valley.",
+    "facts": [
+      "🎿 Named after Carl Howelsen, who brought ski jumping to town",
+      "⛷️ Opened in 1915",
+      "🏅 The town has produced dozens of winter Olympians"
+    ],
+    "wikipedia": "Howelsen Hill Ski Area"
+  },
+  {
+    "id": "usa-w1-c-089",
+    "text": "Where is one of the world's largest artificial ski jumps, a stop on the Continental Cup each winter?",
+    "lat": 45.8354,
+    "lng": -88.0885,
+    "category": "stadium",
+    "venue": "Pine Mountain Jump",
+    "city": "Iron Mountain",
+    "state": "Michigan",
+    "country": "United States",
+    "hint": "An Upper Peninsula iron mining town on the border of the Badger State.",
+    "facts": [
+      "🎿 Built in 1938",
+      "🏆 Hosts an international ski jumping tournament every winter",
+      "🏗️ Among the tallest artificial ski jumps in the world"
+    ],
+    "wikipedia": "Pine Mountain Jump"
+  },
+  {
+    "id": "usa-w1-c-090",
+    "text": "Where is the Pipeline, the reef break that hosts the Pipe Masters?",
+    "lat": 21.664,
+    "lng": -158.054,
+    "category": "stadium",
+    "venue": "Banzai Pipeline",
+    "city": "Pupukea",
+    "state": "Hawaii",
+    "country": "United States",
+    "hint": "A wave breaking over shallow reef on the North Shore of an island.",
+    "facts": [
+      "🌊 Waves break over a shallow lava reef",
+      "🏆 The Pipe Masters has been held here since 1971",
+      "🏖️ Breaks off Ehukai Beach Park"
+    ],
+    "wikipedia": "Banzai Pipeline"
+  },
+  {
+    "id": "usa-w1-c-091",
+    "text": "Where is 'The Eddie', the big wave contest that runs only when the surf is huge?",
+    "lat": 21.6403,
+    "lng": -158.0638,
+    "category": "event",
+    "venue": "Waimea Bay",
+    "city": "Haleiwa",
+    "state": "Hawaii",
+    "country": "United States",
+    "hint": "A bay on the North Shore where big wave surfing was born in the 1950s.",
+    "facts": [
+      "🏄 Honours lifeguard Eddie Aikau, lost at sea in 1978",
+      "🌊 Held only about ten times since 1984",
+      "🤿 Calm in summer, when swimmers leap off its big rock"
+    ],
+    "wikipedia": "Waimea Bay"
+  },
+  {
+    "id": "usa-w1-c-092",
+    "text": "Where is Mavericks, the cold-water big wave break where Mark Foo died in 1994?",
+    "lat": 37.4915,
+    "lng": -122.5083,
+    "category": "stadium",
+    "venue": "Mavericks",
+    "city": "Half Moon Bay",
+    "state": "California",
+    "country": "United States",
+    "hint": "Off a harbor village on the coast south of the Golden Gate.",
+    "facts": [
+      "🌊 Winter waves can top 50 feet",
+      "🏄 Jeff Clark surfed it alone for years before others came",
+      "🦈 Great white sharks frequent the waters"
+    ],
+    "wikipedia": "Mavericks Beach"
+  },
+  {
+    "id": "usa-w1-c-093",
+    "text": "Next to which pier is the U.S. Open of Surfing held every summer?",
+    "lat": 33.6551,
+    "lng": -118.0042,
+    "category": "event",
+    "venue": "Huntington Beach Pier",
+    "city": "Huntington Beach",
+    "state": "California",
+    "country": "United States",
+    "hint": "A long pier in a south coast beach city that calls itself 'Surf City'.",
+    "facts": [
+      "🌊 The pier is about 1,850 feet long",
+      "🏛️ The Surfing Walk of Fame is just across the street",
+      "🏄 Duke Kahanamoku surfed here in the 1920s"
+    ],
+    "wikipedia": "Huntington Beach Pier"
+  },
+  {
+    "id": "usa-w1-c-094",
+    "text": "Where is 'Jaws', the giant wave where tow-in surfing was pioneered?",
+    "lat": 20.9167,
+    "lng": -156.2833,
+    "category": "stadium",
+    "venue": "Peʻahi (Jaws)",
+    "city": "Haiku",
+    "state": "Hawaii",
+    "country": "United States",
+    "hint": "Below the cliffs on the north shore of the Valley Isle.",
+    "facts": [
+      "🚤 Laird Hamilton and friends pioneered tow-in surfing here in the 1990s",
+      "🌊 Winter waves can reach 60 feet",
+      "🏆 Has hosted big wave contests of the World Surf League"
+    ],
+    "wikipedia": "Peʻahi, Hawaii"
+  },
+  {
+    "id": "usa-w1-c-095",
+    "text": "Where is the cobblestone point break named after old railroad bridges, host of the World Surf League Finals?",
+    "lat": 33.385,
+    "lng": -117.595,
+    "category": "stadium",
+    "venue": "Trestles",
+    "city": "San Clemente",
+    "state": "California",
+    "country": "United States",
+    "hint": "Inside a state beach next to a big Marine Corps base on the south coast.",
+    "facts": [
+      "🚂 Named after the wooden railroad trestles over San Mateo Creek",
+      "🏆 Hosted the WSL Finals from 2021",
+      "🏝️ Part of San Onofre State Beach"
+    ],
+    "wikipedia": "Trestles (surfing)"
+  },
+  {
+    "id": "usa-w1-c-096",
+    "text": "Where does the world's oldest annual marathon start, every Patriots' Day?",
+    "lat": 42.2286,
+    "lng": -71.5231,
+    "category": "event",
+    "venue": "Boston Marathon start line",
+    "city": "Hopkinton",
+    "state": "Massachusetts",
+    "country": "United States",
+    "hint": "A small town about 26 miles west of the finish line.",
+    "facts": [
+      "🏁 The race has started here since 1924",
+      "📅 The first race was run in 1897",
+      "🏃‍♀️ Bobbi Gibb hid in bushes near the start in 1966 to run unofficially"
+    ],
+    "wikipedia": "Hopkinton, Massachusetts"
+  },
+  {
+    "id": "usa-w1-c-097",
+    "text": "Which bridge do tens of thousands of runners cross at the start of the world's largest marathon?",
+    "lat": 40.6064,
+    "lng": -74.0456,
+    "category": "event",
+    "venue": "Verrazzano–Narrows Bridge",
+    "city": "New York City",
+    "state": "New York",
+    "country": "United States",
+    "hint": "A suspension bridge between two boroughs at the mouth of a great harbor.",
+    "facts": [
+      "🌉 Opened in 1964, the world's longest suspension span until 1981",
+      "🏃 The marathon starts on its Staten Island end",
+      "🏅 More than 50,000 runners finish the race each year"
+    ],
+    "wikipedia": "Verrazzano–Narrows Bridge"
+  },
+  {
+    "id": "usa-w1-c-098",
+    "text": "Which famous flag-raising statue marks the finish of 'the People's Marathon'?",
+    "lat": 38.8904,
+    "lng": -77.0697,
+    "category": "event",
+    "venue": "Marine Corps War Memorial",
+    "city": "Arlington",
+    "state": "Virginia",
+    "country": "United States",
+    "hint": "Across the river from the capital, depicting a 1945 scene on Iwo Jima.",
+    "facts": [
+      "🗿 Depicts the raising of the flag on Iwo Jima in 1945",
+      "🏃 The Marine Corps Marathon finishes uphill beside it",
+      "🏅 The marathon offers no prize money"
+    ],
+    "wikipedia": "Marine Corps War Memorial"
+  },
+  {
+    "id": "usa-w1-c-099",
+    "text": "Where does the 135-mile ultramarathon billed as 'the world's toughest foot race' begin?",
+    "lat": 36.2503,
+    "lng": -116.8258,
+    "category": "event",
+    "venue": "Badwater Basin",
+    "city": "Furnace Creek",
+    "state": "California",
+    "country": "United States",
+    "hint": "The lowest point in North America, 282 feet below sea level.",
+    "facts": [
+      "🌡️ The race is run in July, in temperatures that can top 120°F",
+      "⛰️ It finishes at Whitney Portal, high on Mount Whitney",
+      "🧂 The basin floor is a vast salt flat"
+    ],
+    "wikipedia": "Badwater Basin"
+  },
+  {
+    "id": "usa-w1-c-100",
+    "text": "Where is 'the Daddy of 'em All', the world's largest outdoor rodeo, held every July?",
+    "lat": 41.155,
+    "lng": -104.835,
+    "category": "event",
+    "venue": "Cheyenne Frontier Days",
+    "city": "Cheyenne",
+    "state": "Wyoming",
+    "country": "United States",
+    "hint": "In the capital of the Cowboy State, on the high plains.",
+    "facts": [
+      "🤠 First held in 1897",
+      "🐎 Held at Frontier Park",
+      "✈️ The Air Force Thunderbirds perform during the event"
+    ],
+    "wikipedia": "Cheyenne Frontier Days"
+  }
+]

@@ -1,0 +1,1721 @@
+[
+  {
+    "id": "world-w1-d-001",
+    "text": "Where did the Toffees play their home games from 1892 to 2025?",
+    "lat": 53.4389,
+    "lng": -2.9664,
+    "category": "stadium",
+    "venue": "Goodison Park",
+    "city": "Liverpool",
+    "country": "England",
+    "hint": "A grand old ground squeezed between terraced streets, with a church tucked into one corner.",
+    "facts": [
+      "🏟️ Opened in 1892, one of the first purpose-built football grounds",
+      "⛪ St Luke's Church stands right beside one corner",
+      "🌍 Hosted five games at the 1966 World Cup, including a semi-final",
+      "🔵 Everton moved to a new dockside stadium in 2025"
+    ],
+    "wikipedia": "Goodison Park"
+  },
+  {
+    "id": "world-w1-d-002",
+    "text": "Where do the Whites play their home games?",
+    "lat": 53.7778,
+    "lng": -1.5722,
+    "category": "club",
+    "venue": "Elland Road",
+    "city": "Leeds",
+    "country": "England",
+    "hint": "The home of the club that won the last First Division title before the Premier League began.",
+    "facts": [
+      "⚪ Home of Leeds United since the club was founded in 1919",
+      "👔 Don Revie switched the kit to all white, after Real Madrid",
+      "🏆 Leeds won the last old First Division title in 1992",
+      "🏉 Hosted two matches at the 2015 Rugby World Cup"
+    ],
+    "wikipedia": "Elland Road"
+  },
+  {
+    "id": "world-w1-d-003",
+    "text": "Where do the Owls play their home games?",
+    "lat": 53.4114,
+    "lng": -1.5006,
+    "category": "club",
+    "venue": "Hillsborough Stadium",
+    "city": "Sheffield",
+    "country": "England",
+    "hint": "A large old ground in the hilly north-west of a city famous for steel.",
+    "facts": [
+      "🦉 Home of Sheffield Wednesday since 1899",
+      "🌍 Hosted games at the 1966 World Cup and Euro 96",
+      "🕯️ 97 Liverpool fans died in the 1989 disaster here"
+    ],
+    "wikipedia": "Hillsborough Stadium"
+  },
+  {
+    "id": "world-w1-d-004",
+    "text": "Where do the Blades play their home games?",
+    "lat": 53.3703,
+    "lng": -1.4708,
+    "category": "club",
+    "venue": "Bramall Lane",
+    "city": "Sheffield",
+    "country": "England",
+    "hint": "Opened in 1855, it is said to be the oldest major stadium still hosting professional matches.",
+    "facts": [
+      "🏏 Opened in 1855 as a cricket ground",
+      "🔦 Staged one of the first floodlit football matches, in 1878",
+      "⚔️ Home of Sheffield United since 1889",
+      "🏏 Hosted a Test match against Australia in 1902"
+    ],
+    "wikipedia": "Bramall Lane"
+  },
+  {
+    "id": "world-w1-d-005",
+    "text": "Where do the Cottagers play, right on the riverbank?",
+    "lat": 51.475,
+    "lng": -0.2217,
+    "category": "stadium",
+    "venue": "Craven Cottage",
+    "city": "London",
+    "country": "England",
+    "hint": "A ground beside the Thames with a little pavilion cottage in one corner.",
+    "facts": [
+      "🏠 Home of Fulham since 1896",
+      "🏛️ The Johnny Haynes Stand and the Cottage were designed by Archibald Leitch",
+      "🌊 The Riverside Stand backs straight onto the Thames"
+    ],
+    "wikipedia": "Craven Cottage"
+  },
+  {
+    "id": "world-w1-d-006",
+    "text": "Where do the Eagles of the Premier League play?",
+    "lat": 51.3983,
+    "lng": -0.0856,
+    "category": "club",
+    "venue": "Selhurst Park",
+    "city": "London",
+    "country": "England",
+    "hint": "A ground in the southern suburbs of a capital, beside a railway depot.",
+    "facts": [
+      "🦅 Home of Crystal Palace since 1924",
+      "🏆 Palace won the FA Cup in 2025, their first major trophy",
+      "🤝 Charlton and Wimbledon both once shared the ground"
+    ],
+    "wikipedia": "Selhurst Park"
+  },
+  {
+    "id": "world-w1-d-007",
+    "text": "Where do Wolves play their home games?",
+    "lat": 52.5903,
+    "lng": -2.1303,
+    "category": "club",
+    "venue": "Molineux Stadium",
+    "city": "Wolverhampton",
+    "country": "England",
+    "hint": "Its floodlit friendlies against Honvéd in the 1950s helped inspire the European Cup.",
+    "facts": [
+      "🐺 Home of Wolverhampton Wanderers since 1889",
+      "💡 1950s floodlit friendlies here helped inspire the European Cup",
+      "🟠 The team plays in old gold and black"
+    ],
+    "wikipedia": "Molineux Stadium"
+  },
+  {
+    "id": "world-w1-d-008",
+    "text": "Where do the Baggies play their home games?",
+    "lat": 52.5092,
+    "lng": -1.9639,
+    "category": "club",
+    "venue": "The Hawthorns",
+    "city": "West Bromwich",
+    "country": "England",
+    "hint": "Said to be the highest league ground above sea level in its country.",
+    "facts": [
+      "🏟️ Home of West Bromwich Albion since 1900",
+      "⛰️ Stands about 168 metres above sea level",
+      "🌳 Named after the hawthorn bushes that once grew on the site"
+    ],
+    "wikipedia": "The Hawthorns"
+  },
+  {
+    "id": "world-w1-d-009",
+    "text": "Where do the Black Cats play their home games?",
+    "lat": 54.9144,
+    "lng": -1.3882,
+    "category": "stadium",
+    "venue": "Stadium of Light",
+    "city": "Sunderland",
+    "country": "England",
+    "hint": "Built on the site of an old coal mine, beside a river in the north-east.",
+    "facts": [
+      "⛏️ Built on the site of Monkwearmouth Colliery",
+      "🏟️ Opened in 1997, replacing Roker Park",
+      "🐈‍⬛ Home of Sunderland AFC, holding about 49,000"
+    ],
+    "wikipedia": "Stadium of Light"
+  },
+  {
+    "id": "world-w1-d-010",
+    "text": "Where do the Tractor Boys play their home games?",
+    "lat": 52.055,
+    "lng": 1.1453,
+    "category": "club",
+    "venue": "Portman Road",
+    "city": "Ipswich",
+    "country": "England",
+    "hint": "Alf Ramsey won a league title here before he managed a World Cup winner.",
+    "facts": [
+      "🚜 Home of Ipswich Town since 1884",
+      "🏆 Ipswich won the league title in 1962 under Alf Ramsey",
+      "🏆 Won the 1981 UEFA Cup under Bobby Robson",
+      "🗿 Statues of both managers stand outside"
+    ],
+    "wikipedia": "Portman Road"
+  },
+  {
+    "id": "world-w1-d-011",
+    "text": "Where do the Canaries play their home games?",
+    "lat": 52.6222,
+    "lng": 1.3092,
+    "category": "club",
+    "venue": "Carrow Road",
+    "city": "Norwich",
+    "country": "England",
+    "hint": "A riverside ground in East Anglia, built in just a few months in 1935.",
+    "facts": [
+      "🐤 Home of Norwich City since 1935",
+      "🏗️ Built in just 82 days",
+      "🍳 Cookery writer Delia Smith is a long-time majority shareholder"
+    ],
+    "wikipedia": "Carrow Road"
+  },
+  {
+    "id": "world-w1-d-012",
+    "text": "Where did Jack Walker's money build the 1995 Premier League champions?",
+    "lat": 53.7286,
+    "lng": -2.4892,
+    "category": "club",
+    "venue": "Ewood Park",
+    "city": "Blackburn",
+    "country": "England",
+    "hint": "A ground in an old Lancashire cotton town, beside the River Darwen.",
+    "facts": [
+      "🏆 Blackburn Rovers won the Premier League in 1995",
+      "⚽ Alan Shearer scored 34 league goals that season",
+      "🏟️ Home of Rovers since 1890"
+    ],
+    "wikipedia": "Ewood Park"
+  },
+  {
+    "id": "world-w1-d-013",
+    "text": "Where do the Clarets play their home games?",
+    "lat": 53.7892,
+    "lng": -2.2303,
+    "category": "club",
+    "venue": "Turf Moor",
+    "city": "Burnley",
+    "country": "England",
+    "hint": "One of the oldest grounds still used by the same club, in a Pennine mill town.",
+    "facts": [
+      "🏟️ Home of Burnley FC since 1883",
+      "🏆 Burnley were league champions in 1921 and 1960",
+      "🟣 The team plays in claret and blue"
+    ],
+    "wikipedia": "Turf Moor"
+  },
+  {
+    "id": "world-w1-d-014",
+    "text": "Where did the Invincibles go unbeaten through the very first league season?",
+    "lat": 53.7722,
+    "lng": -2.6881,
+    "category": "club",
+    "venue": "Deepdale",
+    "city": "Preston",
+    "country": "England",
+    "hint": "Used by the same club since 1875, one of the oldest football grounds in the world.",
+    "facts": [
+      "🏆 Preston North End won the first Football League in 1888–89 unbeaten",
+      "🏟️ Used by the club since 1875",
+      "🧍 A statue of Tom Finney, called The Splash, stands outside"
+    ],
+    "wikipedia": "Deepdale"
+  },
+  {
+    "id": "world-w1-d-015",
+    "text": "Where did the Gunners play from 1913 until 2006?",
+    "lat": 51.5578,
+    "lng": -0.1028,
+    "category": "stadium",
+    "venue": "Highbury",
+    "city": "London",
+    "country": "England",
+    "hint": "Its art-deco East Stand still stands, turned into flats.",
+    "facts": [
+      "🏛️ The listed art-deco East Stand is now apartments",
+      "🏆 Arsenal won 13 league titles while playing here",
+      "🏟️ Officially Arsenal Stadium, but always called Highbury"
+    ],
+    "wikipedia": "Arsenal Stadium"
+  },
+  {
+    "id": "world-w1-d-016",
+    "text": "Where did the Citizens play from 1923 until 2003?",
+    "lat": 53.4511,
+    "lng": -2.2353,
+    "category": "stadium",
+    "venue": "Maine Road",
+    "city": "Manchester",
+    "country": "England",
+    "hint": "Once nicknamed the Wembley of the North.",
+    "facts": [
+      "🏟️ Home of Manchester City from 1923 to 2003",
+      "👥 84,569 watched a 1934 cup tie, an English club record",
+      "🔴 Manchester United played here after their ground was bombed in the war",
+      "🏠 The site is now housing"
+    ],
+    "wikipedia": "Maine Road"
+  },
+  {
+    "id": "world-w1-d-017",
+    "text": "Where do the Lions play, whose fans sing \"No one likes us\"?",
+    "lat": 51.4858,
+    "lng": -0.0508,
+    "category": "club",
+    "venue": "The Den",
+    "city": "London",
+    "country": "England",
+    "hint": "A ground in the south-east of a capital, a short walk from the docks of old.",
+    "facts": [
+      "🦁 Home of Millwall since 1993",
+      "🏟️ Replaced the old Den, which stood nearby",
+      "🎶 The fans' anthem is \"No one likes us, we don't care\""
+    ],
+    "wikipedia": "The Den"
+  },
+  {
+    "id": "world-w1-d-018",
+    "text": "Where do Pompey play their home games?",
+    "lat": 50.7964,
+    "lng": -1.0639,
+    "category": "club",
+    "venue": "Fratton Park",
+    "city": "Portsmouth",
+    "country": "England",
+    "hint": "A ground on a south-coast island, in a great naval port.",
+    "facts": [
+      "⚓ Home of Portsmouth FC since 1899",
+      "🏆 Pompey won the FA Cup in 1939 and 2008",
+      "🏰 Its mock-Tudor entrance is a well-known landmark"
+    ],
+    "wikipedia": "Fratton Park"
+  },
+  {
+    "id": "world-w1-d-019",
+    "text": "Where did the Addicks return in 1992 after seven years away?",
+    "lat": 51.4864,
+    "lng": 0.0364,
+    "category": "club",
+    "venue": "The Valley",
+    "city": "London",
+    "country": "England",
+    "hint": "A ground built in an old chalk pit in the south-east of a capital.",
+    "facts": [
+      "🏟️ Home of Charlton Athletic since 1919",
+      "🗳️ Fans formed the Valley Party to campaign for the return",
+      "🔙 Charlton shared Selhurst Park and Upton Park while away"
+    ],
+    "wikipedia": "The Valley (stadium)"
+  },
+  {
+    "id": "world-w1-d-020",
+    "text": "Where do the Bees play their home games?",
+    "lat": 51.4908,
+    "lng": -0.2886,
+    "category": "club",
+    "venue": "Gtech Community Stadium",
+    "city": "London",
+    "country": "England",
+    "hint": "Opened in 2020, wedged between railway lines and a motorway flyover.",
+    "facts": [
+      "🐝 Home of Brentford FC since 2020",
+      "🍺 Replaced Griffin Park, famous for a pub on every corner",
+      "🏉 Also hosted London Irish rugby until 2023"
+    ],
+    "wikipedia": "Brentford Community Stadium"
+  },
+  {
+    "id": "world-w1-d-021",
+    "text": "Where did the European Cup winners of 1979 and 1980 play?",
+    "lat": 52.94,
+    "lng": -1.1328,
+    "category": "club",
+    "venue": "City Ground",
+    "city": "Nottingham",
+    "country": "England",
+    "hint": "A riverside ground facing its rival's ground across the water.",
+    "facts": [
+      "🌲 Home of Nottingham Forest since 1898",
+      "🏆 Brian Clough's Forest won the European Cup in 1979 and 1980",
+      "🌉 Notts County's Meadow Lane is just across the Trent",
+      "📍 Strictly in West Bridgford, on the south bank"
+    ],
+    "wikipedia": "City Ground"
+  },
+  {
+    "id": "world-w1-d-022",
+    "text": "Where do the Gers play their home games?",
+    "lat": 55.8531,
+    "lng": -4.3092,
+    "category": "club",
+    "venue": "Ibrox Stadium",
+    "city": "Glasgow",
+    "country": "Scotland",
+    "hint": "Its red-brick main stand facade was designed by Archibald Leitch.",
+    "facts": [
+      "🔵 Home of Rangers since 1899",
+      "🧱 The red-brick Main Stand facade is a listed building",
+      "🏆 Rangers have won a world-record number of league titles"
+    ],
+    "wikipedia": "Ibrox Stadium"
+  },
+  {
+    "id": "world-w1-d-023",
+    "text": "Where did Real Madrid beat Eintracht Frankfurt 7–3 in the 1960 European Cup final?",
+    "lat": 55.8258,
+    "lng": -4.2519,
+    "category": "event",
+    "venue": "Hampden Park",
+    "city": "Glasgow",
+    "country": "Scotland",
+    "hint": "A national stadium whose crowd once topped 149,000.",
+    "facts": [
+      "⚽ Puskás scored four and Di Stéfano three in the 1960 final",
+      "👥 149,415 watched a 1937 international, a European record",
+      "🏆 Also hosted the 1976 European Cup and 2002 Champions League finals",
+      "🏟️ Home of amateur club Queen's Park for most of its history"
+    ],
+    "wikipedia": "Hampden Park"
+  },
+  {
+    "id": "world-w1-d-024",
+    "text": "Where do the Jambos play their home games?",
+    "lat": 55.9392,
+    "lng": -3.2322,
+    "category": "club",
+    "venue": "Tynecastle Park",
+    "city": "Edinburgh",
+    "country": "Scotland",
+    "hint": "A tight, steep ground in the west of a capital.",
+    "facts": [
+      "❤️ Home of Heart of Midlothian since 1886",
+      "📣 The stands sit close to the pitch, making it famously loud",
+      "⚔️ Rivals Hibernian play across the city at Easter Road"
+    ],
+    "wikipedia": "Tynecastle Park"
+  },
+  {
+    "id": "world-w1-d-025",
+    "text": "Where do the Hibees play their home games?",
+    "lat": 55.9617,
+    "lng": -3.1656,
+    "category": "club",
+    "venue": "Easter Road",
+    "city": "Edinburgh",
+    "country": "Scotland",
+    "hint": "A green-and-white ground near an old port district on the Firth of Forth.",
+    "facts": [
+      "🟢 Home of Hibernian since 1893",
+      "🏆 Hibs ended a 114-year wait for the national cup in 2016",
+      "🇪🇺 Hibs were the first British club to play in the European Cup, in 1955"
+    ],
+    "wikipedia": "Easter Road"
+  },
+  {
+    "id": "world-w1-d-026",
+    "text": "Where did Alex Ferguson build the Dons team that won the 1983 Cup Winners' Cup?",
+    "lat": 57.1592,
+    "lng": -2.0889,
+    "category": "club",
+    "venue": "Pittodrie Stadium",
+    "city": "Aberdeen",
+    "country": "Scotland",
+    "hint": "A ground just a few hundred metres from the North Sea beach in a granite city.",
+    "facts": [
+      "🏆 Aberdeen beat Real Madrid in the 1983 Cup Winners' Cup final",
+      "🪑 Claimed to be the first all-seater stadium in Britain, in 1978",
+      "🌊 Lies a short walk from the beach"
+    ],
+    "wikipedia": "Pittodrie Stadium"
+  },
+  {
+    "id": "world-w1-d-027",
+    "text": "Where do the Terrors play, a stone's throw from their rivals?",
+    "lat": 56.4747,
+    "lng": -2.9689,
+    "category": "club",
+    "venue": "Tannadice Park",
+    "city": "Dundee",
+    "country": "Scotland",
+    "hint": "Its closest rival ground is just a couple of hundred metres up the same street.",
+    "facts": [
+      "🟠 Home of Dundee United since 1909",
+      "🏟️ Dens Park, home of Dundee FC, is on the same street",
+      "🏆 United reached the 1987 UEFA Cup final"
+    ],
+    "wikipedia": "Tannadice Park"
+  },
+  {
+    "id": "world-w1-d-028",
+    "text": "Where do the Red Dragons play, the club bought by two Hollywood actors?",
+    "lat": 53.0519,
+    "lng": -3.0036,
+    "category": "stadium",
+    "venue": "Racecourse Ground",
+    "city": "Wrexham",
+    "country": "Wales",
+    "hint": "Recognised as the oldest international football ground still in use.",
+    "facts": [
+      "🎬 Ryan Reynolds and Rob McElhenney bought the club in 2021",
+      "🏟️ Hosted Wales's first home international, in 1877",
+      "📺 Star of the documentary series Welcome to Wrexham"
+    ],
+    "wikipedia": "Racecourse Ground"
+  },
+  {
+    "id": "world-w1-d-029",
+    "text": "Where do the Bluebirds play their home games?",
+    "lat": 51.4728,
+    "lng": -3.2031,
+    "category": "club",
+    "venue": "Cardiff City Stadium",
+    "city": "Cardiff",
+    "country": "Wales",
+    "hint": "Opened in 2009 across the road from the club's old Ninian Park.",
+    "facts": [
+      "🐦 Home of Cardiff City since 2009",
+      "🏟️ Replaced Ninian Park, which stood next door",
+      "🏆 Hosted the 2014 UEFA Super Cup"
+    ],
+    "wikipedia": "Cardiff City Stadium"
+  },
+  {
+    "id": "world-w1-d-030",
+    "text": "Where do Linfield and the green-shirted national team play?",
+    "lat": 54.5825,
+    "lng": -5.9553,
+    "category": "stadium",
+    "venue": "Windsor Park",
+    "city": "Belfast",
+    "country": "Northern Ireland",
+    "hint": "A national stadium in the south of its city, rebuilt in the 2010s.",
+    "facts": [
+      "🔵 Home of Linfield since 1905",
+      "🏟️ Home ground of the Northern Ireland national team",
+      "🏗️ Rebuilt between 2014 and 2016"
+    ],
+    "wikipedia": "Windsor Park"
+  },
+  {
+    "id": "world-w1-d-031",
+    "text": "Where did Atalanta end Leverkusen's 51-match unbeaten run in the 2024 Europa League final?",
+    "lat": 53.3353,
+    "lng": -6.2283,
+    "category": "event",
+    "venue": "Aviva Stadium",
+    "city": "Dublin",
+    "country": "Ireland",
+    "hint": "Built on the site of the world's oldest international rugby ground.",
+    "facts": [
+      "🏉 Built on the site of Lansdowne Road, opened in 1872",
+      "🏆 Atalanta won the 2024 Europa League final 3–0",
+      "🏆 Also hosted the 2011 Europa League final",
+      "🪟 Its curved transparent roof dips low on one side"
+    ],
+    "wikipedia": "Aviva Stadium"
+  },
+  {
+    "id": "world-w1-d-032",
+    "text": "Where does the Yellow Submarine play its home games?",
+    "lat": 39.9442,
+    "lng": -0.1036,
+    "category": "club",
+    "venue": "Estadio de la Cerámica",
+    "city": "Villarreal",
+    "country": "Spain",
+    "hint": "A ground in a small town of tile makers, holding nearly half its population.",
+    "facts": [
+      "🟡 Home of Villarreal CF since 1923",
+      "🏆 Villarreal won the 2021 Europa League",
+      "🏷️ Called El Madrigal until 2017"
+    ],
+    "wikipedia": "Estadio de la Cerámica"
+  },
+  {
+    "id": "world-w1-d-033",
+    "text": "Where do the Verdiblancos play their home games?",
+    "lat": 37.3564,
+    "lng": -5.9814,
+    "category": "club",
+    "venue": "Estadio Benito Villamarín",
+    "city": "Seville",
+    "country": "Spain",
+    "hint": "The green-and-white side of a fierce Andalusian derby.",
+    "facts": [
+      "🟢 Home of Real Betis since 1929",
+      "🔥 Rivals Sevilla play across town at the Ramón Sánchez Pizjuán",
+      "🏆 Betis won the league title in 1935",
+      "🌍 Hosted games at the 1982 World Cup"
+    ],
+    "wikipedia": "Estadio Benito Villamarín"
+  },
+  {
+    "id": "world-w1-d-034",
+    "text": "Where do the Txuri-Urdin play their home games?",
+    "lat": 43.3014,
+    "lng": -1.9736,
+    "category": "club",
+    "venue": "Anoeta Stadium",
+    "city": "San Sebastián",
+    "country": "Spain",
+    "hint": "A Basque ground not far from a famous shell-shaped bay.",
+    "facts": [
+      "⚪ Home of Real Sociedad since 1993",
+      "🏆 La Real won the league title in 1981 and 1982",
+      "🏃 The running track was removed in a 2019 rebuild"
+    ],
+    "wikipedia": "Anoeta Stadium"
+  },
+  {
+    "id": "world-w1-d-035",
+    "text": "Where do the Periquitos play their home games?",
+    "lat": 41.3478,
+    "lng": 2.0756,
+    "category": "club",
+    "venue": "RCDE Stadium",
+    "city": "Cornellà de Llobregat",
+    "country": "Spain",
+    "hint": "Opened in 2009 on the edge of a big city, home of its other club.",
+    "facts": [
+      "🦜 Home of RCD Espanyol since 2009",
+      "📍 Straddles the border of Cornellà and El Prat",
+      "🏆 Espanyol reached the UEFA Cup final in 1988 and 2007"
+    ],
+    "wikipedia": "RCDE Stadium"
+  },
+  {
+    "id": "world-w1-d-036",
+    "text": "Where do the Franjirrojos play, in a working-class neighbourhood?",
+    "lat": 40.3919,
+    "lng": -3.6589,
+    "category": "club",
+    "venue": "Estadio de Vallecas",
+    "city": "Madrid",
+    "country": "Spain",
+    "hint": "A small ground with only three stands and a wall of flats behind one goal.",
+    "facts": [
+      "⚡ Home of Rayo Vallecano since 1976",
+      "🏢 One end has no stand, just a wall facing apartment blocks",
+      "🏟️ Holds only about 14,000"
+    ],
+    "wikipedia": "Vallecas Stadium"
+  },
+  {
+    "id": "world-w1-d-037",
+    "text": "Where do Sporting's Rojiblancos play by the Cantabrian Sea?",
+    "lat": 43.5361,
+    "lng": -5.6372,
+    "category": "stadium",
+    "venue": "El Molinón",
+    "city": "Gijón",
+    "country": "Spain",
+    "hint": "Considered the oldest football ground in its country still in use.",
+    "facts": [
+      "🏟️ Used for football since about 1908",
+      "🌍 Hosted the infamous 1982 World Cup match between West Germany and Austria",
+      "🔴⚪ Home of Sporting de Gijón"
+    ],
+    "wikipedia": "El Molinón"
+  },
+  {
+    "id": "world-w1-d-038",
+    "text": "Where does the Old Lady play her home games?",
+    "lat": 45.1094,
+    "lng": 7.6411,
+    "category": "club",
+    "venue": "Juventus Stadium",
+    "city": "Turin",
+    "country": "Italy",
+    "hint": "Opened in 2011 on the site of a stadium built for the 1990 World Cup.",
+    "facts": [
+      "⚪⚫ Home of Juventus since 2011",
+      "🏟️ Built on the site of the Stadio delle Alpi",
+      "🏆 Hosted the 2014 Europa League final"
+    ],
+    "wikipedia": "Juventus Stadium"
+  },
+  {
+    "id": "world-w1-d-039",
+    "text": "Where did Maradona lead the Partenopei to two league titles?",
+    "lat": 40.828,
+    "lng": 14.193,
+    "category": "club",
+    "venue": "Stadio Diego Armando Maradona",
+    "city": "Naples",
+    "country": "Italy",
+    "hint": "A big bowl in the Fuorigrotta district, renamed after its greatest player.",
+    "facts": [
+      "🔵 Home of SSC Napoli since 1959",
+      "🏆 Napoli won Serie A in 1987 and 1990 with Maradona",
+      "🌍 Hosted a 1990 World Cup semi-final",
+      "✍️ Called Stadio San Paolo until 2020"
+    ],
+    "wikipedia": "Stadio Diego Armando Maradona"
+  },
+  {
+    "id": "world-w1-d-040",
+    "text": "Where does La Viola play its home games?",
+    "lat": 43.7808,
+    "lng": 11.2822,
+    "category": "club",
+    "venue": "Stadio Artemio Franchi",
+    "city": "Florence",
+    "country": "Italy",
+    "hint": "Its slim Marathon Tower and concrete spiral stairs are the work of Pier Luigi Nervi.",
+    "facts": [
+      "💜 Home of ACF Fiorentina since 1931",
+      "🏛️ Designed by the engineer Pier Luigi Nervi",
+      "🌍 Hosted games at the 1934 and 1990 World Cups"
+    ],
+    "wikipedia": "Stadio Artemio Franchi"
+  },
+  {
+    "id": "world-w1-d-041",
+    "text": "Where do the Grifone and the Blucerchiati share a ground?",
+    "lat": 44.4164,
+    "lng": 8.9525,
+    "category": "stadium",
+    "venue": "Stadio Luigi Ferraris",
+    "city": "Genoa",
+    "country": "Italy",
+    "hint": "One of the oldest grounds in its country, shared by two rivals in a port city.",
+    "facts": [
+      "🏟️ In use since 1911",
+      "🤝 Shared by Genoa CFC and Sampdoria",
+      "🔥 Their derby is the Derby della Lanterna",
+      "🧱 Rebuilt with red corner towers for the 1990 World Cup"
+    ],
+    "wikipedia": "Stadio Luigi Ferraris"
+  },
+  {
+    "id": "world-w1-d-042",
+    "text": "Where does La Dea play its home games?",
+    "lat": 45.7089,
+    "lng": 9.6808,
+    "category": "club",
+    "venue": "Gewiss Stadium",
+    "city": "Bergamo",
+    "country": "Italy",
+    "hint": "A compact ground below a walled upper town, home of the 2024 Europa League winners.",
+    "facts": [
+      "🖤💙 Home of Atalanta",
+      "🏆 Atalanta won the 2024 Europa League",
+      "🏟️ Opened in 1928, rebuilt stand by stand from 2019"
+    ],
+    "wikipedia": "Stadio di Bergamo"
+  },
+  {
+    "id": "world-w1-d-043",
+    "text": "Where do the Rossoblù of Emilia play their home games?",
+    "lat": 44.4922,
+    "lng": 11.3097,
+    "category": "club",
+    "venue": "Stadio Renato Dall'Ara",
+    "city": "Bologna",
+    "country": "Italy",
+    "hint": "Its brick Marathon Tower and arcaded walls date from the late 1920s.",
+    "facts": [
+      "🔴🔵 Home of Bologna FC since 1927",
+      "🏆 Bologna won seven league titles, the last in 1964",
+      "🏆 Bologna won the Coppa Italia in 2025"
+    ],
+    "wikipedia": "Stadio Renato Dall'Ara"
+  },
+  {
+    "id": "world-w1-d-044",
+    "text": "Where do the Rosanero play their home games?",
+    "lat": 38.1528,
+    "lng": 13.3423,
+    "category": "club",
+    "venue": "Stadio Renzo Barbera",
+    "city": "Palermo",
+    "country": "Italy",
+    "hint": "A ground at the foot of Monte Pellegrino on a big Mediterranean island.",
+    "facts": [
+      "🩷 Home of Palermo FC since 1932",
+      "⛰️ Overlooked by Monte Pellegrino",
+      "🌍 Hosted games at the 1990 World Cup"
+    ],
+    "wikipedia": "Stadio Renzo Barbera"
+  },
+  {
+    "id": "world-w1-d-045",
+    "text": "Where do the Zebrette play their home games?",
+    "lat": 46.0816,
+    "lng": 13.2001,
+    "category": "club",
+    "venue": "Stadio Friuli",
+    "city": "Udine",
+    "country": "Italy",
+    "hint": "A ground in the north-east near the Alps, rebuilt in 2016 with stands close to the pitch.",
+    "facts": [
+      "⚪⚫ Home of Udinese since 1976",
+      "🌍 Hosted games at the 1990 World Cup",
+      "🏗️ Rebuilt between 2013 and 2016"
+    ],
+    "wikipedia": "Stadio Friuli"
+  },
+  {
+    "id": "world-w1-d-046",
+    "text": "Where do the Royal Blues play under a retractable roof?",
+    "lat": 51.5544,
+    "lng": 7.0675,
+    "category": "stadium",
+    "venue": "Veltins-Arena",
+    "city": "Gelsenkirchen",
+    "country": "Germany",
+    "hint": "Its whole pitch slides out of the stadium on rails to get sunlight.",
+    "facts": [
+      "🔵 Home of Schalke 04 since 2001",
+      "🌱 The pitch rolls out of the building",
+      "🏆 Hosted the 2004 Champions League final, Porto 3–0 Monaco"
+    ],
+    "wikipedia": "Arena AufSchalke"
+  },
+  {
+    "id": "world-w1-d-047",
+    "text": "Where does the cult club with the skull and crossbones play?",
+    "lat": 53.5546,
+    "lng": 9.9677,
+    "category": "club",
+    "venue": "Millerntor-Stadion",
+    "city": "Hamburg",
+    "country": "Germany",
+    "hint": "A ground right next to the Reeperbahn nightlife district.",
+    "facts": [
+      "☠️ Home of FC St. Pauli",
+      "🎸 Famous for its left-wing, punk fan culture",
+      "🎡 Stands on the Heiligengeistfeld, home of a big funfair"
+    ],
+    "wikipedia": "Millerntor-Stadion"
+  },
+  {
+    "id": "world-w1-d-048",
+    "text": "Where do the Billy Goats play their home games?",
+    "lat": 50.9336,
+    "lng": 6.875,
+    "category": "club",
+    "venue": "RheinEnergieStadion",
+    "city": "Cologne",
+    "country": "Germany",
+    "hint": "Its four corner towers light up at night, beside a big city forest park.",
+    "facts": [
+      "🐐 Home of 1. FC Köln",
+      "🐐 A live goat called Hennes is the club mascot",
+      "🌍 Hosted games at the 2006 World Cup and Euro 2024"
+    ],
+    "wikipedia": "RheinEnergieStadion"
+  },
+  {
+    "id": "world-w1-d-049",
+    "text": "Where did Die Werkself finish a whole league season unbeaten in 2024?",
+    "lat": 51.0383,
+    "lng": 7.0022,
+    "category": "club",
+    "venue": "BayArena",
+    "city": "Leverkusen",
+    "country": "Germany",
+    "hint": "The home of a club founded by workers of a pharmaceuticals company.",
+    "facts": [
+      "💊 Home of Bayer 04 Leverkusen",
+      "🏆 Won the 2024 Bundesliga without losing a match",
+      "🏟️ Opened in 1958 as the Ulrich-Haberland-Stadion"
+    ],
+    "wikipedia": "BayArena"
+  },
+  {
+    "id": "world-w1-d-050",
+    "text": "Where do the Foals play their home games?",
+    "lat": 51.1747,
+    "lng": 6.3856,
+    "category": "club",
+    "venue": "Borussia-Park",
+    "city": "Mönchengladbach",
+    "country": "Germany",
+    "hint": "Built in 2004 to replace the beloved Bökelberg.",
+    "facts": [
+      "🐴 Home of Borussia Mönchengladbach since 2004",
+      "🏆 The club won five Bundesliga titles in the 1970s",
+      "🏟️ Replaced the Bökelbergstadion"
+    ],
+    "wikipedia": "Borussia-Park"
+  },
+  {
+    "id": "world-w1-d-051",
+    "text": "Where do Werder's fans walk along the riverbank to the match?",
+    "lat": 53.0664,
+    "lng": 8.8375,
+    "category": "club",
+    "venue": "Weserstadion",
+    "city": "Bremen",
+    "country": "Germany",
+    "hint": "A riverside ground whose outer walls are covered in solar panels.",
+    "facts": [
+      "🟢 Home of Werder Bremen",
+      "🌊 Sits right on the bank of the Weser",
+      "☀️ Its facade is covered in solar panels",
+      "🏆 Werder won the league and cup double in 2004"
+    ],
+    "wikipedia": "Weserstadion"
+  },
+  {
+    "id": "world-w1-d-052",
+    "text": "Where did PSV win the 1988 European Cup final on penalties?",
+    "lat": 48.7922,
+    "lng": 9.2319,
+    "category": "stadium",
+    "venue": "MHPArena",
+    "city": "Stuttgart",
+    "country": "Germany",
+    "hint": "A ground in the Neckar valley that hosted the 1974 and 2006 World Cups.",
+    "facts": [
+      "🏆 PSV beat Benfica on penalties in the 1988 final",
+      "⚪🔴 Home of VfB Stuttgart",
+      "🏃 Hosted the 1993 World Athletics Championships",
+      "🌍 Also hosted games at Euro 2024"
+    ],
+    "wikipedia": "MHPArena"
+  },
+  {
+    "id": "world-w1-d-053",
+    "text": "Where do Die Roten Bullen play, inside an old stadium's walls?",
+    "lat": 51.3458,
+    "lng": 12.3483,
+    "category": "club",
+    "venue": "Red Bull Arena Leipzig",
+    "city": "Leipzig",
+    "country": "Germany",
+    "hint": "Built inside the earth banks of the old Zentralstadion.",
+    "facts": [
+      "🐂 Home of RB Leipzig since 2010",
+      "🏟️ Built inside the old Zentralstadion",
+      "🌍 Hosted games at the 2006 World Cup and Euro 2024"
+    ],
+    "wikipedia": "Red Bull Arena (Leipzig)"
+  },
+  {
+    "id": "world-w1-d-054",
+    "text": "Where do the Iron Ones play, in a ground their own fans rebuilt?",
+    "lat": 52.4572,
+    "lng": 13.5681,
+    "category": "club",
+    "venue": "Stadion An der Alten Försterei",
+    "city": "Berlin",
+    "country": "Germany",
+    "hint": "A forest ground in the east of a capital.",
+    "facts": [
+      "🔴 Home of 1. FC Union Berlin",
+      "🛠️ Over 2,000 fans volunteered to rebuild it in 2008–09",
+      "🎄 Fans gather here every December to sing Christmas carols"
+    ],
+    "wikipedia": "Stadion An der Alten Försterei"
+  },
+  {
+    "id": "world-w1-d-055",
+    "text": "Where did Marco van Basten volley his famous goal in the Euro 1988 final?",
+    "lat": 48.1731,
+    "lng": 11.5467,
+    "category": "event",
+    "venue": "Olympiastadion Munich",
+    "city": "Munich",
+    "country": "Germany",
+    "hint": "A tent-like acrylic roof sweeps over the stands of a 1970s Olympic park.",
+    "facts": [
+      "⚽ The Netherlands beat the USSR 2–0 in the Euro 1988 final",
+      "🌍 Hosted the 1974 World Cup final",
+      "🏅 Main stadium of the 1972 Summer Olympics",
+      "⛺ Its tent roof was designed with Frei Otto"
+    ],
+    "wikipedia": "Olympiastadion (Munich)"
+  },
+  {
+    "id": "world-w1-d-056",
+    "text": "Where do the Sang et Or play, in a stadium bigger than their town?",
+    "lat": 50.4328,
+    "lng": 2.815,
+    "category": "club",
+    "venue": "Stade Bollaert-Delelis",
+    "city": "Lens",
+    "country": "France",
+    "hint": "A big ground in the old coal-mining country of the north.",
+    "facts": [
+      "🟡🔴 Home of RC Lens",
+      "⛏️ Holds about 38,000, more than the town's population",
+      "🌍 Hosted games at the 1998 World Cup and Euro 2016"
+    ],
+    "wikipedia": "Stade Bollaert-Delelis"
+  },
+  {
+    "id": "world-w1-d-057",
+    "text": "Where do the Dogues play under a sliding roof?",
+    "lat": 50.6119,
+    "lng": 3.1304,
+    "category": "stadium",
+    "venue": "Stade Pierre-Mauroy",
+    "city": "Villeneuve-d'Ascq",
+    "country": "France",
+    "hint": "Half of its pitch can lift up and slide over the other half to make an indoor arena.",
+    "facts": [
+      "🐶 Home of Lille OSC since 2012",
+      "🏟️ Half the pitch can be raised onto the other half",
+      "🌍 Hosted games at Euro 2016"
+    ],
+    "wikipedia": "Stade Pierre-Mauroy"
+  },
+  {
+    "id": "world-w1-d-058",
+    "text": "Where was the UEFA Super Cup played every year from 1998 to 2012?",
+    "lat": 43.7275,
+    "lng": 7.4156,
+    "category": "event",
+    "venue": "Stade Louis II",
+    "city": "Monaco",
+    "country": "Monaco",
+    "hint": "A ground built over car parks on land reclaimed from the sea.",
+    "facts": [
+      "🏆 Hosted the UEFA Super Cup from 1998 to 2012",
+      "🔴⚪ Home of AS Monaco",
+      "🏊 The building also houses a swimming pool and sports halls"
+    ],
+    "wikipedia": "Stade Louis II"
+  },
+  {
+    "id": "world-w1-d-059",
+    "text": "Where do Les Aiglons play their home games?",
+    "lat": 43.7053,
+    "lng": 7.1925,
+    "category": "club",
+    "venue": "Allianz Riviera",
+    "city": "Nice",
+    "country": "France",
+    "hint": "An eco-stadium wrapped in a wooden lattice, near the mouth of the Var.",
+    "facts": [
+      "🦅 Home of OGC Nice since 2013",
+      "🌍 Hosted Iceland's famous win over England at Euro 2016",
+      "🏉 Hosted games at the 2023 Rugby World Cup"
+    ],
+    "wikipedia": "Allianz Riviera"
+  },
+  {
+    "id": "world-w1-d-060",
+    "text": "Where do the Godenzonen, the Sons of the Gods, play?",
+    "lat": 52.3142,
+    "lng": 4.9419,
+    "category": "club",
+    "venue": "Johan Cruyff Arena",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "hint": "Opened in 1996 with a roof that slides shut, and renamed after a club legend.",
+    "facts": [
+      "⚪🔴 Home of AFC Ajax since 1996",
+      "🏆 Hosted the 1998 Champions League final",
+      "✍️ Renamed after Johan Cruyff in 2018",
+      "🏆 Hosted the 2013 Europa League final"
+    ],
+    "wikipedia": "Johan Cruyff Arena"
+  },
+  {
+    "id": "world-w1-d-061",
+    "text": "Where did David Trezeguet's golden goal win the Euro 2000 final?",
+    "lat": 51.8939,
+    "lng": 4.5231,
+    "category": "event",
+    "venue": "De Kuip",
+    "city": "Rotterdam",
+    "country": "Netherlands",
+    "hint": "A tub-shaped ground in the south of a port city.",
+    "facts": [
+      "🏆 France beat Italy 2–1 in the Euro 2000 final",
+      "🔴⚪ Home of Feyenoord since 1937",
+      "🛁 Its nickname means \"the tub\""
+    ],
+    "wikipedia": "De Kuip"
+  },
+  {
+    "id": "world-w1-d-062",
+    "text": "Where do the Boeren play their home games?",
+    "lat": 51.4417,
+    "lng": 5.4675,
+    "category": "club",
+    "venue": "Philips Stadion",
+    "city": "Eindhoven",
+    "country": "Netherlands",
+    "hint": "The home of a club founded by workers of an electronics giant.",
+    "facts": [
+      "💡 Home of PSV since 1913",
+      "🏆 PSV won the European Cup in 1988",
+      "🏭 The club was founded for Philips workers"
+    ],
+    "wikipedia": "Philips Stadion"
+  },
+  {
+    "id": "world-w1-d-063",
+    "text": "Where do Blauw-Zwart and Cercle share a ground?",
+    "lat": 51.1933,
+    "lng": 3.1806,
+    "category": "stadium",
+    "venue": "Jan Breydel Stadium",
+    "city": "Bruges",
+    "country": "Belgium",
+    "hint": "A ground on the edge of a medieval canal city.",
+    "facts": [
+      "🔵⚫ Home of Club Brugge and Cercle Brugge",
+      "🌍 Hosted games at Euro 2000",
+      "🗡️ Named after a leader of the 1302 uprising"
+    ],
+    "wikipedia": "Jan Breydel Stadium"
+  },
+  {
+    "id": "world-w1-d-064",
+    "text": "Where do Les Mauves, the most decorated club in their league, play?",
+    "lat": 50.8342,
+    "lng": 4.2983,
+    "category": "club",
+    "venue": "Lotto Park",
+    "city": "Brussels",
+    "country": "Belgium",
+    "hint": "A ground beside the Astrid Park in a western borough of a capital.",
+    "facts": [
+      "💜 Home of RSC Anderlecht since 1917",
+      "🏆 Anderlecht won the Cup Winners' Cup in 1976 and 1978",
+      "🏟️ Named after a former club president"
+    ],
+    "wikipedia": "Constant Vanden Stock Stadium"
+  },
+  {
+    "id": "world-w1-d-065",
+    "text": "Where did Fernando Torres score the winner in the Euro 2008 final?",
+    "lat": 48.2072,
+    "lng": 16.4208,
+    "category": "event",
+    "venue": "Ernst-Happel-Stadion",
+    "city": "Vienna",
+    "country": "Austria",
+    "hint": "A big bowl in the Prater park, named after a legendary coach.",
+    "facts": [
+      "🏆 Spain beat Germany 1–0 in the Euro 2008 final",
+      "🎡 Stands in the Prater, near the giant Ferris wheel",
+      "🏆 Hosted four European Cup and Champions League finals",
+      "🧑‍💼 Named after Ernst Happel in 1992"
+    ],
+    "wikipedia": "Ernst-Happel-Stadion"
+  },
+  {
+    "id": "world-w1-d-066",
+    "text": "Where do the Bulls of Mozart's home town play?",
+    "lat": 47.8164,
+    "lng": 12.9983,
+    "category": "club",
+    "venue": "Red Bull Arena Salzburg",
+    "city": "Salzburg",
+    "country": "Austria",
+    "hint": "Built for Euro 2008 on the outskirts, close to the airport.",
+    "facts": [
+      "🐂 Home of FC Red Bull Salzburg",
+      "🌍 Hosted games at Euro 2008",
+      "📍 Actually in Wals-Siezenheim, just outside the city"
+    ],
+    "wikipedia": "Red Bull Arena (Salzburg)"
+  },
+  {
+    "id": "world-w1-d-067",
+    "text": "Where did Galatasaray beat Arsenal on penalties in the 2000 UEFA Cup final?",
+    "lat": 55.7025,
+    "lng": 12.5722,
+    "category": "event",
+    "venue": "Parken Stadium",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "hint": "A national stadium beside a large park in the capital's Østerbro district.",
+    "facts": [
+      "🏆 Galatasaray won the 2000 UEFA Cup final on penalties",
+      "🏆 Also hosted the 1994 Cup Winners' Cup final",
+      "🏟️ Home of FC København and the national team"
+    ],
+    "wikipedia": "Parken Stadium"
+  },
+  {
+    "id": "world-w1-d-068",
+    "text": "Where did Zlatan Ibrahimović score a 30-metre bicycle kick in 2012?",
+    "lat": 59.3725,
+    "lng": 18,
+    "category": "event",
+    "venue": "Strawberry Arena",
+    "city": "Solna",
+    "country": "Sweden",
+    "hint": "A national stadium with a sliding roof on the northern edge of a capital.",
+    "facts": [
+      "⚽ Zlatan scored all four goals in a 4–2 win over England",
+      "🏟️ Opened in 2012 as Friends Arena",
+      "🏆 Hosted the 2017 Europa League final",
+      "⚫🟡 Home of AIK"
+    ],
+    "wikipedia": "Nationalarenan"
+  },
+  {
+    "id": "world-w1-d-069",
+    "text": "Where does the national team of Haaland and Ødegaard play?",
+    "lat": 59.9489,
+    "lng": 10.7342,
+    "category": "stadium",
+    "venue": "Ullevaal Stadion",
+    "city": "Oslo",
+    "country": "Norway",
+    "hint": "A national stadium in the north of a capital, with shops and offices built into it.",
+    "facts": [
+      "🏟️ Home of the national football team",
+      "🏆 Hosts the national cup final every year",
+      "📅 Opened in 1926"
+    ],
+    "wikipedia": "Ullevaal Stadion"
+  },
+  {
+    "id": "world-w1-d-070",
+    "text": "Where does the club that won 13 straight league titles from 1992 play?",
+    "lat": 63.4123,
+    "lng": 10.4045,
+    "category": "club",
+    "venue": "Lerkendal Stadion",
+    "city": "Trondheim",
+    "country": "Norway",
+    "hint": "A ground in an old fjord-side city with a great medieval cathedral.",
+    "facts": [
+      "⚫⚪ Home of Rosenborg BK",
+      "🏆 Rosenborg won 13 league titles in a row, 1992–2004",
+      "🌟 Reached the Champions League quarter-finals in 1997"
+    ],
+    "wikipedia": "Lerkendal Stadion"
+  },
+  {
+    "id": "world-w1-d-071",
+    "text": "Where does the national team famous for the Viking thunderclap play?",
+    "lat": 64.1436,
+    "lng": -21.8789,
+    "category": "stadium",
+    "venue": "Laugardalsvöllur",
+    "city": "Reykjavík",
+    "country": "Iceland",
+    "hint": "A small national stadium in a sports valley of the northernmost capital.",
+    "facts": [
+      "👏 Home of the team famous for the \"Huh!\" thunderclap",
+      "🏟️ Holds under 10,000",
+      "♨️ The Laugardalur valley is named after its hot springs"
+    ],
+    "wikipedia": "Laugardalsvöllur"
+  },
+  {
+    "id": "world-w1-d-072",
+    "text": "Where did the Himmelsblått play when they reached the 1979 European Cup final?",
+    "lat": 55.5836,
+    "lng": 12.9878,
+    "category": "club",
+    "venue": "Malmö Stadion",
+    "city": "Malmö",
+    "country": "Sweden",
+    "hint": "Built for the 1958 World Cup in a southern port city.",
+    "facts": [
+      "🌍 Opened for the 1958 World Cup",
+      "🩵 Home of Malmö FF until 2009",
+      "🏆 Malmö FF lost the 1979 European Cup final to Nottingham Forest"
+    ],
+    "wikipedia": "Stadion, Malmö"
+  },
+  {
+    "id": "world-w1-d-073",
+    "text": "Where is the Marakana, home of Crvena Zvezda?",
+    "lat": 44.7833,
+    "lng": 20.4647,
+    "category": "stadium",
+    "venue": "Red Star Stadium",
+    "city": "Belgrade",
+    "country": "Serbia",
+    "hint": "A famous chipped penalty won the 1976 European Championship final here.",
+    "facts": [
+      "🔴⚪ Home of Red Star since 1963",
+      "⚽ Antonín Panenka's chipped penalty won the Euro 1976 final",
+      "🏆 Red Star won the European Cup in 1991"
+    ],
+    "wikipedia": "Red Star Stadium"
+  },
+  {
+    "id": "world-w1-d-074",
+    "text": "Where do the Grobari cheer on the Black-Whites?",
+    "lat": 44.7887,
+    "lng": 20.4591,
+    "category": "club",
+    "venue": "Partizan Stadium",
+    "city": "Belgrade",
+    "country": "Serbia",
+    "hint": "It sits under a kilometre from the ground of its eternal rival.",
+    "facts": [
+      "⚫⚪ Home of FK Partizan",
+      "🔥 The Eternal Derby against Red Star is one of Europe's fiercest",
+      "🏆 Partizan reached the 1966 European Cup final"
+    ],
+    "wikipedia": "Partizan Stadium"
+  },
+  {
+    "id": "world-w1-d-075",
+    "text": "Where did Zvonimir Boban kick a policeman during the riot of May 1990?",
+    "lat": 45.8189,
+    "lng": 16.0181,
+    "category": "event",
+    "venue": "Maksimir Stadium",
+    "city": "Zagreb",
+    "country": "Croatia",
+    "hint": "A ground beside a large park in the east of a capital.",
+    "facts": [
+      "🔵 Home of GNK Dinamo",
+      "⚡ The 1990 riot against Red Star fans is seen as a prelude to war",
+      "🌳 Named after the nearby Maksimir Park"
+    ],
+    "wikipedia": "Maksimir Stadium"
+  },
+  {
+    "id": "world-w1-d-076",
+    "text": "Where do the Torcida cheer on Hajduk?",
+    "lat": 43.5194,
+    "lng": 16.4317,
+    "category": "stadium",
+    "venue": "Stadion Poljud",
+    "city": "Split",
+    "country": "Croatia",
+    "hint": "Its seashell-shaped roof sits a short walk from the Adriatic.",
+    "facts": [
+      "⚪ Home of HNK Hajduk since 1979",
+      "🏅 Opened for the 1979 Mediterranean Games",
+      "🏃 Hosted the 1990 European Athletics Championships",
+      "📣 Torcida, founded in 1950, is one of Europe's oldest fan groups"
+    ],
+    "wikipedia": "Stadion Poljud"
+  },
+  {
+    "id": "world-w1-d-077",
+    "text": "Where did the opening ceremony of the 1984 Winter Olympics take place?",
+    "lat": 43.8739,
+    "lng": 18.4086,
+    "category": "event",
+    "venue": "Asim Ferhatović Hase Stadium",
+    "city": "Sarajevo",
+    "country": "Bosnia and Herzegovina",
+    "hint": "A bowl at the end of a valley in a mountain-ringed capital.",
+    "facts": [
+      "❄️ Hosted the 1984 Winter Olympics opening ceremony",
+      "🔴 Home of FK Sarajevo",
+      "🏟️ Named after club legend Asim Ferhatović"
+    ],
+    "wikipedia": "Koševo City Stadium"
+  },
+  {
+    "id": "world-w1-d-078",
+    "text": "Where do the Dragons of Olimpija play?",
+    "lat": 46.0806,
+    "lng": 14.5244,
+    "category": "club",
+    "venue": "Stožice Stadium",
+    "city": "Ljubljana",
+    "country": "Slovenia",
+    "hint": "Opened in 2010 as part of a sports park with an arena next door.",
+    "facts": [
+      "🐉 Home of NK Olimpija",
+      "🏟️ Part of a sports park with an indoor arena, opened in 2010",
+      "🌍 Home of the national team"
+    ],
+    "wikipedia": "Stožice Stadium"
+  },
+  {
+    "id": "world-w1-d-079",
+    "text": "Where did Real Madrid win the 2017 UEFA Super Cup?",
+    "lat": 42.0056,
+    "lng": 21.4256,
+    "category": "event",
+    "venue": "Toše Proeski Arena",
+    "city": "Skopje",
+    "country": "North Macedonia",
+    "hint": "A national stadium named after a beloved pop singer.",
+    "facts": [
+      "🏆 Real Madrid beat Manchester United 2–1 in the 2017 Super Cup",
+      "🎤 Named after singer Toše Proeski in 2009",
+      "🏟️ The national stadium of its country"
+    ],
+    "wikipedia": "Toše Proeski Arena"
+  },
+  {
+    "id": "world-w1-d-080",
+    "text": "Where do the Blue-Whites of Budućnost play?",
+    "lat": 42.4447,
+    "lng": 19.2644,
+    "category": "club",
+    "venue": "Podgorica City Stadium",
+    "city": "Podgorica",
+    "country": "Montenegro",
+    "hint": "A small national stadium at the foot of a wooded hill.",
+    "facts": [
+      "🔵 Home of FK Budućnost",
+      "🏟️ The national stadium of its country",
+      "⛰️ Lies at the foot of Gorica hill"
+    ],
+    "wikipedia": "Podgorica City Stadium"
+  },
+  {
+    "id": "world-w1-d-081",
+    "text": "Where was the opening match of Euro 2012 played?",
+    "lat": 52.2394,
+    "lng": 21.0456,
+    "category": "event",
+    "venue": "Stadion Narodowy",
+    "city": "Warsaw",
+    "country": "Poland",
+    "hint": "Built inside an old stadium bowl on the east bank of a big river.",
+    "facts": [
+      "⚽ Hosted the Euro 2012 opening match",
+      "🏆 Hosted the 2015 Europa League final",
+      "🔴⚪ Its facade is red and white",
+      "🏟️ Built on the site of the Tenth-Anniversary Stadium"
+    ],
+    "wikipedia": "Stadion Narodowy"
+  },
+  {
+    "id": "world-w1-d-082",
+    "text": "Where do the Wojskowi, the military club, play?",
+    "lat": 52.2206,
+    "lng": 21.0406,
+    "category": "club",
+    "venue": "Polish Army Stadium",
+    "city": "Warsaw",
+    "country": "Poland",
+    "hint": "A ground beside a park, home of a club founded by soldiers.",
+    "facts": [
+      "🟢 Home of Legia Warsaw",
+      "🪖 Legia was founded by soldiers in 1916",
+      "🏟️ Rebuilt between 2008 and 2011"
+    ],
+    "wikipedia": "Polish Army Stadium"
+  },
+  {
+    "id": "world-w1-d-083",
+    "text": "Where did Sevilla beat Roma on penalties in the 2023 Europa League final?",
+    "lat": 47.503,
+    "lng": 19.0979,
+    "category": "event",
+    "venue": "Puskás Aréna",
+    "city": "Budapest",
+    "country": "Hungary",
+    "hint": "Named after a footballing legend, on the site of the old People's Stadium.",
+    "facts": [
+      "🏆 Sevilla won their seventh Europa League here in 2023",
+      "⚽ Named after Ferenc Puskás",
+      "🏟️ Built on the site of the Népstadion"
+    ],
+    "wikipedia": "Puskás Aréna"
+  },
+  {
+    "id": "world-w1-d-084",
+    "text": "Where does Fradi play its home games?",
+    "lat": 47.4756,
+    "lng": 19.0953,
+    "category": "club",
+    "venue": "Groupama Aréna",
+    "city": "Budapest",
+    "country": "Hungary",
+    "hint": "A green ground in the 9th district, home of the most successful club in its league.",
+    "facts": [
+      "🦅 Home of Ferencváros since 2014",
+      "🏆 Fradi won the 1965 Inter-Cities Fairs Cup",
+      "🟢 Built on the site of the old Üllői út stadium"
+    ],
+    "wikipedia": "Ferencváros Stadion"
+  },
+  {
+    "id": "world-w1-d-085",
+    "text": "Where does Sparta play its home games?",
+    "lat": 50.0997,
+    "lng": 14.4158,
+    "category": "club",
+    "venue": "Stadion Letná",
+    "city": "Prague",
+    "country": "Czech Republic",
+    "hint": "A ground on a plateau above a river bend, next to a big park.",
+    "facts": [
+      "🔴 Home of AC Sparta since 1917",
+      "🏟️ Known by sponsor names such as Generali Arena",
+      "🏆 Sparta is the most successful club in its league"
+    ],
+    "wikipedia": "Stadion Letná"
+  },
+  {
+    "id": "world-w1-d-086",
+    "text": "Where do the Red-Whites of Slavia play?",
+    "lat": 50.0675,
+    "lng": 14.4717,
+    "category": "club",
+    "venue": "Fortuna Arena",
+    "city": "Prague",
+    "country": "Czech Republic",
+    "hint": "A ground in the Vršovice district, opened in 2008.",
+    "facts": [
+      "🔴⚪ Home of SK Slavia since 2008",
+      "🏟️ Also known as Eden Arena",
+      "🔥 The derby against Sparta is the country's biggest match"
+    ],
+    "wikipedia": "Fortuna Arena"
+  },
+  {
+    "id": "world-w1-d-087",
+    "text": "Where does Slovan play its home games?",
+    "lat": 48.1636,
+    "lng": 17.1369,
+    "category": "club",
+    "venue": "Tehelné pole",
+    "city": "Bratislava",
+    "country": "Slovakia",
+    "hint": "A national stadium in a capital on the Danube, rebuilt in 2019.",
+    "facts": [
+      "🔵 Home of ŠK Slovan",
+      "🏆 Slovan won the 1969 Cup Winners' Cup",
+      "🏟️ Rebuilt and reopened in 2019"
+    ],
+    "wikipedia": "Tehelné pole"
+  },
+  {
+    "id": "world-w1-d-088",
+    "text": "Where was the Euro 2012 final played?",
+    "lat": 50.4333,
+    "lng": 30.5219,
+    "category": "event",
+    "venue": "Olimpiyskiy National Sports Complex",
+    "city": "Kyiv",
+    "country": "Ukraine",
+    "hint": "A big national stadium in a capital on the Dnieper.",
+    "facts": [
+      "🏆 Spain beat Italy 4–0 in the Euro 2012 final",
+      "🏆 Real Madrid beat Liverpool in the 2018 Champions League final",
+      "🏅 Hosted football at the 1980 Olympics"
+    ],
+    "wikipedia": "Olympic Stadium (Kyiv)"
+  },
+  {
+    "id": "world-w1-d-089",
+    "text": "Which ground is named after the coach who won Dynamo two Cup Winners' Cups?",
+    "lat": 50.4503,
+    "lng": 30.5353,
+    "category": "stadium",
+    "venue": "Valeriy Lobanovskyi Dynamo Stadium",
+    "city": "Kyiv",
+    "country": "Ukraine",
+    "hint": "A small ground in a hillside park near the government quarter.",
+    "facts": [
+      "🔵⚪ Home of Dynamo Kyiv for decades",
+      "🏆 Dynamo won the Cup Winners' Cup in 1975 and 1986",
+      "🧑‍🏫 A statue of Valeriy Lobanovskyi stands outside"
+    ],
+    "wikipedia": "Valeriy Lobanovskyi Dynamo Stadium"
+  },
+  {
+    "id": "world-w1-d-090",
+    "text": "Where did the Miners play until war forced them out in 2014?",
+    "lat": 48.0208,
+    "lng": 37.8097,
+    "category": "club",
+    "venue": "Donbas Arena",
+    "city": "Donetsk",
+    "country": "Ukraine",
+    "hint": "A glass-walled stadium opened in 2009 that hosted a Euro 2012 semi-final.",
+    "facts": [
+      "⛏️ Home of Shakhtar Donetsk from 2009 to 2014",
+      "🌍 Hosted a Euro 2012 semi-final",
+      "💥 Damaged by shelling in 2014"
+    ],
+    "wikipedia": "Donbas Arena"
+  },
+  {
+    "id": "world-w1-d-091",
+    "text": "Where does Zenit play its home games?",
+    "lat": 59.973,
+    "lng": 30.2205,
+    "category": "club",
+    "venue": "Krestovsky Stadium",
+    "city": "Saint Petersburg",
+    "country": "Russia",
+    "hint": "A spaceship-like stadium on an island at the mouth of a great river.",
+    "facts": [
+      "🔵 Home of Zenit",
+      "🌍 Hosted games at the 2018 World Cup, including a semi-final",
+      "🚀 Designed by Kisho Kurokawa"
+    ],
+    "wikipedia": "Krestovsky Stadium"
+  },
+  {
+    "id": "world-w1-d-092",
+    "text": "Where do Dinamo, the 1981 Cup Winners' Cup winners, play?",
+    "lat": 41.7231,
+    "lng": 44.7897,
+    "category": "club",
+    "venue": "Boris Paichadze Dinamo Arena",
+    "city": "Tbilisi",
+    "country": "Georgia",
+    "hint": "The biggest stadium in the Caucasus.",
+    "facts": [
+      "🏆 Dinamo Tbilisi won the 1981 Cup Winners' Cup",
+      "🏟️ Named after striker Boris Paichadze",
+      "👥 Holds about 54,000"
+    ],
+    "wikipedia": "Boris Paichadze Dinamo Arena"
+  },
+  {
+    "id": "world-w1-d-093",
+    "text": "Where does the Double-Headed Eagle of the North play?",
+    "lat": 40.6139,
+    "lng": 22.9725,
+    "category": "club",
+    "venue": "Toumba Stadium",
+    "city": "Thessaloniki",
+    "country": "Greece",
+    "hint": "A notoriously loud ground in a big northern port city.",
+    "facts": [
+      "🦅 Home of PAOK since 1959",
+      "🔊 Known as one of Europe's most intimidating grounds",
+      "🏆 PAOK won the league unbeaten in 2019"
+    ],
+    "wikipedia": "Toumba Stadium"
+  },
+  {
+    "id": "world-w1-d-094",
+    "text": "Where did the Shamrock club play for most of its history?",
+    "lat": 37.9872,
+    "lng": 23.7542,
+    "category": "stadium",
+    "venue": "Apostolos Nikolaidis Stadium",
+    "city": "Athens",
+    "country": "Greece",
+    "hint": "A tight old ground squeezed against a busy avenue in a capital.",
+    "facts": [
+      "☘️ Home of Panathinaikos from 1922",
+      "🏆 Panathinaikos reached the 1971 European Cup final",
+      "🛣️ Named after Alexandras Avenue"
+    ],
+    "wikipedia": "Leoforos Alexandras Stadium"
+  },
+  {
+    "id": "world-w1-d-095",
+    "text": "Where do APOEL and Omonia share a home?",
+    "lat": 35.1144,
+    "lng": 33.3628,
+    "category": "stadium",
+    "venue": "GSP Stadium",
+    "city": "Nicosia",
+    "country": "Cyprus",
+    "hint": "The largest stadium on its island, on the edge of a divided capital.",
+    "facts": [
+      "🏟️ The biggest stadium on the island",
+      "🤝 Shared by APOEL, Omonia and Olympiakos",
+      "🏆 APOEL reached the 2012 Champions League quarter-finals"
+    ],
+    "wikipedia": "GSP Stadium"
+  },
+  {
+    "id": "world-w1-d-096",
+    "text": "Where does Cimbom play its home games?",
+    "lat": 41.1028,
+    "lng": 28.9906,
+    "category": "club",
+    "venue": "Rams Park",
+    "city": "Istanbul",
+    "country": "Turkey",
+    "hint": "Opened in 2011 in the Seyrantepe district, on the European side.",
+    "facts": [
+      "🦁 Home of Galatasaray since 2011",
+      "🔊 Set a record for crowd noise in 2011",
+      "🏆 Galatasaray won the 2000 UEFA Cup"
+    ],
+    "wikipedia": "Rams Park"
+  },
+  {
+    "id": "world-w1-d-097",
+    "text": "Where was the 2009 UEFA Cup final played, the last before the Europa League?",
+    "lat": 40.9878,
+    "lng": 29.0369,
+    "category": "event",
+    "venue": "Şükrü Saracoğlu Stadium",
+    "city": "Istanbul",
+    "country": "Turkey",
+    "hint": "Home of the Yellow Canaries in Kadıköy, on the Asian side.",
+    "facts": [
+      "🏆 Shakhtar beat Werder Bremen in the 2009 UEFA Cup final",
+      "🐤 Home of Fenerbahçe since 1908",
+      "🌏 Stands on the Asian shore of the Bosphorus"
+    ],
+    "wikipedia": "Şükrü Saracoğlu Stadium"
+  },
+  {
+    "id": "world-w1-d-098",
+    "text": "Where do the Black Eagles play, right by the water?",
+    "lat": 41.0392,
+    "lng": 28.9947,
+    "category": "club",
+    "venue": "Tüpraş Stadyumu",
+    "city": "Istanbul",
+    "country": "Turkey",
+    "hint": "Next to the Dolmabahçe Palace, on the shore of a famous strait.",
+    "facts": [
+      "🦅 Home of Beşiktaş since 2016",
+      "🌊 Stands near the Bosphorus and Dolmabahçe Palace",
+      "🏆 Hosted the 2019 UEFA Super Cup"
+    ],
+    "wikipedia": "Beşiktaş Stadium"
+  },
+  {
+    "id": "world-w1-d-099",
+    "text": "Where does the Black Sea Storm play its home games?",
+    "lat": 40.9992,
+    "lng": 39.6458,
+    "category": "club",
+    "venue": "Papara Park",
+    "city": "Trabzon",
+    "country": "Turkey",
+    "hint": "Named after a club legend who coached his country to third place at a World Cup.",
+    "facts": [
+      "🌊 Home of Trabzonspor since 2016",
+      "🧤 Named after Şenol Güneş, former goalkeeper and coach",
+      "🏆 Trabzonspor were the first club outside the three biggest cities to win the league"
+    ],
+    "wikipedia": "Şenol Güneş Sports Complex"
+  },
+  {
+    "id": "world-w1-d-100",
+    "text": "Where does the national team of a tiny island nation play, on an old airfield?",
+    "lat": 35.895,
+    "lng": 14.4153,
+    "category": "stadium",
+    "venue": "Ta' Qali National Stadium",
+    "city": "Ta' Qali",
+    "country": "Malta",
+    "hint": "Built on a wartime airfield in the middle of the island.",
+    "facts": [
+      "✈️ Built on a former RAF airfield",
+      "🏟️ Holds about 17,000",
+      "🏰 Lies below the hilltop citadel of Mdina"
+    ],
+    "wikipedia": "National Stadium, Ta' Qali"
+  }
+]

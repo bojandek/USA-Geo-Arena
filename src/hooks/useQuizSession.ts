@@ -63,6 +63,12 @@ export interface QuizSessionOptions {
   }) => void;
   /** A guess counts as "perfect" below this distance (km). */
   perfectDistanceKm?: number;
+  /**
+   * Whether the player can see the question yet. The clock waits while this
+   * is false, so a map that is still loading does not eat into the time
+   * bonus. Defaults to true.
+   */
+  ready?: boolean;
 }
 export interface QuizSession {
   questions: Question[];
@@ -124,6 +130,7 @@ export function useQuizSession({
   questions,
   onComplete,
   perfectDistanceKm = 25,
+  ready = true,
 }: QuizSessionOptions): QuizSession {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userGuess, setUserGuess] = useState<{ lat: number; lng: number } | null>(null);
@@ -155,18 +162,19 @@ export function useQuizSession({
   const currentQuestion = questions[currentQuestionIndex];
   const isLastQuestion = currentQuestionIndex >= questions.length - 1;
 
-  // Restart the clock whenever a new question is shown. This runs before the
-  // countdown effect below, so the first tick already measures the new
-  // question and not the previous one.
+  // Restart the clock whenever a new question is shown, and again when the
+  // player can first see it. This runs before the countdown effect below, so
+  // the first tick already measures the new question and not the previous
+  // one.
   useEffect(() => {
     questionStartedAt.current = Date.now();
     setTimeBonusSecondsLeft(TIME_BONUS_WINDOW_SECONDS);
-  }, [currentQuestionIndex]);
+  }, [currentQuestionIndex, ready]);
 
   // The countdown only matters while the player is still thinking, so it
   // stops as soon as the answer is in.
   useEffect(() => {
-    if (showResult || isComplete) return;
+    if (showResult || isComplete || !ready) return;
 
     const tick = () => {
       const elapsed = (Date.now() - questionStartedAt.current) / 1000;
@@ -176,7 +184,7 @@ export function useQuizSession({
     tick();
     const timer = setInterval(tick, 1000);
     return () => clearInterval(timer);
-  }, [currentQuestionIndex, showResult, isComplete]);
+  }, [currentQuestionIndex, showResult, isComplete, ready]);
 
   const guess = useCallback(
     (lat: number, lng: number, options?: { named?: string }) => {

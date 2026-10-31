@@ -201,52 +201,12 @@ export function outlyingStateForQuestion(question: Question): OutlyingState | nu
 }
 
 /**
- * The zoom the map goes to when it travels to Alaska or Hawaii.
- *
- * The names of the towns and cities only appear from zoom 8 in the basemap
- * the game uses, and a frame wide enough to show the whole of Alaska comes
- * out a long way further out than that - the map would arrive in a part of
- * the state where nothing at all is written. Since the map travels there on
- * its own, it has to arrive somewhere the player can read, so it goes in
- * close enough for the name of the town to be on the screen.
- */
-export const OUTLYING_LABEL_ZOOM = 9;
-
-/**
- * The area the map is framed on when the answer is not on the mainland.
- *
- * Alaska and Hawaii are far from the rest of the country, so the map has to
- * travel there on its own - a player would never think to look that far
- * off. The box is a fixed size rather than a point, so there is some country
- * around the answer to aim at.
- */
-export function frameForOutlyingAnswer(
-  lat: number,
-  lng: number,
-): [[number, number], [number, number]] | null {
-  const state = outlyingStateFor(lat, lng);
-  if (!state) return null;
-
-  // The span is how far the box reaches from the answer in each direction.
-  // Alaska is enormous, so the box around the answer is wide. Hawaii is a
-  // chain of small islands, so the box is tight.
-  const reach = state === 'Alaska' ? { lng: 3, lat: 2 } : { lng: 1.2, lat: 1.2 };
-
-  return [
-    [lng - reach.lng, lat - reach.lat],
-    [lng + reach.lng, lat + reach.lat],
-  ];
-}
-
-/**
  * The area the player may pan to, for the question on screen.
  *
- * The limits cannot be the same for every question. A limit is a promise
- * that the middle of the screen stays inside it, so a limit that covers the
- * whole country would push the middle of the screen off Alaska and off
- * Hawaii. Those questions are left without a limit instead, because a limit
- * that is tight enough to hold them would also stop the player from moving
- * around the place they are looking for.
+ * The map never travels to the answer on its own - flying to Honolulu for
+ * a question about Honolulu gives the answer away. A question in Alaska or
+ * Hawaii therefore gets a limit wide enough for the player to pan there
+ * from the mainland.
  */
 export function boundsForQuestion(
   question: Question | null,
@@ -254,10 +214,14 @@ export function boundsForQuestion(
 ): [[number, number], [number, number]] | null {
   if (region === 'world') return null;
 
-  // A question in Alaska or Hawaii gets no limit. The map is already framed
-  // on the right part of the country, and the player needs room to look
-  // around it.
-  if (question && outlyingStateForQuestion(question)) return null;
+  // A question in Alaska or Hawaii can be panned to, all the way from the
+  // mainland.
+  if (question && outlyingStateForQuestion(question)) {
+    return [
+      [-172, 18],
+      [-58, 71.5],
+    ];
+  }
 
   // The mainland, with room to pan over the border with Canada, and into
   // Florida and Mexico.
